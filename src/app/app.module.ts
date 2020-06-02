@@ -9,6 +9,8 @@ import { TermsConditionsComponent } from './component/terms-conditions/terms-con
 import { PrivacyPolicyComponent } from './component/privacy-policy/privacy-policy.component';
 import { FaqComponent } from './component/faq/faq.component';
 import { HowToApplyComponent } from './component/how-to-apply/how-to-apply.component';
+import { ServicesOfferingComponent } from './component/services-offering/services-offering.component';
+import { HowItWorksComponent } from './component/how-it-works/how-it-works.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { HowToApplyComponent } from './component/how-to-apply/how-to-apply.compo
     TermsConditionsComponent,
     PrivacyPolicyComponent,
     FaqComponent,
-    HowToApplyComponent
+    HowToApplyComponent,
+    ServicesOfferingComponent,
+    HowItWorksComponent
   ],
   imports: [
     BrowserModule,

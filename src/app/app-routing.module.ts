@@ -6,6 +6,8 @@ import { TermsConditionsComponent } from './component/terms-conditions/terms-con
 import { PrivacyPolicyComponent } from './component/privacy-policy/privacy-policy.component';
 import { HowToApplyComponent } from './component/how-to-apply/how-to-apply.component';
 import { FaqComponent } from './component/faq/faq.component';
+import { ServicesOfferingComponent } from './component/services-offering/services-offering.component';
+import { HowItWorksComponent } from './component/how-it-works/how-it-works.component';
 
 
 const routes: Routes = [
@@ -37,7 +39,15 @@ const routes: Routes = [
   {
     path: 'faq',
     component: FaqComponent
-  }
+  },
+  {
+    path: 'services-offering',
+    component: ServicesOfferingComponent
+  },
+  {
+    path: 'how-it-works',
+    component: HowItWorksComponent
+  },
 ];
 
 @NgModule({
