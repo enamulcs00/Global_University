@@ -8,6 +8,9 @@ import { HowToApplyComponent } from './component/how-to-apply/how-to-apply.compo
 import { FaqComponent } from './component/faq/faq.component';
 import { ServicesOfferingComponent } from './component/services-offering/services-offering.component';
 import { HowItWorksComponent } from './component/how-it-works/how-it-works.component';
+import { UsaSearchCourseComponent } from './component/search-course/usa-search-course/usa-search-course.component';
+import { CanadaSearchCourseComponent } from './component/search-course/canada-search-course/canada-search-course.component';
+import { NewzealandSearchCourseComponent } from './component/search-course/newzealand-search-course/newzealand-search-course.component';
 
 
 const routes: Routes = [
@@ -48,6 +51,18 @@ const routes: Routes = [
     path: 'how-it-works',
     component: HowItWorksComponent
   },
+  {
+    path: 'usa-search-course',
+    component: UsaSearchCourseComponent
+  },
+  {
+    path: 'canada-search-course',
+    component: CanadaSearchCourseComponent
+  },
+  {
+    path: 'newzealand-search-course',
+    component: NewzealandSearchCourseComponent
+  }
 ];
 
 @NgModule({

@@ -11,6 +11,9 @@ import { FaqComponent } from './component/faq/faq.component';
 import { HowToApplyComponent } from './component/how-to-apply/how-to-apply.component';
 import { ServicesOfferingComponent } from './component/services-offering/services-offering.component';
 import { HowItWorksComponent } from './component/how-it-works/how-it-works.component';
+import { UsaSearchCourseComponent } from './component/search-course/usa-search-course/usa-search-course.component';
+import { CanadaSearchCourseComponent } from './component/search-course/canada-search-course/canada-search-course.component';
+import { NewzealandSearchCourseComponent } from './component/search-course/newzealand-search-course/newzealand-search-course.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { HowItWorksComponent } from './component/how-it-works/how-it-works.compo
     FaqComponent,
     HowToApplyComponent,
     ServicesOfferingComponent,
-    HowItWorksComponent
+    HowItWorksComponent,
+    UsaSearchCourseComponent,
+    CanadaSearchCourseComponent,
+    NewzealandSearchCourseComponent
   ],
   imports: [
     BrowserModule,
