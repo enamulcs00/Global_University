@@ -1,9 +1,9 @@
 
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Poppins:200,200i,300,300i,400,400i,500,500i,600,600i,700&display=swap');
+/* @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,200i,300,300i,400,400i,500,500i,600,600i,700&display=swap'); */
 *, html{padding:0; margin:0;box-sizing:border-box;font-size: 100%;-webkit-text-size-adjust: 100%;}
 body {padding-top:70px;font-family: 'Calibri'!important;font-size:14px;box-sizing:border-box;background:#fff;color:#5f5f5f;overflow-x:hidden;}
-header{position: fixed;left: 0px;top:0px;width: 100%;z-index: 99;height: 70px;background-color: #ffffff;}
+header{position: fixed;left: 0px;top:0px;width: 100%;z-index: 99;height: 100px;background-color: #ffffff;}
 header.header-bg {box-shadow: 0px 0px 10px 0px grey;background: #fffffff2;}
 nav{height: 100%;}
 .container1440 {
@@ -16,17 +16,19 @@ nav.navbar.navbar-expand-lg {
     padding: 0px;
 }
 li.nav-item a {
-    font-size: 20px;
+    font-size: 16px;
     color: rgba(37, 37, 36, 0.9);
     letter-spacing: 1px;
-    font-family: 'Calibri';
+    /* font-family: 'Calibri'; */
     font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 button.theme-btn {
     font-size: 18px;
     letter-spacing: 2px;
     color: #ffffff;
-    font-family: 'Calibri';
+    /* font-family: 'Calibri'; */
     font-weight: bold;
     height: 45px;
     border-radius: 5px;
@@ -57,12 +59,13 @@ ul.navbar-nav li.nav-item:last-child {
 .banner-section{
     height:750px;
     width: 100%;
-    background-image: url(../images/banner.png);
+    background-image: url(../images/bannerlanding.jpg);
     background-size: cover;
     background-position: left top;
     background-repeat: no-repeat;
     color: #fff;
-    font-family: Calibri;
+    font-family: 'Calibri' ;
+    position: relative;
 }
 .banner-content {
     position: absolute;
@@ -243,20 +246,20 @@ h3.footer-heading a {
     font-size: 20px;
     line-height: 38px;
     color: #000000;
-    font-family: 'Calibri';
+    /* font-family: 'Calibri'; */
 }
 h3.footer-heading  {
     font-size: 20px;
     line-height: 38px;
     color: #000000;
-    font-family: 'Calibri';
+    /* font-family: 'Calibri'; */
     text-transform: uppercase;
 }
 ul.footerli li a {
     font-size: 16px;
     line-height: 30px;
     color: #555454;
-    font-family: 'Calibri';
+    /* font-family: 'Calibri'; */
     text-decoration: none;
 }
 button.subscribe {
@@ -267,7 +270,7 @@ button.subscribe {
     letter-spacing: 2px;
     line-height: 22px;
     color: #ffffff;
-    font-family: 'Calibri';
+    /* font-family: 'Calibri'; */
     font-weight: bold;
     text-transform: uppercase;
     padding: 0px 32px
@@ -298,12 +301,12 @@ a.fa {
     font-size: 20px;
     line-height: 22px;
     color: #3a3a3a;
-    font-family: 'Calibri';
+    /* font-family: 'Calibri'; */
 }
 h2.headingline {
     font-size: 28px;
     color: #3a3a3a;
-    font-family: 'Calibri';
+    /* font-family: 'Calibri'; */
     font-weight: bold;
 }
 
@@ -3223,4 +3226,31 @@ body.menushow:after {
     right: 0px;
     top: 0px;
 }
+}
+
+
+li.nav-item a:hover {
+    color: #896633;
+}
+li.nav-item.active a {
+    color: #896633;
+}
+.banner-section::before {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    content: '';
+    background-color: #0000007a;
+}
+a.navbar-brand img {
+    width: 80px;
+}
+figure.logo1 {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+figure.logo1 img{
+    width: 100%;
+    height: 100%;
 }
