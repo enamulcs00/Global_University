@@ -3254,3 +3254,24 @@ figure.logo1 img{
     width: 100%;
     height: 100%;
 }
+ul.nav.nav-pills.canada-course li {
+    width: 14.2% !important;
+}
+ul.nav.nav-pills.canada-course li a {
+    font-size: 11px;
+    white-space: nowrap;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    padding: 10px 3px;
+    text-align: center;
+}
+ul.nav.nav-pills.canada-course li a:hover {
+    background-color: #896633;
+    color: #fff;
+    border-radius: 0;
+}
+
+
+
+   
