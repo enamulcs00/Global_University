@@ -16,6 +16,7 @@ import { CanadaSearchCourseComponent } from './component/search-course/canada-se
 import { NewzealandSearchCourseComponent } from './component/search-course/newzealand-search-course/newzealand-search-course.component';
 import { IrelandSearchCourseComponent } from './component/search-course/ireland-search-course/ireland-search-course.component';
 import { UkSearchCourseComponent } from './component/search-course/uk-search-course/uk-search-course.component';
+import { AustraliaSearchCourseComponent } from './component/search-course/australia-search-course/australia-search-course.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { UkSearchCourseComponent } from './component/search-course/uk-search-cou
     CanadaSearchCourseComponent,
     NewzealandSearchCourseComponent,
     IrelandSearchCourseComponent,
-    UkSearchCourseComponent
+    UkSearchCourseComponent,
+    AustraliaSearchCourseComponent
   ],
   imports: [
     BrowserModule,
