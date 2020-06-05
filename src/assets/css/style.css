@@ -102,7 +102,7 @@ button.banner-button {
 }
 h2.commonheading{
     font-size: 42px;
-    color: #3a3a3a;
+    color: #896633;
     font-family: "Calibri";
     font-weight: bold;
     margin-bottom: 20px;
@@ -111,7 +111,6 @@ h2.commonheading{
     font-size: 24px;
     line-height: 30px;
     color: #464646;
-    font-family: "Roboto";
     font-weight: 400;
     text-align: center;
     margin-bottom: 50px;
@@ -124,12 +123,11 @@ h2.commonheading{
 .image-test h3 {
     position: absolute;
     top: 50%;
+    width: 100%;
     left: 50%;
     transform: translate(-50%, 50%);
     font-size: 30px;
-    line-height: 16px;
     color: #ffffff;
-    font-family: 'Roboto';
     font-weight: 400;
     margin-bottom: 0px;
 }
@@ -143,10 +141,9 @@ h2.commonheading{
     display: inherit;
 }
 .image-test11 p {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 30px;
     color: #252525;
-    font-family: 'Roboto';
     text-align: left;
     font-weight: 400;
 }
@@ -174,7 +171,6 @@ label.values {
     font-size: 45px;
     font-weight: 400;
     display: block;
-    font-family: 'Roboto';
     margin-bottom: 15px;
     color: #373131;
 }
@@ -184,7 +180,6 @@ label.count-text {
     line-height: 21px;
     color: #433e3e;
     font-weight: 400;
-    font-family: 'Roboto';
     margin-bottom: 0px;
 }
 figure.topic-cover {
@@ -275,8 +270,12 @@ button.subscribe {
     text-transform: uppercase;
     padding: 0px 32px
 }
-a.fa {
+
+a.fa:hover {
     background: #896633;
+}
+a.fa {
+    background: #000000;
     height: 35px;
     width: 35px;
     line-height: 35px;
@@ -294,7 +293,6 @@ a.fa {
     font-size: 18px;
     line-height: 30px;
     color: #252525;
-    font-family: 'Roboto';
     font-weight: 400;
 }
 .repeating-line label {
@@ -314,7 +312,6 @@ h2.headingline {
 h4.study {
     font-size: 40px;
     color: #896633;
-    font-family: "Georgia";
     font-weight: bold;
     text-align: center;
     padding: 40px 0px;
@@ -372,7 +369,6 @@ input.form-control.subject {
 h4.most {
     font-size: 35px;
     color: #896633;
-    font-family: "Georgia";
     font-weight: bold;
     text-align: center;
     padding: 50px 0px;
@@ -382,7 +378,6 @@ h4.most {
     font-size: 22px;
     letter-spacing: 1px;
     color: #ffffff;
-    font-family: "Roboto";
     font-weight: 400;
     text-align: center;
 }
@@ -398,7 +393,6 @@ h4.most {
 .about-australia h5 {
     font-size: 35px;
     color: #3a3a3a;
-    font-family: "Georgia";
     font-weight: bold;
     margin: 0px;
     padding: 40px 0px;
@@ -406,7 +400,6 @@ h4.most {
 .about-australia p {
     font-size: 16px;
     color: #252525;
-    font-family: "Roboto";
     font-weight: 400;
     margin: 0px;
     line-height: 30px;
@@ -418,7 +411,6 @@ h4.most {
 .suggestion h3 {
     font-size: 35px;
     color: #3a3a3a;
-    font-family: "Georgia";
     font-weight: bold;
     text-align: center;
     padding: 20px 0px;
@@ -438,7 +430,6 @@ h4.most {
 h6.usa_cs {
     font-size: 25px;
     color: #ffffff;
-    font-family: "Roboto";
     font-weight: 400;
     text-transform: uppercase;
     display: flex;
@@ -496,7 +487,6 @@ h3.rmt {
     width: 282px;
     text-align: center;
     color: #ffffff;
-    font-family: "Roboto";
     font-weight: 400;
 }
 .stdy_in {
@@ -521,7 +511,6 @@ ul.location {
     margin: 0px;
     font-size: 18px;
     color: #131313;
-    font-family: "Roboto";
     font-weight: 400;
 }
 ul.location li:nth-child(odd) {
@@ -577,7 +566,6 @@ ul.offer {
     margin: 0px;
     font-size: 18px;
     color: #131313;
-    font-family: "Roboto";
     font-weight: 400;
 }
 ul.offer li {
@@ -591,7 +579,6 @@ button.banner-button.active {
 .about h3 {
     font-size: 35px;
     color: #3a3a3a;
-    font-family: "Georgia";
     font-weight: bold;
     text-align: center;
     padding: 35px 0px;
@@ -601,7 +588,6 @@ button.banner-button.active {
     font-size: 16px;
     line-height: 27px;
     color: #252525;
-    font-family: "Roboto";
     font-weight: 400;
 }
 .dolor {
@@ -614,7 +600,6 @@ h6.usa {
     text-align: center;
     font-size: 22px;
     color: #1e1e1e;
-    font-family: "Roboto";
     font-weight: 400;
     padding-top: 20px;
 }
@@ -625,7 +610,6 @@ h2.feedback {
     text-align: center;
     font-size: 20px;
     color: #000000;
-    font-family: "Georgia";
     font-weight: bold;
     padding: 15px 0px;
 }
@@ -693,7 +677,6 @@ ul.careersit {
     justify-content: space-between;
     font-size: 18px;
     color: #131313;
-    font-family: "Roboto";
     font-weight: 400;
     margin: 0px
 }
@@ -702,7 +685,6 @@ ul.career {
     align-items: center;
     font-size: 18px;
     color: #131313;
-    font-family: "Roboto";
     font-weight: 400;
     justify-content: space-between;
     margin: 0px;
@@ -751,7 +733,6 @@ ul.Student {
     margin: 0px;
     font-size: 18px;
     color: #131313;
-    font-family: "Roboto";
     font-weight: 400;
 }
 ul.Student li {
@@ -767,7 +748,6 @@ ul.Student.cs{text-align: right;}
 p.read-_more a {
     font-size: 18px;
     color: #1d5ad6;
-    font-family: "Roboto";
     font-weight: 400;
     text-align: right;
     text-decoration: underline;
@@ -824,7 +804,6 @@ p.read-_more {
     font-size: 16px;
     line-height: 25px;
     color: #252525;
-    font-family: "Roboto";
     font-weight: 400;
 }
 select.form-control.news {
@@ -857,14 +836,12 @@ div{position: relative;}
     display: flex;
     font-size: 18px;
     color: #252525;
-    font-family: "Roboto";
     font-weight: 400;
     padding:0px;
 }
 .txt h4 {
     font-size: 20px;
     color: #252525;
-    font-family: "Georgia";
     font-weight: bold;
 }
 li.time {
@@ -873,7 +850,6 @@ li.time {
 .txt p {
     font-size: 16px;
     color: #252525;
-    font-family: "Roboto";
     font-weight: 400;
     margin: 0px;
 }
@@ -885,7 +861,6 @@ li.time {
 p.kolkata {
     font-size: 35px;
     color: #3a3a3a;
-    font-family: "Georgia";
     font-weight: bold;
     padding: 30px 0px;
     margin: 0px;
@@ -906,7 +881,6 @@ p.kolkata {
 h5.n_sec {
     font-size: 20px;
     color: #010101;
-    font-family: "Roboto";
     font-weight: 400;
     background-color: #ffffff;
     border: 1px solid #b7b7b7;
@@ -934,7 +908,6 @@ th.t_name {
 .table_cs.mt-5 table.table {
     font-size: 18px;
     color: #3b3a3a;
-    font-family: "Roboto";
     font-weight: 400;
 }
 .table td, .table th {
@@ -944,7 +917,6 @@ th.t_name {
 .n_sec {
     font-size: 20px;
     color: #010101;
-    font-family: "Roboto";
     font-weight: 400;
     background-color: #ffffff;
     border: 1px solid #b7b7b7;
@@ -966,7 +938,6 @@ ul.read-more li {width: 25%;
 .text2 p {
     font-size: 16px;
     color: #252525;
-    font-family: "Roboto";
     font-weight: 400;
     margin: 0px;
     text-align: justify;
@@ -1000,7 +971,6 @@ input#inputPassword {
 label.col-sm-3.col-form-label {
     font-size: 14px;
     color: #252525;
-    font-family: "Roboto";
     font-weight: 400;
 }
 input.form-control {
@@ -1051,7 +1021,6 @@ select.form-control.f_cs {
 .interest h3 {
     font-size: 18px;
     color: #252525;
-    font-family: "Roboto";
     font-weight: 400;
     padding: 10px 0px;
 }
@@ -1084,7 +1053,6 @@ select.form-control.f_cs {
 h5.login {
     font-size: 22px;
     color: #2aace1;
-    font-family: "Roboto";
     font-weight: 600;
     text-align: center;
     padding: 20px 0px;
@@ -1100,13 +1068,11 @@ h5.login {
     justify-content: space-between;
     font-size: 17px;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 400;
 }
 .forgot h6 a {
     font-size: 17px;
     color: #1135a6;
-    font-family: "Roboto";
     font-weight: 400;
 }
 .sign_in button.banner-button.active {
@@ -1125,7 +1091,6 @@ i.fa.fa-eye {
 .please-enter {
     font-size: 16px;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 400;
     padding: 30px 0px;
 }
@@ -1135,7 +1100,6 @@ i.fa.fa-eye {
 .modal-content.with_a h6 {
     font-size: 16px;
     color: #000;
-    font-family: "Roboto";
     font-weight: 400;
     padding: 20px 0px 50px;
     margin: 0px;
@@ -1181,7 +1145,6 @@ select.form-control.kingdom {
 .h_apply ul {
     font-size: 17px;
     color: #3a3a3a;
-    font-family: "Roboto";
     font-weight: 400;
     flex-wrap: wrap;
 }
@@ -1205,7 +1168,6 @@ input.form-control.location_search{background: #fff url(../images/search-icon.pn
  .main_ul ul li {
     font-size: 16px;
     color: #131313;
-    font-family: "Roboto";
     font-weight: 400;
     margin: 15px 0px;
 }
@@ -1241,7 +1203,6 @@ input.form-control.location_search{background: #fff url(../images/search-icon.pn
     word-spacing: 3px;
     text-decoration: none;
     color: #252525;
-    font-family: "Roboto";
     font-weight: 400;
 }
 a.accordingstyle{       
@@ -1295,7 +1256,6 @@ h4.panel-title.cs3 {
 .panel-body {
     font-size: 16px;
     color: #252525;
-    font-family: "Roboto";
     font-weight: 400;
     text-align: justify;
     padding: 0px 20px 10px;
@@ -1319,7 +1279,6 @@ h4.panel-title.cs3 {
 .contactus h5 {
     font-size: 22px;
     color: #2aace1;
-    font-family: "Roboto";
     font-weight: 600;
     text-align: center;
     padding: 20px 0px;
@@ -1363,7 +1322,6 @@ textarea.form-control.description {
     background-color: #896633;
     font-size: 18px;
     color: #ffffff;
-    font-family: "Roboto";
     font-weight: 400;
     padding: 12px 35px;
     border-radius: 0px;
@@ -1372,7 +1330,6 @@ textarea.form-control.description {
 a.nav-link.general_cs {
     font-size: 18px;
     color: #000;
-    font-family: "Roboto";
     font-weight: 400;
     padding: 12px 35px;
     border-top: 1px solid #b7b7b7;
@@ -1383,7 +1340,6 @@ a.nav-link.general_cs {
 .pick_cs p {
     font-size: 25px;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 400;
     padding: 20px 0px;
     margin: 0px;
@@ -1426,7 +1382,6 @@ a.nav-link.general_cs {
 h4.manage {
     font-size: 35px;
     color: #3a3a3a;
-    font-family: "Georgia";
     font-weight: bold;
     text-align: center;
     margin: 0px;
@@ -1464,7 +1419,6 @@ h4.manage {
 label {
     font-size: 16px;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 400;
     margin-bottom: 12px;
 }
@@ -1477,7 +1431,6 @@ label {
 .you-have {
     font-size: 35px;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 400;
     text-align: center;
 }
@@ -1493,13 +1446,11 @@ h6.your_pass {
 .month_cs h1 {
     font-size: 25px;
     color: #3a3a3a;
-    font-family: "Georgia";
     font-weight: bold;
 }
 .month_cs ul li {
     font-size: 16px;
     color: #3a3a3a;
-    font-family: "Roboto";
     font-weight: 400;
     padding: 5px 0px;
 }
@@ -1520,7 +1471,6 @@ h6.your_pass {
 h3.manage {
     font-size: 35px;
     color: #3a3a3a;
-    font-family: "Georgia";
     font-weight: bold;
     text-align: center;
     margin: 0px;
@@ -1556,7 +1506,6 @@ p.ipaum {
     font-size: 16px;
     text-align: justify;
     color: #3a3a3a;
-    font-family: "Roboto";
     font-weight: 400;
     padding-top: 22px;
 }
@@ -1614,7 +1563,6 @@ h6.your_pass.cs3 {
     left: 38%;
     font-size: 22px;
     color: #fff;
-    font-family: "Roboto";
     font-weight: 400;
 }
 i.fa.fa-trash {
@@ -1634,7 +1582,6 @@ li.nav-item.create_new {
     width: 25%;
     text-align: center;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 400;
 }
 li.nav-item.create_new a.nav-link.active.show {
@@ -1700,7 +1647,6 @@ select.form-control{height: 45px !important;}
 .condidated_name ul {
     font-size: 16px;
     color: #131313;
-    font-family: "Roboto";
     font-weight: 400;
     margin: 0px;
 }
@@ -1731,7 +1677,6 @@ h5.application_pro {
     font-size: 35px;
     line-height: 22px;
     color: #3a3a3a;
-    font-family: "Georgia";
     font-weight: bold;
     text-align: center;
 }
@@ -1797,7 +1742,6 @@ button.banner-button.declined {
 h3.rmit-sec {
     font-size: 25px;
     color: #ffffff;
-    font-family: "Roboto";
     font-weight: 400;
     position: absolute;
     top: 44%;
@@ -1870,7 +1814,6 @@ button.btn.btn-link[aria-expanded="true"]:after {
 .txt_3 p {
     font-size: 18px;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 400;
     text-align: center;
     margin: 0px;
@@ -1916,7 +1859,6 @@ button.btn.btn-link[aria-expanded="true"]:after {
 .total-applied h4 {
     font-size: 40px;
     color: #131313;
-    font-family: "Roboto";
     font-weight: 700;
     text-align: center;
     padding-top: 20px;
@@ -1924,7 +1866,6 @@ button.btn.btn-link[aria-expanded="true"]:after {
 .total-applied p {
     font-size: 18px;
     color: #131313;
-    font-family: "Roboto";
     font-weight: 700;
     text-align: center;
     line-height: 40px;
@@ -1947,7 +1888,6 @@ button.btn.btn-link[aria-expanded="true"]:after {
 li.dates {
     font-size: 20px;
     color: #131313;
-    font-family: "Roboto";
     font-weight: 700;
     padding-top: 45px;
 }
@@ -1973,7 +1913,6 @@ li.dates {
 .progress-chart h2 {
     font-size: 35px;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 700;
     padding: 50px 0px;
     text-align: center;
@@ -1986,7 +1925,6 @@ li.dates {
     font-size: 16px;
     line-height: 22px;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 400;
     display: flex;
     width: 100%;
@@ -2041,7 +1979,6 @@ li.dates {
 .entry ul {
     font-size: 18px;
     color: #131313;
-    font-family: "Roboto";
     font-weight: 400;
     margin: 0px;
     padding: 0px;
@@ -2083,7 +2020,6 @@ li.dates {
 .modal-body.want h6 {
     font-size: 20px;
     color: #000;
-    font-family: "Roboto";
     font-weight: 400;
     padding: 20px 0px 50px;
     margin: 0px;
@@ -2104,7 +2040,6 @@ li.dates {
     text-align: center;
     font-size: 30px;
     color: #312f2f;
-    font-family: "Georgia";
     font-weight: bold;
     margin: 0px;
     padding: 50px 0px 2px;
@@ -2112,7 +2047,6 @@ li.dates {
 .details p {
     font-size: 16px;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 400;
     text-align: center;
     margin: 0px;
@@ -2131,7 +2065,6 @@ li.dates {
 .radi {
     font-size: 18px;
     color: #000;
-    font-family: "Roboto";
     font-weight: 400;
 }
 label.radio-inline.radio_src input[type="radio"] {
@@ -2243,7 +2176,6 @@ input.form-control {
 }.add_date {
     font-size: 16px;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 400;
     padding: 15px 0px 41px;
 }
@@ -2262,7 +2194,6 @@ input.form-control {
 .academic p {
     font-size: 16px;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 400;
     margin-bottom: 12px;
 }
@@ -2366,7 +2297,6 @@ input.form-control {
 p.for_mba {
     font-size: 18px;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 700;
     margin-bottom: 50px;
     text-align: center;
@@ -2377,7 +2307,6 @@ p.for_mba {
 .academic h6 {
     font-size: 18px;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 400;
     padding: 25px 0px;
 }
@@ -2404,7 +2333,6 @@ i.fa.fa-sort-desc {
 .matching h6 {
     font-size: 22px;
     color: #444444;
-    font-family: "Georgia";
     font-weight: bold;
     text-align: center;
     margin: 35px 0px;
@@ -2445,7 +2373,6 @@ i.fa.fa-sort-desc {
 .continue h2 {
     font-size: 25px;
     color: #3c3939;
-    font-family: "Georgia";
     font-weight: bold;
     text-align: center;
 }
@@ -2455,7 +2382,6 @@ i.fa.fa-sort-desc {
 .continue p {
     font-size: 16px !important;
     color: #000000 !important;
-    font-family: "Roboto";
     font-weight: 400;
     text-align: center;
     padding: 35px 0px;
@@ -2465,7 +2391,6 @@ i.fa.fa-sort-desc {
 .continue h6 {
     font-size: 25px;
     color: #4c4c4c;
-    font-family: "Georgia";
     font-weight: bold;
     text-align: center;
     padding-bottom: 30px;
@@ -2476,7 +2401,6 @@ i.fa.fa-sort-desc {
 .course_type ul {
     font-size: 16px;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 400;
     padding: 0px;
 }
@@ -2495,7 +2419,6 @@ i.fa.fa-sort-desc {
 .question_aras h2 {
     font-size: 25px;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 700;
     padding: 10px 0px;
 }
@@ -2503,14 +2426,12 @@ i.fa.fa-sort-desc {
 .question_aras p {
     font-size: 16px !important;
     color: #000000 !important;
-    font-family: "Roboto";
     font-weight: 400;
     width: 75%;
 }
 p.which{
      font-size: 16px !important;
     color: #000000 !important;
-    font-family: "Roboto";
     font-weight: 400;
     
 }
@@ -2528,7 +2449,6 @@ p.which{
 .edit_datails h4 {
     font-size: 20px;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 400;
 }
 .edit button.button.active {
@@ -2562,7 +2482,6 @@ p.which{
 p.up-load {
     font-size: 21px;
     color: #363636;
-    font-family: "Georgia";
     font-weight: 600;
     text-align: center;
     margin-bottom: 60px;
@@ -2570,7 +2489,6 @@ p.up-load {
 label.label-edit {
     font-size: 17px;
     color: #272424;
-    font-family: "Roboto";
     font-weight: 400;
 }
 textarea.form-control.border-10 {
@@ -2605,7 +2523,6 @@ button.btn.btn-button {
     height: 45px;
     font-size: 16px;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 400;
 }
 .can-send {
@@ -2627,7 +2544,6 @@ button.btn.btn-button.send {
 p.my-3 {
     font-size: 15px!important;
     color: #000000!important;
-    font-family: "Roboto";
     font-weight: 500;
     text-align: center;
 }
@@ -2657,21 +2573,18 @@ ul.personal-det-info {
 ul.personal-det-info li:nth-child(odd) {
     font-size: 14px;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 400;
     margin-bottom: 9px;
 }
 ul.personal-det-info li:nth-child(even) {
     font-size: 12px;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 400;
     text-align: right;
 }
 p.up-load-acd {
     font-size: 15px;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 700;
     text-align: center;
 }
@@ -2697,7 +2610,6 @@ p.up-load.head-ings.color-heading {
 p.desc-ription {
     font-size: 14px;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 400;
     margin-bottom: 0px;
 }
@@ -2707,7 +2619,6 @@ ul.personal-det-info.margin-bott {
 p.body-txt {
     font-size: 13px;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 400;
     width: 90%;
     margin: 0px;
@@ -2785,7 +2696,6 @@ p.body-txt {
 label.custm-rdio {
     font-size: 14px;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 400;
     margin-bottom: 0px;
     padding-top: 3px;
@@ -2849,7 +2759,6 @@ a.nav-link.change-style.active {
     background-color: #896633;
     font-size: 13px;
     color: #ffffff;
-    font-family: "Roboto";
     font-weight: 400;
     padding: 12px 0px;
     border-radius: 0px;
@@ -2858,7 +2767,6 @@ a.nav-link.change-style.active {
 a.nav-link.change-style {
     height: 46px;
     font-size: 13px;
-    font-family: "Roboto";
     font-weight: 400;
     padding: 12px 0px;
     border-radius: 0px;
@@ -2929,12 +2837,10 @@ label.no-margin {
     margin: 0px;
     font-size: 13px;
     color: #000000;
-    font-family: "Roboto";
     font-weight: 500;
 }
 select.form-control.cond-offer {
     color: #5f5959;
-    font-family: "Roboto";
     font-weight: 400;
     font-size: 13px;
     border-radius: 0px;
@@ -3036,7 +2942,6 @@ li.nav-item.dropdownshow:hover .same-align {
 .same-align a.to-link {
     display: block;
     text-align: center;
-    font-family: "Roboto";
     font-weight: 400;
     border-radius: 0px;
     border: 0;
@@ -3274,20 +3179,43 @@ ul.nav.nav-pills.canada-course li a:hover {
 .tab-pane h4 {
     color: #896633;
 }
+h4.registration-h4 {
+    color: #896633;
+    margin-top: 10px;
+}
 ul.dots {
+    margin-top: 10px;
     list-style: inside;
+    padding-left: 30px;
+}
+.text2 {
+    font-size: 15px;
 }
 li {
-    list-style-type: inherit !important;
+    list-style-type: none;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+ul.dots li::before {
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    content: "\2022";
+    color: #896633;
+    font-weight: bold;
+    padding-right: 12px;
 }
 .tab-pane h5 {
     color: #896633;
 }
 .tab-pane h6 {
-    color: #896633;
+    margin-top: 10px;
+}
+.text2 p {
+    margin-bottom: 10px;
 }
 ul.dots li strong {
-    color: #896633;
+    font-size: 15px;
     padding-right: 10px;
 }
 ul.footerli {
@@ -3306,4 +3234,12 @@ ul.footerli li a:hover {
     .container1440 {
         max-width: 1280px !important;
     }
+}
+.image-test {
+    margin-bottom: 20px;
+}
+button.banner-button:hover {
+    color: #ffff;
+    background: #896633;
+    border: 1px solid #896633;
 }
