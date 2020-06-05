@@ -2,7 +2,7 @@
 /* @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,200i,300,300i,400,400i,500,500i,600,600i,700&display=swap'); */
 *, html{padding:0; margin:0;box-sizing:border-box;font-size: 100%;-webkit-text-size-adjust: 100%;}
-body {padding-top:70px;font-family: 'Calibri'!important;font-size:14px;box-sizing:border-box;background:#fff;color:#5f5f5f;overflow-x:hidden;}
+body {padding-top:70px;font-family: 'Calibri'!important;font-size:14px;box-sizing:border-box;background:#fff;color:#000;overflow-x:hidden;}
 header{position: fixed;left: 0px;top:0px;width: 100%;z-index: 99;height: 100px;background-color: #ffffff;}
 header.header-bg {box-shadow: 0px 0px 10px 0px grey;background: #fffffff2;}
 nav{height: 100%;}
@@ -245,13 +245,13 @@ footer p {
 h3.footer-heading a {
     font-size: 20px;
     line-height: 38px;
-    color: #000000;
+    color: #896633;
     /* font-family: 'Calibri'; */
 }
 h3.footer-heading  {
     font-size: 20px;
     line-height: 38px;
-    color: #000000;
+    color: #896633;
     /* font-family: 'Calibri'; */
     text-transform: uppercase;
 }
@@ -313,7 +313,7 @@ h2.headingline {
            /*******************************2-Search-courses css Start*******************************/
 h4.study {
     font-size: 40px;
-    color: #3a3a3a;
+    color: #896633;
     font-family: "Georgia";
     font-weight: bold;
     text-align: center;
@@ -371,7 +371,7 @@ input.form-control.subject {
 }
 h4.most {
     font-size: 35px;
-    color: #3a3a3a;
+    color: #896633;
     font-family: "Georgia";
     font-weight: bold;
     text-align: center;
@@ -3271,7 +3271,34 @@ ul.nav.nav-pills.canada-course li a:hover {
     color: #fff;
     border-radius: 0;
 }
+.tab-pane h4 {
+    color: #896633;
+}
+ul.dots {
+    list-style: inside;
+}
+li {
+    list-style-type: inherit !important;
+}
+.tab-pane h5 {
+    color: #896633;
+}
+.tab-pane h6 {
+    color: #896633;
+}
+ul.dots li strong {
+    color: #896633;
+    padding-right: 10px;
+}
 
 
 
-   
+
+
+
+
+@media(max-width:1440px){
+    .container1440 {
+        max-width: 1280px !important;
+    }
+}
