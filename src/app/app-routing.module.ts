@@ -11,6 +11,8 @@ import { HowItWorksComponent } from './component/how-it-works/how-it-works.compo
 import { UsaSearchCourseComponent } from './component/search-course/usa-search-course/usa-search-course.component';
 import { CanadaSearchCourseComponent } from './component/search-course/canada-search-course/canada-search-course.component';
 import { NewzealandSearchCourseComponent } from './component/search-course/newzealand-search-course/newzealand-search-course.component';
+import { IrelandSearchCourseComponent } from './component/search-course/ireland-search-course/ireland-search-course.component';
+import { AustraliaSearchCourseComponent } from './component/search-course/australia-search-course/australia-search-course.component';
 
 
 const routes: Routes = [
@@ -62,6 +64,14 @@ const routes: Routes = [
   {
     path: 'newzealand-search-course',
     component: NewzealandSearchCourseComponent
+  },
+  {
+    path: 'ireland-search-course',
+    component: IrelandSearchCourseComponent
+  },
+  {
+    path: 'australia-search-course',
+    component: AustraliaSearchCourseComponent
   }
 ];
 
