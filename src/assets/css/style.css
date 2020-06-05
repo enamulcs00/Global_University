@@ -276,12 +276,12 @@ button.subscribe {
     padding: 0px 32px
 }
 a.fa {
-    background: #7b7b7b;
+    background: #896633;
     height: 35px;
     width: 35px;
     line-height: 35px;
     text-align: center;
-    color: #fff;
+    color: #fff !important;
     font-size: 20px;
     border-radius: 50%;
 }
@@ -3290,7 +3290,12 @@ ul.dots li strong {
     color: #896633;
     padding-right: 10px;
 }
-
+ul.footerli {
+    list-style: none !important;
+}
+ul.footerli li a:hover {
+    color: #896633;
+}
 
 
 
