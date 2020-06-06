@@ -206,17 +206,14 @@ li.nav-item.create_new {
 }
 .application-form{width: 100%;max-width: 100%;}
 h1.center-text {
-    font-size: 60px;
-    line-height: 84px;
+    font-size: 40px;
+    line-height: 57px;
 }
 .image-test h3 {
     top: 35%;
     left: 50%;
     font-size: 20px;
     line-height: 31px;
-}
-.image-test img {
-    height: auto;
 }
 .image-test {
     height: 240px;

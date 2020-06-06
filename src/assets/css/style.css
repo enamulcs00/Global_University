@@ -56,20 +56,25 @@ ul.navbar-nav {
 ul.navbar-nav li.nav-item:last-child {
     margin-left: 25px;
 }
+.image-test {
+    border: 4px solid #896633;
+    padding: 1px;
+}
+p {
+    text-align: justify;
+}
+.image-test11 p {
+    text-align: justify !important;
+}
 .banner-section{
-    height:750px;
     width: 100%;
-    background-image: url(../images/bannerlanding.jpg);
-    background-size: cover;
-    background-position: left top;
-    background-repeat: no-repeat;
-    color: #fff;
-    font-family: 'Calibri' ;
+}
+.banner-item{
     position: relative;
 }
 .banner-content {
     position: absolute;
-    z-index: 9;
+    z-index: 99;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -94,7 +99,7 @@ button.banner-button {
     background-color: #ffffff;
     font-size: 18px;
     color: #bc7f45;
-    font-family: 'Roboto', sans-serif;
+   
     font-weight: 400;
 }
 .intresed-Studies {
@@ -118,14 +123,14 @@ h2.commonheading{
 .image-test {
     position: relative;
     width: 100%;
-    height: 420px;
+    height: 250px;
 }
 .image-test h3 {
     position: absolute;
     top: 50%;
     width: 100%;
     left: 50%;
-    transform: translate(-50%, 50%);
+    transform: translate(-50%, -50%);
     font-size: 30px;
     color: #ffffff;
     font-weight: 400;
@@ -224,7 +229,6 @@ ul.footerli {
     margin-bottom: 0px;
     font-size: 14px;
     color: #ffffff;
-    font-family: 'Poppins', sans-serif;
     font-weight: 300;
 }
 footer {
@@ -234,7 +238,6 @@ footer {
 footer p {
     font-size: 14px;
     color: #4f4f4f;
-    font-family: 'Poppins';
     font-weight: 300;
 }
 h3.footer-heading a {
@@ -1269,7 +1272,6 @@ h4.panel-title.cs3 {
 .contactus p {
     font-size: 20px;
     color: #686768;
-    font-family: "Proxima Nova";
     text-align: center;
     margin: 0px;
 }
@@ -1608,7 +1610,7 @@ a.nav-link.active_cs {
     background: #896633;
     color: white;
     font-weight: normal;
-    font-family: roboto;
+   
 }
 .search_section ul li .cntact-button {
     padding: 0px;
@@ -2456,7 +2458,6 @@ p.which{
     height: 50px;
     font-size: 18px;
     color: white;
-    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     background: #896633;
     border-radius: 5px;
@@ -3097,24 +3098,33 @@ a.to-link.active {
  }
 
 @media (max-width: 991.9px){
-    .collapse {
-    display: block;
-}
+
 
 button.navbar-toggler{
-    display: block;
+    /* display: block; */
     z-index: 9;
     background: #a87139;
 }
 
-div#navbarNavDropdown {
-    background: #a87139;
+.navbar-collapse.collapse.show {
+    background: #ffffff;
     position: fixed;
     width: 300px;
-    top: 0px;
+    top: 80px;
+    z-index: 99;
     height: 100vh;
-    right: -300px;
+    right: 0;
     transition: all .5s;
+}
+ul.navbar-nav li.nav-item:last-child {
+    margin-left: 0;
+}
+li.nav-item {
+    width: 100%;
+    padding-left: 30px;
+}
+ul.navbar-nav {
+    justify-content: flex-start !important;
 }
 
 body.menushow div#navbarNavDropdown {
@@ -3194,6 +3204,7 @@ ul.dots {
 }
 .text2 {
     font-size: 15px;
+    text-align: justify;
 }
 li {
     list-style-type: none;
@@ -3229,6 +3240,13 @@ ul.footerli li a:hover {
     color: #896633;
 }
 
+.banner_section.ireland-banner {
+    background-image: url(../images/brooke-cagle-g1Kr4Ozfoac-unsplash.jpg);
+}
+.image-test img{
+    height: 100%;
+    width: 100%;
+}
 
 
 
@@ -3246,4 +3264,84 @@ button.banner-button:hover {
     color: #ffff;
     background: #896633;
     border: 1px solid #896633;
+}
+.carousel-item.banner-item {
+    width: 100%;
+    height: 600px;
+}
+.carousel-item.banner-item img {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-inner {
+    height: 600px;
+}
+
+
+
+
+
+
+
+@media(max-width:768px){
+    figure.topic-cover {
+        max-width: 80px;
+    }
+    .het100 .row .col-md-3:last-child .hover-effect figure.topic-cover {
+        max-width: 100px;
+    }
+    .qualites {
+        height: auto;
+        padding: 20px;
+    }
+    label.count-text {
+        font-size: 20px;
+    }
+    label.values {
+        font-size: 30px;
+    }
+    figure.topic-cover {
+        margin-bottom: 0px;
+    }
+    .image-test {
+        height: 150px !important;
+    }
+    footer {
+        height: auto;
+    }
+    .social-icons {
+        width: 40%;
+        margin: 15px 0px;
+    }
+    
+}
+@media(max-width:767px){
+    h2.commonheading {
+        font-size: 35px;
+        margin-top: 22px;
+    }
+    .read-more.mt-4 {
+        margin-bottom: 10px;
+    }
+    .hover-effect.active {
+        margin-bottom: 20px;
+    }
+    .hover-effect {
+        margin-top: 15px;
+    }
+    .banner-content {
+        max-width: 100%;
+        width: 100%;
+    }
+    .carousel-inner {
+        height: 400px;
+    }
+    .carousel-item.banner-item {
+        
+        height: 400px;
+    }
+    
+
+
 }
