@@ -177,13 +177,13 @@ label.values {
     font-weight: 400;
     display: block;
     margin-bottom: 15px;
-    color: #373131;
+    color: #a87139;
 }
 
 label.count-text {
     font-size: 36px;
     line-height: 21px;
-    color: #433e3e;
+    color: #a87139;
     font-weight: 400;
     margin-bottom: 0px;
 }
@@ -3243,6 +3243,19 @@ ul.footerli li a:hover {
 .banner_section.ireland-banner {
     background-image: url(../images/brooke-cagle-g1Kr4Ozfoac-unsplash.jpg);
 }
+.banner_section.uk-banner {
+    background-image: url(../images/brooke-cagle--uHVRvDr7pg-unsplash.jpg);
+}
+.banner_section.usa-banner {
+    background-image: url(../images/bruce.jpg);
+}
+.banner_section.canada-banner {
+    background-image: url(../images/jeshoots.jpg);
+}
+.banner_section.australia-banner {
+    background-image: url(../images/Banner.jpg);
+}
+
 .image-test img{
     height: 100%;
     width: 100%;
