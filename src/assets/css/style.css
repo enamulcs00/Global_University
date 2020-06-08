@@ -30,7 +30,7 @@ button.theme-btn {
     color: #ffffff;
     /* font-family: 'Calibri'; */
     font-weight: bold;
-    height: 45px;
+    height: 38px;
     border-radius: 5px;
     background-color: #896633;
     padding: 0px 20px;
@@ -80,18 +80,21 @@ ol.points-ol li::before {
 .banner-content {
     position: absolute;
     z-index: 99;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 757px;
-    text-align: center;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    padding: 15px;
 }
 h1.center-text {
-    font-size: 80px;
-    line-height: 100px;
+    font-size: 45px;
     color: #ffffff;
-    font-weight: bold;
+    margin-bottom: 0;
     filter: drop-shadow(0px 6px 4.5px rgba(39,39,39,0.45));
+    text-transform: uppercase;
 }
 h5.bottom-text {
     font-size: 25px;
@@ -106,6 +109,17 @@ button.banner-button {
     color: #bc7f45;
    
     font-weight: 400;
+}
+a.carousel-control-next {
+    height: 10%;
+    top: 50%;
+}
+a.carousel-control-prev{
+    height: 10%;
+    top: 50%;
+}
+p.common-pera.common-pera2 {
+    font-size: 22px;
 }
 .intresed-Studies {
     margin-top: 100px;
@@ -3171,8 +3185,8 @@ a.navbar-brand img {
     width: 80px;
 }
 figure.logo1 {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     margin-bottom: 10px;
 }
 figure.logo1 img{
