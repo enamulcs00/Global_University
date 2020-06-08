@@ -60,9 +60,14 @@ ul.navbar-nav li.nav-item:last-child {
     border: 4px solid #896633;
     padding: 1px;
 }
-p {
-    text-align: justify;
+ol.points-ol li::before {
+    display: none !important;
 }
+
+
+/* p {
+    text-align: justify;
+} */
 .image-test11 p {
     text-align: justify !important;
 }
@@ -111,15 +116,20 @@ h2.commonheading{
     font-family: "Calibri";
     font-weight: bold;
     margin-bottom: 20px;
+   
 }
-.intresed-Studies h2 + p {
+.image-test11 h2 {
+    text-align: left;
+}
+
+/* .intresed-Studies h2 + p {
     font-size: 24px;
     line-height: 30px;
     color: #464646;
     font-weight: 400;
     text-align: center;
     margin-bottom: 50px;
-}
+} */
 .image-test {
     position: relative;
     width: 100%;
@@ -177,13 +187,13 @@ label.values {
     font-weight: 400;
     display: block;
     margin-bottom: 15px;
-    color: #a87139;
+    color: #373131;
 }
 
 label.count-text {
     font-size: 36px;
     line-height: 21px;
-    color: #a87139;
+    color: #433e3e;
     font-weight: 400;
     margin-bottom: 0px;
 }
@@ -198,7 +208,7 @@ ul.footerli {
     margin: 0px;
 }
 .hover-effect.active label.values, .hover-effect.active  label.count-text {
-    color: #a87139;
+    /* color: #a87139; */
 }
 .het100 .row .col-md-3:last-child .hover-effect figure.topic-cover {
     max-width: 130px;
