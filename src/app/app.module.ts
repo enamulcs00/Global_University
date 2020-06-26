@@ -27,6 +27,12 @@ import { DraftFormComponent } from './component/dashboard/draft-form/draft-form.
 import { ApplicationProgressComponent } from './component/dashboard/application-progress/application-progress.component';
 import { ViewProgressComponent } from './component/dashboard/view-progress/view-progress.component';
 import { ReportComponent } from './component/dashboard/report/report.component';
+import { MyProfileComponent } from './component/profile/my-profile/my-profile.component';
+import { MySubscriptionComponent } from './component/profile/my-subscription/my-subscription.component';
+import { ChangePasswordComponent } from './component/profile/change-password/change-password.component';
+import { ManageUsersComponent } from './component/profile/manage-users/manage-users.component';
+import { CreateUsersComponent } from './component/profile/create-users/create-users.component';
+import { SubscriptionHistoryComponent } from './component/profile/subscription-history/subscription-history.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +61,13 @@ import { ReportComponent } from './component/dashboard/report/report.component';
     DraftFormComponent,
     ApplicationProgressComponent,
     ViewProgressComponent,
-    ReportComponent
+    ReportComponent,
+    MyProfileComponent,
+    MySubscriptionComponent,
+    ChangePasswordComponent,
+    ManageUsersComponent,
+    CreateUsersComponent,
+    SubscriptionHistoryComponent
   ],
   imports: [
     BrowserModule,

@@ -23,6 +23,12 @@ import { ViewFormComponent } from './component/application-form/view-form/view-f
 import { ApplicationProgressComponent } from './component/dashboard/application-progress/application-progress.component';
 import { ViewProgressComponent } from './component/dashboard/view-progress/view-progress.component';
 import { ReportComponent } from './component/dashboard/report/report.component';
+import { MyProfileComponent } from './component/profile/my-profile/my-profile.component';
+import { ChangePasswordComponent } from './component/profile/change-password/change-password.component';
+import { CreateUsersComponent } from './component/profile/create-users/create-users.component';
+import { ManageUsersComponent } from './component/profile/manage-users/manage-users.component';
+import { MySubscriptionComponent } from './component/profile/my-subscription/my-subscription.component';
+import { SubscriptionHistoryComponent } from './component/profile/subscription-history/subscription-history.component';
 
 
 const routes: Routes = [
@@ -39,6 +45,13 @@ const routes: Routes = [
   { path: 'application-progress', component: ApplicationProgressComponent},
   { path: 'view-progress', component : ViewProgressComponent},
   { path: 'report', component : ReportComponent},
+
+  { path: 'my-profile', component : MyProfileComponent},
+  { path: 'change-password', component : ChangePasswordComponent},
+  { path: 'create-users', component : CreateUsersComponent},
+  { path: 'manage-users', component : ManageUsersComponent},
+  { path: 'my-subscription', component : MySubscriptionComponent},
+  { path: 'subscription-history', component : SubscriptionHistoryComponent},
 
 
   { path: 'section1', component: Section1Component},

@@ -52,16 +52,14 @@
                <a class="nav-link" href="#">Contact Us</a>
              </li>
              <li class="logouts nav-item">
-            
-              <!-- <img class="immgs" src="assets/images/pick-1.png" alt=""> -->
               <div class="dropdown" >
                 <button class="btn btn-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <img class="immgs" src="assets/images/pick-1.png" alt="">
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-left: -97px">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                  <a class="dropdown-item" [routerLink]="['my-profile']" >My Profile</a>
+                  <a class="dropdown-item" >Logout</a>
+                  
                 </div>
               </div>
             </li>
