@@ -1,369 +1,209 @@
-<section class="wrapper">
+<section>
+   <div class="container1440 mt-5">
+     <div class="application_cs">
+       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+         <li class="nav-item create_new">
+           <a class="nav-link find active " id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" [routerLink]="['/section1']" aria-selected="true">Create New Application</a>
+         </li>
+         <li class="nav-item create_new">
+           <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" [routerLink]="['/draft-form']" aria-selected="false">Find and Continue Incomplete Applications</a>
+         </li>
+         <li class="nav-item create_new">
+           <a class="nav-link active_cs" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" [routerLink]="['/dashboard']" aria-selected="false">Submitted Application or Applicants</a>
+         </li>
+         <li class="nav-item create_new">
+           <a class="nav-link find" id="pills-contact-tab" data-toggle="pill" href="#pills-contact1" role="tab" aria-controls="pills-contact" aria-selected="false">Reports</a>
+         </li>
+       </ul>
 
-   <div class="banner-section">
 
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-         <div class="carousel-inner">
-           <div class="carousel-item banner-item  active">
-             <img class="d-block w-100" src="assets/images/mimi-thian-vdXMSiX-n6M-unsplash.jpg" alt="First slide">
-               <div class="banner-content">
-         <h1 class="center-text">Best Digital Platform To Search, Compare and Apply</h1>
-        
-         <button class="banner-button">GET STARTED</button>
-         
-      </div>
-           </div>
-           <div class="carousel-item banner-item ">
-             <img class="d-block w-100" src="assets/images/windows-p74ndnYWRY4-unsplash.jpg" alt="Second slide">
-             <div class="banner-content">
-               <h1 class="center-text">Best Digital Platform To Search, Compare and Apply</h1>
-              
-               <button class="banner-button">GET STARTED</button>
-            </div>
-           </div>
-           <div class="carousel-item banner-item ">
-             <img class="d-block w-100" src="assets/images/brooke-cagle--uHVRvDr7pg-unsplash.jpg" alt="Third slide">
-             <div class="banner-content">
-               <h1 class="center-text">Best Digital Platform To Search, Compare and Apply</h1>
+
+           <div class="tab-content" id="pills-tabContent">
+             <div class="tab-pane fade " id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
+             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+             <div class="tab-pane fade show active" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
              
-               <button class="banner-button">GET STARTED</button>
-            </div>
+
+               <div class="search_section mt-5">
+                 
+                 <ul>
+                   <li>
+                      
+                     <input type="text" class="form-control" placeholder="Search">
+                     <img src="assets/images/search-icon.png">
+                   </li>
+                   <li>
+                    
+                     <select class="form-control">
+                       <option>Search by From  ID </option>
+                       <option>Search by From  ID </option>
+                     </select>
+                     <img src="assets/images/icon-drop.png">
+                   </li>
+                   <li>
+                    <label>From</label> 
+                     <input type="text" class="form-control" placeholder="MM/DD/YY">
+                     <i class="fa fa-calendar" aria-hidden="true"></i>
+
+                   </li>
+                   <li>
+                 <label>To</label> 
+                     <input type="text" class="form-control" placeholder="MM/DD/YY">
+                     <i class="fa fa-calendar" aria-hidden="true"></i>
+
+                   </li>
+                   <li>
+                     <label>&nbsp</label>
+                     <div class="cntact-button">
+                        <button class="banner-button" style="margin-right: 10px;">Submit</button>
+                         <button class="banner-button">Reset</button>
+                    </div>
+                   </li>
+                  
+                 </ul>
+               </div>
+
+             <div class="main_formId mt-4">
+                 <div class="form_submit">
+                     <div class="condidated_name">
+                         <ul>
+                           <li><strong>Form ID :</strong> </li>   
+                           <li><strong>Submitted By :</strong></li>
+                           <li><strong>Candidate Name :</strong> </li>
+                           <li><strong>Submitted Date :</strong> </li>
+                           <li><strong>Total Universities:</strong></li>
+                           <li><strong>Decision from Universities:</strong></li>
+                         </ul>
+                     </div>
+                        <div class="condidated_name">
+                         <ul>
+                           <li>#12345466777888899999  </li>     
+                           <li>XYZZ </li>
+                           <li>XYZZXYZZ  </li>
+                           <li>  12/09/2019, 12:00 PM </li>
+                           <li> 23 </li>
+                           <li>3</li>
+                         </ul>
+                     </div>
+                 </div>
+
+                 <div class="my_history">
+                   <div class="viewform">
+                        <button class="banner-button">Application  Progress</button>
+                     </div>
+                   <div class="viewform">
+                    <button class="banner-button" [routerLink]="['/view-form']">View My Form History</button>
+                     </div>
+                 </div>
+              </div>
+
+                  <div class="main_formId mt-4">
+                 <div class="form_submit">
+                     <div class="condidated_name">
+                         <ul>
+                           <li><strong>Form ID :</strong> </li>   
+                           <li><strong>Submitted By :</strong></li>
+                           <li><strong>Candidate Name :</strong> </li>
+                           <li><strong>Submitted Date :</strong> </li>
+                           <li><strong>Total Universities:</strong></li>
+                           <li><strong>Decision from Universities:</strong></li>
+                         </ul>
+                     </div>
+                        <div class="condidated_name">
+                         <ul>
+                           <li>#12345466777888899999  </li>     
+                           <li>XYZZ </li>
+                           <li>XYZZXYZZ  </li>
+                           <li>  12/09/2019, 12:00 PM </li>
+                           <li> 23 </li>
+                           <li>3</li>
+                         </ul>
+                     </div>
+                 </div>
+
+                 <div class="my_history">
+                   <div class="viewform">
+                        <button class="banner-button">Application  Progress</button>
+                     </div>
+                   <div class="viewform">
+                    <button class="banner-button" [routerLink]="['/view-form']">View My Form History</button>
+                     </div>
+                 </div>
+              </div>
+
+
+                  <div class="main_formId mt-4">
+                 <div class="form_submit">
+                     <div class="condidated_name">
+                         <ul>
+                           <li><strong>Form ID :</strong> </li>   
+                           <li><strong>Submitted By :</strong></li>
+                           <li><strong>Candidate Name :</strong> </li>
+                           <li><strong>Submitted Date :</strong> </li>
+                           <li><strong>Total Universities:</strong></li>
+                           <li><strong>Decision from Universities:</strong></li>
+                         </ul>
+                     </div>
+                        <div class="condidated_name">
+                         <ul>
+                           <li>#12345466777888899999  </li>     
+                           <li>XYZZ </li>
+                           <li>XYZZXYZZ  </li>
+                           <li>  12/09/2019, 12:00 PM </li>
+                           <li> 23 </li>
+                           <li>3</li>
+                         </ul>
+                     </div>
+                 </div>
+
+                 <div class="my_history">
+                   <div class="viewform">
+                        <button class="banner-button">Application  Progress</button>
+                     </div>
+                   <div class="viewform">
+                    <button class="banner-button" [routerLink]="['/view-form']">View My Form History</button>
+                     </div>
+                 </div>
+              </div>
+
+
+                  <div class="main_formId mt-4">
+                 <div class="form_submit">
+                     <div class="condidated_name">
+                         <ul>
+                           <li><strong>Form ID :</strong> </li>   
+                           <li><strong>Submitted By :</strong></li>
+                           <li><strong>Candidate Name :</strong> </li>
+                           <li><strong>Submitted Date :</strong> </li>
+                           <li><strong>Total Universities:</strong></li>
+                           <li><strong>Decision from Universities:</strong></li>
+                         </ul>
+                     </div>
+                        <div class="condidated_name">
+                         <ul>
+                           <li>#12345466777888899999  </li>     
+                           <li>XYZZ </li>
+                           <li>XYZZXYZZ  </li>
+                           <li>  12/09/2019, 12:00 PM </li>
+                           <li> 23 </li>
+                           <li>3</li>
+                         </ul>
+                     </div>
+                 </div>
+
+                 <div class="my_history">
+                   <div class="viewform">
+                        <button class="banner-button">Application  Progress</button>
+                     </div>
+                   <div class="viewform">
+                    <button class="banner-button" [routerLink]="['/view-form']">View My Form History</button>
+                     </div>
+                 </div>
+              </div>
+
+             </div>
+              <div class="tab-pane fade" id="pills-contact1" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
            </div>
-         </div>
-         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-           <span class="sr-only">Previous</span>
-         </a>
-         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-           <span class="carousel-control-next-icon" aria-hidden="true"></span>
-           <span class="sr-only">Next</span>
-         </a>
-       </div>
-     
-   </div>
-
-   <div class="intresed-Studies text-center division-property">
-      <div class="container1440">
-         <h2 class="commonheading">WHERE CAN YOU STUDY </h2>
-         <p class="common-pera common-pera2">Top study destinations preferred by International students</p>
-         <div class="row" style="cursor: pointer;">
-            <div class="col-md-4" [routerLink]="['/usa-search-course']">
-               <div class="image-test">
-                  <a><img src="assets/images/usa_tile.jpg" alt="logo"></a>
-                  <h3>USA</h3>
-               </div>
-            </div>
-            <div class="col-md-4" [routerLink]="['/uk-search-course']">
-               <div class="image-test">
-                  <a> <img src="assets/images/uk_tile.jpg" alt="logo"></a>
-                  <h3>UK</h3>
-               </div>
-            </div>
-            <div class="col-md-4" [routerLink]="['/australia-search-course']">
-               <div class="image-test">
-                  <a><img src="assets/images/aus_tile.jpg" alt="logo"></a>
-                  <h3>AUSTRALIA</h3>
-               </div>
-            </div>
-            <div class="col-md-4" [routerLink]="['/canada-search-course']">
-               <div class="image-test">
-                  <a><img src="assets/images/can1_tile.jpg" alt="logo"></a>
-                  <h3>CANADA</h3>
-               </div>
-            </div>
-            <div class="col-md-4" [routerLink]="['/newzealand-search-course']">
-               <div class="image-test">
-                  <a><img src="assets/images/new_tile.jpg" alt="logo"></a>
-                  <h3>NEW ZEALAND</h3>
-               </div>
-            </div>
-            <div class="col-md-4" [routerLink]="['/ireland-search-course']">
-               <div class="image-test">
-                  <a><img src="assets/images/ire_tile.jpg" alt="logo"></a>
-                  <h3>IRELAND</h3>
-               </div>
-            </div>
-         </div>
-         <div class="read-more mt-4">
-            <button class="theme-btn" onclick="window.location.href='8-Universities List .html';">Read more</button>
-         </div>
-      </div>
-   </div>
-
-   <div class="intresed-Studies text-center division-property">
-      <div class="container1440">
-        
-         <div class="row">
-            <div class="col-md-4">
-               <div class="image-test1">
-                  <img src="assets/images/left.png" alt="logo">
-               </div>
-            </div>
-            <div class="col-md-8">
-               <div class="image-test11">
-                  <h2 class="commonheading">SERVICES OFFERING</h2>
-                  <p>
-                     Univ Global collaborates with overseas representatives and with Higher Education Institutions
-                     across number of countries to help them achieve their recruitment strategies. Our innovative
-                     technology portal simplifies the course search, course comparison and student application process.
-                     We help students discover and compare career opportunities across different countries and our
-                     online portal simplifies the process of comparison and applying, thereby helping them pursue their
-                     dream of studying abroad with ease.
-                  </p>
-                  <p>
-                     Univ Global has collaborated with qualified and vetted representatives across the world with an aim
-                     to help their students to compare, choose and apply to a greater number of institutions of their
-                     choices in several countries.
-                  </p>
-               </div>
-            </div>
-         </div>
-         <div class="read-more mt-4">
-            <button class="theme-btn" [routerLink]="['/services-offering']">Read more</button>
-         </div>
-      </div>
-   </div>
-
-   <div class="intresed-Studies text-center division-property">
-      <div class="container1440">
-       
-         <div class="row">
-            <div class="col-md-8">
-               <div class="image-test11">
-                  <h2 class="commonheading">HOW IT WORKS</h2>
-                  <p>
-                     Univ Global’s innovative technology may seem like magic, but there is a lot going on behind the
-                     scenes to ensure that every user gets the best possible result when uploading their application
-                     supporting documents to our automated portal. We aim to make it as easy as possible for our users
-                     throughout the journey of course search and matching; applying to the programmes and universities
-                     that closely align with their interests. We help representatives and students accomplish this in
-                     just a matter of clicks with our automated technology.
-
-                  </p>
-                  <p>
-                     When an application along with supporting documents are uploaded to our portal, our engines get to
-                     work analysing your documents before matching the documents against the entry criteria of partner
-                     universities in different countries.
-                  </p>
-                  <div class="read-more mt-4">
-                     <button class="theme-btn" [routerLink]="['/how-it-works']">Read more</button>
-                  </div>
-               </div>
-            </div>
-            <div class="col-md-4">
-               <div class="image-test1">
-                  <img src="assets/images/rytimg.png" alt="logo">
-               </div>
-            </div>
-         </div>
-        
-      </div>
-   </div>
-
-   <div class="qualites division-property">
-      <div class="container1440">
-         <div class="d-flex align-items-center het100">
-            <div class="row">
-               <div class="col-md-3 text-center">
-                  <div class="hover-effect active">
-                     <figure class="topic-cover">
-                        <img src="assets/images/Layer 29.png" alt="logo">
-                     </figure>
-                     <label class="values">1973</label>
-                     <label class="count-text">Universities</label>
-                  </div>
-               </div>
-               <div class="col-md-3 text-center">
-                  <div class="hover-effect">
-                     <figure class="topic-cover">
-                        <img src="assets/images/golden-1.png" alt="logo">
-                     </figure>
-                     <label class="values">2223304</label>
-                     <label class="count-text">Courses</label>
-                  </div>
-               </div>
-               <div class="col-md-3 text-center">
-                  <div class="hover-effect">
-                     <figure class="topic-cover">
-                        <img src="assets/images/golden-2.png" alt="logo">
-                     </figure>
-                     <label class="values">06</label>
-                     <label class="count-text">Countries</label>
-                  </div>
-               </div>
-               <div class="col-md-3 text-center">
-                  <div class="hover-effect">
-                     <figure class="topic-cover">
-                        <img src="assets/images/golden-3.png" alt="logo">
-                     </figure>
-                     <label class="values">4523210</label>
-                     <label class="count-text">Representatives </label>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-
-   <div class="ivision-six division-property">
-      <div class="container1440">
-         <div class="row">
-            <div class="col-md-6">
-               <h2 class="commonheading text-center mb-5">UNIVERSITY NEWS</h2>
-               <div class="main-scroller">
-                  <div class="repeating-line">
-                     <h2 class="headingline">Heading Name</h2>
-
-                     <label>date :- 12/09/2019, 12:30 pm</label>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur.
-                     </p>
-                  </div>
-                  <div class="repeating-line">
-                     <h2 class="headingline">Heading Name</h2>
-                     <label>date :- 12/09/2019, 12:30 pm</label>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur.
-                     </p>
-                  </div>
-                  <div class="repeating-line">
-                     <h2 class="headingline">Heading Name</h2>
-                     <label>date :- 12/09/2019, 12:30 pm</label>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur.
-                     </p>
-                  </div>
-                  <div class="repeating-line">
-                     <h2 class="headingline">Heading Name</h2>
-                     <label>date :- 12/09/2019, 12:30 pm</label>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur.
-                     </p>
-                  </div>
-                  <div class="repeating-line">
-                     <h2 class="headingline">Heading Name</h2>
-                     <label>date :- 12/09/2019, 12:30 pm</label>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur.
-                     </p>
-                  </div>
-                  <div class="repeating-line">
-                     <h2 class="headingline">Heading Name</h2>
-                     <label>date :- 12/09/2019, 12:30 pm</label>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur.
-                     </p>
-                  </div>
-                  <div class="repeating-line">
-                     <h2 class="headingline">Heading Name</h2>
-                     <label>date :- 12/09/2019, 12:30 pm</label>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur.
-                     </p>
-                  </div>
-               </div>
-            </div>
-            <div class="col-md-6">
-               <h2 class="commonheading text-center mb-5">COUNTRY NEWS</h2>
-               <div class="main-scroller">
-                  <div class="repeating-line">
-                     <h2 class="headingline">Heading Name</h2>
-
-                     <label>date :- 12/09/2019, 12:30 pm</label>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur.
-                     </p>
-                  </div>
-                  <div class="repeating-line">
-                     <h2 class="headingline">Heading Name</h2>
-                     <label>date :- 12/09/2019, 12:30 pm</label>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur.
-                     </p>
-                  </div>
-                  <div class="repeating-line">
-                     <h2 class="headingline">Heading Name</h2>
-                     <label>date :- 12/09/2019, 12:30 pm</label>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur.
-                     </p>
-                  </div>
-                  <div class="repeating-line">
-                     <h2 class="headingline">Heading Name</h2>
-                     <label>date :- 12/09/2019, 12:30 pm</label>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur.
-                     </p>
-                  </div>
-                  <div class="repeating-line">
-                     <h2 class="headingline">Heading Name</h2>
-                     <label>date :- 12/09/2019, 12:30 pm</label>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur.
-                     </p>
-                  </div>
-                  <div class="repeating-line">
-                     <h2 class="headingline">Heading Name</h2>
-                     <label>date :- 12/09/2019, 12:30 pm</label>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur.
-                     </p>
-                  </div>
-                  <div class="repeating-line">
-                     <h2 class="headingline">Heading Name</h2>
-                     <label>date :- 12/09/2019, 12:30 pm</label>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur.
-                     </p>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="read-more mt-4">
-            <button class="theme-btn">Read more</button>
-         </div>
-      </div>
-   </div>
-</section>
+</div>
+ </div>
+ </section>
