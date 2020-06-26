@@ -20,6 +20,9 @@ import { ApplicationFormPreviewComponent } from './component/application-form/ap
 import { MatchingUniversitiesComponent } from './component/application-form/matching-universities/matching-universities.component';
 import { DraftFormComponent } from './component/dashboard/draft-form/draft-form.component';
 import { ViewFormComponent } from './component/application-form/view-form/view-form.component';
+import { ApplicationProgressComponent } from './component/dashboard/application-progress/application-progress.component';
+import { ViewProgressComponent } from './component/dashboard/view-progress/view-progress.component';
+import { ReportComponent } from './component/dashboard/report/report.component';
 
 
 const routes: Routes = [
@@ -33,6 +36,9 @@ const routes: Routes = [
     component: DashboardComponent
   },
   { path: 'draft-form', component: DraftFormComponent},
+  { path: 'application-progress', component: ApplicationProgressComponent},
+  { path: 'view-progress', component : ViewProgressComponent},
+  { path: 'report', component : ReportComponent},
 
 
   { path: 'section1', component: Section1Component},

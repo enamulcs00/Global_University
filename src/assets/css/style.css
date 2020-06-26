@@ -3417,3 +3417,10 @@ a.navbar-brand {
 .image-test {
     transition: 0.4s ease all;
 }
+
+.logouts button img{
+    display: flex;
+    justify-content: space-around;
+    width: 40px;
+
+}

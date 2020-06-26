@@ -26,6 +26,7 @@ import { ViewFormComponent } from './component/application-form/view-form/view-f
 import { DraftFormComponent } from './component/dashboard/draft-form/draft-form.component';
 import { ApplicationProgressComponent } from './component/dashboard/application-progress/application-progress.component';
 import { ViewProgressComponent } from './component/dashboard/view-progress/view-progress.component';
+import { ReportComponent } from './component/dashboard/report/report.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { ViewProgressComponent } from './component/dashboard/view-progress/view-
     ViewFormComponent,
     DraftFormComponent,
     ApplicationProgressComponent,
-    ViewProgressComponent
+    ViewProgressComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,

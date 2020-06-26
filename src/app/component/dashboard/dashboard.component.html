@@ -12,7 +12,7 @@
            <a class="nav-link active_cs" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" [routerLink]="['/dashboard']" aria-selected="false">Submitted Application or Applicants</a>
          </li>
          <li class="nav-item create_new">
-           <a class="nav-link find" id="pills-contact-tab" data-toggle="pill" href="#pills-contact1" role="tab" aria-controls="pills-contact" aria-selected="false">Reports</a>
+           <a class="nav-link find" id="pills-contact-tab" data-toggle="pill" href="#pills-contact1" role="tab" aria-controls="pills-contact" [routerLink]="['/report']" aria-selected="false">Reports</a>
          </li>
        </ul>
 
@@ -89,7 +89,7 @@
 
                  <div class="my_history">
                    <div class="viewform">
-                        <button class="banner-button">Application  Progress</button>
+                        <button class="banner-button" [routerLink]="['/application-progress']">Application  Progress</button>
                      </div>
                    <div class="viewform">
                     <button class="banner-button" [routerLink]="['/view-form']">View My Form History</button>
@@ -123,42 +123,7 @@
 
                  <div class="my_history">
                    <div class="viewform">
-                        <button class="banner-button">Application  Progress</button>
-                     </div>
-                   <div class="viewform">
-                    <button class="banner-button" [routerLink]="['/view-form']">View My Form History</button>
-                     </div>
-                 </div>
-              </div>
-
-
-                  <div class="main_formId mt-4">
-                 <div class="form_submit">
-                     <div class="condidated_name">
-                         <ul>
-                           <li><strong>Form ID :</strong> </li>   
-                           <li><strong>Submitted By :</strong></li>
-                           <li><strong>Candidate Name :</strong> </li>
-                           <li><strong>Submitted Date :</strong> </li>
-                           <li><strong>Total Universities:</strong></li>
-                           <li><strong>Decision from Universities:</strong></li>
-                         </ul>
-                     </div>
-                        <div class="condidated_name">
-                         <ul>
-                           <li>#12345466777888899999  </li>     
-                           <li>XYZZ </li>
-                           <li>XYZZXYZZ  </li>
-                           <li>  12/09/2019, 12:00 PM </li>
-                           <li> 23 </li>
-                           <li>3</li>
-                         </ul>
-                     </div>
-                 </div>
-
-                 <div class="my_history">
-                   <div class="viewform">
-                        <button class="banner-button">Application  Progress</button>
+                        <button class="banner-button" [routerLink]="['/application-progress']">Application  Progress</button>
                      </div>
                    <div class="viewform">
                     <button class="banner-button" [routerLink]="['/view-form']">View My Form History</button>
@@ -193,7 +158,42 @@
 
                  <div class="my_history">
                    <div class="viewform">
-                        <button class="banner-button">Application  Progress</button>
+                        <button class="banner-button" [routerLink]="['/application-progress']">Application  Progress</button>
+                     </div>
+                   <div class="viewform">
+                    <button class="banner-button" [routerLink]="['/view-form']">View My Form History</button>
+                     </div>
+                 </div>
+              </div>
+
+
+                  <div class="main_formId mt-4">
+                 <div class="form_submit">
+                     <div class="condidated_name">
+                         <ul>
+                           <li><strong>Form ID :</strong> </li>   
+                           <li><strong>Submitted By :</strong></li>
+                           <li><strong>Candidate Name :</strong> </li>
+                           <li><strong>Submitted Date :</strong> </li>
+                           <li><strong>Total Universities:</strong></li>
+                           <li><strong>Decision from Universities:</strong></li>
+                         </ul>
+                     </div>
+                        <div class="condidated_name">
+                         <ul>
+                           <li>#12345466777888899999  </li>     
+                           <li>XYZZ </li>
+                           <li>XYZZXYZZ  </li>
+                           <li>  12/09/2019, 12:00 PM </li>
+                           <li> 23 </li>
+                           <li>3</li>
+                         </ul>
+                     </div>
+                 </div>
+
+                 <div class="my_history">
+                   <div class="viewform">
+                        <button class="banner-button" [routerLink]="['/application-progress']">Application  Progress</button>
                      </div>
                    <div class="viewform">
                     <button class="banner-button" [routerLink]="['/view-form']">View My Form History</button>
