@@ -29,6 +29,8 @@ import { CreateUsersComponent } from './component/profile/create-users/create-us
 import { ManageUsersComponent } from './component/profile/manage-users/manage-users.component';
 import { MySubscriptionComponent } from './component/profile/my-subscription/my-subscription.component';
 import { SubscriptionHistoryComponent } from './component/profile/subscription-history/subscription-history.component';
+import { LoginComponent } from './component/login/login.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
@@ -37,41 +39,38 @@ const routes: Routes = [
     redirectTo: "/dashboard",
     pathMatch: "full"
   },
-  {
-    path: 'dashboard',
-    component: DashboardComponent
-  },
-  { path: 'draft-form', component: DraftFormComponent},
-  { path: 'application-progress', component: ApplicationProgressComponent},
-  { path: 'view-progress', component : ViewProgressComponent},
-  { path: 'report', component : ReportComponent},
+  {  path: 'dashboard',   component: DashboardComponent,canActivate :[AuthGuard] },
+  { path: 'login', component: LoginComponent},
+  { path: 'draft-form', component: DraftFormComponent,canActivate :[AuthGuard] },
+  { path: 'application-progress', component: ApplicationProgressComponent,canActivate :[AuthGuard] },
+  { path: 'view-progress', component : ViewProgressComponent,canActivate :[AuthGuard] },
+  { path: 'report', component : ReportComponent,canActivate :[AuthGuard] },
 
-  { path: 'my-profile', component : MyProfileComponent},
-  { path: 'change-password', component : ChangePasswordComponent},
-  { path: 'create-users', component : CreateUsersComponent},
-  { path: 'manage-users', component : ManageUsersComponent},
-  { path: 'my-subscription', component : MySubscriptionComponent},
-  { path: 'subscription-history', component : SubscriptionHistoryComponent},
+  { path: 'my-profile', component : MyProfileComponent,canActivate :[AuthGuard] },
+  { path: 'change-password', component : ChangePasswordComponent,canActivate :[AuthGuard] },
+  { path: 'create-users', component : CreateUsersComponent,canActivate :[AuthGuard] },
+  { path: 'manage-users', component : ManageUsersComponent,canActivate :[AuthGuard] },
+  { path: 'my-subscription', component : MySubscriptionComponent,canActivate :[AuthGuard] },
+  { path: 'subscription-history', component : SubscriptionHistoryComponent,canActivate :[AuthGuard] },
 
-
-  { path: 'section1', component: Section1Component},
-  { path: 'section2', component: Section2Component},
-  { path: 'section3', component: Section3Component},
-  { path: 'section4', component: Section4Component},
-  { path: 'section5', component: Section5Component},
-  { path: 'section6', component: Section6Component},
-  { path: 'section7', component: Section7Component},
-  { path: 'section8', component: Section8Component},
-  { path: 'section9', component: Section9Component},
-  { path: 'section10', component: Section10Component},
-  { path: 'section11', component: Section11Component},
-  { path: 'section12', component: Section12Component},
-  { path: 'section13', component: Section13Component},
-  { path: 'section14', component: Section14Component},
-  { path: 'section15', component: Section15Component},
-  { path: 'application-form-preview', component: ApplicationFormPreviewComponent},
-  { path: 'matching-universities', component: MatchingUniversitiesComponent},
-  { path: 'view-form', component: ViewFormComponent},
+  { path: 'section1', component: Section1Component,canActivate :[AuthGuard] },
+  { path: 'section2', component: Section2Component,canActivate :[AuthGuard] },
+  { path: 'section3', component: Section3Component,canActivate :[AuthGuard] },
+  { path: 'section4', component: Section4Component,canActivate :[AuthGuard] },
+  { path: 'section5', component: Section5Component,canActivate :[AuthGuard] },
+  { path: 'section6', component: Section6Component,canActivate :[AuthGuard] },
+  { path: 'section7', component: Section7Component,canActivate :[AuthGuard] },
+  { path: 'section8', component: Section8Component,canActivate :[AuthGuard] },
+  { path: 'section9', component: Section9Component,canActivate :[AuthGuard] },
+  { path: 'section10', component: Section10Component,canActivate :[AuthGuard] },
+  { path: 'section11', component: Section11Component,canActivate :[AuthGuard] },
+  { path: 'section12', component: Section12Component,canActivate :[AuthGuard] },
+  { path: 'section13', component: Section13Component,canActivate :[AuthGuard] },
+  { path: 'section14', component: Section14Component,canActivate :[AuthGuard] },
+  { path: 'section15', component: Section15Component,canActivate :[AuthGuard] },
+  { path: 'application-form-preview', component: ApplicationFormPreviewComponent,canActivate :[AuthGuard] },
+  { path: 'matching-universities', component: MatchingUniversitiesComponent,canActivate :[AuthGuard] },
+  { path: 'view-form', component: ViewFormComponent,canActivate :[AuthGuard] },
   // { path: 'section3',
   // { path: 'section3',
   // { path: 'section3',

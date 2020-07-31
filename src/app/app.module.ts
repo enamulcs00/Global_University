@@ -34,6 +34,10 @@ import { ManageUsersComponent } from './component/profile/manage-users/manage-us
 import { CreateUsersComponent } from './component/profile/create-users/create-users.component';
 import { SubscriptionHistoryComponent } from './component/profile/subscription-history/subscription-history.component';
 
+import { LoginComponent } from './component/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,12 +71,16 @@ import { SubscriptionHistoryComponent } from './component/profile/subscription-h
     ChangePasswordComponent,
     ManageUsersComponent,
     CreateUsersComponent,
-    SubscriptionHistoryComponent
+    SubscriptionHistoryComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
-  ],
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

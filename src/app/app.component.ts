@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router,NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'univ';
+  tokenAvailable : any;
 
-
-  constructor(){}
+  constructor(private router:Router){
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        this.tokenAvailable = localStorage.getItem('token') ? localStorage.getItem('token') : '';
+        }
+    })
+  }
 
   openSocialLink(social) {
     if (social == `youtube`)
@@ -22,5 +29,10 @@ export class AppComponent {
       window.open(`https://in.linkedin.com/`)
     else if (social == `instagram`)
       window.open(`https://www.instagram.com/universitiesglobal/`)
+  }
+
+  logout(){
+    localStorage.clear()
+    this.router.navigateByUrl('/login')
   }
 }
