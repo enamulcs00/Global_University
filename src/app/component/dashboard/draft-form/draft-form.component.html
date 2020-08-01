@@ -34,12 +34,12 @@
                   <ul>
                     <li>
                         <label>&nbsp;</label>
-                      <input type="text" class="form-control" placeholder="Search">
+                      <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchKey">
                       <img src="assets/images/search-icon.png">
                     </li>
                     <li>
                        <label>&nbsp;</label>
-                      <select class="form-control">
+                      <select class="form-control" [(ngModel)]="formId">
                         <option>Search by From  ID </option>
                         <option>Search by From  ID </option>
                       </select>
@@ -47,21 +47,17 @@
                     </li>
                     <li>
                      <label>From</label> 
-                      <input type="text" class="form-control" placeholder="MM/DD/YY">
-                      <i class="fa fa-calendar" aria-hidden="true"></i>
-
+                      <input type="date" class="form-control" placeholder="MM/DD/YY" [(ngModel)]="fromDate">
                     </li>
                     <li>
                   <label>To</label> 
-                      <input type="text" class="form-control" placeholder="MM/DD/YY">
-                      <i class="fa fa-calendar" aria-hidden="true"></i>
-
+                      <input type="date" class="form-control" placeholder="MM/DD/YY" [(ngModel)]="toDate">
                     </li>
                     <li>
                        <label>&nbsp;</label>
                       <div class="cntact-button">
-                         <button class="banner-button" style="margin-right: 10px;">Submit</button>
-                          <button class="banner-button">Reset</button>
+                        <button class="banner-button router-link" style="margin-right: 10px;"  (click)="submit()">Submit</button>
+                        <button class="banner-button router-link" (click)="reset()">Reset</button>
                      </div>
                     </li>
                    
@@ -90,7 +86,7 @@
                   </div>
 
                    <div class="viewform continue">
-                         <button class="banner-button">Continue</button>
+                         <button class="banner-button router-link">Continue</button>
                       </div>
                </div>
 
@@ -116,7 +112,7 @@
                   </div>
 
                    <div class="viewform continue">
-                         <button class="banner-button">Continue</button>
+                         <button class="banner-button router-link">Continue</button>
                       </div>
                </div>
 
@@ -143,7 +139,7 @@
                   </div>
 
                   <div class="viewform continue">
-                         <button class="banner-button">Continue</button>
+                         <button class="banner-button router-link">Continue</button>
                       </div>
                </div>
 
@@ -171,7 +167,7 @@
 
                 
                     <div class="viewform continue">
-                         <button class="banner-button">Continue</button>
+                         <button class="banner-button router-link">Continue</button>
                       </div>
                  
                </div>

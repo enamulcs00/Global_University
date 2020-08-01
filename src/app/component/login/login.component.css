@@ -1,3 +1,7 @@
 .login_form {
     margin: 3% auto;
 }
+.fa.fa-eye {
+    top: 0px;
+    right: 3px;
+}

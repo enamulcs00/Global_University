@@ -1,157 +1,173 @@
 <section>
 
 
-    <div class="container1440 mt-5">
-      <div class="subscribe">
-        <div class="left_section">
-            <div class="pick_cs">
-              <a ><img src="assets/images/pick-1.png">
-                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                   </a>
-                <p>Sushree</p>  
+  <div class="container1440 mt-5">
+    <div class="subscribe">
+      <div class="left_section">
+        <div class="pick_cs">
+          <a><img src="assets/images/pick-1.png">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          </a>
+          <p>Sushree</p>
+        </div>
+
+        <div class="changs">
+          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link active general_cs" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home"
+              role="tab" aria-controls="v-pills-home" aria-selected="true" [routerLink]="['/my-profile']">Manage General
+              Info</a>
+            <a class="nav-link general_cs" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
+              role="tab" aria-controls="v-pills-profile" aria-selected="false"
+              [routerLink]="['/change-password']">Change Password</a>
+            <a class="nav-link  general_cs" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages"
+              role="tab" aria-controls="v-pills-messages" aria-selected="false" [routerLink]="['/my-subscription']">My
+              Subscription</a>
+            <a class="nav-link general_cs" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings"
+              role="tab" aria-controls="v-pills-settings" aria-selected="false"
+              [routerLink]="['/subscription-history']">Subscription History</a>
+            <a class="nav-link general_cs" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings1"
+              role="tab" aria-controls="v-pills-settings" aria-selected="false" [routerLink]="['/manage-users']">Manage
+              Users</a>
+            <a class="nav-link general_cs" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings2"
+              role="tab" aria-controls="v-pills-settings" aria-selected="false" [routerLink]="['/create-users']">Create
+              User</a>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="right-section">
+        <h4 class="manage">Manage General Info</h4>
+        <div class="tab-content" id="v-pills-tabContent">
+          <div class="tab-pane fade show active" id="v-pills-settings2" role="tabpanel"
+            aria-labelledby="v-pills-settings-tab">
+            <div class="general-info">
+              <div class="info-box">
+
+                <div class="form_section">
+                  <div class="form-group cs3">
+                    <label for="exampleInputEmail1">First Name *</label>
+                    <input type="email" class="form-control" placeholder="First Name ">
+                  </div>
+
+                  <div class="form-group cs3">
+                    <label for="exampleInputEmail1">Last Name *</label>
+                    <input type="email" class="form-control" placeholder="Last Name">
+                  </div>
+                  <div class="form-group cs3">
+                    <label for="exampleInputEmail1">Telephone Number *</label>
+                    <ul class="tele_cs">
+                      <li class="drop">
+                        <select class="form-control">
+                          <option>+91</option>
+                          <option>+92</option>
+                          <option>+93</option>
+                        </select>
+                      </li>
+                      <li>
+                        <input type="text" class="form-control " placeholder="7978604973">
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="form-group cs3">
+                    <label for="exampleInputEmail1">Mobile / Cell Phone Number *</label>
+                    <ul class="tele_cs">
+                      <li class="drop">
+                        <select class="form-control">
+                          <option>+91</option>
+                          <option>+92</option>
+                          <option>+93</option>
+                        </select>
+                      </li>
+                      <li>
+                        <input type="text" class="form-control " placeholder="7978604973">
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="form-group cs3">
+                    <label for="exampleInputEmail1">Business Name*</label>
+                    <input type="email" class="form-control" placeholder="Last Name">
+                  </div>
+                  <div class="form-group cs3">
+                    <label for="exampleInputEmail1">Business Name</label>
+                    <input type="email" class="form-control" placeholder="Last Name">
+                  </div>
+                  <div class="form-group cs3">
+                    <label for="exampleInputEmail1">Email*</label>
+                    <input type="email" class="form-control" placeholder="pq-mahesh@gmail.com">
+                  </div>
+                  <div class="form-group cs3">
+                    <label for="exampleInputEmail1">Address Line 1*</label>
+                    <input type="email" class="form-control" placeholder="Okhla phase ">
+                  </div>
+                  <div class="form-group cs3">
+                    <label for="exampleInputEmail1">Address Line 2*</label>
+                    <input type="email" class="form-control" placeholder="Okhla phase">
+                  </div>
+                  <div class="form-group cs3">
+                    <label for="exampleInputEmail1">Address Line 3</label>
+                    <input type="email" class="form-control" placeholder="Okhla phase">
+                  </div>
+                  <div class="form-group cs3">
+                    <label for="exampleInputEmail1">Post Code/Pin Code/Zip Code* </label>
+                    <input type="email" class="form-control" placeholder="766015">
+                  </div>
+
+                  <div class="form-group cs3">
+                    <label for="exampleInputEmail1">City *</label>
+                    <input type="email" class="form-control" placeholder="London">
+                  </div>
+
+                  <div class="form-group cs3">
+                    <label for="exampleInputEmail1">County/State*</label>
+                    <ul class="tele_cs">
+                      <li class="drop cs3">
+                        <select class="form-control">
+                          <option>Washiton</option>
+                          <option>Washiton</option>
+                        </select>
+                      </li>
+
+                    </ul>
+                  </div>
+                  <div class="form-group cs3">
+                    <label for="exampleInputEmail1">Country *</label>
+                    <ul class="tele_cs">
+                      <li class="drop">
+                        <select class="form-control">
+                          <option>Unitated Kingdom</option>
+                          <option>Unitated Kingdom</option>
+                        </select>
+                      </li>
+
+                    </ul>
+                  </div>
+
+                  <div class="cntact-button">
+                    <button class="banner-button">Cancel</button>
+                    <button class="banner-button">Save</button>
+                  </div>
+
+                </div>
+              </div>
             </div>
 
-            <div class="changs">
-                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-  <a class="nav-link active general_cs" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true" [routerLink]="['/my-profile']">Manage General Info</a>
-   <a class="nav-link general_cs" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false" [routerLink]="['/change-password']">Change Password</a>
-   <a class="nav-link  general_cs" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false" [routerLink]="['/my-subscription']">My Subscription</a>
-   <a class="nav-link general_cs" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false" [routerLink]="['/subscription-history']">Subscription History</a>
-    <a class="nav-link general_cs" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings1" role="tab" aria-controls="v-pills-settings" aria-selected="false" [routerLink]="['/manage-users']">Manage Users</a>
-     <a class="nav-link general_cs" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings2" role="tab" aria-controls="v-pills-settings" aria-selected="false" [routerLink]="['/create-users']">Create User</a>
-</div>
-</div>
-   </div>
 
 
-<div class="right-section">
-<h4 class="manage">Manage General Info</h4>
-<div class="tab-content" id="v-pills-tabContent">
-<div class="tab-pane fade show active" id="v-pills-settings2" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-<div class="general-info">
-<div class="info-box">
+          </div>
+          <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...
+          </div>
+          <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...
+          </div>
+          <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...
+          </div>
+          <div class="tab-pane fade" id="v-pills-settings1" role="tabpanel" aria-labelledby="v-pills-settings-tab">...
+          </div>
 
-<div class="form_section">
-<div class="form-group cs3">
-<label for="exampleInputEmail1">First Name *</label>
-<input type="email" class="form-control" placeholder="First Name ">
-</div>
-
-<div class="form-group cs3">
-<label for="exampleInputEmail1">Last Name *</label>
-<input type="email" class="form-control" placeholder="Last Name">
-</div>
-<div class="form-group cs3">
-<label for="exampleInputEmail1">Telephone Number *</label>
- <ul class="tele_cs">
-     <li class="drop">
-       <select class="form-control">
-          <option>+91</option>
-          <option>+92</option>
-           <option>+93</option>
-        </select>
-    </li>
-       <li>
-        <input type="text" class="form-control " placeholder="7978604973">
-       </li>
-</ul>
-</div>
-
-<div class="form-group cs3">
-<label for="exampleInputEmail1">Mobile  / Cell Phone Number *</label>
- <ul class="tele_cs">
-     <li class="drop">
-       <select class="form-control">
-          <option>+91</option>
-          <option>+92</option>
-           <option>+93</option>
-        </select>
-    </li>
-       <li>
-        <input type="text" class="form-control " placeholder="7978604973">
-       </li>
-</ul>
-</div>
-
-<div class="form-group cs3">
-<label for="exampleInputEmail1">Business Name*</label>
-<input type="email" class="form-control" placeholder="Last Name">
-</div>
-<div class="form-group cs3">
-<label for="exampleInputEmail1">Business Name</label>
-<input type="email" class="form-control" placeholder="Last Name">
-</div>
-<div class="form-group cs3">
-<label for="exampleInputEmail1">Email*</label>
-<input type="email" class="form-control" placeholder="pq-mahesh@gmail.com">
-</div>
-<div class="form-group cs3">
-<label for="exampleInputEmail1">Address Line 1*</label>
-<input type="email" class="form-control" placeholder="Okhla phase ">
-</div>
-<div class="form-group cs3">
-<label for="exampleInputEmail1">Address Line 2*</label>
-<input type="email" class="form-control" placeholder="Okhla phase">
-</div>
-<div class="form-group cs3">
-<label for="exampleInputEmail1">Address Line 3</label>
-<input type="email" class="form-control" placeholder="Okhla phase">
-</div>  
- <div class="form-group cs3">
-<label for="exampleInputEmail1">Post Code/Pin Code/Zip Code* </label>
-<input type="email" class="form-control" placeholder="766015">
-</div>
-
-<div class="form-group cs3">
-<label for="exampleInputEmail1">City *</label>
-<input type="email" class="form-control" placeholder="London">
-</div>
-
-<div class="form-group cs3">
-<label for="exampleInputEmail1">County/State*</label>
- <ul class="tele_cs">
-     <li class="drop cs3">
-       <select class="form-control">
-          <option>Washiton</option>
-          <option>Washiton</option>
-        </select>
-    </li>
-     
-</ul>
-</div>
-<div class="form-group cs3">
-<label for="exampleInputEmail1">Country *</label>
- <ul class="tele_cs">
-     <li class="drop">
-       <select class="form-control">
-          <option>Unitated Kingdom</option>
-          <option>Unitated Kingdom</option>
-        </select>
-    </li>
-     
-</ul>
-</div>
-
-<div class="cntact-button">
-   <button class="banner-button">Cancel</button>
-    <button class="banner-button">Save</button>
-</div>
-
-</div>
-</div>
-</div>
-
-
-
-</div>
-<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
-<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
-<div class="tab-pane fade" id="v-pills-settings1" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
-
-</div>
-</div>
-</div>
-</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-        

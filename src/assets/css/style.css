@@ -3431,6 +3431,13 @@ p.danger {
     width: 100%;
     max-width: 100%;
 }
+div.danger {
+    color: red;
+    font-size: 14px;
+    text-align: left;
+    width: 100%;
+    max-width: 100%;
+}
 .router-link{
     cursor: pointer;
 }
@@ -3592,4 +3599,7 @@ button.btn.btn-block.btn-flat:hover {
 }
 .has-feedback label~.form-control-feedback {
     top: 25px;
+}
+.is-invalid{
+    border-color: #dc3545 !important;
 }
