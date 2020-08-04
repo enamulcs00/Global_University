@@ -2,45 +2,77 @@
     <div class="container1440 mt-5">
         <h5 class="application_pro">Application Form</h5>
          <div class="application-form mt-5">
-             <div class="academic">
-           <h5 class="application_pro">Course applied</h5>
-             <div class="search-course">
-               <input type="text" class="form-control" placeholder="Search">
-            
-             </div>
-             <div class="University-name cs3 mb-3">
-                <label>Select Country :</label>
-                 <select class="form-control">
-                <option>India</option>
-                <option>Australia</option>
-                <option>Brazil</option>
-                 </select>
-                <i class="fa fa-sort-down"></i>
-            </div>
+            <form [formGroup]="section2Form">
+                  <div class="academic">
+                      <h5 class="application_pro">Course applied</h5>
+                      <div class="search-course">
+                        <input type="text" class="form-control" placeholder="Search" formControlName="searchCourse"
+                          [ngClass]="{ 'is-invalid': submitted && section2Form.get('searchCourse').hasError('required') }">    
+                          <div *ngIf="submitted && section2Form.get('searchCourse').hasError" >
+                            <div *ngIf="section2Form.get('searchCourse').hasError('required')" class="danger">
+                                *please enter the searchCourse
+                            </div>
+                          </div>        
+                      </div>
 
-             <div class="form-group">
-              <label for="exampleInputEmail1">Start Year :</label>
-               <input type="email" class="form-control" placeholder="DD/MM/YY">
-                <i class="fa fa-calendar" aria-hidden="true"></i>
-             </div>
+                      <div class="University-name cs3 mb-3">
+                          <label>Select Country :</label>
+                          <select class="form-control" formControlName="countryName"
+                          [ngClass]="{ 'is-invalid': submitted && section2Form.get('countryName').hasError('required') }">    
+                              <option>India</option>
+                              <option>Australia</option>
+                              <option>Brazil</option>
+                          </select>
+                          <i class="fa fa-sort-down"></i>
+                          <div *ngIf="submitted && section2Form.get('countryName').hasError" >
+                            <div *ngIf="section2Form.get('countryName').hasError('required')" class="danger">
+                                *please enter the countryName
+                            </div>
+                          </div>
+                      </div>
 
-              <div class="form-group">
-              <label for="exampleInputEmail1">Start Month :</label>
-               <input type="email" class="form-control" placeholder="DD/MM/YY">
-                <i class="fa fa-calendar" aria-hidden="true"></i>
-             </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Start Year :</label>
+                        <input type="text" class="form-control" placeholder="DD/MM/YY"  formControlName="startYear"
+                        [ngClass]="{ 'is-invalid': submitted && section2Form.get('startYear').hasError('required') }">    
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                          <div *ngIf="submitted && section2Form.get('startYear').hasError" >
+                            <div *ngIf="section2Form.get('startYear').hasError('required')" class="danger">
+                                *please enter the startYear
+                            </div>
+                          </div>      
+                      </div>
 
-              <div class="form-group">
-              <label for="exampleInputEmail1">Year / Intake if not applying for next intake :</label>
-               <input type="email" class="form-control" placeholder="DD/MM/YY">
-                <i class="fa fa-calendar" aria-hidden="true"></i>
-             </div>
-         </div>  
-       <div class="cntact-button back">
-               <button class="banner-button router-link" [routerLink]="['/section1']">Back</button>
-               <button class="banner-button active router-link" [routerLink]="['/section3']">Continue</button>
-               <button class="banner-button router-link">Save and Quit</button>
-              </div>
-       </div>          
+                      <div class="form-group">
+                          <label for="exampleInputEmail1">Start Month :</label>
+                          <input type="text" class="form-control" placeholder="DD/MM/YY" formControlName="startMonth"
+                            [ngClass]="{ 'is-invalid': submitted && section2Form.get('startMonth').hasError('required') }">    
+                          <i class="fa fa-calendar" aria-hidden="true"></i>
+                          <div *ngIf="submitted && section2Form.get('startMonth').hasError" >
+                            <div *ngIf="section2Form.get('startMonth').hasError('required')" class="danger">
+                                *please enter the startMonth
+                            </div>
+                          </div>      
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Year / Intake if not applying for next intake :</label>
+                        <input type="email" class="form-control" placeholder="DD/MM/YY" formControlName="yearIntake"
+                          [ngClass]="{ 'is-invalid': submitted && section2Form.get('yearIntake').hasError('required') }">    
+                          <i class="fa fa-calendar" aria-hidden="true"></i>
+                          <div *ngIf="submitted && section2Form.get('yearIntake').hasError" >
+                            <div *ngIf="section2Form.get('yearIntake').hasError('required')" class="danger">
+                                *please enter the yearIntake
+                            </div>
+                          </div>     
+                      </div>
+                  </div>  
+                  <div class="cntact-button back">
+                          <button class="banner-button router-link" [routerLink]="['/section1']">Back</button>
+                          <button class="banner-button active router-link" [routerLink]="['/section3']">Continue</button>
+                          <button class="banner-button router-link" (click)="saveAndQuit()">Save and Quit</button>
+                  </div>
+            </form>
+        </div>          
    </div>
 </section>

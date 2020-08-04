@@ -2,90 +2,91 @@
     <div class="container1440 mt-5">
         <h5 class="application_pro">Application Form</h5>
          <div class="application-form mt-5">
-             <div class="academic">
-           <h5 class="application_pro">Academic Qualifications</h5>
-            
-             <div class="University-name cs3 mb-3">
-                <label>Country of Study :</label>
-                 <select class="form-control">
-                <option>USA</option>
-                <option>Australia</option>
-                <option>Brazil</option>
-                 </select>
-                <i class="fa fa-sort-down"></i>
-            </div>
+            <form [formGroup]="section4Form">
+                  <div class="academic">
+                      <h5 class="application_pro">Academic Qualifications</h5>
+                  
+                      <div class="University-name cs3 mb-3">
+                          <label>Country of Study :</label>
+                          <select class="form-control">
+                          <option>USA</option>
+                          <option>Australia</option>
+                          <option>Brazil</option>
+                          </select>
+                          <i class="fa fa-sort-down"></i>
+                      </div>
 
-             <div class="University-name cs3 mb-3">
-                <label>Academic Qualifications :</label>
-                 <select class="form-control">
-                <option>Qualifications 1</option>
-                 </select>
-                <i class="fa fa-sort-down"></i>
-            </div>
+                      <div class="University-name cs3 mb-3">
+                          <label>Academic Qualifications :</label>
+                          <select class="form-control">
+                          <option>Qualifications 1</option>
+                          </select>
+                          <i class="fa fa-sort-down"></i>
+                      </div>
 
-             <div class="form-group">
-              <label for="exampleInputEmail1">Result / Overall Grade :</label>
-               <input type="email" class="form-control" >
-             </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Result / Overall Grade :</label>
+                        <input type="email" class="form-control" >
+                      </div>
 
-              <div class="form-group">
-              <label for="exampleInputEmail1">Subject 1 :</label>
-               <input type="email" class="form-control" placeholder="Subject 1">
-             </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Subject 1 :</label>
+                        <input type="email" class="form-control" placeholder="Subject 1">
+                      </div>
 
-                <div class="form-group">
-              <label for="exampleInputEmail1">Subject 1- Grade :</label>
-               <input type="email" class="form-control" placeholder="Subject 1- Grade">
-             </div>
+                      <div class="form-group">
+                    <label for="exampleInputEmail1">Subject 1- Grade :</label>
+                    <input type="email" class="form-control" placeholder="Subject 1- Grade">
+                      </div>
 
-                <div class="form-group">
-              <label for="exampleInputEmail1">Subject 2 :</label>
-               <input type="email" class="form-control" placeholder="Subject 2">
-             </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Subject 2 :</label>
+                        <input type="email" class="form-control" placeholder="Subject 2">
+                      </div>
 
-                <div class="form-group">
-              <label for="exampleInputEmail1">Subject 2- Grade :</label>
-               <input type="email" class="form-control" placeholder="Subject 2- Grade">
-             </div>
-             
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Subject 2- Grade :</label>
+                        <input type="email" class="form-control" placeholder="Subject 2- Grade">
+                      </div>
+                  
 
-               <div class="form-group">
-              <label for="exampleInputEmail1">Institution Name :</label>
-               <input type="email" class="form-control">
-             </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Institution Name :</label>
+                        <input type="email" class="form-control">
+                      </div>
 
-                  <div class="form-group">
-              <label for="exampleInputEmail1">End Date :</label>
-               <input type="email" class="form-control" placeholder="DD/MM/YY">
-                <i class="fa fa-calendar" aria-hidden="true"></i>
-             </div>
+                      <div class="form-group">
+                          <label for="exampleInputEmail1">End Date :</label>
+                          <input type="email" class="form-control" placeholder="DD/MM/YY">
+                          <i class="fa fa-calendar" aria-hidden="true"></i>
+                      </div>
 
-                  <div class="form-group">
-              <label for="exampleInputEmail1">Start Date :</label>
-               <input type="email" class="form-control" placeholder="DD/MM/YY">
-                <i class="fa fa-calendar" aria-hidden="true"></i>
-             </div>
-                 <div class="add_date">
-                  <i class="fa fa-plus" aria-hidden="true"></i> Add aditional qualification
-                 </div>
-               
-                 <div class="form-group">
-              <label for="exampleInputEmail1">Please State Highest Academic Qualification</label>
-               <input type="email" class="form-control" placeholder="Subject 2">
-             </div>
+                      <div class="form-group">
+                          <label for="exampleInputEmail1">Start Date :</label>
+                          <input type="email" class="form-control" placeholder="DD/MM/YY">
+                          <i class="fa fa-calendar" aria-hidden="true"></i>
+                      </div>
 
-                 <div class="form-group">
-              <label for="exampleInputEmail1">Achieved :</label>
-               <input type="email" class="form-control">
-             </div>
+                      <div class="add_date">
+                        <i class="fa fa-plus" aria-hidden="true"></i> Add aditional qualification
+                      </div>
+                    
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Please State Highest Academic Qualification</label>
+                        <input type="email" class="form-control" placeholder="Subject 2">
+                      </div>
 
-         </div>   
-
-               <div class="cntact-button back">
-               <button class="banner-button router-link" [routerLink]="['/section3']">Back</button>
-               <button class="banner-button active router-link" [routerLink]="['/section5']">Continue</button>
-               <button class="banner-button router-link">Save and Quit</button>
-              </div>
+                      <div class="form-group">
+                          <label for="exampleInputEmail1">Achieved :</label>
+                          <input type="email" class="form-control">
+                      </div>
+                  </div>   
+                  <div class="cntact-button back">
+                      <button class="banner-button router-link" [routerLink]="['/section3']">Back</button>
+                      <button class="banner-button active router-link" [routerLink]="['/section5']">Continue</button>
+                      <button class="banner-button router-link">Save and Quit</button>
+                  </div>
+            </form>
      </div>         
    </div>
 </section>

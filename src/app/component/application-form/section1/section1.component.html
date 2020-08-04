@@ -261,7 +261,7 @@
 
                               <div class="University-name cs3 mb-3">
                                   <label>Relevant Criminal Convictions :</label>
-                                  <select class="form-control"  formControlName="criminalConviction">
+                                  <select class="form-control"  formControlName="criminalConviction" [ngClass]="{ 'is-invalid': submitted && section1Form.get('criminalConviction').hasError('required') }" >
                                     <option>No</option>
                                     <option>Yes</option>
                                   </select>
