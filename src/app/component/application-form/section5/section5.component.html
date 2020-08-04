@@ -1,122 +1,119 @@
+<section>
+    <div class="container1440 mt-5">
+        <h5 class="application_pro">Application Form</h5>
+        <div class="application-form mt-5">
+            <form [formGroup]="section5Form">
+                <div class="academic">
+                    <h5 class="application_pro">English Language</h5>
 
-    
-       <section>
-        <div class="container1440 mt-5">
-            <h5 class="application_pro">Application Form</h5>
-             <div class="application-form mt-5">
-                 <div class="academic">
-               <h5 class="application_pro">English Language</h5>
-                
-                 <div class="University-name cs3 mb-3">
-                    <label>Are you a native of  an englisg speaking country?</label>
-                     <select class="form-control">
-                    <option>Yes</option>
-                    <option>No</option>
-                     </select>
-                    <i class="fa fa-sort-down"></i>
-                </div>
+                    <div class="University-name cs3 mb-3">
+                        <label>Are you a native of an english speaking country ?</label>
+                        <select class="form-control" formControlName="nativeOfEnglishSpeakingCountry" (change)="selectNativeOfEnglishSpeakingCountry($event)">
+                            <option value="YES">Yes</option>
+                            <option value="NO">No</option>
+                        </select>
+                        <i class="fa fa-sort-down"></i>
+                    </div>
 
-                 <div class="University-name cs3 mb-3">
-                    <label>If yes, please select your country :</label>
-                     <select class="form-control">
-                    <option>UK</option>
-                     </select>
-                    <i class="fa fa-sort-down"></i>
-                </div>
+                    <div class="University-name cs3 mb-3">
+                        <label>If yes, please select your country :</label>
+                        <select class="form-control" formControlName="nativeEnglishSpeakingCountryName">
+                            <option value="UK">UK</option>
+                        </select>
+                        <i class="fa fa-sort-down"></i>
+                    </div>
 
 
-                  <div class="form-group">
-                  <label>If no, please provide details of your more recent English language test undertaken</label>
-                    <textarea class="form-control" rows="3"></textarea>
-                 </div>
+                    <div class="form-group">
+                        <label>If no, please provide details of your more recent English language test undertaken</label>
+                        <textarea class="form-control" rows="3" formControlName="englishLanguageTestDetails"></textarea>
+                    </div>
 
-                  <div class="University-name cs3 mb-3">
-                    <label>Do you have any professional qualification ?</label>
-                     <select class="form-control">
-                    <option>Yes</option>
-                    <option>No</option>
-                     </select>
-                    <i class="fa fa-sort-down"></i>
-                </div>
+                    <div class="University-name cs3 mb-3">
+                        <label>Do you have any professional qualification ?</label>
+                        <select class="form-control" formControlName="professionalQualification">
+                          <option value="YES">Yes</option>
+                          <option value="NO">No</option>
+                        </select>
+                        <i class="fa fa-sort-down"></i>
+                    </div>
 
-                 <div class="University-name cs3 mb-3">
-                    <label>If yes, please select your english qualification :</label>
-                     <select class="form-control">
-                      <option>Yes</option>
-                    <option>No</option>
-                     </select>
-                    <i class="fa fa-sort-down"></i>
-                </div>
+                    <div class="University-name cs3 mb-3">
+                        <label>If yes, please select your english qualification :</label>
+                        <select class="form-control" formControlName="englishQualificationName">
+                            <option value="IELTS">IELTS</option>
+                            <option value="TOEFL">TOEFL</option>
+                        </select>
+                        <i class="fa fa-sort-down"></i>
+                    </div>
 
-                 <div class="form-group">
-                  <label for="exampleInputEmail1">Date Test Taken :</label>
-                   <input type="email" class="form-control" placeholder="DD/MM/YY">
-                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                 </div>
-                 
-                <div class="individual">
-                   <div class="form-group">
-                  <label>Individual band score :</label>
-                   <input type="email" class="form-control" placeholder="Result">
-                 </div>
-                 <div class="form-group">
-                     <label>&nbsp</label>
-                   <input type="email" class="form-control">
-                 </div>
-             </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Date Test Taken :</label>
+                      <input type="date" class="form-control" placeholder="DD/MM/YY" formControlName="englishQualificationDate">
+                      <i class="fa fa-calendar" aria-hidden="true"></i>
+                    </div>
 
                     <div class="individual">
-                   <div class="form-group">
-                   <input type="email" class="form-control" placeholder="Result">
-                 </div>
-                 <div class="form-group">
-                   <input type="email" class="form-control">
-                 </div>
-             </div>
+                        <div class="form-group">
+                            <label>Individual band score :</label>
+                            <input type="number" class="form-control" placeholder="Reading score" formControlName="englishQualificationScore1">
+                        </div>
+                        <div class="form-group">
+                            <label>&nbsp;</label>
+                            <input type="number" class="form-control" placeholder="Listening score" formControlName="englishQualificationScore2">
+                        </div>
+                    </div>
 
-                 <p>If no, please select your highest  acedimic english qualification:</p>
-                     <div class="University-name cs3 mb-3">
-                    <label>Select Country :</label>
-                     <select class="form-control">
-                    <option>UK</option>
-                     <option>USA</option>
-                     </select>
-                    <i class="fa fa-sort-down"></i>
-                </div>
+                    <div class="individual">
+                        <div class="form-group">
+                            <input type="number" class="form-control" placeholder="Writing score"  formControlName="englishQualificationScore3">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" placeholder="Speaking score" formControlName="englishQualificationScore4">
+                        </div>
+                    </div>
 
+                    <p>If no, please select your highest  acedimic english qualification:</p>
+                    <div class="University-name cs3 mb-3">
+                        <label>Select Country :</label>
+                        <select class="form-control" formControlName="highestAcedemicQualification">
+                            <option value="UK">UK</option>
+                            <option value="USA">USA</option>
+                        </select>
+                        <i class="fa fa-sort-down"></i>
+                    </div>
 
                     <div class="University-name cs3 mb-3">
-                    <label>Type of English Qualification :</label>
-                     <select class="form-control">
-                    <option>12th</option>
-                    <option>10th</option>
-                     </select>
-                    <i class="fa fa-sort-down"></i>
-                </div>
-
+                        <label>Type of English Qualification :</label>
+                        <select class="form-control" formControlName="typeOfEnglishQualification">
+                            <option value="12">12th</option>
+                            <option value="10">10th</option>
+                        </select>
+                        <i class="fa fa-sort-down"></i>
+                    </div>
 
                     <div class="University-name cs3 mb-3">
-                    <label>Result Type :</label>
-                     <select class="form-control">
-                    <option>Score</option>
-                    <option>Score</option>
-                     </select>
-                    <i class="fa fa-sort-down"></i>
+                        <label>Result Type :</label>
+                        <select class="form-control" formControlName="resultType">
+                            <option value="%">%</option>
+                            <option value="grade">Grade</option>
+                            <option value="score">Score</option>
+                        </select>
+                        <i class="fa fa-sort-down"></i>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Overall Result :</label>
+                        <input type="email" class="form-control" placeholder="Result" formControlName="overallResult">
+                    </div>
+
                 </div>
-
-
-                     <div class="form-group">
-                  <label>Overall Result :</label>
-                   <input type="email" class="form-control" placeholder="Result">
-                 </div>
-
-             </div>   
-
-                   <div class="cntact-button back">
-                   <button class="banner-button router-link" [routerLink]="['/section4']">Back</button>
-                   <button class="banner-button active router-link" [routerLink]="['/section6']">Continue</button>
-                   <button class="banner-button router-link">Save and Quit</button>
-                  </div>
-         </div>         
-       </div>
+                <div class="cntact-button back">
+                    <button class="banner-button router-link" [routerLink]="['/section4']">Back</button>
+                    <button class="banner-button active router-link" [routerLink]="['/section6']">Continue</button>
+                    <button class="banner-button router-link" (click)="saveAndQuit()">Save and Quit</button>
+                </div>
+            </form>
+        </div>         
+    </div>
   </section>
