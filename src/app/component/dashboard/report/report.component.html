@@ -50,27 +50,27 @@
                   <div class="col-lg-3 col-md-6 col-md-12">
                     <div class="total-applied">
                       <p>Total applied application<br>forms today.</p>
-                        <h4>1234</h4>
+                        <h4>{{reportsCountData?.dayCount}}</h4>
                     </div>
                   </div>
 
                     <div class="col-lg-3 col-md-6 col-md-12">
                     <div class="total-applied">
                       <p>Total applied application<br>forms in this week.</p>
-                        <h4>1234</h4>
+                        <h4>{{reportsCountData?.weekCount}}</h4>
                     </div>
                   </div>
 
                     <div class="col-lg-3 col-md-6 col-md-12">
                     <div class="total-applied">
                       <p>Total applied application<br>forms in this Month</p>
-                        <h4>1234</h4>
+                        <h4>{{reportsCountData?.monthCount}}</h4>
                     </div>
                   </div>
                     <div class="col-lg-3 col-md-6 col-md-12">
                     <div class="total-applied">
                       <p>Total applied application<br>forms in this Year</p>
-                        <h4>1234</h4>
+                        <h4>{{reportsCountData?.yearCount}}</h4>
                     </div>
                   </div>
                 </div>
@@ -85,20 +85,18 @@
                   </li>
                   <li>
                      <label>From</label> 
-                      <input type="date" class="form-control" placeholder="MM/DD/YY">
+                      <input type="date" class="form-control" placeholder="MM/DD/YY" [(ngModel)]="fromDate">
                       <!-- <i class="fa fa-calendar" aria-hidden="true"></i> -->
-
                     </li>
                     <li>
                   <label>To</label> 
-                      <input type="date" class="form-control" placeholder="MM/DD/YY">
+                      <input type="date" class="form-control" placeholder="MM/DD/YY" [(ngModel)]="toDate">
                       <!-- <i class="fa fa-calendar" aria-hidden="true"></i> -->
-
                     </li>
                     <li>
                       <label>&nbsp;</label>
                       <div class="cntact-button">
-                         <button class="banner-button router-link" style="margin-right: 10px;">Submit</button>
+                         <button class="banner-button router-link" style="margin-right: 10px;" (click)="searchReportChart()">Submit</button>
                           <button class="banner-button router-link">Reset</button>
                      </div>
                     </li>

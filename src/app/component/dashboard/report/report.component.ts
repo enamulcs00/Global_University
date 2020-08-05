@@ -7,7 +7,10 @@ import { ServicesService } from 'src/app/services.service';
   styleUrls: ['./report.component.css']
 })
 export class ReportComponent implements OnInit {
-  countryList:any = []
+  countryList:any = [];
+  reportsCountData :any
+  fromDate:any;
+  toDate:any;
 
   constructor(private service:ServicesService) { }
 
@@ -15,6 +18,25 @@ export class ReportComponent implements OnInit {
     this.service.getCountryStates().subscribe((res:any) => {
       console.log("res-->",res)
       this.countryList = res
+    })
+
+    this.reportCountApi()
+  }
+
+  reportCountApi(){
+    this.service.getApi('course/get-form-count',2).subscribe((res:any) => {
+      console.log("res--->",res)
+      if(res.status == 200){
+        this.reportsCountData = res.data
+      }
+    })
+  }
+
+  searchReportChart(){
+    console.log("from date -->",this.fromDate)
+    console.log("to date -->",this.toDate)
+    this.service.getApi(`course/get-graph-data-for-application-status`,1).subscribe((res:any) => {
+      console.log("res-->>",res)
     })
   }
 

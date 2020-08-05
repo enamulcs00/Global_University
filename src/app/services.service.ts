@@ -33,6 +33,8 @@ export class ServicesService {
     
   //================ GET API =========================//    
       getApi(url, isHeader) {
+
+        console.log("token -->",localStorage.getItem('token'))
           let headers;
           if (isHeader == 1) {
               headers = new HttpHeaders({
