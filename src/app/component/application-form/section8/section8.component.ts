@@ -7,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Section8Component implements OnInit {
 
+  uploadState : boolean = false;
+  submitted : boolean = false;
+  description : any = '';
+
   constructor() { }
 
   ngOnInit() {
     window.scrollTo(0, 0);
+  }
+
+  saveAndQuit(){
+    this.submitted = true;
   }
 
 }

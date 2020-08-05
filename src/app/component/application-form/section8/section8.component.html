@@ -1,24 +1,28 @@
-     
-       <section>
-        <div class="container1440 mt-5">
-            <h5 class="application_pro">Application Form</h5>
-             <div class="application-form mt-5">
-                 <div class="academic">
-               <h5 class="application_pro">Personal Statement</h5>
-                <p class="indicate">Please indicate here if you  have uploaded a personal statement instead of completing the above field.</p>
-                
-
-                 <div class="form-group">
+<section>
+    <div class="container1440 mt-5">
+        <h5 class="application_pro">Application Form</h5>
+          <div class="application-form mt-5">
+            <div class="academic">
+              <h5 class="application_pro">Personal Statement</h5>
+                <label class="custom-checkbox">Please indicate here if you  have uploaded a personal statement instead of completing the above field.
+                  <input type="checkbox" checked="checked"  [(ngModel)]="uploadState">
+                  <span class="checkmark"></span>
+                </label>                
+                <div class="form-group">
                   <label class="des_cs">Description:</label>
-                  <textarea class="form-control" rows="4"></textarea>
-                 </div>
-
-             </div>  
-           <div class="cntact-button back">
-                   <button class="banner-button router-link" [routerLink]="['/section7']">Back</button>
-                   <button class="banner-button router-link active" [routerLink]="['/section9']">Continue</button>
-                   <button class="banner-button router-link">Save and Quit</button>
+                  <textarea class="form-control" rows="4" [(ngModel)]="description"></textarea>
+                  <div *ngIf="submitted && description == '' && uploadState" >
+                    <div *ngIf="description == ''" class="danger">
+                        *please enter the Description
+                    </div>
                   </div>
-           </div>          
-       </div>
+                </div>
+            </div>  
+            <div class="cntact-button back">
+              <button class="banner-button router-link" [routerLink]="['/section7']">Back</button>
+              <button class="banner-button router-link active" [routerLink]="['/section9']">Continue</button>
+              <button class="banner-button router-link" (click)="saveAndQuit()">Save and Quit</button>
+            </div>
+        </div>          
+    </div>
   </section>

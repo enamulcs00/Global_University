@@ -41,7 +41,7 @@
 
                       <div class="form-group">
                           <label for="exampleInputEmail1">Address :</label>
-                          <input type="email" class="form-control" placeholder="Address"  formControlName="address"
+                          <input type="text" class="form-control" placeholder="Address"  formControlName="address"
                           [ngClass]="{ 'is-invalid': submitted && section3Form.get('address').hasError('required') }">  
                           <div *ngIf="submitted && section3Form.get('address').hasError" >
                             <div *ngIf="section3Form.get('address').hasError('required')" class="danger">
@@ -63,7 +63,7 @@
 
                       <div class="form-group">
                           <label for="exampleInputEmail1">Contact Telephone Number :</label>
-                          <input type="email" class="form-control" placeholder="Phone Number"   formControlName="telephoneNo"
+                          <input type="text" class="form-control" placeholder="Phone Number"   formControlName="telephoneNo"
                           [ngClass]="{ 'is-invalid': submitted && section3Form.get('telephoneNo').hasError('required') }">  
                           <div *ngIf="submitted && section3Form.get('telephoneNo').hasError" >
                             <div *ngIf="section3Form.get('telephoneNo').hasError('required')" class="danger">
@@ -74,7 +74,7 @@
 
                       <div class="form-group">
                           <label for="exampleInputEmail1">Contact  Phone Number :</label>
-                          <input type="email" class="form-control" placeholder="Phone Number"   formControlName="contactPhoneNo"
+                          <input type="text" class="form-control" placeholder="Phone Number"   formControlName="contactPhoneNo"
                           [ngClass]="{ 'is-invalid': submitted && section3Form.get('contactPhoneNo').hasError('required') }">  
                           <div *ngIf="submitted && section3Form.get('contactPhoneNo').hasError" >
                             <div *ngIf="section3Form.get('contactPhoneNo').hasError('required')" class="danger">
