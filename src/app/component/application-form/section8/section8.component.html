@@ -10,7 +10,7 @@
                 </label>                
                 <div class="form-group">
                   <label class="des_cs">Description:</label>
-                  <textarea class="form-control" rows="4" [(ngModel)]="description"></textarea>
+                  <textarea class="form-control" rows="4" [(ngModel)]="description" maxlength="4000"></textarea>
                   <div *ngIf="submitted && description == '' && uploadState" >
                     <div *ngIf="description == ''" class="danger">
                         *please enter the Description

@@ -20,6 +20,8 @@ export class Section3Component implements OnInit {
 	preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
   validPhoneNo:Boolean = true
   validContactNo:Boolean = true;
+  validHomeTelephoneNo:Boolean = true;
+  validHome1TelephoneNo:Boolean = true;
   responseMessage :any = ""
 
   constructor(private service:ServicesService) { }
@@ -59,6 +61,32 @@ export class Section3Component implements OnInit {
       }
     }else{
       this.validContactNo = true
+    }
+  }
+
+  homeTelephoneValidOrNot(){
+    let key = this.section3Form.controls['homeTelephoneNo'].errors
+    if(key){
+      if(key['validatePhoneNumber']){
+        this.validHomeTelephoneNo = key['validatePhoneNumber'].valid
+      }else{
+        this.validHomeTelephoneNo = true
+      }
+    }else{
+      this.validHomeTelephoneNo = true
+    }
+  }
+
+  homeTelephone1ValidOrNot(){
+    let key = this.section3Form.controls['homeTelephoneNo1'].errors
+    if(key){
+      if(key['validatePhoneNumber']){
+        this.validHome1TelephoneNo = key['validatePhoneNumber'].valid
+      }else{
+        this.validHome1TelephoneNo = true
+      }
+    }else{
+      this.validHome1TelephoneNo = true
     }
   }
 
