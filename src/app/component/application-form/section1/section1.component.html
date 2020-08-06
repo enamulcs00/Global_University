@@ -2,26 +2,6 @@
     <div class="container1440 mt-5">
         <h5 class="application_pro">Application Form</h5>
         <div class="application_cs mt-5">
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                <li class="nav-item create_new">
-                    <a class="nav-link find active  " id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
-                      aria-controls="pills-home" [routerLink]="['/section1']" aria-selected="true">Create New Application</a>
-                </li>
-                <li class="nav-item create_new">
-                  <a class="nav-link " id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
-                      aria-controls="pills-profile" [routerLink]="['/draft-form']" aria-selected="false">Find and Continue
-                      Incomplete Applications</a>
-                </li>
-                <li class="nav-item create_new">
-                    <a class="nav-link " id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
-                      aria-controls="pills-contact" [routerLink]="['/dashboard']" aria-selected="false">Submitted Application or
-                      Applicants</a>
-                </li>
-                <li class="nav-item create_new">
-                    <a class="nav-link find " id="pills-contact-tab" data-toggle="pill" href="#pills-contact1" role="tab"
-                      aria-controls="pills-contact" [routerLink]="['/report']" aria-selected="false">Reports</a>
-                </li>
-            </ul>
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-new_create" role="tabpanel" aria-labelledby="pills-contact-tab">
                     <div class="personal-details mt-5">
@@ -33,9 +13,12 @@
                                   <label>Title :</label>
                                   <select class="form-control" formControlName="title" 
                                   [ngClass]="{ 'is-invalid': submitted && section1Form.get('title').hasError('required') }" >
-                                      <option>Mr.</option>
-                                      <option>Mrs.</option>
-                                      <option>Miss.</option>
+                                      <option value="Mr">Mr</option>
+                                      <option value="Mrs">Mrs</option>
+                                      <option value="Ms">Ms</option>
+                                      <option value="Prof">Prof</option>
+                                      <option value="Dr">Dr</option>
+                                      <option value="Doctor/Other">Doctor/Other</option>
                                   </select>
                                   <i class="fa fa-sort-down"></i>
                                   <div *ngIf="submitted && section1Form.get('title').hasError" >
@@ -95,7 +78,7 @@
                                       <input type="radio" name="gender" value="Female" formControlName="gender">Female
                                   </label>
                                   <label class="radio-inline radio_src">
-                                      <input type="radio" name="gender" value="Others" formControlName="gender">Others
+                                      <input type="radio" name="gender" value="Others" formControlName="gender"> Prefer not to say
                                   </label>
                                   <div *ngIf="submitted && section1Form.get('gender').hasError" style="top: -20px;">
                                       <div *ngIf="section1Form.get('gender').hasError('required')" class="danger">
@@ -126,8 +109,8 @@
                                       <div *ngIf="section1Form.get('confirmEmail').hasError('required')" class="danger">
                                           *please enter the confirmEmail
                                       </div>
-                                      <div *ngIf="section1Form.get('confirmEmail').hasError('pattern')" class="danger">
-                                        *please enter the valid confirmEmail
+                                      <div  *ngIf="(section1Form.value.email != section1Form.value.confirmEmail) && section1Form.get('confirmEmail').dirty" class="danger">
+                                        *please enter the same email
                                       </div>
                                   </div>
                               </div>
@@ -136,7 +119,8 @@
                                   <label>Country of Permanent Residence :</label>
                                   <select class="form-control" formControlName="permanentResidenceCountry"
                                   [ngClass]="{ 'is-invalid': submitted && section1Form.get('permanentResidenceCountry').hasError('required') }" >
-                                    <option>USA</option>
+                                    <option disabled selected value=""> Select county</option>
+                                    <option *ngFor="let item of countryList" value="{{item.country}}">{{item.country}}</option>
                                   </select>
                                   <i class="fa fa-sort-down"></i>
                                   <div *ngIf="submitted && section1Form.get('permanentResidenceCountry').hasError" >
@@ -166,7 +150,8 @@
                               <div class="University-name cs3 mb-3">
                                   <label>Country of Birth :</label>
                                   <select class="form-control" formControlName="CountryOfBirth" [ngClass]="{ 'is-invalid': submitted && section1Form.get('CountryOfBirth').hasError('required') }" >
-                                    <option>UK</option>
+                                    <option disabled selected value=""> Select county</option>
+                                    <option *ngFor="let item of countryList" value="{{item.country}}">{{item.country}}</option>
                                   </select>
                                   <i class="fa fa-sort-down"></i>
                                   <div *ngIf="submitted && section1Form.get('CountryOfBirth').hasError" >
@@ -222,8 +207,24 @@
                                   <label>Ethnicity (UK / EU Only) :</label>
                                   <select class="form-control" formControlName="ethnicity"
                                   [ngClass]="{ 'is-invalid': submitted && section1Form.get('ethnicity').hasError('required') }" >
-                                    <option>UK</option>
-                                    <option>EU</option>
+                                        <option value="English / Welsh / Scottish / Northern Irish / British" > English / Welsh / Scottish / Northern Irish / British</option>
+                                        <option value="Irish" > Irish</option>
+                                        <option value="Gypsy or Irish Traveller" > Gypsy or Irish Traveller</option>
+                                        <option value="Any other White background" > Any other White background</option>
+                                        <option value="White and Black Caribbean" > White and Black Caribbean</option>
+                                        <option value="White and Black African" > White and Black African</option>
+                                        <option value="White and Asian" > White and Asian</option>
+                                        <option value="Any other Mixed / Multiple ethnic background" > Any other Mixed / Multiple ethnic background</option>
+                                        <option value="Indian" > Indian</option>
+                                        <option value="Pakistani" > Pakistani</option>
+                                        <option value="Bangladeshi" > Bangladeshi</option>
+                                        <option value="Chinese" > Chinese</option>
+                                        <option value="Any other Asian background" > Any other Asian background</option>
+                                        <option value="African" > African</option>
+                                        <option value="Caribbean" > Caribbean</option>
+                                        <option value="Any other Black / African / Caribbean background<" > Any other Black / African / Caribbean background</option>
+                                        <option value="Arab" > Arab</option>
+                                        <option value="Any other ethnic group" > Any other ethnic group</option>
                                   </select>
                                   <i class="fa fa-sort-down"></i>
                                   <div *ngIf="submitted && section1Form.get('ethnicity').hasError" >
@@ -284,8 +285,8 @@
 
                             </div>
                             <div class="cntact-button back">
-                                <button class="banner-button router-link" [routerLink]="['/dashboard']">Back to Dashboard</button>
-                                <button class="banner-button active router-link" [routerLink]="['/section2']" >Continue</button>
+                                <button class="banner-button router-link" [routerLink]="['/section1']">Back</button>
+                                <button class="banner-button active router-link" [routerLink]="['/section3']" >Continue</button>
                                 <button class="banner-button active router-link" (click)="saveAndQuit()">Save and Quit</button>
                             </div>
                         </form>

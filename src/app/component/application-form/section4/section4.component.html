@@ -5,7 +5,7 @@
             <form [formGroup]="section4Form">
                   <div class="academic">
                       <h5 class="application_pro">Academic Qualifications</h5>
-                      <!-- <div formArrayName='qualificationArr' *ngFor="let data of callForm.get('qualificationArr')['controls']; let i = index">
+                      <div formArrayName='qualificationArr' *ngFor="let data of section4Form.get('qualificationArr')['controls']; let i = index">
                           <div [formGroupName]="i">
                               <div class="University-name cs3 mb-3">
                                   <label>Country of Study :</label>
@@ -67,7 +67,7 @@
                                   <i class="fa fa-calendar" aria-hidden="true"></i>
                               </div>                              
                           </div>
-                      </div> -->
+                      </div>
 
                       <div class="add_date" (click)="addQualification()">
                         <i class="fa fa-plus" aria-hidden="true"></i> Add aditional qualification

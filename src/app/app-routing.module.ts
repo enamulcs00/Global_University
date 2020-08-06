@@ -53,8 +53,8 @@ const routes: Routes = [
   { path: 'my-subscription', component : MySubscriptionComponent,canActivate :[AuthGuard] },
   { path: 'subscription-history', component : SubscriptionHistoryComponent,canActivate :[AuthGuard] },
 
-  { path: 'section1', component: Section1Component,canActivate :[AuthGuard] },
-  { path: 'section2', component: Section2Component,canActivate :[AuthGuard] },
+  { path: 'section2', component: Section1Component,canActivate :[AuthGuard] },
+  { path: 'section1', component: Section2Component,canActivate :[AuthGuard] },
   { path: 'section3', component: Section3Component,canActivate :[AuthGuard] },
   { path: 'section4', component: Section4Component,canActivate :[AuthGuard] },
   { path: 'section5', component: Section5Component,canActivate :[AuthGuard] },

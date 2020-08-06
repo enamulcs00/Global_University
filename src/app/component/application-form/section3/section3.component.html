@@ -9,11 +9,9 @@
                       <div class="University-name cs3 mb-3">
                           <label>Select Country :</label>
                           <select class="form-control" formControlName="country"
-                          [ngClass]="{ 'is-invalid': submitted && section3Form.get('country').hasError('required') }">  
-                              <option selected disabled value="">Select country</option>
-                              <option>USA</option>
-                              <option>Australia</option>
-                              <option>Brazil</option>
+                          [ngClass]="{ 'is-invalid': submitted && section3Form.get('country').hasError('required') }" (change)="getState($event)">  
+                            <option disabled selected value=""> Select county</option>
+                            <option *ngFor="let item of countryList" value="{{item.country}}">{{item.country}}</option>
                           </select>
                           <i class="fa fa-sort-down"></i>
                           <div *ngIf="submitted && section3Form.get('country').hasError" >
@@ -27,9 +25,8 @@
                           <label for="exampleInputEmail1">Select State :</label>
                           <select class="form-control" formControlName="state"
                           [ngClass]="{ 'is-invalid': submitted && section3Form.get('state').hasError('required') }">  
-                              <option>USA</option>
-                              <option>Australia</option>
-                              <option>Brazil</option>
+                            <option disabled selected value=""> Select county</option>
+                            <option *ngFor="let item of stateList" value="{{item}}">{{item}}</option>
                           </select>
                           <i class="fa fa-sort-down"></i>
                           <div *ngIf="submitted && section3Form.get('state').hasError" >
@@ -52,7 +49,7 @@
 
                       <div class="University-name cs3 mb-3">
                           <label>ZipCode :</label>
-                          <input type="text" class="form-control" placeholder="ZipCode"   formControlName="zipCode"
+                          <input type="number" class="form-control" placeholder="ZipCode"   formControlName="zipCode"
                           [ngClass]="{ 'is-invalid': submitted && section3Form.get('zipCode').hasError('required') }">  
                           <div *ngIf="submitted && section3Form.get('zipCode').hasError" >
                             <div *ngIf="section3Form.get('zipCode').hasError('required')" class="danger">
@@ -63,24 +60,62 @@
 
                       <div class="form-group">
                           <label for="exampleInputEmail1">Contact Telephone Number :</label>
-                          <input type="text" class="form-control" placeholder="Phone Number"   formControlName="telephoneNo"
-                          [ngClass]="{ 'is-invalid': submitted && section3Form.get('telephoneNo').hasError('required') }">  
-                          <div *ngIf="submitted && section3Form.get('telephoneNo').hasError" >
-                            <div *ngIf="section3Form.get('telephoneNo').hasError('required')" class="danger">
-                                *please enter the telephoneNo
-                            </div>
-                          </div>
+                              <ngx-intl-tel-input
+                                    [inputId]="'adsasd'"
+                                    [cssClass]="'custom form-control'" 
+                                    [preferredCountries]="preferredCountries"
+                                    [enableAutoCountrySelect]="false" 
+                                    [enablePlaceholder]="true" 
+                                    [searchCountryFlag]="true"
+                                    [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                                    [selectFirstCountry]="false" 
+                                    [selectedCountryISO]="CountryISO.India"
+                                    [maxLength]="13" 
+                                    [tooltipField]="TooltipLabel.Name" 
+                                    [phoneValidation]="true" 
+                                    [separateDialCode]="separateDialCode"
+                                    name="phone"
+                                    (keyup)="phoneValidOrNot()"
+                                    formControlName="telephoneNo">
+                                </ngx-intl-tel-input>
+                                <span>
+                                    <p *ngIf="section3Form.get('telephoneNo').hasError('required') && section3Form.get('telephoneNo').touched" class="danger">
+                                        *please enter the telephoneNo
+                                    </p>
+                                    <p *ngIf="!validPhoneNo" class="danger">
+                                      *please enter the valid Phone Number
+                                    </p>
+                                </span>
                       </div>
 
                       <div class="form-group">
-                          <label for="exampleInputEmail1">Contact  Phone Number :</label>
-                          <input type="text" class="form-control" placeholder="Phone Number"   formControlName="contactPhoneNo"
-                          [ngClass]="{ 'is-invalid': submitted && section3Form.get('contactPhoneNo').hasError('required') }">  
-                          <div *ngIf="submitted && section3Form.get('contactPhoneNo').hasError" >
-                            <div *ngIf="section3Form.get('contactPhoneNo').hasError('required')" class="danger">
-                                *please enter the contactPhoneNo
-                            </div>
-                          </div>
+                          <label for="exampleInputEmail1">Contact  Phone Number :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <ngx-intl-tel-input
+                                  [inputId]="'adsasd2'"
+                                  [cssClass]="'custom form-control'" 
+                                  [preferredCountries]="preferredCountries"
+                                  [enableAutoCountrySelect]="false" 
+                                  [enablePlaceholder]="true" 
+                                  [searchCountryFlag]="true"
+                                  [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                                  [selectFirstCountry]="false" 
+                                  [selectedCountryISO]="CountryISO.India"
+                                  [maxLength]="13" 
+                                  [tooltipField]="TooltipLabel.Name" 
+                                  [phoneValidation]="true" 
+                                  [separateDialCode]="separateDialCode"
+                                  name="phone"
+                                  (keyup)="contactValidOrNot()"
+                                  formControlName="contactPhoneNo">
+                              </ngx-intl-tel-input>
+                              <span>
+                                  <p *ngIf="section3Form.get('contactPhoneNo').hasError('required') && section3Form.get('contactPhoneNo').touched" class="danger">
+                                      *please enter the contact number
+                                  </p>
+                                  <p *ngIf="!validContactNo" class="danger">
+                                    *please enter the valid Phone Number
+                                  </p>
+                              </span>
                       </div>
 
                       <div class="form-group">
@@ -91,6 +126,9 @@
                             <div *ngIf="section3Form.get('email').hasError('required')" class="danger">
                                 *please enter the email
                             </div>
+                            <div *ngIf="section3Form.get('email').hasError('pattern')" class="danger">
+                                *please enter the valid email
+                              </div>
                           </div>
                       </div>
 
@@ -139,9 +177,12 @@
                           <input type="email" class="form-control" placeholder="Email Address" formControlName="homeEmail"
                           [ngClass]="{ 'is-invalid': submitted && section3Form.get('homeEmail').hasError('required') }">  
                           <div *ngIf="submitted && section3Form.get('homeEmail').hasError" >
-                            <div *ngIf="section3Form.get('homeEmail').hasError('required')" class="danger">
-                                *please enter the homeEmail
-                            </div>
+                              <div *ngIf="section3Form.get('homeEmail').hasError('required')" class="danger">
+                                  *please enter the homeEmail
+                              </div>
+                              <div *ngIf="section3Form.get('homeEmail').hasError('pattern')" class="danger">
+                                *please enter the valid home email
+                              </div>
                           </div>
                       </div>
                   </div> 

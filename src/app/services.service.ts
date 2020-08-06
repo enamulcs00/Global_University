@@ -20,7 +20,7 @@ export class ServicesService {
           if (Header == 1) {
                 headers = new HttpHeaders({
                   "Content-Type": "application/json",
-                  "Authorization":localStorage.getItem('token')
+                  "Authorization":"Bearer "+localStorage.getItem('token')
                 })
           } 
           else {
@@ -34,20 +34,27 @@ export class ServicesService {
   //================ GET API =========================//    
       getApi(url, isHeader) {
 
-        console.log("token -->",localStorage.getItem('token'))
-          let headers;
+        // console.log("token -->",localStorage.getItem('token'))
+          let httpOptions;
           if (isHeader == 1) {
-              headers = new HttpHeaders({
+            httpOptions = {
+              headers: new HttpHeaders({
                 "Content-Type": "application/json",
-                "Authorization": localStorage.getItem('token')
-              })       
+                "Authorization":"Bearer "+localStorage.getItem('token')
+              }),
+              observe: 'response'              
+            }     
           }
           else {
-              headers = new HttpHeaders({
+            httpOptions = {
+              headers: new HttpHeaders({
                 "Content-Type": "application/json",
-              })       
+              }),
+              observe: 'response'              
+            }            
           }
-          return this.http.get((this.baseUrl + url), headers)
+          console.log("header-->",httpOptions)
+          return this.http.get((this.baseUrl + url), httpOptions)
       }
   
   //================ PUT API =========================//
@@ -64,7 +71,7 @@ export class ServicesService {
           let headers;
           headers = new HttpHeaders({
               "Content-Type": "application/json",
-              "Authorization": localStorage.getItem('token')
+              "Authorization":"Bearer "+localStorage.getItem('token')
           })     
           return this.http.delete(this.baseUrl + url, headers);
       }

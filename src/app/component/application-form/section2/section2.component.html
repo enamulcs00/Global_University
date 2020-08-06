@@ -1,6 +1,26 @@
 <section>
     <div class="container1440 mt-5">
-        <h5 class="application_pro">Application Form</h5>
+        <h5 class="application_pro">Application Form</h5><br><br>
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+          <li class="nav-item create_new">
+              <a class="nav-link find active  " id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+                aria-controls="pills-home" [routerLink]="['/section1']" aria-selected="true">Create New Application</a>
+          </li>
+          <li class="nav-item create_new">
+            <a class="nav-link " id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
+                aria-controls="pills-profile" [routerLink]="['/draft-form']" aria-selected="false">Find and Continue
+                Incomplete Applications</a>
+          </li>
+          <li class="nav-item create_new">
+              <a class="nav-link " id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
+                aria-controls="pills-contact" [routerLink]="['/dashboard']" aria-selected="false">Submitted Application or
+                Applicants</a>
+          </li>
+          <li class="nav-item create_new">
+              <a class="nav-link find " id="pills-contact-tab" data-toggle="pill" href="#pills-contact1" role="tab"
+                aria-controls="pills-contact" [routerLink]="['/report']" aria-selected="false">Reports</a>
+          </li>
+      </ul>
          <div class="application-form mt-5">
             <form [formGroup]="section2Form">
                   <div class="academic">
@@ -19,9 +39,8 @@
                           <label>Select Country :</label>
                           <select class="form-control" formControlName="countryName"
                           [ngClass]="{ 'is-invalid': submitted && section2Form.get('countryName').hasError('required') }">    
-                              <option>India</option>
-                              <option>Australia</option>
-                              <option>Brazil</option>
+                            <option disabled selected value=""> Select county</option>
+                            <option *ngFor="let item of countryList" value="{{item.country}}">{{item.country}}</option>
                           </select>
                           <i class="fa fa-sort-down"></i>
                           <div *ngIf="submitted && section2Form.get('countryName').hasError" >
@@ -67,9 +86,9 @@
                           </div>     
                       </div>
                   </div>  
-                  <div class="cntact-button back">
-                          <button class="banner-button router-link" [routerLink]="['/section1']">Back</button>
-                          <button class="banner-button active router-link" [routerLink]="['/section3']">Continue</button>
+                  <div class="cntact-button back">                          
+                          <button class="banner-button router-link" [routerLink]="['/dashboard']">Back to Dashboard</button>
+                          <button class="banner-button active router-link" [routerLink]="['/section2']">Continue</button>
                           <button class="banner-button router-link" (click)="saveAndQuit()">Save and Quit</button>
                   </div>
             </form>

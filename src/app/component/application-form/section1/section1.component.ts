@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ServicesService } from 'src/app/services.service';
 
 @Component({
   selector: 'app-section1',
@@ -10,10 +11,14 @@ export class Section1Component implements OnInit {
 
   section1Form:FormGroup;
   submitted:boolean = false;
+  countryList:any = [];
 
-  constructor() { }
+  constructor(private service:ServicesService) { }
 
   ngOnInit() {
+    this.service.getCountryStates().subscribe((res: any) => {
+      this.countryList = res
+    })
     this.initializeForm()
     window.scrollTo(0, 0);
   }
