@@ -10,16 +10,19 @@ export class Section10Component implements OnInit {
 
   section10Form:FormGroup
   researchForPGR:boolean = false
+  submitted :boolean = false;
+
   constructor() { }
 
   ngOnInit() {
     window.scrollTo(0, 0);
+    this.initializeForm()
   }
 
   initializeForm(){
     this.section10Form = new FormGroup({
       researchProposal: new FormControl(null,Validators.required),
-      researchProposalDescription: new FormControl(null)
+      researchProposalDescription: new FormControl('')
     })
   }
 
@@ -30,5 +33,9 @@ export class Section10Component implements OnInit {
     }else{
       this.researchForPGR = false
     }
+  }
+
+  saveAndQuit(){
+    this.submitted = true
   }
 }

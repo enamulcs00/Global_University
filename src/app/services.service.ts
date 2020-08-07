@@ -82,5 +82,13 @@ export class ServicesService {
       getCountryStates(): Observable<any> {
           return this.http.get("./assets/json/countrystateList.json");
         }
-  }
-  
+
+
+    postMethodMultipart(url, data): Observable<any> {
+        let headers;
+        headers = new HttpHeaders({
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        });
+        return this.http.post(this.baseUrl + url, data, { headers });
+      }
+}

@@ -1,66 +1,129 @@
 <section>
     <div class="container1440 mt-5">
-        <h5 class="application_pro">Application Form</h5>
+         <h5 class="application_pro">Application Form</h5>
          <div class="application-form mt-5">
-             <div class="academic">
-           <h5 class="application_pro">Document Upload Section</h5>
+               <form [formGroup]="section13Form">
+                     <div class="academic">
+                           <h5 class="application_pro">Document Upload Section</h5>
 
-               <div class="form-group mt-3">
-                   <label >Upload a Research Proposal (for PGR only :</label>
-                    <input type="email" class="form-control" placeholder="Upload">
-                     <input type="file" class="file" style="position: absolute;top: 45px;right: -154px;opacity: 0;cursor: pointer;">
-                    <i class="fa fa-paperclip" aria-hidden="true"></i>
-               </div>
+                           <div class="form-group mt-3">
+                              <label >Upload a Personal Statement :</label>
+                              <input type="text" class="form-control" placeholder="Upload" formControlName="personalStatement" disabled
+                              [ngClass]="{ 'is-invalid': submitted && section13Form.get('personalStatement').hasError('required') }" >
+                              <i class="fa fa-paperclip" aria-hidden="true"></i>
+                              <input type="file" class="file" style="position: absolute;top: 45px;right: -154px;opacity: 0;cursor: pointer;" 
+                              (change)="handleFileInput($event,'personalStatement')">
+                              <div *ngIf="submitted && section13Form.get('personalStatement').hasError" >
+                                 <div *ngIf="section13Form.get('personalStatement').hasError('required')" class="danger">
+                                    *please enter the personalStatement
+                                 </div>
+                              </div>
+                           </div>
 
-                  <div class="form-group mt-3">
-                   <label >Upload CV : </label>
-                    <input type="email" class="form-control" placeholder="Upload ">
-                     <input type="file" class="file" style="position: absolute;top: 45px;right: -154px;opacity: 0;cursor: pointer;">
-                    <i class="fa fa-paperclip" aria-hidden="true"></i>
-               </div>
+                           <div class="form-group mt-3">
+                              <label >Upload a Research Proposal (for PGR only) :</label>
+                              <input type="text" class="form-control" placeholder="Upload" formControlName="researchPersonal" disabled
+                              [ngClass]="{ 'is-invalid': submitted && section13Form.get('researchPersonal').hasError('required') }" >
+                              <i class="fa fa-paperclip" aria-hidden="true"></i>
+                              <input type="file" class="file" style="position: absolute;top: 45px;right: -154px;opacity: 0;cursor: pointer;" 
+                              (change)="handleFileInput($event,'researchPersonal')">
+                              <div *ngIf="submitted && section13Form.get('researchPersonal').hasError" >
+                                 <div *ngIf="section13Form.get('researchPersonal').hasError('required')" class="danger">
+                                    *please enter the researchPersonal
+                                 </div>
+                              </div>
+                           </div>
 
-                <div class="form-group mt-3">
-                   <label >Upload Transcript :</label>
-                    <input type="email" class="form-control" placeholder="Upload ">
-                     <input type="file" class="file" style="position: absolute;top: 45px;right: -154px;opacity: 0;cursor: pointer;">
-                    <i class="fa fa-paperclip" aria-hidden="true"></i>
-               </div>
+                           <div class="form-group mt-3">
+                              <label >Upload CV : </label>
+                              <input type="text" class="form-control" placeholder="Upload" formControlName="cv" disabled
+                              [ngClass]="{ 'is-invalid': submitted && section13Form.get('cv').hasError('required') }" >
+                              <i class="fa fa-paperclip" aria-hidden="true"></i>
+                              <input type="file" class="file" style="position: absolute;top: 45px;right: -154px;opacity: 0;cursor: pointer;" 
+                              (change)="handleFileInput($event,'cv')">
+                              <div *ngIf="submitted && section13Form.get('cv').hasError" >
+                                 <div *ngIf="section13Form.get('cv').hasError('required')" class="danger">
+                                    *please enter the cv
+                                 </div>
+                              </div>
+                           </div>
 
-                <div class="form-group mt-3">
-                   <label >Upload Degree Certificate :</label>
-                    <input type="email" class="form-control" placeholder="Upload  ">
-                     <input type="file" class="file" style="position: absolute;top: 45px;right: -154px;opacity: 0;cursor: pointer;">
-                    <i class="fa fa-paperclip" aria-hidden="true"></i>
-               </div>
+                           <div class="form-group mt-3">
+                              <label >Upload Transcript :</label>
+                              <input type="text" class="form-control" placeholder="Upload"  formControlName="transcript" disabled
+                              [ngClass]="{ 'is-invalid': submitted && section13Form.get('transcript').hasError('required') }" >
+                              <i class="fa fa-paperclip" aria-hidden="true"></i>
+                              <input type="file" class="file" style="position: absolute;top: 45px;right: -154px;opacity: 0;cursor: pointer;" 
+                              (change)="handleFileInput($event,'transcript')">
+                              <div *ngIf="submitted && section13Form.get('transcript').hasError" >
+                                 <div *ngIf="section13Form.get('transcript').hasError('required')" class="danger">
+                                    *please enter the transcript
+                                 </div>
+                              </div>
+                           </div>
 
-                <div class="form-group mt-3">
-                   <label >Upload Copy of English Language Certificate :</label>
-                    <input type="email" class="form-control" placeholder="Upload">
-                     <input type="file" class="file" style="position: absolute;top: 45px;right: -154px;opacity: 0;cursor: pointer;">
-                    <i class="fa fa-paperclip" aria-hidden="true"></i>
-               </div>
+                           <div class="form-group mt-3">
+                              <label >Upload Degree Certificate :</label>
+                              <input type="text" class="form-control" placeholder="Upload"  formControlName="degreeCertificate" disabled
+                              [ngClass]="{ 'is-invalid': submitted && section13Form.get('degreeCertificate').hasError('required') }" >
+                              <i class="fa fa-paperclip" aria-hidden="true"></i>
+                              <input type="file" class="file" style="position: absolute;top: 45px;right: -154px;opacity: 0;cursor: pointer;" 
+                              (change)="handleFileInput($event,'degreeCertificate')">
+                              <div *ngIf="submitted && section13Form.get('degreeCertificate').hasError" >
+                                 <div *ngIf="section13Form.get('degreeCertificate').hasError('required')" class="danger">
+                                    *please enter the degreeCertificate
+                                 </div>
+                              </div>
+                           </div>
 
-                <div class="form-group mt-3">
-                   <label >Upload Other Documents :</label>
-                    <input type="email" class="form-control" placeholder="Upload">
-                     <input type="file" class="file" style="position: absolute;top: 45px;right: -154px;opacity: 0;cursor: pointer;">
-                    <i class="fa fa-paperclip" aria-hidden="true"></i>
-               </div>
+                           <div class="form-group mt-3">
+                              <label >Upload Copy of English Language Certificate :</label>
+                              <input type="text" class="form-control" placeholder="Upload"  formControlName="englishLanguageCertificate" disabled
+                              [ngClass]="{ 'is-invalid': submitted && section13Form.get('englishLanguageCertificate').hasError('required') }" >
+                              <i class="fa fa-paperclip" aria-hidden="true"></i>
+                              <input type="file" class="file" style="position: absolute;top: 45px;right: -154px;opacity: 0;cursor: pointer;" 
+                              (change)="handleFileInput($event,'englishLanguageCertificate')">
+                              <div *ngIf="submitted && section13Form.get('englishLanguageCertificate').hasError" >
+                                 <div *ngIf="section13Form.get('englishLanguageCertificate').hasError('required')" class="danger">
+                                    *please enter the englishLanguageCertificate
+                                 </div>
+                              </div>
+                           </div>
 
-                <div class="form-group mt-3">
-                   <label >Disclaimer Statement :</label>
-                    <input type="email" class="form-control" placeholder="Upload ">
-                     <input type="file" class="file" style="position: absolute;top: 45px;right: -154px;opacity: 0;cursor: pointer;">
-                    <i class="fa fa-paperclip" aria-hidden="true"></i>
-               </div>
+                           <div class="form-group mt-3">
+                              <label >Upload Other Documents :</label>
+                              <input type="text" class="form-control" placeholder="Upload"  formControlName="otherDocument" disabled
+                              [ngClass]="{ 'is-invalid': submitted && section13Form.get('otherDocument').hasError('required') }" >
+                              <i class="fa fa-paperclip" aria-hidden="true"></i>
+                              <input type="file" class="file" style="position: absolute;top: 45px;right: -154px;opacity: 0;cursor: pointer;" 
+                              (change)="handleFileInput($event,'otherDocument')">
+                              <div *ngIf="submitted && section13Form.get('otherDocument').hasError" >
+                                 <div *ngIf="section13Form.get('otherDocument').hasError('required')" class="danger">
+                                    *please enter the otherDocument
+                                 </div>
+                              </div>
+                           </div>
 
-              
-         </div>  
-       <div class="cntact-button back">
-               <button class="banner-button router-link" [routerLink]="['/section12']">Back</button>
-               <button class="banner-button router-link active" [routerLink]="['/section14']">Continue</button>
-               <button class="banner-button router-link">Save and Quit</button>
-              </div>
-       </div>          
+                           <div class="form-group mt-3">
+                              <label >Disclaimer Statement :</label>
+                              <input type="text" class="form-control" placeholder="Upload"  formControlName="disclaimer" disabled
+                              [ngClass]="{ 'is-invalid': submitted && section13Form.get('disclaimer').hasError('required') }" >
+                              <i class="fa fa-paperclip" aria-hidden="true"></i>
+                              <input type="file" class="file" style="position: absolute;top: 45px;right: -154px;opacity: 0;cursor: pointer;" 
+                              (change)="handleFileInput($event,'disclaimer')">
+                              <div *ngIf="submitted && section13Form.get('disclaimer').hasError" >
+                                 <div *ngIf="section13Form.get('disclaimer').hasError('required')" class="danger">
+                                    *please enter the disclaimer
+                                 </div>
+                              </div>
+                           </div>              
+                     </div>  
+                     <div class="cntact-button back">
+                           <button class="banner-button router-link" [routerLink]="['/section12']">Back</button>
+                           <button class="banner-button router-link active" [routerLink]="['/section14']">Continue</button>
+                           <button class="banner-button router-link" (click)="saveAndQuit()">Save and Quit</button>
+                     </div>
+               </form>
+         </div>          
    </div>
 </section>

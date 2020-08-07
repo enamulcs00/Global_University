@@ -3659,3 +3659,21 @@ button.btn.btn-block.btn-flat:hover {
     visibility: visible;
   }
   
+  /* .icon-add {
+    width: 30px;
+    height: 30px; */
+    /* border-radius: 50%; */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* background-color: #896633; */
+    /* color: #fff; */
+    /* position: absolute;
+    right: 0px;
+    bottom: 42px;
+    } */
+  .icon-add input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
