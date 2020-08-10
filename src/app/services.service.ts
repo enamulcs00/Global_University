@@ -16,19 +16,25 @@ export class ServicesService {
   
   //================ POST API =========================//
       postApi(url, data, Header) {
-          let headers;
-          if (Header == 1) {
-                headers = new HttpHeaders({
+            let httpOptions;
+            if (Header == 1) {
+              httpOptions = {
+                headers: new HttpHeaders({
                   "Content-Type": "application/json",
                   "Authorization":"Bearer "+localStorage.getItem('token')
-                })
-          } 
-          else {
-                headers = new HttpHeaders({
+                }),
+                observe: 'response'              
+              }     
+            }
+            else {
+              httpOptions = {
+                headers: new HttpHeaders({
                   "Content-Type": "application/json",
-                })
-          }
-          return this.http.post((this.baseUrl+ url), data, headers)  
+                }),
+                observe: 'response'              
+              }            
+            }
+          return this.http.post((this.baseUrl+ url), data, httpOptions)  
       }
     
   //================ GET API =========================//    
