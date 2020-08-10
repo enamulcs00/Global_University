@@ -37,42 +37,6 @@ export class ReportComponent implements OnInit {
   constructor(private service: ServicesService, private zone: NgZone) { }
 
   ngAfterViewInit() {
-    // this.zone.runOutsideAngular(() => {
-    //   // Create chart instance
-    //   var chart = am4core.create("chartdiv", am4charts.XYChart);
-
-    //   // Add data
-    //   chart.data = this.chartData
-
-    //   // Create axes
-
-    //   var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-    //   categoryAxis.dataFields.category = "key";
-    //   categoryAxis.renderer.grid.template.location = 0;
-    //   categoryAxis.renderer.minGridDistance = 30;
-
-    //   categoryAxis.renderer.labels.template.adapter.add("dy", function (dy, target) {
-    //     let a: any = 2
-    //     if (target.dataItem && target.dataItem.index) {
-    //       return dy + 25;
-    //     }
-    //     return dy;
-    //   });
-
-    //   var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-
-    //   // Create series
-    //   var series = chart.series.push(new am4charts.ColumnSeries());
-    //   series.dataFields.valueY = "value";
-    //   series.dataFields.categoryX = "key";
-    //   series.name = "value";
-    //   series.columns.template.tooltipText = "{categoryX}: [bold]{valueY}[/]";
-    //   series.columns.template.fillOpacity = .8;
-
-    //   var columnTemplate = series.columns.template;
-    //   columnTemplate.strokeWidth = 2;
-    //   columnTemplate.strokeOpacity = 1;
-    // }); //
     this.createChart()
   }
 
@@ -136,7 +100,7 @@ export class ReportComponent implements OnInit {
   }
 
   reportCountApi() {
-    this.service.getApi('course/get-form-count', 2).subscribe((res: any) => {
+    this.service.getApi('course/get-form-count', 1).subscribe((res: any) => {
       if (res.body.status == 200) {
         this.reportsCountData = res.body.data
       }

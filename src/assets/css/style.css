@@ -1649,6 +1649,7 @@ li.nav-item.create_new a.nav-link {
 }
 li.nav-item.create_new a.nav-link.find.active {
     padding: 18px 0px;
+    background-color: #896633;
 }
 li.nav-item.create_new a.nav-link.find {
     padding: 18px 0px;

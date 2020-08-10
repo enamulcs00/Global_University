@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-
+import { HttpClient, HttpHeaders, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse, HttpErrorResponse, HttpEvent } from '@angular/common/http';
+import { tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +33,6 @@ export class ServicesService {
     
   //================ GET API =========================//    
       getApi(url, isHeader) {
-
         // console.log("token -->",localStorage.getItem('token'))
           let httpOptions;
           if (isHeader == 1) {
@@ -91,4 +90,37 @@ export class ServicesService {
         });
         return this.http.post(this.baseUrl + url, data, { headers });
       }
+}
+
+
+/*********************************** INTERCEPTOR *****************************************/
+
+@Injectable()
+export class HttpModifierInterceptor implements HttpInterceptor {
+    constructor(private router: Router, private service: ServicesService) { }
+    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        return next.handle(req).pipe(tap(res => {
+            if (res instanceof HttpResponse) {
+                if (res.status !== 200) {
+
+                    setTimeout(x => {
+                    }, 5000);
+                }
+            }
+        }, err => {
+            if (err instanceof HttpErrorResponse) {
+                if (err.error.status === 401) {
+                    localStorage.clear()
+                    this.router.navigateByUrl('')
+                    setTimeout(x => {
+                    }, 5000);
+                    this.router.navigateByUrl('login');
+                } else {
+                    setTimeout(x => {
+                    }, 500);
+                }
+            }
+        }));
+
+    }
 }

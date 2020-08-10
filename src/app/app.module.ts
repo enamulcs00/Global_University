@@ -36,10 +36,11 @@ import { SubscriptionHistoryComponent } from './component/profile/subscription-h
 
 import { LoginComponent } from './component/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { HttpModifierInterceptor } from './services.service';
 
 
 @NgModule({
@@ -86,8 +87,15 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     BrowserAnimationsModule,
     NgxIntlTelInputModule,
     BsDropdownModule.forRoot(),
+    
     ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpModifierInterceptor,
+      multi: true
+  },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
