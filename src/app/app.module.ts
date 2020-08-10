@@ -41,7 +41,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HttpModifierInterceptor } from './services.service';
-
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -87,7 +87,7 @@ import { HttpModifierInterceptor } from './services.service';
     BrowserAnimationsModule,
     NgxIntlTelInputModule,
     BsDropdownModule.forRoot(),
-    
+    MatAutocompleteModule
     ],
   providers: [
     {

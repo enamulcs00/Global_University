@@ -25,7 +25,19 @@
                               <div class="University-name cs3 mb-3">
                                   <label>Academic Qualifications :</label>
                                   <select class="form-control" formControlName="qualification"  [ngClass]="{ 'is-invalid': submitted && data.controls['qualification'].hasError('required') }" >
-                                    <option>Qualifications 1</option>
+                                    <option selected disabled value="">Select qualification</option>
+                                    <option value="POSTGRADUATE">Doctorate (ex. PhD)</option>
+                                    <option value="POSTGRADUATE">Postgraduate Research (ex. MRes)</option>
+                                    <option value="POSTGRADUATE">Postgraduate Taught (ex. MA, MSc, MBA)</option>
+                                    <option value="GRADUATE">Pre-Masters</option>
+                                    <option value="DIPLOMA">Undergraduate (ex. BA, BSc, B.Eng</option>
+                                    <option value="GRADUATE">Pathways to Undergraduate</option>
+                                    <option value="DIPLOMA">English Courses (ex. EFL)</option>
+        
+                                    <option value="POSTGRADUATE">Postgraduate Studies (ex. Doctorate, PhD)</option>
+                                    <option value="GRADUATE">Graduate Degree or  Masters Degree ( ex. MA, MS, MBA )</option>
+                                    <option value="DIPLOMA">Undergraduate Degree or Bachelors Degree (ex.  BA, BS, B.Eng )</option>
+                                    <option value="DIPLOMA">Associate Degree</option>
                                   </select>
                                   <i class="fa fa-sort-down"></i>
                                   <div *ngIf="submitted && data.controls['qualification'].hasError('required')" >
@@ -121,7 +133,8 @@
                                         *please enter the endDate
                                     </div>
                                   </div>
-                              </div>                              
+                              </div>   
+                              <!-- <button class="form-group" (click)="remove(i)">Remove</button>-->
                           </div>
                       </div>
 
@@ -154,7 +167,7 @@
             </form>
             <div class="cntact-button back">
                 <button class="banner-button router-link" [routerLink]="['/section3']">Back</button>
-                <button class="banner-button active router-link" [routerLink]="['/section5']">Continue</button>
+                <button class="banner-button active router-link" (click)="continue()">Continue</button>
                 <button class="banner-button router-link" (click)="saveAndQuit()">Save and Quit</button>
             </div>
      </div>         

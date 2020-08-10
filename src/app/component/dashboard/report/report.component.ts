@@ -17,22 +17,35 @@ export class ReportComponent implements OnInit {
   reportsCountData: any
   fromDate: any;
   toDate: any;
-  month:any 
-  year:any 
+  month: any
+  year: any
   private chart: am4charts.XYChart;
-  chartData :any =  [{
-    "key": "USA",
-    "value": 2025
-  }, {
-    "key": "China",
-    "value": 1882
-  }, {
-    "key": "Japan",
-    "value": 1809
-  }, {
-    "key": "Germany",
-    "value": 1322
-  }];
+  chartData: any = [{ key: "CONDITIONAL", value: 0 },
+  { key: "UNCONDITIONAL", value: 0 },
+  { key: "CONDITIONAL", value: 0 },
+  { key: "UNCONDITIONAL", value: 0 },
+  { key: "ADITIONAL", value: 0 },
+  { key: "TUTION", value: 0 },
+  { key: "VISA", value: 0 },
+  { key: "CAS", value: 0 },
+  { key: "OFFER", value: 0 },
+  { key: "OFFER", value: 0 },
+  { key: "OFFER", value: 0 },
+  { key: "REJECTED", value: 0 },
+  { key: "DECISION", value: 0 },
+  { key: "NEW", value: 0 },
+  { key: "REVIEW", value: 0 },
+  { key: "ADITIONAL", value: 0 },
+  { key: "TUTION", value: 0 },
+  { key: "WITHDRAWAL", value: 0 },
+  { key: "CONDITIONAL", value: 0 },
+  { key: "UNCONDITIONAL", value: 0 },
+  { key: "CONDITIONAL", value: 0 },
+  { key: "UNCONDITIONAL", value: 0 },
+  { key: "DECLINED", value: 0 },
+  { key: "DEFERAL", value: 0 },
+  { key: "COMPLETE", value: 0 },
+  { key: "INCOMPLETE", value: 0 }]
 
   constructor(private service: ServicesService, private zone: NgZone) { }
 
@@ -40,7 +53,7 @@ export class ReportComponent implements OnInit {
     this.createChart()
   }
 
-  createChart(){
+  createChart() {
     this.zone.runOutsideAngular(() => {
       // Create chart instance
       var chart = am4core.create("chartdiv", am4charts.XYChart);
@@ -92,11 +105,13 @@ export class ReportComponent implements OnInit {
       this.countryList = res
     })
     let date = new Date()
+    this.fromDate = (date.getFullYear() - 1) +'-'+( date.getMonth() > 10 ? date.getMonth() : '0'+ date.getMonth() )+ '-' + date.getDate()
+    this.toDate = date.getFullYear() +'-'+( date.getMonth() > 10 ? date.getMonth() : '0'+ date.getMonth() )+ '-' + date.getDate()
     let stringDate = date.toString()
     this.month = stringDate.split(' ')[1]
     this.year = stringDate.split(' ')[3]
-
     this.reportCountApi()
+    this.searchReportChart()
   }
 
   reportCountApi() {
@@ -105,6 +120,11 @@ export class ReportComponent implements OnInit {
         this.reportsCountData = res.body.data
       }
     })
+  }
+
+  reset(){
+    this.fromDate = null
+    this.toDate = null
   }
 
   searchReportChart() {
@@ -123,7 +143,7 @@ export class ReportComponent implements OnInit {
           "value": Object.values(element)[0]
         })
       });
-      console.log("chartData--->",resChartData)
+      console.log("chartData--->", resChartData)
       this.chartData = resChartData
       this.createChart()
     })

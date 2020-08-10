@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ServicesService } from 'src/app/services.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-section1',
@@ -13,7 +14,7 @@ export class Section1Component implements OnInit {
   submitted:boolean = false;
   countryList:any = [];
 
-  constructor(private service:ServicesService) { }
+  constructor(private service:ServicesService,private router:Router) { }
 
   ngOnInit() {
     this.service.getCountryStates().subscribe((res: any) => {
@@ -43,6 +44,28 @@ export class Section1Component implements OnInit {
         "criminalConviction" : new FormControl('',[Validators.required]),
         "descriptionForCriminalConviction" : new FormControl('',),
       })
+      if(localStorage.getItem('section2')){
+        let section2Data = JSON.parse(localStorage.getItem('section2'))
+        this.section1Form.setValue({
+          "title" : section2Data.title,
+          "surName" : section2Data.surName,
+          "foreName" : section2Data.foreName,
+          "prefferedName" : section2Data.prefferedName,
+          "gender" : section2Data.gender,
+          "email" : section2Data.email,
+          "confirmEmail" : section2Data.confirmEmail,
+          "permanentResidenceCountry" : section2Data.permanentResidenceCountry,
+          "dateOfBirth" : section2Data.dateOfBirth,
+          "CountryOfBirth" : section2Data.CountryOfBirth,
+          "passportNumber" : section2Data.passportNumber,
+          "requireVisaForUK" : section2Data.requireVisaForUK,
+          "ethnicity" : section2Data.ethnicity,
+          "disability" : section2Data.disability,
+          "descriptionForDisablity" : section2Data.descriptionForDisablity,
+          "criminalConviction" : section2Data.criminalConviction,
+          "descriptionForCriminalConviction" : section2Data.descriptionForCriminalConviction,
+        })
+      }
   }
 
   get f() { return this.section1Form.controls; }
@@ -55,4 +78,12 @@ export class Section1Component implements OnInit {
     console.log("value--->",this.section1Form.value)
   }
 
+  continue(){
+    this.submitted = true;
+    if(this.section1Form.invalid){
+      return false
+    }
+    localStorage.setItem('section2',JSON.stringify(this.section1Form.value))
+    this.router.navigateByUrl('section3');
+  }
 }

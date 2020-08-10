@@ -22,19 +22,32 @@
           </li>
       </ul>
          <div class="application-form mt-5">
-            <form [formGroup]="section2Form">
-                  <div class="academic">
-                      <h5 class="application_pro">Course applied</h5>
+           <div class="academic">
+             <h5 class="application_pro">Course applied</h5>
                       <div class="search-course">
-                        <input type="text" class="form-control" placeholder="Search" formControlName="searchCourse"
+                        <!-- <input type="text" class="form-control" placeholder="Search" formControlName="searchCourse"
                           [ngClass]="{ 'is-invalid': submitted && section2Form.get('searchCourse').hasError('required') }">    
                           <div *ngIf="submitted && section2Form.get('searchCourse').hasError" >
                             <div *ngIf="section2Form.get('searchCourse').hasError('required')" class="danger">
-                                *please enter the searchCourse
+                              *please enter the searchCourse
                             </div>
-                          </div>        
-                      </div>
-
+                          </div>   -->
+                          <div class="example-full-width" matAutocompleteOrigin #origin="matAutocompleteOrigin">
+                            <input matInput  [formControl]="searchCourse"  [matAutocomplete]="auto" [matAutocompleteConnectedTo]="origin" class="form-control search" placeholder="Search"  [ngClass]="{ 'is-invalid': submitted && section2Form.get('searchCourse').hasError('required') }">
+                            <i class="fa fa-search"></i>                            
+                          </div>
+                          <mat-autocomplete #auto="matAutocomplete" (optionSelected)='selectCourse()'>
+                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option.courseName">
+                              {{option.courseName}}
+                            </mat-option>
+                          </mat-autocomplete>
+                          <div *ngIf="submitted && section2Form.get('searchCourse').hasError" >
+                            <div *ngIf="section2Form.get('searchCourse').hasError('required')" class="danger">
+                              *please enter the searchCourse
+                            </div>
+                          </div> 
+                        </div>
+                  <form [formGroup]="section2Form">
                       <div class="University-name cs3 mb-3">
                           <label>Select Country :</label>
                           <select class="form-control" formControlName="countryName"
@@ -52,8 +65,11 @@
 
                       <div class="form-group">
                         <label for="exampleInputEmail1">Start Year :</label>
-                        <input type="text" class="form-control" placeholder="DD/MM/YY"  formControlName="startYear"
-                        [ngClass]="{ 'is-invalid': submitted && section2Form.get('startYear').hasError('required') }">    
+                        <select  formControlName="startYear"  class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && section2Form.get('startYear').hasError('required') }"> 
+                          <option disabled selected value="">Select year</option>
+                          <option *ngFor="let item of yearList" value="{{item}}">{{item}}</option>
+                        </select>   
                         <i class="fa fa-calendar" aria-hidden="true"></i>
                           <div *ngIf="submitted && section2Form.get('startYear').hasError" >
                             <div *ngIf="section2Form.get('startYear').hasError('required')" class="danger">
@@ -63,9 +79,12 @@
                       </div>
 
                       <div class="form-group">
-                          <label for="exampleInputEmail1">Start Month :</label>
-                          <input type="text" class="form-control" placeholder="DD/MM/YY" formControlName="startMonth"
-                            [ngClass]="{ 'is-invalid': submitted && section2Form.get('startMonth').hasError('required') }">    
+                          <label for="exampleInputEmail1">Start Month :</label> 
+                          <select  formControlName="startMonth"  class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && section2Form.get('startMonth').hasError('required') }"> 
+                            <option disabled selected value="">Select year</option>
+                            <option *ngFor="let item of MonthList" value="{{item}}">{{item}}</option>
+                          </select>  
                           <i class="fa fa-calendar" aria-hidden="true"></i>
                           <div *ngIf="submitted && section2Form.get('startMonth').hasError" >
                             <div *ngIf="section2Form.get('startMonth').hasError('required')" class="danger">
@@ -76,22 +95,22 @@
 
                       <div class="form-group">
                         <label for="exampleInputEmail1">Year / Intake if not applying for next intake :</label>
-                        <input type="email" class="form-control" placeholder="DD/MM/YY" formControlName="yearIntake"
+                        <input type="date" class="form-control" placeholder="DD/MM/YY" formControlName="yearIntake"
                           [ngClass]="{ 'is-invalid': submitted && section2Form.get('yearIntake').hasError('required') }">    
-                          <i class="fa fa-calendar" aria-hidden="true"></i>
+                          <!-- <i class="fa fa-calendar" aria-hidden="true"></i> -->
                           <div *ngIf="submitted && section2Form.get('yearIntake').hasError" >
                             <div *ngIf="section2Form.get('yearIntake').hasError('required')" class="danger">
                                 *please enter the yearIntake
                             </div>
                           </div>     
                       </div>
+                  </form>
                   </div>  
                   <div class="cntact-button back">                          
                           <button class="banner-button router-link" [routerLink]="['/dashboard']">Back to Dashboard</button>
-                          <button class="banner-button active router-link" [routerLink]="['/section2']">Continue</button>
+                          <button class="banner-button active router-link" (click)="continue()">Continue</button>
                           <button class="banner-button router-link" (click)="saveAndQuit()">Save and Quit</button>
                   </div>
-            </form>
         </div>          
    </div>
 </section>

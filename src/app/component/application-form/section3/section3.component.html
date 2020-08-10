@@ -69,7 +69,7 @@
                                     [searchCountryFlag]="true"
                                     [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
                                     [selectFirstCountry]="false" 
-                                    [selectedCountryISO]="CountryISO.India"
+                                    [selectedCountryISO]="CountryISO.UnitedKingdom"
                                     [maxLength]="13" 
                                     [tooltipField]="TooltipLabel.Name" 
                                     [phoneValidation]="true" 
@@ -99,7 +99,7 @@
                                   [searchCountryFlag]="true"
                                   [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
                                   [selectFirstCountry]="false" 
-                                  [selectedCountryISO]="CountryISO.India"
+                                  [selectedCountryISO]="CountryISO.UnitedKingdom"
                                   [maxLength]="13" 
                                   [tooltipField]="TooltipLabel.Name" 
                                   [phoneValidation]="true" 
@@ -161,7 +161,7 @@
                                 [searchCountryFlag]="true"
                                 [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
                                 [selectFirstCountry]="false" 
-                                [selectedCountryISO]="CountryISO.India"
+                                [selectedCountryISO]="CountryISO.UnitedKingdom"
                                 [maxLength]="13" 
                                 [tooltipField]="TooltipLabel.Name" 
                                 [phoneValidation]="true" 
@@ -191,7 +191,7 @@
                                 [searchCountryFlag]="true"
                                 [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
                                 [selectFirstCountry]="false" 
-                                [selectedCountryISO]="CountryISO.India"
+                                [selectedCountryISO]="CountryISO.UnitedKingdom"
                                 [maxLength]="13" 
                                 [tooltipField]="TooltipLabel.Name" 
                                 [phoneValidation]="true" 
@@ -227,7 +227,7 @@
 
                   <div class="cntact-button back">
                       <button class="banner-button router-link" [routerLink]="['/section2']">Back</button>
-                      <button class="banner-button active router-link" [routerLink]="['/section4']">Continue</button>
+                      <button class="banner-button active router-link" (click)="continue()">Continue</button>
                       <button class="banner-button router-link" (click)="saveAndQuit()">Save and Quit</button>
                   </div>
               </form>                
