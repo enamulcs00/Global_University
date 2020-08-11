@@ -42,7 +42,6 @@
                       </div>
                     </div>
 
-                    {{section9Form.get('externalFundingDescription')}}
                     <p class="do_you">If yes, what funding are you applying for?</p>
                     <div class="form-group">
                         <label class="des_cs">Description:</label>
@@ -51,26 +50,25 @@
                           <div *ngIf="section9Form.get('externalFundingDescription').hasError('required')" class="danger radio_danger">
                               *please enter the Description
                           </div>
-                        </div>
-    
+                        </div>    
                     </div>
 
                     <p class="do_you">Do you wish to apply for (be considered for) University funding?</p>
                     <div class="custom-button">
                         <label class="custom-radio">Yes
-                            <input type="radio" checked="checked" name="applyForUniversityFunding" formControlName="applyForUniversityFunding">
+                            <input type="radio" checked="checked" value="YES" name="applyForUniversityFunding" formControlName="applyForUniversityFunding">
                             <span class="checkmark_cs3"></span>
                         </label>
 
                         <label class="custom-radio">No
-                            <input type="radio" checked="checked" name="applyForUniversityFunding" formControlName="applyForUniversityFunding">
+                            <input type="radio" checked="checked" value="NO" name="applyForUniversityFunding" formControlName="applyForUniversityFunding">
                             <span class="checkmark_cs3"></span>
                         </label>
                     </div>
                     <div *ngIf="submitted && section9Form.get('applyForUniversityFunding').hasError" >
-                      <div *ngIf="section9Form.get('applyForUniversityFunding').hasError('required')" class="danger radio_danger">
-                        *please choose
-                      </div>
+                        <div *ngIf="section9Form.get('applyForUniversityFunding').hasError('required')" class="danger radio_danger">
+                              *please choose
+                        </div>
                     </div>
 
                     <p class="do_you">If yes, which (or what)?</p>
@@ -82,12 +80,12 @@
                     <p class="do_you">Do you wish to be considered for University/ department scholarships/bursaries?</p>
                     <div class="custom-button">
                         <label class="custom-radio">Yes
-                            <input type="radio" checked="checked" name="wishForUniversityScholarship" formControlName="wishForUniversityScholarship">
+                            <input type="radio" checked="checked" value="YES" name="wishForUniversityScholarship" formControlName="wishForUniversityScholarship">
                             <span class="checkmark_cs3"></span>
                         </label>
 
                         <label class="custom-radio">No
-                            <input type="radio" checked="checked" name="wishForUniversityScholarship" formControlName="wishForUniversityScholarship">
+                            <input type="radio" checked="checked" value="NO" name="wishForUniversityScholarship" formControlName="wishForUniversityScholarship">
                             <span class="checkmark_cs3"></span>
                         </label>
                     </div>
@@ -105,7 +103,7 @@
                 </div>
                 <div class="cntact-button back">
                     <button class="banner-button router-link" [routerLink]="['/section8']">Back</button>
-                    <button class="banner-button router-link active" [routerLink]="['/section10']">Continue</button>
+                    <button class="banner-button router-link active" (click)="continue()">Continue</button>
                     <button class="banner-button router-link" (click)="saveAndQuit()">Save and Quit</button>
                 </div>
             </form>

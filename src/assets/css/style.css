@@ -2228,6 +2228,10 @@ input.form-control {
     color: #000000;
     font-weight: 400;
     padding: 15px 0px 41px;
+    position: relative;
+}
+.add_date i.fa.fa-minus {
+    font-size: 20px;
 }
 .academic {
     padding: 16px 83px;

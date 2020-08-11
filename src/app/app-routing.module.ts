@@ -64,16 +64,13 @@ const routes: Routes = [
   { path: 'section9', component: Section9Component,canActivate :[AuthGuard] },
   { path: 'section10', component: Section10Component,canActivate :[AuthGuard] },
   { path: 'section11', component: Section11Component,canActivate :[AuthGuard] },
-  { path: 'section12', component: Section12Component,canActivate :[AuthGuard] },
-  { path: 'section13', component: Section13Component,canActivate :[AuthGuard] },
-  { path: 'section14', component: Section14Component,canActivate :[AuthGuard] },
-  { path: 'section15', component: Section15Component,canActivate :[AuthGuard] },
+  // { path: 'section12', component: Section12Component,canActivate :[AuthGuard] },
+  { path: 'section12', component: Section13Component,canActivate :[AuthGuard] },
+  { path: 'section13', component: Section14Component,canActivate :[AuthGuard] },
+  { path: 'section14', component: Section15Component,canActivate :[AuthGuard] },
   { path: 'application-form-preview', component: ApplicationFormPreviewComponent,canActivate :[AuthGuard] },
   { path: 'matching-universities', component: MatchingUniversitiesComponent,canActivate :[AuthGuard] },
   { path: 'view-form', component: ViewFormComponent,canActivate :[AuthGuard] },
-  // { path: 'section3',
-  // { path: 'section3',
-  // { path: 'section3',
 ];
 
 @NgModule({

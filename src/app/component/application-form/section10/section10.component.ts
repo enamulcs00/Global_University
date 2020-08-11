@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-section10',
@@ -12,7 +13,7 @@ export class Section10Component implements OnInit {
   researchForPGR:boolean = false
   submitted :boolean = false;
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
     window.scrollTo(0, 0);
@@ -24,6 +25,13 @@ export class Section10Component implements OnInit {
       researchProposal: new FormControl(null,Validators.required),
       researchProposalDescription: new FormControl('')
     })
+    if(localStorage.getItem('section10')){
+      let sectionData = JSON.parse(localStorage.getItem('section10'))
+      this.section10Form.patchValue({
+        researchProposal: sectionData.researchProposal,
+        researchProposalDescription: sectionData.researchProposalDescription
+      })
+    }
   }
 
   change(event){
@@ -37,5 +45,17 @@ export class Section10Component implements OnInit {
 
   saveAndQuit(){
     this.submitted = true
+    if(this.section10Form.invalid){
+      return false;
+    }    
+  }
+
+  continue(){
+    this.submitted = true
+    if(this.section10Form.invalid){
+      return false;
+    }    
+    localStorage.setItem('section10',JSON.stringify(this.section10Form.value))
+    this.router.navigateByUrl('section11');
   }
 }

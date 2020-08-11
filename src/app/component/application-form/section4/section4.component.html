@@ -134,11 +134,15 @@
                                     </div>
                                   </div>
                               </div>   
-                              <!-- <button class="form-group" (click)="remove(i)">Remove</button>-->
+                              <div class="add_date router-link" (click)="remove(i)">
+                                <div style="position: absolute;right: 0px;">
+                                  <i class="fa fa-minus" aria-hidden="true"></i>&nbsp; Remove
+                                </div>
+                              </div>
                           </div>
                       </div>
 
-                      <div class="add_date" (click)="addQualification()">
+                      <div class="add_date router-link" (click)="addQualification()">
                         <i class="fa fa-plus" aria-hidden="true"></i> Add aditional qualification
                       </div>
                     

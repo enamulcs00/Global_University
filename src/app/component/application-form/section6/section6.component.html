@@ -51,7 +51,7 @@
                 </div>  
                 <div class="cntact-button back">
                     <button class="banner-button router-link" [routerLink]="['/section5']">Back</button>
-                    <button class="banner-button active router-link" [routerLink]="['/section7']">Continue</button>
+                    <button class="banner-button active router-link" (click)="continue()">Continue</button>
                     <button class="banner-button router-link" (click)="saveAndQuit()">Save and Quit</button>
                 </div>
             </form>

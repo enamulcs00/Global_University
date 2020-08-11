@@ -39,14 +39,47 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Referee 1 Telephone Number :</label>
-                        <input type="text" class="form-control" placeholder="Referee 1 Address" formControlName="refree1phoneNumber"
-                        [ngClass]="{ 'is-invalid': submitted && section7Form.get('refree1phoneNumber').hasError('required') }">  
-                          <div *ngIf="submitted && section7Form.get('refree1phoneNumber').hasError" >
-                            <div *ngIf="section7Form.get('refree1phoneNumber').hasError('required')" class="danger">
-                                *please enter the phoneNumber
-                            </div>
+                        <label>Referee 1 Telephone Number :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <ngx-intl-tel-input
+                            [inputId]="'adsasd'"
+                            [cssClass]="'custom form-control'" 
+                            [preferredCountries]="preferredCountries"
+                            [enableAutoCountrySelect]="false" 
+                            [enablePlaceholder]="true" 
+                            [searchCountryFlag]="true"
+                            [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                            [selectFirstCountry]="false" 
+                            [selectedCountryISO]="CountryISO.India"
+                            [maxLength]="13" 
+                            [tooltipField]="TooltipLabel.Name" 
+                            [phoneValidation]="true" 
+                            [separateDialCode]="separateDialCode"
+                            name="phone"
+                            (keyup)="phoneValidOrNot1()"
+                            formControlName="refree1phoneNumber">
+                        </ngx-intl-tel-input>
+                        <span>
+                            <p *ngIf="section7Form.get('refree1phoneNumber').hasError('required') && section7Form.get('refree1phoneNumber').touched" class="danger">
+                                *please enter the refree1phoneNumber
+                            </p>
+                            <p *ngIf="!validPhoneNo1" class="danger">
+                              *please enter the valid Phone Number
+                            </p>
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Referee 1 email :</label>
+                      <input type="email" class="form-control" placeholder="Referee 2 Address" formControlName="refree1email"
+                      [ngClass]="{ 'is-invalid': submitted && section7Form.get('refree1email').hasError('required') }">  
+                        <div *ngIf="submitted && section7Form.get('refree1email').hasError" >
+                          <div *ngIf="section7Form.get('refree1email').hasError('required')" class="danger">
+                              *please enter the email
                           </div>
+                          <div *ngIf="section7Form.get('refree1email').hasError('pattern')" class="danger">
+                              *please enter the valid email
+                          </div>
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -97,14 +130,47 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Referee 2 Telephone Number :</label>
-                        <input type="text" class="form-control" placeholder="Referee 2 Address" formControlName="refree2phoneNumber"
-                        [ngClass]="{ 'is-invalid': submitted && section7Form.get('refree2phoneNumber').hasError('required') }">  
-                          <div *ngIf="submitted && section7Form.get('refree2phoneNumber').hasError" >
-                            <div *ngIf="section7Form.get('refree2phoneNumber').hasError('required')" class="danger">
-                                *please enter the phoneNumber
-                            </div>
+                        <label>Referee 2 Telephone Number :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <ngx-intl-tel-input
+                          [inputId]="'adsasd'"
+                          [cssClass]="'custom form-control'" 
+                          [preferredCountries]="preferredCountries"
+                          [enableAutoCountrySelect]="false" 
+                          [enablePlaceholder]="true" 
+                          [searchCountryFlag]="true"
+                          [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                          [selectFirstCountry]="false" 
+                          [selectedCountryISO]="CountryISO.India"
+                          [maxLength]="13" 
+                          [tooltipField]="TooltipLabel.Name" 
+                          [phoneValidation]="true" 
+                          [separateDialCode]="separateDialCode"
+                          name="phone"
+                          (keyup)="phoneValidOrNot2()"
+                          formControlName="refree2phoneNumber">
+                      </ngx-intl-tel-input>
+                      <span>
+                          <p *ngIf="section7Form.get('refree2phoneNumber').hasError('required') && section7Form.get('refree2phoneNumber').touched" class="danger">
+                              *please enter the refree2phoneNumber
+                          </p>
+                          <p *ngIf="!validPhoneNo2" class="danger">
+                            *please enter the valid Phone Number
+                          </p>
+                      </span>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Referee 2 email :</label>
+                      <input type="email" class="form-control" placeholder="Referee 2 Address" formControlName="refree2email"
+                      [ngClass]="{ 'is-invalid': submitted && section7Form.get('refree2email').hasError('required') }">  
+                        <div *ngIf="submitted && section7Form.get('refree2email').hasError" >
+                          <div *ngIf="section7Form.get('refree2email').hasError('required')" class="danger">
+                              *please enter the email
                           </div>
+                          <div *ngIf="section7Form.get('refree2email').hasError('pattern')" class="danger">
+                              *please enter the valid email
+                          </div>
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -122,7 +188,7 @@
 
                 <div class="cntact-button back">
                     <button class="banner-button router-link" [routerLink]="['/section6']">Back</button>
-                    <button class="banner-button active router-link" [routerLink]="['/section8']">Continue</button>
+                    <button class="banner-button active router-link" (click)="continue()">Continue</button>
                     <button class="banner-button router-link" (click)="saveAndQuit()">Save and Quit</button>
                 </div>
             </form>

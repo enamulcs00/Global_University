@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-section11',
@@ -11,7 +12,8 @@ export class Section11Component implements OnInit {
   section11Form :FormGroup;
   workExperience:boolean = false
   submitted:boolean = false
-  constructor() { }
+
+  constructor(private router:Router) { }
 
   ngOnInit() {
     window.scrollTo(0, 0);
@@ -33,6 +35,24 @@ export class Section11Component implements OnInit {
       "email" : new FormControl('',[Validators.required, Validators.pattern(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,10}|[0-9]{1,3})(\]?)$/i)]),
       "achievements" : new FormControl(null,Validators.required),
     })
+
+    if(localStorage.getItem('section11')){
+      let section11Data = JSON.parse(localStorage.getItem('section11'))
+      this.section11Form.setValue({
+        "workExperience" : section11Data.workExperience,
+        "totalExperience" : section11Data.totalExperience,
+        "employersName" : section11Data.employersName,
+        "employersBusiness" : section11Data.employersBusiness,
+        "jobTitle" : section11Data.jobTitle,
+        "briefDuties" : section11Data.briefDuties,
+        "employedFrom" : section11Data.employedFrom,
+        "employedTo" : section11Data.employedTo,
+        "annualSalary" : section11Data.annualSalary,
+        "employersAddress" : section11Data.employersAddress,
+        "email" : section11Data.email,
+        "achievements" : section11Data.achievements,
+      })
+    }
   }
 
 
@@ -47,6 +67,18 @@ export class Section11Component implements OnInit {
 
   saveAndQuit(){
     this.submitted = true
+    if(this.section11Form.invalid){
+      return false
+    }
+  }
+  
+  continue(){
+    this.submitted = true
+    if(this.section11Form.invalid){
+      return false
+    }
+    localStorage.setItem('section11',JSON.stringify(this.section11Form.value))
+    this.router.navigateByUrl('section12')
   }
 
 }

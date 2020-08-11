@@ -25,7 +25,7 @@
                         <div class="form-group">
                           <label class="des_cs">Description:</label>
                           <textarea class="form-control" rows="4" formControlName="researchProposalDescription"></textarea>
-                          <div *ngIf="researchForPGR" >
+                          <div *ngIf="researchForPGR">
                             <div *ngIf="(section10Form.value.researchProposalDescription == '' )"  class="danger">
                                 *please enter the Description
                             </div>
@@ -34,7 +34,7 @@
                   </div>  
                   <div class="cntact-button back">
                       <button class="banner-button router-link" [routerLink]="['/section9']">Back</button>
-                      <button class="banner-button router-link active" [routerLink]="['/section11']">Continue</button>
+                      <button class="banner-button router-link active" (click)="continue()" [routerLink]="['/section11']">Continue</button>
                       <button class="banner-button router-link" (click)="saveAndQuit()">Save and Quit</button>
                   </div>
               </form>
