@@ -32,16 +32,16 @@
 
           <div class="search_university mt-5">
             <div class="University-name">
-              <select class="form-control">
-                <option>Select Country</option>
+              <select class="form-control" [(ngModel)]="countryName">
+                <option value="" selected>Select Country</option>
                 <option *ngFor="let data of countryList" [value]="data.country">{{data.country}}</option>
               </select>
               <i class="fa fa-sort-down"></i>
             </div>
 
             <div class="cntact-button">
-              <button class="banner-button router-link" style="margin-right: 10px;">Submit</button>
-              <button class="banner-button router-link" (click)="reset()">Reset</button>
+              <button class="banner-button router-link" style="margin-right: 10px;" (click)="reportCountApi()">Submit</button>
+              <button class="banner-button router-link" (click)="resetCount()">Reset</button>
             </div>
           </div>
 
@@ -62,13 +62,13 @@
 
             <div class="col-lg-3 col-md-6 col-md-12">
               <div class="total-applied">
-                <p>Total number of applications submitted<br> this month {{month}}</p>
+                <p>Total number of applications submitted<br> in the month {{month}}</p>
                 <h4>{{reportsCountData?.monthCount}}</h4>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-md-12">
               <div class="total-applied">
-                <p>Total number of applications submitted<br> this year {{year}}</p>
+                <p>Total number of applications submitted<br> in the year {{year}}</p>
                 <h4>{{reportsCountData?.yearCount}}</h4>
               </div>
             </div>

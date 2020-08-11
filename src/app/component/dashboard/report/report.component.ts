@@ -19,6 +19,7 @@ export class ReportComponent implements OnInit {
   toDate: any;
   month: any
   year: any
+  countryName:any = ''
   private chart: am4charts.XYChart;
   chartData: any = [{ key: "CONDITIONAL", value: 0 },
   { key: "UNCONDITIONAL", value: 0 },
@@ -115,11 +116,27 @@ export class ReportComponent implements OnInit {
   }
 
   reportCountApi() {
-    this.service.getApi('course/get-form-count', 1).subscribe((res: any) => {
+    let url = `course/get-form-count`;
+    if(this.countryName != ''){
+      url = url + `?country=${this.countryName}`
+    }
+    this.service.getApi(url, 1).subscribe((res: any) => {
       if (res.body.status == 200) {
         this.reportsCountData = res.body.data
+      }else{
+        this.reportsCountData = {
+          dayCount : 0,
+          weekCount : 0,
+          monthCount : 0,
+          yearCount : 0
+        }
       }
     })
+  }
+
+  resetCount(){
+    this.countryName = ''
+    this.reportCountApi()
   }
 
   reset(){

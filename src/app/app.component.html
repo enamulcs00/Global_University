@@ -19,9 +19,12 @@
             <li class="nav-item">
               <a class="nav-link">Find a University</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="tokenAvailable == ''" >
               <a class="nav-link">Contact Us</a>
             </li>
+            <li class="nav-item" *ngIf="tokenAvailable != ''" >
+               <a class="nav-link">Favourite courses</a>
+             </li>
             <li class="logouts nav-item" *ngIf="tokenAvailable != ''" >
              <div class="dropdown" >
                <button class="btn btn-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

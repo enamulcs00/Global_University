@@ -64,10 +64,14 @@ export class LoginComponent implements OnInit {
         this.token = res.body.data.token
         console.log("token===>>", res.body.data.token)
         localStorage.setItem('token', this.token)
-        // this.service.showSuccess("Login has been successfully")
-        // this.router.navigate(['universities-management'])
+        this.service.getApi('account/my-account', 1).subscribe((res : any) => {
+            console.log("res--->>",res)
+            if(res.body.status == 200){
+                localStorage.setItem('myProfile',JSON.stringify(res.body.data))
+                this.router.navigate(['dashboard'])
+            }
+        })
 
-        this.router.navigate(['dashboard'])
         //  this.spinner.hide()
 
 

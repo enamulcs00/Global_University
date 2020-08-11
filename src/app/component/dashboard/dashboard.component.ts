@@ -21,7 +21,20 @@ export class DashboardComponent implements OnInit {
   }
 
   getSubmiitedForms(){
-    this.service.getApi(`course/filter-forms-details`,1).subscribe((res:any) => {
+    let url = `course/filter-forms-details?page=0`
+    if(this.searchKey){
+      url = url + `&search=${this.searchKey}`
+    }
+    if(this.fromDate){
+      url = url + `&fromDate=${this.convertIntoTimeStamp(this.fromDate)}`
+    }
+    if(this.toDate){
+      url = url + `&toDate=${this.convertIntoTimeStamp(this.toDate)}`
+    }
+    if(this.formId){
+      url = url + `&formId=${this.formId}`
+    }
+    this.service.getApi(url,1).subscribe((res:any) => {
       console.log("res -->",res)
       if(res.body.status == 200){
         this.submittedFormsList = res.body.data.list
@@ -40,4 +53,10 @@ export class DashboardComponent implements OnInit {
     this.toDate = undefined
   }
 
+  convertIntoTimeStamp(myDate) {
+    myDate = myDate.split("-");
+    var newDate = myDate[1] + "/" + myDate[2] + "/" + myDate[0];
+    console.log(new Date(newDate).getTime());
+    return (new Date(newDate).getTime())
+  }
 }

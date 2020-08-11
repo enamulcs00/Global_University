@@ -47,8 +47,9 @@
               <li>
                 <label>&nbsp;</label>
                 <select class="form-control" [(ngModel)]="formId">
-                  <option>Search by From ID </option>
-                  <option>Search by From ID </option>
+                  <option value="search_by_form_id">Search by Form ID</option>
+                  <option value="submitted_by">Submiited By </option>
+                  <option value="candidate_name">Candidate Name </option>
                 </select>
                 <img src="assets/images/icon-drop.png">
               </li>
@@ -67,7 +68,7 @@
               <li>
                 <label>&nbsp;</label>
                 <div class="cntact-button">
-                  <button class="banner-button router-link" style="margin-right: 10px;"  (click)="submit()">Submit</button>
+                  <button class="banner-button router-link" style="margin-right: 10px;"  (click)="getSubmiitedForms()">Submit</button>
                   <button class="banner-button router-link" (click)="reset()">Reset</button>
                 </div>
               </li>
