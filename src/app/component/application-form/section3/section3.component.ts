@@ -154,4 +154,73 @@ export class Section3Component implements OnInit {
     this.router.navigateByUrl('section4');
   }
 
+  fillForm(){
+    let formDetailsDto = {
+      "accommodation": "string",
+      "businessEntity": "string",
+      "careerServices": "string",
+      "description": "string",
+      "descriptionFunction": "string",
+      "employabilityRanking": 0,
+      "fkUserId": 0,
+      "imageUrl": "string",
+      "noOfCampases": 0,
+      "noOfCourses": 0,
+      "overseasCampuses": 0,
+      "partTimeJobsOnCampus": "AVAILABLE",
+      "registrationNo": "string",
+      "researchFacility": "AVAILABLE",
+      "researchRanking": 0,
+      "scholarship": "AVAILABLE",
+      "subscription": [
+        {
+          "subscriptionEmail": "string",
+          "subscriptionId": 0,
+          "subscriptionStatus": "ACTIVATE",
+          "subscriptionType": "PLATINUM",
+          "userLicenses": 0,
+          "userName": "string",
+          "validFrom": "2020-08-12T13:56:46.447Z",
+          "validTo": "2020-08-12T13:56:46.447Z"
+        }
+      ],
+      "taxRegistrationNo": "string",
+      "totalStudents": 0,
+      "universityAddress": [
+        {
+          "address1": "string",
+          "address2": "string",
+          "address3": "string",
+          "billingAddress": "string",
+          "city": "string",
+          "corrospondingAddress": "string",
+          "country": "string",
+          "location": "string",
+          "pinCode": 0,
+          "primaryDepartment": "string",
+          "primaryEmail": "string",
+          "primaryMobileNo": 0,
+          "primaryPhoneNo": 0,
+          "primaryRole": "string",
+          "primaryUserName": "string",
+          "secondaryUserName": "string",
+          "secondryEmail": "string",
+          "secondryMobileNo": 0,
+          "secondryPhoneNo": 0,
+          "state": "string",
+          "universityAddressId": 0
+        }
+      ],
+      "universityCode": "string",
+      "universityCountryRanking": 0,
+      "universityDetailsId": 0,
+      "universityName": "string",
+      "universityWorldRanking": 0,
+      "userId": 0,
+      "websiteUrl": "string"
+    }
+    this.service.postApi(`course/form-fill-up-as-a-user`,formDetailsDto,1).subscribe((res:any) => {
+      console.log("res-->",res)
+    })
+  }
 }
