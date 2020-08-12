@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from 'src/app/services.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-section13',
@@ -12,7 +13,7 @@ export class Section13Component implements OnInit {
   section13Form:FormGroup;
   submitted :Boolean = false;
 
-  constructor(private service :ServicesService) { }
+  constructor(private service :ServicesService,private router:Router) { }
 
   ngOnInit() {
     window.scrollTo(0, 0);
@@ -30,6 +31,19 @@ export class Section13Component implements OnInit {
       "otherDocument" : new FormControl(null,Validators.required),
       "disclaimer" : new FormControl(null,Validators.required),
     })
+    if(localStorage.getItem('section12')){
+      let section12Data = JSON.parse(localStorage.getItem('section12'))
+      this.section13Form.setValue({
+        "personalStatement" : section12Data.personalStatement,
+        "researchPersonal" : section12Data.researchPersonal,
+        "cv" : section12Data.cv,
+        "transcript" : section12Data.transcript,
+        "degreeCertificate" : section12Data.degreeCertificate,
+        "englishLanguageCertificate" : section12Data.englishLanguageCertificate,
+        "otherDocument" : section12Data.otherDocument,
+        "disclaimer" : section12Data.disclaimer,
+      })
+    }
   }
 
 
@@ -57,8 +71,23 @@ export class Section13Component implements OnInit {
   }
 
   saveAndQuit(){
-    this.submitted = true
+    this.submitted = true;
+    if(this.section13Form.invalid){
+      return false
+    }
     console.log("save-->",this.section13Form.value)
   }
+
+  continue(){
+    this.submitted = true;
+    if(this.section13Form.invalid){
+      return false
+    }
+    localStorage.setItem('section12',JSON.stringify(this.section13Form.value))
+    this.router.navigateByUrl('section13')
+
+    // this.router.navigateByUrl('application-form-preview')
+  }
+
 
 }

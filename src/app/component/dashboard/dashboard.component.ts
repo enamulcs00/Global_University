@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getSubmiitedForms(){
-    let url = `course/filter-forms-details?page=0`
+    let url = `course/filter-forms-details?page=0&formFillStatus=COMPLETE`
     if(this.searchKey){
       url = url + `&search=${this.searchKey}`
     }
@@ -40,10 +40,6 @@ export class DashboardComponent implements OnInit {
         this.submittedFormsList = res.body.data.list
       }
     })
-  }
-
-  submit(){
-    console.log("searchkey -->>",this.searchKey,"form id -->>",this.formId," from Date -->",this.fromDate,"to date --->>",this.toDate)
   }
 
   reset(){

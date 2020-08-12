@@ -13,11 +13,11 @@
                               <i class="fa fa-paperclip" aria-hidden="true"></i>
                               <input type="file" class="file" style="position: absolute;top: 45px;right: -154px;opacity: 0;cursor: pointer;" 
                               (change)="handleFileInput($event,'personalStatement')">
-                              <div *ngIf="submitted && section13Form.get('personalStatement').hasError" >
-                                 <div *ngIf="section13Form.get('personalStatement').hasError('required')" class="danger">
-                                    *please enter the personalStatement
+                                 <div *ngIf="submitted && section13Form.get('personalStatement').hasError" >
+                                       <div *ngIf="section13Form.get('personalStatement').hasError('required')" class="danger">
+                                             *please enter the personalStatement
+                                       </div>
                                  </div>
-                              </div>
                            </div>
 
                            <div class="form-group mt-3">
@@ -116,13 +116,17 @@
                                     *please enter the disclaimer
                                  </div>
                               </div>
-                           </div>              
+                           </div>
                      </div>  
                      <div class="cntact-button back">
                            <button class="banner-button router-link" [routerLink]="['/section11']">Back</button>
-                           <button class="banner-button router-link active" [routerLink]="['/section13']">Continue</button>
+                           <button class="banner-button router-link active" (click)="continue()">Continue</button>
                            <button class="banner-button router-link" (click)="saveAndQuit()">Save and Quit</button>
                      </div>
+                     <!-- <div class="cntact-button back" >
+                        <button class="banner-button router-link" [routerLink]="['/section11']">Back</button>
+                        <button class="banner-button router-link active" [routerLink]="['/application-form-preview']">Preview</button>
+                   </div> -->
                </form>
          </div>          
    </div>
