@@ -1,320 +1,69 @@
-
-  <section>
+<section>
     <div class="container1440 mt-5">
         <h5 class="application_pro">Matching Universities</h5>
         <div class="matching mt-5">
-             <h6>You can select multiple universities  where you want to read :-</h6>
+          <h6>You can select multiple universities where you want to read :-</h6>
 
-              <div class="search_by_reset">
-                  <select class="form-control">
-                   <option>Select Country</option>
-                    <option>India</option>
-                     <option>Australia</option>
-                     </select>
-                     <i class="fa fa-sort-desc" aria-hidden="true"></i>
-                        <div class="cntact-button">
-                          <button class="banner-button router-link" style="margin-right: 15px;">Submit</button>
-                            <button class="banner-button router-link">Reset</button>
-                        </div>                    
-                  </div>
+            <div class="search_by_reset">
+                <div class="example-full-width" matAutocompleteOrigin #origin="matAutocompleteOrigin">
+                    <input matInput [formControl]="myControl" [matAutocomplete]="auto" [matAutocompleteConnectedTo]="origin"
+                      class="form-control " placeholder="Enter country name">
+                </div>
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)='selectCountry()'>
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option.country">
+                        {{option.country}}
+                    </mat-option>
+                </mat-autocomplete>
+                <i class="fa fa-sort-desc" aria-hidden="true"></i>
+                <div class="cntact-button">
+                    <button class="banner-button router-link" style="margin-right: 15px;"
+                        (click)="getUniversity()">Submit</button>
+                    <button class="banner-button router-link" (click)="reset()">Reset</button>
+                </div>
+            </div>
 
-                  <div class="custom">
-                 <label class="custom-checkbox">Select All
-                   <input type="checkbox" checked="checked">
-                   <span class="checkmark"></span>
-                 </label>
-               </div>
+            <div class="custom">
+              <label class="custom-checkbox">Select All
+                <input type="checkbox" (change)="selectAll($event)" [checked]="selectall">
+                <span class="checkmark"></span>
+              </label>
+            </div>
 
-               <div class="select_all mt-4">
-                 <ul>
-                     <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
+            <div class="select_all mt-4">
+                <ul>
+                    <li *ngFor="let item of universityList;let  i = index">
+                        <div class="custom">
+                            <label class="custom-checkbox">{{item.universityName}}
+                                <input type="checkbox" [checked]="item.selected" (change)="select($event,i)">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </li>                
+                </ul>
+            </div>
 
-                      <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-
-
-                        <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-
-                        <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-                 </ul>
-               </div>
-
-                  <div class="select_all mt-4">
-                 <ul>
-                     <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-
-                      <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
+            <div class="cntact-button back">
+                <button class="banner-button router-link " [routerLink]="['/application-form-preview']">Cancel</button>
+                <button class="banner-button router-link active" (click)="submit()">Submit</button>
+            </div>
+        </div>
+    </div>
+</section>
 
 
-                        <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-
-                        <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-                 </ul>
-               </div>
-
-                  <div class="select_all mt-4">
-                 <ul>
-                     <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-
-                      <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-
-
-                        <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-
-                        <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-                 </ul>
-               </div>
-
-                  <div class="select_all mt-4">
-                 <ul>
-                     <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-
-                      <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-
-
-                        <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-
-                        <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-                 </ul>
-               </div>
-
-                  <div class="select_all mt-4">
-                 <ul>
-                     <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-
-                      <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-
-
-                        <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-
-                        <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-                 </ul>
-               </div>  
-                <div class="select_all mt-4">
-                 <ul>
-                     <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-
-                      <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-
-
-                        <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-
-                        <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-                 </ul>
-               </div>
-
-                  <div class="select_all mt-4">
-                 <ul>
-                     <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-
-                      <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-
-
-                        <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-
-                        <li>
-                       <div class="custom">
-                         <label class="custom-checkbox">University Name
-                           <input type="checkbox" checked="checked">
-                           <span class="checkmark"></span>
-                         </label>
-                       </div>
-                     </li>
-                 </ul>
-               </div>
-                    <div class="cntact-button back">
-              
-               <button class="banner-button router-link " [routerLink]="['/application-form-preview']">Cancel</button>
-               <button class="banner-button router-link active" [routerLink]="['/dashboard']">Submit</button>
-              </div>                                   
-               </div>
-       </div>
-  </section>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">&nbsp;</h5>
+      </div>
+      <div class="modal-body">
+        Congratulations your form has been submitted successfully!You will get the email notification of each status of your form.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="banner-button router-link  okay" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>

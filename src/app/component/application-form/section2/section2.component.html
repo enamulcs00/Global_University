@@ -25,13 +25,6 @@
            <div class="academic">
              <h5 class="application_pro">Course applied</h5>
                       <div class="search-course">
-                        <!-- <input type="text" class="form-control" placeholder="Search" formControlName="searchCourse"
-                          [ngClass]="{ 'is-invalid': submitted && section2Form.get('searchCourse').hasError('required') }">    
-                          <div *ngIf="submitted && section2Form.get('searchCourse').hasError" >
-                            <div *ngIf="section2Form.get('searchCourse').hasError('required')" class="danger">
-                              *please enter the searchCourse
-                            </div>
-                          </div>   -->
                           <div class="example-full-width" matAutocompleteOrigin #origin="matAutocompleteOrigin">
                             <input matInput  [formControl]="searchCourse"  [matAutocomplete]="auto" [matAutocompleteConnectedTo]="origin" class="form-control search" placeholder="Search"  [ngClass]="{ 'is-invalid': submitted && section2Form.get('searchCourse').hasError('required') }">
                             <i class="fa fa-search"></i>                            
