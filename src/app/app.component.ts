@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router,NavigationStart } from '@angular/router';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,9 @@ export class AppComponent {
         this.tokenAvailable = localStorage.getItem('token') ? localStorage.getItem('token') : '';
         }
     })
+  }
+  ngOnInit() {
+    /** spinner starts on init */
   }
 
   openSocialLink(social) {

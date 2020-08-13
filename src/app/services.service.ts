@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpInterceptor, HttpHandler, HttpRequest, Htt
 import { tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 
 export class ServicesService {
   
-      constructor(private http:HttpClient,) { }
+      constructor(private http:HttpClient,private spinner: NgxSpinnerService) { }
   
       baseUrl = "http://182.72.203.244:2001/"
   
@@ -81,6 +82,16 @@ export class ServicesService {
           return this.http.delete(this.baseUrl + url, headers);
       }
   
+      //================ SHOW SPINNER =========================//
+    showSpinner() {
+      this.spinner.show();
+    }
+      
+    //================ HIDE SPINNER =========================//
+      hideSpinner() {    
+          this.spinner.hide();
+      }
+
  
   
   //================ HIDE Succes TOASTR =========================//

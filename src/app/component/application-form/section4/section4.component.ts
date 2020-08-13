@@ -14,6 +14,9 @@ export class Section4Component implements OnInit {
   qualificationArr: FormArray;
   countryList: any = []
   submitted: boolean = false
+  section1Data: any;
+  section2Data: any;
+  section3Data: any;
 
 
   constructor(private fb: FormBuilder, private service: ServicesService, private router: Router) {
@@ -79,8 +82,14 @@ export class Section4Component implements OnInit {
   }
 
   saveAndQuit() {
-    this.submitted = true
+    this.submitted = true;
+    if (this.section4Form.invalid) {
+      return false
+    }
     console.log("value-->", this.section4Form.value)
+    this.section1Data = JSON.parse(localStorage.getItem('section1'))
+    this.section2Data = JSON.parse(localStorage.getItem('section2'))
+    this.section3Data = JSON.parse(localStorage.getItem('section3'))
   }
 
   continue() {
@@ -92,137 +101,137 @@ export class Section4Component implements OnInit {
     this.router.navigateByUrl('section5');
   }
 
-
   fillForm(){
     let formDetailsDto = {
-      "aboutReference1": "string",
-      "aboutReference2": "string",
+      "aboutReference1": "",
+      "aboutReference2": "",
       "academicQualificationFormDto": [
         {
-          "academicQualifications": "string",
-          "achieved": "string",
-          "countryOfStudy": "string",
-          "enddate": "2020-08-12T05:40:58.716Z",
-          "highestAcademicQualification": "string",
-          "instituteName": "string",
-          "resultType": "string",
-          "startDate": "2020-08-12T05:40:58.716Z",
-          "subject1": "string",
-          "subject1grade1": "string",
-          "subject1grade2": "string",
-          "subject2": "string",
+          "academicQualifications": "",
+          "achieved": "",
+          "countryOfStudy": "",
+          "enddate": "",
+          "highestAcademicQualification": "",
+          "instituteName": "",
+          "resultType": "",
+          "startDate": "",
+          "subject1": "",
+          "subject1grade1": "",
+          "subject1grade2": "",
+          "subject2": "",
           "value": 0
         }
       ],
-      "address": "string",
-      "addressForMba": "string",
+      "address": this.section3Data.address,
+      "addressForMba": "",
       "applicationStatus": "CONDITIONAL_OFFER",
       "applyForExternalFunding": true,
-      "applyForExternalFundingDescription": "string",
+      "applyForExternalFundingDescription": "",
       "areResponsibleForWorkingWithBudgets": true,
       "arehavecreativetalent": true,
-      "awardedDate": "2020-08-12T05:40:58.716Z",
-      "briefDuties": "string",
-      "coOrdinatingTeam": "string",
-      "contactEmail": "string",
-      "country": "string",
-      "countryOfBirth": "string",
-      "courseCountry": "string",
-      "courseEnddate": "2020-08-12T05:40:58.716Z",
-      "courseId": 0,
-      "courseName": "string",
-      "courseSttartDate": "2020-08-12T05:40:58.716Z",
-      "currentEmployment": "string",
-      "dateAppointed": "2020-08-12T05:40:58.716Z",
-      "dates": "2020-08-12T05:40:58.716Z",
-      "description": "string",
-      "descriptionForMba": "string",
+      "awardedDate": "",
+      "briefDuties": "",
+      "coOrdinatingTeam": "",
+      "contactEmail": this.section3Data.email,
+      "country": this.section3Data.country,
+      "countryOfBirth": this.section2Data.CountryOfBirth,
+      "courseCountry": this.section1Data.countryName,
+      "courseEnddate": "",
+      "courseId": this.section1Data.courseId,
+      "courseName": this.section1Data.searchCourse,
+      "courseSttartDate": this.section1Data.courseStartDate,
+      "currentEmployment": "",
+      "dateAppointed": "",
+      "dates": "",
+      "description": "",
+      "descriptionForMba": "",
       "disability": true,
-      "doUoyRequireVisatoStudtInTheUk": true,
+      "doUoyRequireVisatoStudtInTheUk": this.section2Data.requireVisaForUK  == 'true'? true : false,
       "doYouCurrentlyHaveFundingForYourChosenProgrammeofStudy": true,
-      "dob": "string",
-      "email": "string",
-      "emailForMba": "string",
-      "employerName": "string",
-      "employersName": "string",
+      "dob": this.section2Data.dateOfBirth + 'T00:00:00.000Z',
+      "email": this.section2Data.email,
+      "emailForMba": "",
+      "employerName": "",
+      "employersName": "",
       "formFillStatus": "INCOMPLETE",
-      "forname": "string",
-      "gender": "MALE",
+      "forname": this.section2Data.foreName,
+      "gender": this.section2Data.gender,
       "graduateWorkExperience": 0,
       "grossAnnualSalary": 0,
-      "homeAddress": "string",
-      "homeEmail": "string",
-      "homeTeliphoneNo": 0,
-      "homeTeliphoneNo2": 0,
-      "intakeNotApply": "2020-08-12T05:40:58.716Z",
+      "homeAddress": this.section3Data.homeAddress,
+      "homeEmail":  this.section3Data.homeEmail,
+      "homeTeliphoneNo": Object.keys(this.section3Data.homeTelephoneNo).length != 0 ? this.section3Data.homeTelephoneNo.internationalNumber: this.section3Data.homeTelephoneNo,
+      "homeTeliphoneNo2": Object.keys(this.section3Data.homeTelephoneNo1).length != 0 ? this.section3Data.homeTelephoneNo1.internationalNumber: this.section3Data.homeTelephoneNo1,
+      "intakeNotApply": "",
       "isPersionalStatementFeel": true,
       "isresponsibility": true,
-      "jobTitle": "string",
+      "jobTitle": "",
       "managementWorkExperience": 0,
       "matchingUniversityDto": [
         {
-          "universityEmail": "string",
+          "universityEmail": "",
           "universityId": 0,
-          "universityName": "string"
+          "universityName": ""
         }
       ],
-      "meetingFinancial": "string",
-      "multiCulturalAxposure": "string",
-      "natureofEmployersBusiness": "string",
-      "operationaActivities": "string",
-      "pageFillNumber": "string",
-      "passportNumber": "string",
-      "permanentResidenceCountry": "string",
-      "persionalDescription": "string",
-      "pgtJobTitle": "string",
+      "meetingFinancial": "",
+      "multiCulturalAxposure": "",
+      "natureofEmployersBusiness": "",
+      "operationaActivities": "",
+      "pageFillNumber": "section1",
+      "passportNumber": this.section2Data.passportNumber,
+      "permanentResidenceCountry": this.section2Data.permanentResidenceCountry,
+      "persionalDescription": "",
+      "pgtJobTitle": "",
       "phoneNo": 0,
-      "preferredName": "string",
-      "primarilyAchieves": "string",
-      "processesOrTechnology": "string",
-      "professionalBodyMembership": "string",
-      "professionalQualificationSubject": "string",
-      "qualificationTitle": "string",
-      "referee1Address": "string",
-      "referee1Name": "string",
+      "preferredName": this.section2Data.prefferedName,
+      "primarilyAchieves": "",
+      "processesOrTechnology": "",
+      "professionalBodyMembership": "",
+      "professionalQualificationSubject": "",
+      "qualificationTitle": "",
+      "referee1Address": "",
+      "referee1Name": "",
       "referee1TelephoneNumber": 0,
-      "referee1Title": "string",
-      "referee2Address": "string",
-      "referee2Name": "string",
+      "referee1Title": "",
+      "referee2Address": "",
+      "referee2Name": "",
       "referee2TelephoneNumber": 0,
-      "referee2Title": "string",
-      "relevantCriminalConvictions": true,
+      "referee2Title": "",
+      "relevantCriminalConvictions": this.section2Data.criminalConviction == "YES" ? true  : false,
       "representativeId": 0,
-      "representativeName": "string",
-      "requireSpecificTechnical": "string",
+      "representativeName": "",
+      "requireSpecificTechnical": "",
       "researchProposalForPGR": true,
-      "researchProposalForPGRDescription": "string",
+      "researchProposalForPGRDescription": "",
       "responsibleForManageProject": true,
       "responsibleFordeployCreativetalent": true,
-      "sirName": "string",
-      "solveProblemsAndDeliverResults": "string",
-      "state": "string",
+      "sirName": this.section2Data.surName,
+      "solveProblemsAndDeliverResults": "",
+      "state": this.section3Data.state,
       "technicalResponsibility": true,
-      "telephoneNo": 0,
-      "telephoneNumber": 0,
-      "title": "string",
+      "telephoneNo": Object.keys(this.section3Data.telephoneNo).length != 0 ? this.section3Data.telephoneNo.internationalNumber: this.section3Data.telephoneNo,
+      "telephoneNumber": Object.keys(this.section3Data.contactPhoneNo).length != 0 ? this.section3Data.contactPhoneNo.internationalNumber: this.section3Data.contactPhoneNo,
+      "title": this.section2Data.title,
       "totalWorkExperience": 0,
       "universityId": 0,
-      "urlCv": "string",
-      "urlDegree": "string",
-      "urlDocuments": "string",
-      "urlEnglishLanguageCertificate": "string",
-      "urlResearchProposal": "string",
-      "urlStatement": "string",
-      "urlTranscript": "string",
-      "urlpersonalStatement": "string",
+      "urlCv": "",
+      "urlDegree": "",
+      "urlDocuments": "",
+      "urlEnglishLanguageCertificate": "",
+      "urlResearchProposal": "",
+      "urlStatement": "",
+      "urlTranscript": "",
+      "urlpersonalStatement": "",
       "wishtoApplyForUniversityFunding": true,
-      "wishtoApplyForUniversityFundingDescription": "string",
+      "wishtoApplyForUniversityFundingDescription": "",
       "wishtoApplyForUniversityscholarship": true,
-      "wishtoApplyForUniversityscholarshipDescription": "string",
-      "zipcode": 0
+      "wishtoApplyForUniversityscholarshipDescription": "",
+      "zipcode": this.section3Data.zipCode
     }
-    this.service.postApi(`course/form-fill-up-as-a-user`,formDetailsDto,1).subscribe((res:any) => {
-      console.log("res-->",res)
-    })
+    console.log("form--->",formDetailsDto)
+    // this.service.postApi(`course/form-fill-up-as-a-user`,formDetailsDto,1).subscribe((res:any) => {
+    //   console.log("res-->",res)
+    // })
   }
 }

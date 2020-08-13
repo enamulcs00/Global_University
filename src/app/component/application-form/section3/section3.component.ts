@@ -24,6 +24,8 @@ export class Section3Component implements OnInit {
   validHomeTelephoneNo:Boolean = true;
   validHome1TelephoneNo:Boolean = true;
   responseMessage :any = ""
+  section1Data: any;
+  section2Data: any;
 
   constructor(private service:ServicesService,private router:Router) { }
 
@@ -137,12 +139,34 @@ export class Section3Component implements OnInit {
     this.stateList = States[0].states;
   }
 
+  checkForAddress(event){
+    console.log("-->",event.srcElement.checked)
+    if(event.srcElement.checked){
+      this.section3Form.patchValue({
+        homeAddress : this.section3Form.value.address + ',' + this.section3Form.value.state + ',' + this.section3Form.value.country + ',' + this.section3Form.value.zipCode,
+        homeTelephoneNo : this.section3Form.value.telephoneNo,
+        homeTelephoneNo1 : this.section3Form.value.contactPhoneNo,
+        homeEmail : this.section3Form.value.email,
+      })
+    }else{
+      this.section3Form.patchValue({
+        homeAddress : '',
+        homeTelephoneNo : '',
+        homeTelephoneNo1 : '',
+        homeEmail : ''
+      })
+    }
+  }
+
   saveAndQuit(){
     this.submitted = true;
     if(this.section3Form.invalid){
       return false
     }
     console.log("form value -->>",this.section3Form.value)
+    this.section1Data = JSON.parse(localStorage.getItem('section1'))
+    this.section2Data = JSON.parse(localStorage.getItem('section2'))
+    this.fillForm()
   }
 
   continue(){
@@ -156,71 +180,135 @@ export class Section3Component implements OnInit {
 
   fillForm(){
     let formDetailsDto = {
-      "accommodation": "string",
-      "businessEntity": "string",
-      "careerServices": "string",
-      "description": "string",
-      "descriptionFunction": "string",
-      "employabilityRanking": 0,
-      "fkUserId": 0,
-      "imageUrl": "string",
-      "noOfCampases": 0,
-      "noOfCourses": 0,
-      "overseasCampuses": 0,
-      "partTimeJobsOnCampus": "AVAILABLE",
-      "registrationNo": "string",
-      "researchFacility": "AVAILABLE",
-      "researchRanking": 0,
-      "scholarship": "AVAILABLE",
-      "subscription": [
+      "aboutReference1": "",
+      "aboutReference2": "",
+      "academicQualificationFormDto": [
         {
-          "subscriptionEmail": "string",
-          "subscriptionId": 0,
-          "subscriptionStatus": "ACTIVATE",
-          "subscriptionType": "PLATINUM",
-          "userLicenses": 0,
-          "userName": "string",
-          "validFrom": "2020-08-12T13:56:46.447Z",
-          "validTo": "2020-08-12T13:56:46.447Z"
+          "academicQualifications": "",
+          "achieved": "",
+          "countryOfStudy": "",
+          "enddate": "",
+          "highestAcademicQualification": "",
+          "instituteName": "",
+          "resultType": "",
+          "startDate": "",
+          "subject1": "",
+          "subject1grade1": "",
+          "subject1grade2": "",
+          "subject2": "",
+          "value": 0
         }
       ],
-      "taxRegistrationNo": "string",
-      "totalStudents": 0,
-      "universityAddress": [
+      "address": this.section3Form.value.address,
+      "addressForMba": "",
+      "applicationStatus": "CONDITIONAL_OFFER",
+      "applyForExternalFunding": true,
+      "applyForExternalFundingDescription": "",
+      "areResponsibleForWorkingWithBudgets": true,
+      "arehavecreativetalent": true,
+      "awardedDate": "",
+      "briefDuties": "",
+      "coOrdinatingTeam": "",
+      "contactEmail": this.section3Form.value.email,
+      "country": this.section3Form.value.country,
+      "countryOfBirth": this.section2Data.CountryOfBirth,
+      "courseCountry": this.section1Data.countryName,
+      "courseEnddate": "",
+      "courseId": this.section1Data.courseId,
+      "courseName": this.section1Data.searchCourse,
+      "courseSttartDate": this.section1Data.courseStartDate,
+      "currentEmployment": "",
+      "dateAppointed": "",
+      "dates": "",
+      "description": "",
+      "descriptionForMba": "",
+      "disability": true,
+      "doUoyRequireVisatoStudtInTheUk": this.section2Data.requireVisaForUK  == 'true'? true : false,
+      "doYouCurrentlyHaveFundingForYourChosenProgrammeofStudy": true,
+      "dob": this.section2Data.dateOfBirth + 'T00:00:00.000Z',
+      "email": this.section2Data.email,
+      "emailForMba": "",
+      "employerName": "",
+      "employersName": "",
+      "formFillStatus": "INCOMPLETE",
+      "forname": this.section2Data.foreName,
+      "gender": this.section2Data.gender,
+      "graduateWorkExperience": 0,
+      "grossAnnualSalary": 0,
+      "homeAddress": this.section3Form.value.homeAddress,
+      "homeEmail":  this.section3Form.value.homeEmail,
+      "homeTeliphoneNo": Object.keys(this.section3Form.value.homeTelephoneNo).length != 0 ? this.section3Form.value.homeTelephoneNo.internationalNumber: this.section3Form.value.homeTelephoneNo,
+      "homeTeliphoneNo2": Object.keys(this.section3Form.value.homeTelephoneNo1).length != 0 ? this.section3Form.value.homeTelephoneNo1.internationalNumber: this.section3Form.value.homeTelephoneNo1,
+      "intakeNotApply": "",
+      "isPersionalStatementFeel": true,
+      "isresponsibility": true,
+      "jobTitle": "",
+      "managementWorkExperience": 0,
+      "matchingUniversityDto": [
         {
-          "address1": "string",
-          "address2": "string",
-          "address3": "string",
-          "billingAddress": "string",
-          "city": "string",
-          "corrospondingAddress": "string",
-          "country": "string",
-          "location": "string",
-          "pinCode": 0,
-          "primaryDepartment": "string",
-          "primaryEmail": "string",
-          "primaryMobileNo": 0,
-          "primaryPhoneNo": 0,
-          "primaryRole": "string",
-          "primaryUserName": "string",
-          "secondaryUserName": "string",
-          "secondryEmail": "string",
-          "secondryMobileNo": 0,
-          "secondryPhoneNo": 0,
-          "state": "string",
-          "universityAddressId": 0
+          "universityEmail": "",
+          "universityId": 0,
+          "universityName": ""
         }
       ],
-      "universityCode": "string",
-      "universityCountryRanking": 0,
-      "universityDetailsId": 0,
-      "universityName": "string",
-      "universityWorldRanking": 0,
-      "userId": 0,
-      "websiteUrl": "string"
+      "meetingFinancial": "",
+      "multiCulturalAxposure": "",
+      "natureofEmployersBusiness": "",
+      "operationaActivities": "",
+      "pageFillNumber": "section3",
+      "passportNumber": this.section2Data.passportNumber,
+      "permanentResidenceCountry": this.section2Data.permanentResidenceCountry,
+      "persionalDescription": "",
+      "pgtJobTitle": "",
+      "phoneNo": 0,
+      "preferredName": this.section2Data.prefferedName,
+      "primarilyAchieves": "",
+      "processesOrTechnology": "",
+      "professionalBodyMembership": "",
+      "professionalQualificationSubject": "",
+      "qualificationTitle": "",
+      "referee1Address": "",
+      "referee1Name": "",
+      "referee1TelephoneNumber": 0,
+      "referee1Title": "",
+      "referee2Address": "",
+      "referee2Name": "",
+      "referee2TelephoneNumber": 0,
+      "referee2Title": "",
+      "relevantCriminalConvictions": this.section2Data.criminalConviction == "YES" ? true  : false,
+      "representativeId": 0,
+      "representativeName": "",
+      "requireSpecificTechnical": "",
+      "researchProposalForPGR": true,
+      "researchProposalForPGRDescription": "",
+      "responsibleForManageProject": true,
+      "responsibleFordeployCreativetalent": true,
+      "sirName": this.section2Data.surName,
+      "solveProblemsAndDeliverResults": "",
+      "state": this.section3Form.value.state,
+      "technicalResponsibility": true,
+      "telephoneNo": Object.keys(this.section3Form.value.telephoneNo).length != 0 ? this.section3Form.value.telephoneNo.internationalNumber: this.section3Form.value.telephoneNo,
+      "telephoneNumber": Object.keys(this.section3Form.value.contactPhoneNo).length != 0 ? this.section3Form.value.contactPhoneNo.internationalNumber: this.section3Form.value.contactPhoneNo,
+      "title": this.section2Data.title,
+      "totalWorkExperience": 0,
+      "universityId": 0,
+      "urlCv": "",
+      "urlDegree": "",
+      "urlDocuments": "",
+      "urlEnglishLanguageCertificate": "",
+      "urlResearchProposal": "",
+      "urlStatement": "",
+      "urlTranscript": "",
+      "urlpersonalStatement": "",
+      "wishtoApplyForUniversityFunding": true,
+      "wishtoApplyForUniversityFundingDescription": "",
+      "wishtoApplyForUniversityscholarship": true,
+      "wishtoApplyForUniversityscholarshipDescription": "",
+      "zipcode": this.section3Form.value.zipCode
     }
-    this.service.postApi(`course/form-fill-up-as-a-user`,formDetailsDto,1).subscribe((res:any) => {
-      console.log("res-->",res)
-    })
+    console.log("form--->",formDetailsDto)
+    // this.service.postApi(`course/form-fill-up-as-a-user`,formDetailsDto,1).subscribe((res:any) => {
+    //   console.log("res-->",res)
+    // })
   }
 }

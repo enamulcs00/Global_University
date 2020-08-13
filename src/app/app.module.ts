@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,6 +42,8 @@ import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HttpModifierInterceptor } from './services.service';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -87,7 +89,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     BrowserAnimationsModule,
     NgxIntlTelInputModule,
     BsDropdownModule.forRoot(),
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    NgxSpinnerModule
     ],
   providers: [
     {
@@ -95,7 +98,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
       useClass: HttpModifierInterceptor,
       multi: true
   },
-  ],
+],
+  // schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -116,6 +116,7 @@ export class ReportComponent implements OnInit {
   }
 
   reportCountApi() {
+    this.service.showSpinner()
     let url = `course/get-form-count`;
     if(this.countryName != ''){
       url = url + `?country=${this.countryName}`
@@ -123,7 +124,9 @@ export class ReportComponent implements OnInit {
     this.service.getApi(url, 1).subscribe((res: any) => {
       if (res.body.status == 200) {
         this.reportsCountData = res.body.data
+        this.service.hideSpinner()
       }else{
+        this.service.hideSpinner()
         this.reportsCountData = {
           dayCount : 0,
           weekCount : 0,
@@ -148,12 +151,12 @@ export class ReportComponent implements OnInit {
     if (!this.fromDate && !this.toDate) {
       return false
     }
-    console.log("from date -->", this.fromDate)
-    console.log("to date -->", this.convertIntoTimeStamp(this.toDate))
+    this.service.showSpinner()
     this.service.getApi(`course/get-graph-data-for-application-status?fromDate=1596637995&toDate=1596637995`, 1).subscribe((res: any) => {
       console.log("res-->>", res.body.data)
       let data = res.body.data
       let resChartData = []
+      this.service.hideSpinner()
       data.forEach(element => {
         resChartData.push({
           "key": (Object.keys(element)[0]).split('_')[0],

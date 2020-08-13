@@ -18,8 +18,23 @@ export class Section2Component implements OnInit {
   countryList:any = [];
   courseList:any = [];
   yearList:any = [];
-  MonthList:any = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  MonthList:any = [
+    {monthName:'January',month:"01"},
+    {monthName:'February',month:"02"},
+    {monthName:'March',month:"03"},
+    {monthName:'April',month:"04"},
+    {monthName:'May',month:"05"},
+    {monthName:'June',month:"06"},
+    {monthName:'July',month:"07"},
+    {monthName:'August',month:"08"},
+    {monthName:'September',month:"09"},
+    {monthName:'October',month:"10"},
+    {monthName:'November',month:"11"},
+    {monthName:'December',month:"12"}
+  ]
+  courseId:any ;
   filteredOptions: Observable<string[]>;
+  courseStartDate: string;
 
   constructor(private service:ServicesService,private router:Router) { }
 
@@ -28,17 +43,19 @@ export class Section2Component implements OnInit {
     for(let i = -10; i < 10; i++){
       this.yearList.push(today.getFullYear() + i)
     }
+    this.initializeForm()
     this.getCourses()
     this.service.getCountryStates().subscribe((res: any) => {
       this.countryList = res
     })
     window.scrollTo(0, 0);
-    this.initializeForm()
   }
 
   getCourses(){
+    this.service.showSpinner()
     this.service.getApi('course/v1.1/web/search-and-filter-course-details',2).subscribe((res:any) => {
       console.log('res--->',res.body)
+      this.service.hideSpinner()
       if(res.body.status == 200){
         this.courseList = res.body.data.list;
         this.filteredOptions = this.searchCourse.valueChanges
@@ -57,6 +74,9 @@ export class Section2Component implements OnInit {
 
   selectCourse(){
     console.log("-->",this.searchCourse.value)
+    console.log("-->>",this.courseList.filter(option => option.courseName == this.searchCourse.value))
+    let selectedCourse = this.courseList.filter(option => option.courseName == this.searchCourse.value)
+    this.courseId = selectedCourse[0].courseId
     this.section2Form.patchValue({
       searchCourse : this.searchCourse.value
     })
@@ -68,7 +88,7 @@ export class Section2Component implements OnInit {
       "countryName" : new FormControl('',[Validators.required]),
       "startYear" : new FormControl('',[Validators.required]),
       "startMonth" : new FormControl('',[Validators.required]),
-      "yearIntake" : new FormControl('',[Validators.required]),
+      "yearIntake" : new FormControl('',[]),
     })
     if(localStorage.getItem('section1')){
      let section1data = JSON.parse(localStorage.getItem('section1'))
@@ -80,160 +100,170 @@ export class Section2Component implements OnInit {
        "startMonth" : section1data.startMonth,
        "yearIntake" : section1data.yearIntake,
      })
+     this.courseId = section1data.courseId
+     this.courseStartDate = section1data.courseStartDate
     }
   }
 
   saveAndQuit(){
+    this.courseStartDate = this.section2Form.value.startYear +'-'+ (this.section2Form.value.startMonth) + '-01T00:00:00.000Z';
     this.submitted = true;
     if(this.section2Form.invalid){
       return false
-    }
+    }    
     console.log("submit -->>",this.section2Form.value)
-    this.fillForm()
+    // this.fillForm()
   }
 
   continue(){
+    this.courseStartDate = this.section2Form.value.startYear +'-'+ (this.section2Form.value.startMonth) + '-01T00:00:00.000Z';
     this.submitted = true;
     if(this.section2Form.invalid){
       return false
     }
-    localStorage.setItem('section1',JSON.stringify(this.section2Form.value))
+    let courseObject = {...this.section2Form.value,courseId:this.courseId,courseStartDate:this.courseStartDate}
+    localStorage.setItem('section1',JSON.stringify(courseObject))
     this.router.navigateByUrl('section2');
   }
 
-
- 
-
   fillForm(){
     let formDetailsDto = {
-      "aboutReference1": "string",
-      "aboutReference2": "string",
+      "aboutReference1": "",
+      "aboutReference2": "",
       "academicQualificationFormDto": [
         {
-          "academicQualifications": "string",
-          "achieved": "string",
-          "countryOfStudy": "string",
-          "enddate": "2020-08-12T05:40:58.716Z",
-          "highestAcademicQualification": "string",
-          "instituteName": "string",
-          "resultType": "string",
-          "startDate": "2020-08-12T05:40:58.716Z",
-          "subject1": "string",
-          "subject1grade1": "string",
-          "subject1grade2": "string",
-          "subject2": "string",
+          "academicQualifications": "",
+          "achieved": "",
+          "countryOfStudy": "",
+          "enddate": "",
+          "highestAcademicQualification": "",
+          "instituteName": "",
+          "resultType": "",
+          "startDate": "",
+          "subject1": "",
+          "subject1grade1": "",
+          "subject1grade2": "",
+          "subject2": "",
           "value": 0
         }
       ],
-      "address": "string",
-      "addressForMba": "string",
+      "address": "",
+      "addressForMba": "",
       "applicationStatus": "CONDITIONAL_OFFER",
       "applyForExternalFunding": true,
-      "applyForExternalFundingDescription": "string",
+      "applyForExternalFundingDescription": "",
       "areResponsibleForWorkingWithBudgets": true,
       "arehavecreativetalent": true,
-      "awardedDate": "2020-08-12T05:40:58.716Z",
-      "briefDuties": "string",
-      "coOrdinatingTeam": "string",
-      "contactEmail": "string",
-      "country": "string",
-      "countryOfBirth": "string",
-      "courseCountry": "string",
-      "courseEnddate": "2020-08-12T05:40:58.716Z",
-      "courseId": 0,
-      "courseName": "string",
-      "courseSttartDate": "2020-08-12T05:40:58.716Z",
-      "currentEmployment": "string",
-      "dateAppointed": "2020-08-12T05:40:58.716Z",
-      "dates": "2020-08-12T05:40:58.716Z",
-      "description": "string",
-      "descriptionForMba": "string",
+      "awardedDate": "",
+      "briefDuties": "",
+      "coOrdinatingTeam": "",
+      "contactEmail": "",
+      "country": "",
+      "countryOfBirth": "",
+      "courseCountry": this.section2Form.value.countryName,
+      "courseEnddate": "",
+      "courseId": this.courseId,
+      "courseName": this.section2Form.value.searchCourse,
+      "courseSttartDate": this.courseStartDate,
+      "currentEmployment": "",
+      "dateAppointed": "",
+      "dates": "",
+      "description": "",
+      "descriptionForMba": "",
       "disability": true,
       "doUoyRequireVisatoStudtInTheUk": true,
       "doYouCurrentlyHaveFundingForYourChosenProgrammeofStudy": true,
-      "dob": "string",
-      "email": "string",
-      "emailForMba": "string",
-      "employerName": "string",
-      "employersName": "string",
+      "dob": "",
+      "email": "",
+      "emailForMba": "",
+      "employerName": "",
+      "employersName": "",
       "formFillStatus": "INCOMPLETE",
-      "forname": "string",
+      "forname": "",
       "gender": "MALE",
       "graduateWorkExperience": 0,
       "grossAnnualSalary": 0,
-      "homeAddress": "string",
-      "homeEmail": "string",
+      "homeAddress": "",
+      "homeEmail": "",
       "homeTeliphoneNo": 0,
       "homeTeliphoneNo2": 0,
-      "intakeNotApply": "2020-08-12T05:40:58.716Z",
+      "intakeNotApply": "",
       "isPersionalStatementFeel": true,
       "isresponsibility": true,
-      "jobTitle": "string",
+      "jobTitle": "",
       "managementWorkExperience": 0,
       "matchingUniversityDto": [
         {
-          "universityEmail": "string",
+          "universityEmail": "",
           "universityId": 0,
-          "universityName": "string"
+          "universityName": ""
         }
       ],
-      "meetingFinancial": "string",
-      "multiCulturalAxposure": "string",
-      "natureofEmployersBusiness": "string",
-      "operationaActivities": "string",
-      "pageFillNumber": "string",
-      "passportNumber": "string",
-      "permanentResidenceCountry": "string",
-      "persionalDescription": "string",
-      "pgtJobTitle": "string",
+      "meetingFinancial": "",
+      "multiCulturalAxposure": "",
+      "natureofEmployersBusiness": "",
+      "operationaActivities": "",
+      "pageFillNumber": "section1",
+      "passportNumber": "",
+      "permanentResidenceCountry": "",
+      "persionalDescription": "",
+      "pgtJobTitle": "",
       "phoneNo": 0,
-      "preferredName": "string",
-      "primarilyAchieves": "string",
-      "processesOrTechnology": "string",
-      "professionalBodyMembership": "string",
-      "professionalQualificationSubject": "string",
-      "qualificationTitle": "string",
-      "referee1Address": "string",
-      "referee1Name": "string",
+      "preferredName": "",
+      "primarilyAchieves": "",
+      "processesOrTechnology": "",
+      "professionalBodyMembership": "",
+      "professionalQualificationSubject": "",
+      "qualificationTitle": "",
+      "referee1Address": "",
+      "referee1Name": "",
       "referee1TelephoneNumber": 0,
-      "referee1Title": "string",
-      "referee2Address": "string",
-      "referee2Name": "string",
+      "referee1Title": "",
+      "referee2Address": "",
+      "referee2Name": "",
       "referee2TelephoneNumber": 0,
-      "referee2Title": "string",
+      "referee2Title": "",
       "relevantCriminalConvictions": true,
       "representativeId": 0,
-      "representativeName": "string",
-      "requireSpecificTechnical": "string",
+      "representativeName": "",
+      "requireSpecificTechnical": "",
       "researchProposalForPGR": true,
-      "researchProposalForPGRDescription": "string",
+      "researchProposalForPGRDescription": "",
       "responsibleForManageProject": true,
       "responsibleFordeployCreativetalent": true,
-      "sirName": "string",
-      "solveProblemsAndDeliverResults": "string",
-      "state": "string",
+      "sirName": "",
+      "solveProblemsAndDeliverResults": "",
+      "state": "",
       "technicalResponsibility": true,
       "telephoneNo": 0,
       "telephoneNumber": 0,
-      "title": "string",
+      "title": "",
       "totalWorkExperience": 0,
       "universityId": 0,
-      "urlCv": "string",
-      "urlDegree": "string",
-      "urlDocuments": "string",
-      "urlEnglishLanguageCertificate": "string",
-      "urlResearchProposal": "string",
-      "urlStatement": "string",
-      "urlTranscript": "string",
-      "urlpersonalStatement": "string",
+      "urlCv": "",
+      "urlDegree": "",
+      "urlDocuments": "",
+      "urlEnglishLanguageCertificate": "",
+      "urlResearchProposal": "",
+      "urlStatement": "",
+      "urlTranscript": "",
+      "urlpersonalStatement": "",
       "wishtoApplyForUniversityFunding": true,
-      "wishtoApplyForUniversityFundingDescription": "string",
+      "wishtoApplyForUniversityFundingDescription": "",
       "wishtoApplyForUniversityscholarship": true,
-      "wishtoApplyForUniversityscholarshipDescription": "string",
+      "wishtoApplyForUniversityscholarshipDescription": "",
       "zipcode": 0
     }
     this.service.postApi(`course/form-fill-up-as-a-user`,formDetailsDto,1).subscribe((res:any) => {
       console.log("res-->",res)
     })
+  }
+
+
+  convertIntoTimeStamp(myDate) {
+    myDate = myDate.split("-");
+    var newDate = myDate[1] + "/" + myDate[2] + "/" + myDate[0];
+    console.log(new Date(newDate).getTime());
+    return (new Date(newDate).getTime())
   }
 }

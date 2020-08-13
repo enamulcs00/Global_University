@@ -27,7 +27,7 @@
                       <div class="search-course">
                           <div class="example-full-width" matAutocompleteOrigin #origin="matAutocompleteOrigin">
                             <input matInput  [formControl]="searchCourse"  [matAutocomplete]="auto" [matAutocompleteConnectedTo]="origin" class="form-control search" placeholder="Search"  [ngClass]="{ 'is-invalid': submitted && section2Form.get('searchCourse').hasError('required') }">
-                            <i class="fa fa-search"></i>                            
+                            <i class="fa fa-search"></i>
                           </div>
                           <mat-autocomplete #auto="matAutocomplete" (optionSelected)='selectCourse()'>
                             <mat-option *ngFor="let option of filteredOptions | async" [value]="option.courseName">
@@ -76,7 +76,7 @@
                           <select  formControlName="startMonth"  class="form-control"
                           [ngClass]="{ 'is-invalid': submitted && section2Form.get('startMonth').hasError('required') }"> 
                             <option disabled selected value="">Select year</option>
-                            <option *ngFor="let item of MonthList" value="{{item}}">{{item}}</option>
+                            <option *ngFor="let item of MonthList" value="{{item.month}}">{{item.monthName}}</option>
                           </select>  
                           <i class="fa fa-calendar" aria-hidden="true"></i>
                           <div *ngIf="submitted && section2Form.get('startMonth').hasError" >

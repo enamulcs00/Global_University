@@ -134,13 +134,13 @@
 
                       <div class="custom">
                           <label class="custom-checkbox">Is your home address the same as your contact address?
-                            <input type="checkbox" checked="checked"   formControlName="checkForHomeAddress">
+                            <input type="checkbox" checked="checked" (change)="checkForAddress($event)"  formControlName="checkForHomeAddress">
                             <span class="checkmark"></span>
                           </label>
                       </div>
 
                       <div class="form-group">
-                          <label for="exampleInputEmail1">Home Address :</label>
+                          <label for="exampleInputEmail1">Home address (incl postcode & Country) :</label>
                           <input type="email" class="form-control" placeholder="Address"   formControlName="homeAddress"
                           [ngClass]="{ 'is-invalid': submitted && section3Form.get('homeAddress').hasError('required') }">  
                           <div *ngIf="submitted && section3Form.get('homeAddress').hasError" >

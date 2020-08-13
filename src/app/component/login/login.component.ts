@@ -43,7 +43,6 @@ export class LoginComponent implements OnInit {
   // ******************Login Api*******************//
 
   login() {
-
     if (localStorage != null) {
       localStorage.setItem('email', window.btoa(this.loginForm.value.email))
       localStorage.setItem('password', window.btoa(this.loginForm.value.password))
@@ -51,6 +50,7 @@ export class LoginComponent implements OnInit {
       this.loginForm.reset();
     }
     localStorage.setItem('remembers', JSON.stringify(this.loginForm.value.remember))
+    this.service.showSpinner()
     let object = {
       "email": this.loginForm.value.email,
       "password": this.loginForm.value.password
@@ -67,6 +67,7 @@ export class LoginComponent implements OnInit {
         this.service.getApi('account/my-account', 1).subscribe((res : any) => {
             console.log("res--->>",res)
             if(res.body.status == 200){
+                this.service.hideSpinner()
                 localStorage.setItem('myProfile',JSON.stringify(res.body.data))
                 this.router.navigate(['dashboard'])
             }

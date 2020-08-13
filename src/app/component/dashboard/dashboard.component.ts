@@ -21,6 +21,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getSubmiitedForms(){
+    this.service.showSpinner()
     let url = `course/filter-forms-details?page=0&formFillStatus=COMPLETE`
     if(this.searchKey){
       url = url + `&search=${this.searchKey}`
@@ -38,6 +39,7 @@ export class DashboardComponent implements OnInit {
       console.log("res -->",res)
       if(res.body.status == 200){
         this.submittedFormsList = res.body.data.list
+        this.service.hideSpinner()
       }
     })
   }
@@ -47,6 +49,7 @@ export class DashboardComponent implements OnInit {
     this.formId = undefined
     this.fromDate = undefined
     this.toDate = undefined
+    this.getSubmiitedForms()
   }
 
   convertIntoTimeStamp(myDate) {
