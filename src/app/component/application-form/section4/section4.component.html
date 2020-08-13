@@ -9,7 +9,7 @@
                           <div [formGroupName]="i">
                               <div class="University-name cs3 mb-3">
                                   <label>Country of Study :</label>
-                                  <select class="form-control" formControlName="country" (change)= "getAcedemicQulification($event,i)"
+                                  <select class="form-control" formControlName="country" (change)= "getAcedemicQulification($event.target.value,i)"
                                   [ngClass]="{ 'is-invalid': submitted && data.controls['country'].hasError('required') }" >
                                     <option disabled selected value=""> Select county</option>
                                     <option *ngFor="let item of countryList" value="{{item.country}}">{{item.country}}</option>

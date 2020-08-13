@@ -18,7 +18,7 @@
 
                     <div class="form-group">
                         <label>Referee 1 Title :</label>
-                        <input type="text" class="form-control" placeholder="SReferee 1 Title" formControlName="refree1title"
+                        <input type="text" class="form-control" placeholder="Referee 1 Title" formControlName="refree1title"
                         [ngClass]="{ 'is-invalid': submitted && section7Form.get('refree1title').hasError('required') }">  
                           <div *ngIf="submitted && section7Form.get('refree1title').hasError" >
                             <div *ngIf="section7Form.get('refree1title').hasError('required')" class="danger">
@@ -109,7 +109,7 @@
 
                     <div class="form-group">
                         <label>Referee 2 Title :</label>
-                        <input type="text" class="form-control" placeholder="SReferee 2 Title" formControlName="refree2title"
+                        <input type="text" class="form-control" placeholder="Referee 2 Title" formControlName="refree2title"
                         [ngClass]="{ 'is-invalid': submitted && section7Form.get('refree2title').hasError('required') }">  
                           <div *ngIf="submitted && section7Form.get('refree2title').hasError" >
                             <div *ngIf="section7Form.get('refree2title').hasError('required')" class="danger">

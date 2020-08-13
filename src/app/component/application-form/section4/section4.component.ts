@@ -74,7 +74,7 @@ export class Section4Component implements OnInit {
     })
     setTimeout(e => {
       this.service.hideSpinner()
-    },2500)
+    },3000)
   }
 
   changeResult(event){
@@ -84,7 +84,7 @@ export class Section4Component implements OnInit {
 
   getAcedemicQulification(event,index){
     this.service.showSpinner()
-    this.service.getApi(`course/get-search-all-global-academic-qualification-details?page=0&pagesize=1000&name=${event.target.value}`,1).subscribe((res:any) => {
+    this.service.getApi(`course/get-search-all-global-academic-qualification-details?page=0&pagesize=1000&name=${event}`,1).subscribe((res:any) => {
       this.service.hideSpinner()
       if(res.status == 200){
         this.academicQualifiationList[index] = res.body.data.getDataByName.content
@@ -117,7 +117,8 @@ export class Section4Component implements OnInit {
   remove(index){
     console.log("index-->>",index)
     this.qualificationArr.removeAt(index);
-    delete this.academicQualifiationList[index]
+    // delete this.academicQualifiationList[index]
+    this.academicQualifiationList.splice(index,1)
     console.log("-->",this.academicQualifiationList)
   }
 

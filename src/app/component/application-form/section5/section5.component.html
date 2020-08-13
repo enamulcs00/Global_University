@@ -98,8 +98,8 @@
                         <label>If yes, please select your english qualification :</label>
                         <select class="form-control" formControlName="englishQualificationName"
                         [ngClass]="{ 'is-invalid': submitted && section5Form.get('englishQualificationName').hasError('required') }">
-                            <option value="IELTS">IELTS</option>
-                            <option value="TOEFL">TOEFL</option>
+                        <option selected disabled value="">Select type</option>
+                        <option *ngFor="let item of globalEnglishQualificationList" value="{{item.professionalQualificationName}}">{{item.professionalQualificationName}}</option>
                         </select>
                         <i class="fa fa-sort-down"></i>
                         <div *ngIf="submitted && section5Form.get('englishQualificationName').hasError" >
@@ -185,7 +185,7 @@
                     <p>If no, please select your highest  acedimic english qualification:</p>
                     <div class="University-name cs3 mb-3">
                         <label>Select Country :</label>
-                        <select class="form-control" formControlName="highestAcedemicQualification"
+                        <select class="form-control" formControlName="highestAcedemicQualification" (change)= "gethighestAcedemicQualification($event.target.value,i)"
                             [ngClass]="{ 'is-invalid': submitted && section5Form.get('highestAcedemicQualification').hasError('required') }">
                             <option disabled selected value=""> Select county</option>
                             <option *ngFor="let item of countryList" value="{{item.country}}">{{item.country}}</option>
@@ -205,8 +205,8 @@
                         <label>Type of English Qualification :</label>
                         <select class="form-control" formControlName="typeOfEnglishQualification"
                             [ngClass]="{ 'is-invalid': submitted && section5Form.get('typeOfEnglishQualification').hasError('required') }">
-                            <option value="12">12th</option>
-                            <option value="10">10th</option>
+                            <option selected disabled value="">Select type</option>
+                            <option *ngFor="let item of globalEnglishAcademicList" value="{{item.academicQualification}}">{{item.academicQualification}}</option>
                         </select>
                         <i class="fa fa-sort-down"></i>
                         <div *ngIf="submitted && section5Form.get('typeOfEnglishQualification').hasError" >
@@ -221,11 +221,10 @@
 
                     <div class="University-name cs3 mb-3">
                         <label>Result Type :</label>
-                        <select class="form-control" formControlName="resultType"
+                        <select class="form-control" formControlName="resultType"  (change)="changeResult($event)"
                             [ngClass]="{ 'is-invalid': submitted && section5Form.get('resultType').hasError('required') }">
-                            <option value="%">%</option>
-                            <option value="grade">Grade</option>
-                            <option value="score">Score</option>
+                            <option selected disabled value="">Select type</option>
+                            <option *ngFor="let item of resultTypeList" value="{{item.resultName}}">{{item.resultName}}</option>
                         </select>
                         <i class="fa fa-sort-down"></i>
                         <div *ngIf="submitted && section5Form.get('resultType').hasError" >
@@ -237,7 +236,7 @@
 
                     <div class="form-group">
                         <label>Overall Result :</label>
-                        <input type="email" class="form-control" placeholder="Result" formControlName="overallResult"
+                        <input type="{{resultType}}" class="form-control" placeholder="Result" formControlName="overallResult"
                         [ngClass]="{ 'is-invalid': submitted && section5Form.get('overallResult').hasError('required') }">
                         <div *ngIf="submitted && section5Form.get('overallResult').hasError" >
                             <div *ngIf="section5Form.get('overallResult').hasError('required')" class="danger">
