@@ -13,10 +13,15 @@ export class Section4Component implements OnInit {
   section4Form: FormGroup;
   qualificationArr: FormArray;
   countryList: any = []
+  resultTypeList: any = []
+  SubjectTypeList: any = []
+  academicQualifiationList: any = []
+  academicQualificationFormDto: any = []
   submitted: boolean = false
   section1Data: any;
   section2Data: any;
   section3Data: any;
+  resultType: any = 'text';
 
 
   constructor(private fb: FormBuilder, private service: ServicesService, private router: Router) {
@@ -32,9 +37,10 @@ export class Section4Component implements OnInit {
       this.section4Form.patchValue({
         stateHighestQualification: section4Data.stateHighestQualification,
         achieved: section4Data.achieved,
-      })
+      })      
       this.qualificationArr = this.section4Form.get('qualificationArr') as FormArray;
-      section4Data.qualificationArr.forEach(element => {
+      section4Data.qualificationArr.forEach((element,i) => {
+        this.getAcedemicQulification(element.country,i)
         this.qualificationArr.push(this.createCall(element.country, element.qualification, element.resultGrade, element.subject1, element.subject1Grade, element.subject2, element.subject2Grade, element.institutionName, element.startDate, element.endDate))
       });
     } else {
@@ -47,6 +53,44 @@ export class Section4Component implements OnInit {
       this.countryList = res
     })
     window.scrollTo(0, 0);
+    this.getAdminData()
+  }
+
+  getAdminData(){
+    this.service.showSpinner()
+    // RESULT TYPE list APi
+    this.service.getApi(`course/get-allData-serchByName?page=0&pageSize=1000`,1).subscribe((res:any) => {
+      if(res.status == 200){
+        this.resultTypeList = res.body.data.allData.content
+        console.log("resut -->",this.resultTypeList)
+      }
+    })
+    // SUBJECT MANAGEMENT list api
+    this.service.getApi(`course/get-search-all-global-subject-details?page=0&pagesize=1000`,1).subscribe((res:any) => {
+      if(res.status){
+        this.SubjectTypeList = res.body.data.getAllData.content
+        console.log("subject -->",this.SubjectTypeList)
+      }
+    })
+    setTimeout(e => {
+      this.service.hideSpinner()
+    },2500)
+  }
+
+  changeResult(event){
+    let data = this.resultTypeList.filter(x => x.resultName == event.target.value)
+    this.resultType = data[0].datatype
+  }
+
+  getAcedemicQulification(event,index){
+    this.service.showSpinner()
+    this.service.getApi(`course/get-search-all-global-academic-qualification-details?page=0&pagesize=1000&name=${event.target.value}`,1).subscribe((res:any) => {
+      this.service.hideSpinner()
+      if(res.status == 200){
+        this.academicQualifiationList[index] = res.body.data.getDataByName.content
+        console.log("eve-->>",this.academicQualifiationList)
+      }
+    })
   }
 
   createCall(country, qualification, resultGrade, subject1, subject1Grade, subject2, subject2Grade, institutionName, startDate, endDate): FormGroup {
@@ -66,12 +110,15 @@ export class Section4Component implements OnInit {
 
   addQualification(): void {
     this.qualificationArr = this.section4Form.get('qualificationArr') as FormArray;
-    this.qualificationArr.push(this.createCall("", "", null, null, null, null, null, null, null, null));
+    this.qualificationArr.push(this.createCall("", "", "", "", "", "", "","", "", ""));
     console.log("form data-->", this.qualificationArr.value)
   }
 
   remove(index){
+    console.log("index-->>",index)
     this.qualificationArr.removeAt(index);
+    delete this.academicQualifiationList[index]
+    console.log("-->",this.academicQualifiationList)
   }
 
   cancel() {
@@ -90,6 +137,25 @@ export class Section4Component implements OnInit {
     this.section1Data = JSON.parse(localStorage.getItem('section1'))
     this.section2Data = JSON.parse(localStorage.getItem('section2'))
     this.section3Data = JSON.parse(localStorage.getItem('section3'))
+    this.qualificationArr.value.forEach(element => {
+      this.academicQualificationFormDto.push( {
+        "academicQualifications": element.qualification,
+        "achieved": this.section4Form.value.achieved,
+        "countryOfStudy": element.country,
+        "enddate": element.endDate,
+        "highestAcademicQualification": this.section4Form.value.stateHighestQualification,
+        "instituteName": element.institutionName,
+        "resultType": element.resultGrade,
+        "startDate": element.startDate + 'T00:00:00.000Z',
+        "subject1": element.subject1 + 'T00:00:00.000Z',
+        "subject1grade1": element.subject1Grade,
+        "subject1grade2": element.subject2,
+        "subject2": element.subject2Grade,
+        "value": 0
+      })
+    });
+    console.log("academicQualificationFormDto--->",this.academicQualificationFormDto)
+    this.fillForm()
   }
 
   continue() {
@@ -105,23 +171,7 @@ export class Section4Component implements OnInit {
     let formDetailsDto = {
       "aboutReference1": "",
       "aboutReference2": "",
-      "academicQualificationFormDto": [
-        {
-          "academicQualifications": "",
-          "achieved": "",
-          "countryOfStudy": "",
-          "enddate": "",
-          "highestAcademicQualification": "",
-          "instituteName": "",
-          "resultType": "",
-          "startDate": "",
-          "subject1": "",
-          "subject1grade1": "",
-          "subject1grade2": "",
-          "subject2": "",
-          "value": 0
-        }
-      ],
+      "academicQualificationFormDto": this.academicQualificationFormDto,
       "address": this.section3Data.address,
       "addressForMba": "",
       "applicationStatus": "CONDITIONAL_OFFER",
