@@ -131,14 +131,14 @@
               </div>
           </div>
 
-          <div class="edit_datails mt-4">
+          <div class="edit_datails mt-4" *ngIf="mbaExist && !executiveMbaExist">
               <h4>Additional Section - Full-time MBA</h4>
               <div class="edit">
                   <button class="button active router-link" [routerLink]="['/section13']">Edit</button>
               </div>
           </div>
 
-          <div class="edit_datails mt-4">
+          <div class="edit_datails mt-4" *ngIf="executiveMbaExist">
               <h4>Additional Section - Executive MBA</h4>
               <div class="edit">
                   <button class="button active router-link" [routerLink]="['/section14']">Edit</button>

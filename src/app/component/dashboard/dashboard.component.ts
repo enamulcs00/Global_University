@@ -16,6 +16,20 @@ export class DashboardComponent implements OnInit {
   constructor(private service:ServicesService) { }
 
   ngOnInit() {
+      localStorage.removeItem('section1')
+      localStorage.removeItem('section2')
+      localStorage.removeItem('section3')
+      localStorage.removeItem('section4')
+      localStorage.removeItem('section5')
+      localStorage.removeItem('section6')
+      localStorage.removeItem('section7')
+      localStorage.removeItem('section8')
+      localStorage.removeItem('section9')
+      localStorage.removeItem('section10')
+      localStorage.removeItem('section11')
+      localStorage.removeItem('section12')
+      localStorage.removeItem('section13')
+      localStorage.removeItem('section14')
     window.scrollTo(0, 0);
     this.getSubmiitedForms()
   }

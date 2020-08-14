@@ -240,9 +240,10 @@
 
                               <div class="University-name cs3 mb-3">
                                   <label>Disability :</label>
-                                  <select class="form-control" formControlName="disability" [ngClass]="{ 'is-invalid': submitted && section1Form.get('disability').hasError('required') }" >
-                                    <option value="NO">No</option>
-                                    <option value="YES">Yes</option>
+                                  <select class="form-control" formControlName="disability" 
+                                  [ngClass]="{ 'is-invalid': submitted && section1Form.get('disability').hasError('required') }" >
+                                    <option value="false">No</option>
+                                    <option value="true">Yes</option>
                                   </select>
                                   <i class="fa fa-sort-down"></i>
                                   <div *ngIf="submitted && section1Form.get('disability').hasError" >
@@ -256,7 +257,7 @@
                                     <label for="exampleInputEmail1">Description (If Yes, please indicate which disability):</label>
                                     <textarea class="form-control" rows="3"  formControlName="descriptionForDisablity" >
                                     </textarea>
-                                    <div  *ngIf="(section1Form.value.disability == 'YES') && (section1Form.value.descriptionForDisablity == '')" class="danger">
+                                    <div  *ngIf="(section1Form.value.disability == 'true') && (section1Form.value.descriptionForDisablity == '')" class="danger">
                                         *please enter the description For Disablity
                                     </div>
                               </div>
@@ -264,8 +265,8 @@
                               <div class="University-name cs3 mb-3">
                                   <label>Relevant Criminal Convictions :</label>
                                   <select class="form-control"  formControlName="criminalConviction" [ngClass]="{ 'is-invalid': submitted && section1Form.get('criminalConviction').hasError('required') }" >
-                                    <option value="NO">No</option>
-                                    <option value="YES">Yes</option>
+                                    <option value="false">No</option>
+                                    <option value="true">Yes</option>
                                   </select>
                                   <i class="fa fa-sort-down"></i>
                                   <div *ngIf="submitted && section1Form.get('criminalConviction').hasError" >
@@ -279,7 +280,7 @@
                                   <label for="exampleInputEmail1">Description (If Yes,Please provide more information):</label>
                                   <textarea class="form-control" rows="3"  formControlName="descriptionForCriminalConviction" >                                    
                                   </textarea>
-                                  <div  *ngIf="(section1Form.value.criminalConviction == 'YES') && (section1Form.value.descriptionForCriminalConviction == '')" class="danger">
+                                  <div  *ngIf="(section1Form.value.criminalConviction == 'true') && (section1Form.value.descriptionForCriminalConviction == '')" class="danger">
                                     *please enter the description For Disablity
                                 </div>
                               </div>
@@ -297,3 +298,20 @@
         </div>
     </div>
 </section>
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">&nbsp;</h5>
+        </div>
+        <div class="modal-body">
+            Congratulations your form has been submitted successfully!You will get the email notification of each status of your form.
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="banner-button router-link  okay" data-dismiss="modal" [routerLink]="['/dashboard']">OK</button>
+        </div>
+        </div>
+    </div>
+</div>

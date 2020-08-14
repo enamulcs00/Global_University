@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ServicesService } from 'src/app/services.service';
 import { SearchCountryField, TooltipLabel, CountryISO } from 'ngx-intl-tel-input';
 import { Router } from '@angular/router';
+declare var $:any;
 @Component({
   selector: 'app-section3',
   templateUrl: './section3.component.html',
@@ -32,6 +33,16 @@ export class Section3Component implements OnInit {
   ngOnInit() {
     this.initializeForm()  
     window.scrollTo(0, 0);
+    this.getAccount()
+  }
+  
+  getAccount(){
+    this.service.showSpinner()
+     this.service.getApi('account/my-account', 1).subscribe((res : any) => {
+      if(res.body.status == 200){
+          this.service.hideSpinner()
+      }
+    })
   }
 
   changePreferredCountries() {
@@ -205,6 +216,7 @@ export class Section3Component implements OnInit {
       "applyForExternalFunding": true,
       "applyForExternalFundingDescription": "",
       "areResponsibleForWorkingWithBudgets": true,
+      "areUNativeOfEnglishSpeakingCountry": true,
       "arehavecreativetalent": true,
       "awardedDate": "",
       "briefDuties": "",
@@ -217,12 +229,15 @@ export class Section3Component implements OnInit {
       "courseId": this.section1Data.courseId,
       "courseName": this.section1Data.searchCourse,
       "courseSttartDate": this.section1Data.courseStartDate,
+      "criminalDescription": this.section2Data.criminalConviction,
       "currentEmployment": "",
       "dateAppointed": "",
+      "dateTaken": "",
       "dates": "",
-      "description": "",
+      "description": this.section2Data.descriptionForDisablity,
       "descriptionForMba": "",
-      "disability": true,
+      "disability": this.section2Data.disability == 'true' ? true: false,
+      "doUHaveprofessionalQualification": true,
       "doUoyRequireVisatoStudtInTheUk": this.section2Data.requireVisaForUK  == 'true'? true : false,
       "doYouCurrentlyHaveFundingForYourChosenProgrammeofStudy": true,
       "dob": this.section2Data.dateOfBirth + 'T00:00:00.000Z',
@@ -230,7 +245,9 @@ export class Section3Component implements OnInit {
       "emailForMba": "",
       "employerName": "",
       "employersName": "",
+      "ethenticity": this.section2Data.ethnicity,
       "formFillStatus": "INCOMPLETE",
+      "formId": 0,
       "forname": this.section2Data.foreName,
       "gender": this.section2Data.gender,
       "graduateWorkExperience": 0,
@@ -239,6 +256,14 @@ export class Section3Component implements OnInit {
       "homeEmail":  this.section3Form.value.homeEmail,
       "homeTeliphoneNo": Object.keys(this.section3Form.value.homeTelephoneNo).length != 0 ? this.section3Form.value.homeTelephoneNo.internationalNumber: this.section3Form.value.homeTelephoneNo,
       "homeTeliphoneNo2": Object.keys(this.section3Form.value.homeTelephoneNo1).length != 0 ? this.section3Form.value.homeTelephoneNo1.internationalNumber: this.section3Form.value.homeTelephoneNo1,
+      "ifNoThenAddAboutRecentEnglishLanguage": "",
+      "ifNoThenAddHighestEnglishQualification": "",
+      "ifYesSelectCountryForSpeakingCountry": "",
+      "ifYesThenAddProfessionalQualification": "",
+      "indivisualBandScore1": 0,
+      "indivisualBandScore2": 0,
+      "indivisualBandScore3": 0,
+      "indivisualBandScore4": 0,
       "intakeNotApply": "",
       "isPersionalStatementFeel": true,
       "isresponsibility": true,
@@ -255,10 +280,13 @@ export class Section3Component implements OnInit {
       "multiCulturalAxposure": "",
       "natureofEmployersBusiness": "",
       "operationaActivities": "",
+      "overallResult": "",
+      "overallResultForEnglishQualification": "",
       "pageFillNumber": "section3",
       "passportNumber": this.section2Data.passportNumber,
       "permanentResidenceCountry": this.section2Data.permanentResidenceCountry,
       "persionalDescription": "",
+      "personalStatementDescription": "",
       "pgtJobTitle": "",
       "phoneNo": 0,
       "preferredName": this.section2Data.prefferedName,
@@ -268,21 +296,26 @@ export class Section3Component implements OnInit {
       "professionalQualificationSubject": "",
       "qualificationTitle": "",
       "referee1Address": "",
+      "referee1Email": "",
       "referee1Name": "",
       "referee1TelephoneNumber": 0,
       "referee1Title": "",
       "referee2Address": "",
+      "referee2Email": "",
       "referee2Name": "",
       "referee2TelephoneNumber": 0,
       "referee2Title": "",
-      "relevantCriminalConvictions": this.section2Data.criminalConviction == "YES" ? true  : false,
+      "relevantCriminalConvictions": this.section2Data.criminalConviction == "true" ? true  : false,
       "representativeId": 0,
       "representativeName": "",
       "requireSpecificTechnical": "",
+      "researchProposalDescription": "",
       "researchProposalForPGR": true,
       "researchProposalForPGRDescription": "",
       "responsibleForManageProject": true,
       "responsibleFordeployCreativetalent": true,
+      "resultType": "",
+      "selectCountry": "",
       "sirName": this.section2Data.surName,
       "solveProblemsAndDeliverResults": "",
       "state": this.section3Form.value.state,
@@ -291,6 +324,7 @@ export class Section3Component implements OnInit {
       "telephoneNumber": Object.keys(this.section3Form.value.contactPhoneNo).length != 0 ? this.section3Form.value.contactPhoneNo.internationalNumber: this.section3Form.value.contactPhoneNo,
       "title": this.section2Data.title,
       "totalWorkExperience": 0,
+      "typeOfEnglishQualification": "",
       "universityId": 0,
       "urlCv": "",
       "urlDegree": "",
@@ -308,7 +342,10 @@ export class Section3Component implements OnInit {
     }
     console.log("form--->",formDetailsDto)
     // this.service.postApi(`course/form-fill-up-as-a-user`,formDetailsDto,1).subscribe((res:any) => {
-    //   console.log("res-->",res)
+      // console.log("res-->",res)
+      // this.service.hideSpinner()
+      // localStorage.removeItem('section1')
+      // $('#exampleModalCenter').modal('show')
     // })
   }
 }

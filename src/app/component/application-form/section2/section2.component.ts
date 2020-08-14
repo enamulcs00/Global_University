@@ -4,7 +4,7 @@ import { ServicesService } from 'src/app/services.service';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
-
+declare var $:any
 @Component({
   selector: 'app-section2',
   templateUrl: './section2.component.html',
@@ -112,7 +112,7 @@ export class Section2Component implements OnInit {
       return false
     }    
     console.log("submit -->>",this.section2Form.value)
-    // this.fillForm()
+    this.fillForm()
   }
 
   continue(){
@@ -153,6 +153,7 @@ export class Section2Component implements OnInit {
       "applyForExternalFunding": true,
       "applyForExternalFundingDescription": "",
       "areResponsibleForWorkingWithBudgets": true,
+      "areUNativeOfEnglishSpeakingCountry": true,
       "arehavecreativetalent": true,
       "awardedDate": "",
       "briefDuties": "",
@@ -165,12 +166,15 @@ export class Section2Component implements OnInit {
       "courseId": this.courseId,
       "courseName": this.section2Form.value.searchCourse,
       "courseSttartDate": this.courseStartDate,
+      "criminalDescription": "",
       "currentEmployment": "",
       "dateAppointed": "",
+      "dateTaken": "",
       "dates": "",
       "description": "",
       "descriptionForMba": "",
       "disability": true,
+      "doUHaveprofessionalQualification": true,
       "doUoyRequireVisatoStudtInTheUk": true,
       "doYouCurrentlyHaveFundingForYourChosenProgrammeofStudy": true,
       "dob": "",
@@ -178,7 +182,9 @@ export class Section2Component implements OnInit {
       "emailForMba": "",
       "employerName": "",
       "employersName": "",
+      "ethenticity": "",
       "formFillStatus": "INCOMPLETE",
+      "formId": 0,
       "forname": "",
       "gender": "MALE",
       "graduateWorkExperience": 0,
@@ -187,6 +193,14 @@ export class Section2Component implements OnInit {
       "homeEmail": "",
       "homeTeliphoneNo": 0,
       "homeTeliphoneNo2": 0,
+      "ifNoThenAddAboutRecentEnglishLanguage": "",
+      "ifNoThenAddHighestEnglishQualification": "",
+      "ifYesSelectCountryForSpeakingCountry": "",
+      "ifYesThenAddProfessionalQualification": "",
+      "indivisualBandScore1": 0,
+      "indivisualBandScore2": 0,
+      "indivisualBandScore3": 0,
+      "indivisualBandScore4": 0,
       "intakeNotApply": "",
       "isPersionalStatementFeel": true,
       "isresponsibility": true,
@@ -203,10 +217,13 @@ export class Section2Component implements OnInit {
       "multiCulturalAxposure": "",
       "natureofEmployersBusiness": "",
       "operationaActivities": "",
+      "overallResult": "",
+      "overallResultForEnglishQualification": "",
       "pageFillNumber": "section1",
       "passportNumber": "",
       "permanentResidenceCountry": "",
       "persionalDescription": "",
+      "personalStatementDescription": "",
       "pgtJobTitle": "",
       "phoneNo": 0,
       "preferredName": "",
@@ -216,10 +233,12 @@ export class Section2Component implements OnInit {
       "professionalQualificationSubject": "",
       "qualificationTitle": "",
       "referee1Address": "",
+      "referee1Email": "",
       "referee1Name": "",
       "referee1TelephoneNumber": 0,
       "referee1Title": "",
       "referee2Address": "",
+      "referee2Email": "",
       "referee2Name": "",
       "referee2TelephoneNumber": 0,
       "referee2Title": "",
@@ -227,10 +246,13 @@ export class Section2Component implements OnInit {
       "representativeId": 0,
       "representativeName": "",
       "requireSpecificTechnical": "",
+      "researchProposalDescription": "",
       "researchProposalForPGR": true,
       "researchProposalForPGRDescription": "",
       "responsibleForManageProject": true,
       "responsibleFordeployCreativetalent": true,
+      "resultType": "",
+      "selectCountry": "",
       "sirName": "",
       "solveProblemsAndDeliverResults": "",
       "state": "",
@@ -239,6 +261,7 @@ export class Section2Component implements OnInit {
       "telephoneNumber": 0,
       "title": "",
       "totalWorkExperience": 0,
+      "typeOfEnglishQualification": "",
       "universityId": 0,
       "urlCv": "",
       "urlDegree": "",
@@ -254,8 +277,12 @@ export class Section2Component implements OnInit {
       "wishtoApplyForUniversityscholarshipDescription": "",
       "zipcode": 0
     }
+    this.service.showSpinner()
     this.service.postApi(`course/form-fill-up-as-a-user`,formDetailsDto,1).subscribe((res:any) => {
       console.log("res-->",res)
+      this.service.hideSpinner()
+      localStorage.removeItem('section1')
+      $('#exampleModalCenter').modal('show')
     })
   }
 

@@ -18,6 +18,20 @@ export class DraftFormComponent implements OnInit {
   constructor(private service:ServicesService,private router:Router) { }
 
   ngOnInit() {
+     localStorage.removeItem('section1')
+      localStorage.removeItem('section2')
+      localStorage.removeItem('section3')
+      localStorage.removeItem('section4')
+      localStorage.removeItem('section5')
+      localStorage.removeItem('section6')
+      localStorage.removeItem('section7')
+      localStorage.removeItem('section8')
+      localStorage.removeItem('section9')
+      localStorage.removeItem('section10')
+      localStorage.removeItem('section11')
+      localStorage.removeItem('section12')
+      localStorage.removeItem('section13')
+      localStorage.removeItem('section14')
     window.scrollTo(0, 0);
     this.getForms()
   }
@@ -63,7 +77,7 @@ export class DraftFormComponent implements OnInit {
 
   continueForm(id){
     this.service.showSpinner()
-    this.service.getApi(`course/get-forms-list?page=0&pagesize=10&formId=10`,1).subscribe((res:any) => {
+    this.service.getApi(`course/get-forms-list?page=0&pagesize=10&formId=${id}`,1).subscribe((res:any) => {
       this.service.hideSpinner()
       if(res.status == 200){
         console.log("res--->>",res.body.data.formdata)

@@ -10,8 +10,8 @@
                         <label>Are you a native of an english speaking country ?</label>
                         <select class="form-control" formControlName="nativeOfEnglishSpeakingCountry" (change)="selectNativeOfEnglishSpeakingCountry($event)"
                         [ngClass]="{ 'is-invalid': submitted && section5Form.get('nativeOfEnglishSpeakingCountry').hasError('required') }">  
-                            <option value="YES">Yes</option>
-                            <option value="NO">No</option>
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
                         </select>
                         <i class="fa fa-sort-down"></i>
                         <div *ngIf="submitted && section5Form.get('nativeOfEnglishSpeakingCountry').hasError" >
@@ -61,7 +61,7 @@
                                 *please enter the nativeEnglishSpeakingCountryName
                             </div>
                         </div>
-                        <div  *ngIf="(section5Form.value.nativeOfEnglishSpeakingCountry == 'YES') && (section5Form.value.nativeEnglishSpeakingCountryName == '')" class="danger">
+                        <div  *ngIf="(section5Form.value.nativeOfEnglishSpeakingCountry == 'true') && (section5Form.value.nativeEnglishSpeakingCountryName == '')" class="danger">
                             *please enter the nativeOfEnglishSpeakingCountry
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                                 *please enter the englishLanguageTestDetails
                             </div>
                         </div>
-                        <div  *ngIf="(section5Form.value.nativeOfEnglishSpeakingCountry == 'NO') && (section5Form.value.englishLanguageTestDetails == '')" class="danger">
+                        <div  *ngIf="(section5Form.value.nativeOfEnglishSpeakingCountry == 'false') && (section5Form.value.englishLanguageTestDetails == '')" class="danger">
                             *please enter the nativeOfEnglishSpeakingCountry
                         </div>
                     </div>
@@ -83,8 +83,8 @@
                     <div class="University-name cs3 mb-3">
                         <label>Do you have any professional qualification ?</label>
                         <select class="form-control" formControlName="professionalQualification" [ngClass]="{ 'is-invalid': submitted && section5Form.get('professionalQualification').hasError('required') }">
-                          <option value="YES">Yes</option>
-                          <option value="NO">No</option>
+                          <option value="true">Yes</option>
+                          <option value="false">No</option>
                         </select>
                         <i class="fa fa-sort-down"></i>
                         <div *ngIf="submitted && section5Form.get('professionalQualification').hasError" >
@@ -107,7 +107,7 @@
                                 *please enter the englishQualificationName
                             </div>
                         </div>
-                        <div  *ngIf="(section5Form.value.professionalQualification == 'YES') && (section5Form.value.englishQualificationName == '')" class="danger">
+                        <div  *ngIf="(section5Form.value.professionalQualification == 'true') && (section5Form.value.englishQualificationName == '')" class="danger">
                             *please enter the englishQualificationName
                         </div>
                     </div>
@@ -121,7 +121,7 @@
                                 *please enter the englishQualificationDate
                             </div>
                         </div>
-                        <div  *ngIf="(section5Form.value.professionalQualification == 'YES') && (section5Form.value.englishQualificationDate == '')" class="danger">
+                        <div  *ngIf="(section5Form.value.professionalQualification == 'true') && (section5Form.value.englishQualificationDate == '')" class="danger">
                             *please enter the englishQualificationDate
                         </div>
                     </div>
@@ -136,7 +136,7 @@
                                     *please enter the englishQualificationScore1
                                 </div>
                             </div>
-                            <div  *ngIf="(section5Form.value.professionalQualification == 'YES') && (section5Form.value.englishQualificationScore1 == '')" class="danger">
+                            <div  *ngIf="(section5Form.value.professionalQualification == 'true') && (section5Form.value.englishQualificationScore1 == '')" class="danger">
                                 *please enter the englishQualificationScore1
                             </div>
                         </div>
@@ -149,7 +149,7 @@
                                     *please enter the englishQualificationScore2
                                 </div>
                             </div>
-                            <div  *ngIf="(section5Form.value.professionalQualification == 'YES') && (section5Form.value.englishQualificationScore2 == '')" class="danger">
+                            <div  *ngIf="(section5Form.value.professionalQualification == 'true') && (section5Form.value.englishQualificationScore2 == '')" class="danger">
                                 *please enter the englishQualificationScore2
                             </div>
                         </div>
@@ -164,7 +164,7 @@
                                     *please enter the englishQualificationScore3
                                 </div>
                             </div>
-                            <div  *ngIf="(section5Form.value.professionalQualification == 'YES') && (section5Form.value.englishQualificationScore3 == '')" class="danger">
+                            <div  *ngIf="(section5Form.value.professionalQualification == 'true') && (section5Form.value.englishQualificationScore3 == '')" class="danger">
                                 *please enter the englishQualificationScore3
                             </div>
                         </div>
@@ -176,7 +176,7 @@
                                     *please enter the englishQualificationScore4
                                 </div>
                             </div>
-                            <div  *ngIf="(section5Form.value.professionalQualification == 'YES') && (section5Form.value.englishQualificationScore4 == '')" class="danger">
+                            <div  *ngIf="(section5Form.value.professionalQualification == 'true') && (section5Form.value.englishQualificationScore4 == '')" class="danger">
                                 *please enter the englishQualificationScore4
                             </div>
                         </div>
@@ -196,7 +196,7 @@
                                 *please enter the highestAcedemicQualification
                             </div>
                         </div>
-                        <div  *ngIf="(section5Form.value.professionalQualification == 'NO') && (section5Form.value.highestAcedemicQualification == '')" class="danger">
+                        <div  *ngIf="(section5Form.value.professionalQualification == 'false') && (section5Form.value.highestAcedemicQualification == '')" class="danger">
                             *please enter the englishQualificationScore4
                         </div>
                     </div>
@@ -214,7 +214,7 @@
                                 *please enter the typeOfEnglishQualification
                             </div>
                         </div>
-                        <div  *ngIf="(section5Form.value.professionalQualification == 'NO') && (section5Form.value.typeOfEnglishQualification == '')" class="danger">
+                        <div  *ngIf="(section5Form.value.professionalQualification == 'false') && (section5Form.value.typeOfEnglishQualification == '')" class="danger">
                             *please enter the englishQualificationScore4
                         </div>
                     </div>
