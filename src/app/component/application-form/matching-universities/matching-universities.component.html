@@ -2,7 +2,7 @@
     <div class="container1440 mt-5">
         <h5 class="application_pro">Matching Universities</h5>
         <div class="matching mt-5">
-          <h6>You can select multiple universities where you want to read :-</h6>
+          <h6>You can select multiple universities for your chosen destination of study :-</h6>
 
             <div class="search_by_reset">
                 <div class="example-full-width" matAutocompleteOrigin #origin="matAutocompleteOrigin">
@@ -16,9 +16,9 @@
                 </mat-autocomplete>
                 <i class="fa fa-sort-desc" aria-hidden="true"></i>
                 <div class="cntact-button">
-                    <button class="banner-button router-link" style="margin-right: 15px;"
+                    <button class="theme-btn router-link" style="margin-right: 15px;"
                         (click)="getUniversity()">Submit</button>
-                    <button class="banner-button router-link" (click)="reset()">Reset</button>
+                    <button class="theme-btn router-link" (click)="reset()">Reset</button>
                 </div>
             </div>
 
@@ -43,8 +43,8 @@
             </div>
 
             <div class="cntact-button back">
-                <button class="banner-button router-link " [routerLink]="['/application-form-preview']">Cancel</button>
-                <button class="banner-button router-link active" (click)="submit()">Submit</button>
+                <button class="theme-btn router-link " [routerLink]="['/application-form-preview']">Cancel</button>
+                <button class="theme-btn router-link active" (click)="submit()">Submit</button>
             </div>
         </div>
     </div>
@@ -62,7 +62,7 @@
         Congratulations your form has been submitted successfully!You will get the email notification of each status of your form.
       </div>
       <div class="modal-footer">
-        <button type="button" class="banner-button router-link  okay" data-dismiss="modal" [routerLink]="['/dashboard']">OK</button>
+        <button type="button" class="theme-btn router-link  okay" data-dismiss="modal" [routerLink]="['/dashboard']">OK</button>
       </div>
     </div>
   </div>

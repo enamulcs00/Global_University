@@ -32,7 +32,7 @@ input.form-control.location_search {
 li.submit-cs {
     width: 16% !important;
 }
-.h_apply ul li button.banner-button {
+.h_apply ul li button.theme-btn {
     width: 138px;}
 .address {
     width: 100%;
@@ -98,7 +98,7 @@ ul.careersit {
     max-width: 83%;
 }
 ul.careersit{font-size: 14px}
-ul.add_to.compar button.banner-button {
+ul.add_to.compar button.theme-btn {
     width: 188px;
     margin: 25px 60px 0px 0px;
 }
@@ -107,7 +107,7 @@ ul.add_to.compar button.banner-button {
     li.submit-cs {
     width: 22% !important;
 }
-.h_apply ul li button.banner-button {
+.h_apply ul li button.theme-btn {
     margin-left: -1px;}
 .address {
     width: 100%;
@@ -199,7 +199,7 @@ li.nav-item.create_new {
     .entry ul li {
     padding: 0px;
 }
-.location-name.cs3 button.banner-button {
+.location-name.cs3 button.theme-btn {
     height: 40px;
     width: 202px;
     font-size: 15px;
@@ -338,7 +338,7 @@ h6.usa_cs {
     max-width: 69%;
     margin-bottom: 15px;
 }
-button.banner-button {
+button.theme-btn {
     width: 157px;
     height: 42px;
     font-size: 16px;}
@@ -353,7 +353,7 @@ button.banner-button {
     padding: 20px 20px;
     filter: drop-shadow(0 0 6.5px rgba(39,39,39,0.45));
 }
-ul.add_to.compar button.banner-button {
+ul.add_to.compar button.theme-btn {
     width: 110px;
     font-size: 14px;
     margin: 0px 0px 0px 6px;
@@ -399,7 +399,7 @@ select.form-control.news{  height: 44px !important; margin-top: 10px}
     font-size: 14px;
     padding: 10px 11px 28px;
 }
-.remove_form button.banner-button {
+.remove_form button.theme-btn {
     width: 155px;
     font-size: 13px;
     height: 35px;
@@ -418,10 +418,10 @@ select.form-control.news{  height: 44px !important; margin-top: 10px}
     box-shadow: 0px 0px 5px 0px #d3cbcb;
     margin-top: 20px;
 }
-.modal-body.modal_cs button.banner-button {
+.modal-body.modal_cs button.theme-btn {
     width: 116px;
 }
-.sign_in button.banner-button.active {
+.sign_in button.theme-btn.active {
     width: 340px;
 }
 .sign_in.mt-5.mb-5 {
@@ -443,7 +443,7 @@ input.form-control.location_search {
 input.form-control.location_search {
     background: #fff url(../images/search-icon.png) 308px 12px no-repeat;
 } 
-.h_apply ul li button.banner-button {
+.h_apply ul li button.theme-btn {
     width: 160px;
 }   
 li.submit-cs {
@@ -452,7 +452,7 @@ li.submit-cs {
 .main_ul ul li {
     font-size: 12px;}  
 .h_apply ul li{margin-left: 0px}
-.h_apply ul li button.banner-button{margin-top: 15px}
+.h_apply ul li button.theme-btn{margin-top: 15px}
 .panel-title>a, .panel-title>a:active {
     padding: 10px;
     font-size: 13px;
@@ -522,7 +522,7 @@ li.nav-item.create_new a.nav-link.active.show {
 .main_formId{flex-wrap: wrap;}
 .condidated_name ul {
     font-size: 12px;}
-    .viewform button.banner-button {
+    .viewform button.theme-btn {
     width: 170px;
     margin-top:0px;
     font-size: 14px;
@@ -536,7 +536,7 @@ li.nav-item.create_new a.nav-link.active.show {
     margin: 30px auto;
     position: relative;
 }
-.location-name.cs3 button.banner-button {
+.location-name.cs3 button.theme-btn {
     height: 43px;
     width: 159px;
     font-size: 13px;
@@ -562,7 +562,7 @@ li.nav-item.create_new a.nav-link.active.show {
     width: 344px;
     height: 42px;
 }
-.cntact-button.back button.banner-button {
+.cntact-button.back button.theme-btn {
     margin: 5px 8px;
     width: 342px;
     height: 45px;
@@ -667,7 +667,7 @@ i.fa.fa-sort-desc {
 }
 @media(max-width:375px){
 
-    .sign_in button.banner-button.active {
+    .sign_in button.theme-btn.active {
     width: 300px;
 }
 select.form-control.kingdom {
@@ -676,7 +676,7 @@ select.form-control.kingdom {
 input.form-control.location_search {
     background: #fff url(../images/search-icon.png) 256px 12px no-repeat;
 }
-.h_apply ul li button.banner-button {
+.h_apply ul li button.theme-btn {
     width: 135px;
 }
 .representative {
@@ -694,7 +694,7 @@ input.form-control.location_search {
 .cntact-button {
     padding: 28px 0px 22px;
 }
-.cntact-button button.banner-button {
+.cntact-button button.theme-btn {
     width: 108px;
     font-size: 15px;
 }
@@ -754,13 +754,13 @@ h3.manage {
 .manage_user ul li {
     width: 47%;
 }
-.viewform button.banner-button {
+.viewform button.theme-btn {
     width: 140px;font-size: 13px
 }
 .entry ul {
     font-size: 12px;
 }
-.location-name.cs3 button.banner-button {
+.location-name.cs3 button.theme-btn {
     height: 43px;
     width: 136px;
     font-size: 11px;
@@ -780,7 +780,7 @@ input.form-control {
 .details .form-group.cs3 input.form-control {
     width: 299px;
 }
-.personal-details button.banner-button {
+.personal-details button.theme-btn {
     margin: 5px 8px;
     width: 342px;
     height: 42px;
@@ -812,7 +812,7 @@ i.fa.fa-calendar {
 .rmit {
     width: 100%;
 }
-.sign_in button.banner-button.active {
+.sign_in button.theme-btn.active {
     width: 284px;
 }
 }

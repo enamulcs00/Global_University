@@ -110,7 +110,7 @@ h5.bottom-text {
     line-height: 33px;
     color: #ffffff;
 }
-button.banner-button {
+button.theme-btn {
     width: 120px;
     height: 35px;
     background-color: #ffffff;
@@ -407,7 +407,7 @@ input.form-control.subject {
     justify-content: center;
     align-content: center;
 }
-.australia ul li button.banner-button {
+.australia ul li button.theme-btn {
     background-color: #896633;
     color: #fff;
     outline: none;
@@ -587,7 +587,7 @@ ul.add_to {
     display: flex;
     justify-content: flex-end;
 }
-ul.add_to li button.banner-button {
+ul.add_to li button.theme-btn {
     color: rgb(0, 0, 0);
     margin-left: 10px;
     outline: none;
@@ -621,7 +621,7 @@ ul.offer {
 ul.offer li {
     padding-bottom: 20px;
 }
-button.banner-button.active {
+button.theme-btn.active {
     color: #fff !important;
     background: #896633;
     border: 1px solid #896634;
@@ -694,12 +694,12 @@ textarea.form-control.from {
     max-width: 90%;
     border-top: 0px;
 }
-.modal-footer.cancel button.banner-button {
+.modal-footer.cancel button.theme-btn {
     width: 163px;
     height: 42px;
         border-style: solid
 }
-.modal-footer.cancel button.banner-button.active{
+.modal-footer.cancel button.theme-btn.active{
     margin-right: 30px
 }
 
@@ -740,7 +740,7 @@ ul.career {
     margin: 0px;
 }
 .st_cs{width:5.5%}
-ul.add_to.compar button.banner-button {
+ul.add_to.compar button.theme-btn {
     width: 163px;
 }
 ul.offer.cs3 {
@@ -921,7 +921,7 @@ p.kolkata {
 /*************************12-Comare-Courses csssssssssssssss_____************************/
 
 
-.remove_form button.banner-button {
+.remove_form button.theme-btn {
     background-color: #896633;
     color: white;
     width: 230px;
@@ -1045,11 +1045,11 @@ select.form-control.f_cs {
     padding: 35px 50px;
     border-radius: 5px;
 }
-.modal-body.modal_cs button.banner-button {
+.modal-body.modal_cs button.theme-btn {
     width: 150px;
     margin-top: 25px;
 }
-.modal-body.modal_cs button.banner-button {
+.modal-body.modal_cs button.theme-btn {
     width: 150px;
     margin-top: 25px;
 }
@@ -1057,7 +1057,7 @@ select.form-control.f_cs {
     padding: 34px 32px;
     text-align: center;
 }
-.modal-content.thanks_for button.banner-button.active {
+.modal-content.thanks_for button.theme-btn.active {
     width: 97px;
     height: 37px;
     border-radius: 5px;
@@ -1125,7 +1125,7 @@ h5.login {
     color: #1135a6;
     font-weight: 400;
 }
-.sign_in button.banner-button.active {
+.sign_in button.theme-btn.active {
     width: 447px;
     border-radius: 10px;
     text-align: center;
@@ -1159,7 +1159,7 @@ i.fa.fa-eye {
     border-radius: 10px;
 }
 .ok_cs{text-align: center;}
-.ok_cs button.banner-button.active {
+.ok_cs button.theme-btn.active {
     width: 135px;
 }
 .howit_work {
@@ -1198,7 +1198,7 @@ select.form-control.kingdom {
     font-weight: 400;
     flex-wrap: wrap;
 }
-.h_apply ul li button.banner-button {
+.h_apply ul li button.theme-btn {
     width: 187px;
     margin-top: 33px;
     margin-left: 52px;
@@ -1339,7 +1339,7 @@ h4.panel-title.cs3 {
     justify-content: space-between;
     padding: 45px 0px 65px;
 }
-.cntact-button button.banner-button {
+.cntact-button button.theme-btn {
     background-color: #896634;
     color: white;
     border-style: none;
@@ -1474,7 +1474,7 @@ label {
 .form-group {
     margin-bottom: 25px;
 }
-.general-info .cntact-button button.banner-button {
+.general-info .cntact-button button.theme-btn {
     text-transform: initial;
 }
 .you-have {
@@ -1562,7 +1562,7 @@ p.ipaum {
     text-align: center;
     display: block;
 }
-button.banner-button.back {
+button.theme-btn.back {
     background-color: #ffffff;
     border: 1px solid #b7b7b7;
     color: #323131;
@@ -1621,7 +1621,7 @@ i.fa.fa-trash {
     font-size: 22px;
     color: #fff;
 }
-button.banner-button.cs3 {
+button.theme-btn.cs3 {
     width: 135px;
     margin-right: 45px;
     color: #666;
@@ -1684,7 +1684,7 @@ select.form-control{height: 45px !important;}
     top: 50px;
     right: 15px;
 }
-.search_section ul li .cntact-button button.banner-button {
+.search_section ul li .cntact-button button.theme-btn {
     text-transform: none;
 }
 .search_section {
@@ -1716,7 +1716,7 @@ select.form-control{height: 45px !important;}
     border: 1px solid #b7b7b7;
     padding: 23px 140px 23px 40px;
 }
-.viewform button.banner-button {
+.viewform button.theme-btn {
     background: #896633;
     color: white;
     border-radius: 5px;
@@ -1747,7 +1747,7 @@ h5.application_pro {
     width: 560px;
     border-radius: 0px;
 }
-.search_university .cntact-button button.banner-button {
+.search_university .cntact-button button.theme-btn {
     text-transform: none;
 }
 .submitted {
@@ -1766,19 +1766,19 @@ h5.application_pro {
     max-width: 80%;
     margin: 0px;
 }
-.pdf_section ul li button.banner-button {
+.pdf_section ul li button.theme-btn {
     background: #896633;
     width: 190px;
     color: white;
     border-radius: 5px;
 }
-.viewform button.banner-button {
+.viewform button.theme-btn {
     width: 280px;
 }
 i.fa.fa-long-arrow-down {
     margin-right: 15px;
 }
-button.banner-button.declined {
+button.theme-btn.declined {
     background: #f03232 !important;
 }
 .pdf_section {
@@ -1806,7 +1806,7 @@ h3.rmit-sec {
     max-width: 60%;
 }
 
-.pdf_section.decline ul li.additional button.banner-button {
+.pdf_section.decline ul li.additional button.theme-btn {
     width: 300px;
 }
 .pdf_section.decline.provide ul {
@@ -1902,7 +1902,7 @@ button.btn.btn-link[aria-expanded="true"]:after {
 .pending_sec ul li:last-child:after{
     content: none;
 }
-.cntact-button button.banner-button {
+.cntact-button button.theme-btn {
     border-radius: 5px;
     text-transform:none;
 }
@@ -2005,7 +2005,7 @@ li.dates {
     text-align: left;
     margin: 0px;
 }
-.viewform.continue button.banner-button {
+.viewform.continue button.theme-btn {
     width: 165px;
     height: 52px;
     border-style: none;
@@ -2044,7 +2044,7 @@ li.dates {
     max-width: 100%;
     justify-content: space-between;
 }
-.location-name.cs3 button.banner-button {
+.location-name.cs3 button.theme-btn {
     height: 55px;
     width: 230px;
 }
@@ -2058,7 +2058,7 @@ li.dates {
     display: flex;
     justify-content: space-between;
 }
-.ok_cs button.banner-button {
+.ok_cs button.theme-btn {
     width: 135px;
     border-style: none;
     border: 1px solid #666;
@@ -2126,7 +2126,7 @@ label.radio-inline.radio_src input[type="radio"] {
     display: flex;
     justify-content: center;
 }
-.cntact-button.back button.banner-button {
+.cntact-button.back button.theme-btn {
     margin: 50px 8px;
     width: 228px;
     height: 55px;
@@ -2134,7 +2134,7 @@ label.radio-inline.radio_src input[type="radio"] {
     border: 1px solid #b7b7b7;
     color: black;
 }
-.cntact-button.back button.banner-button.active {
+.cntact-button.back button.theme-btn.active {
     background: #896633;
 }
  i.fa.fa-calendar {
@@ -2947,7 +2947,7 @@ textarea.form-control.list-docs {
     filter: none;
     padding: 6px 62px 6px 25px;
 }
-.viewform.continue button.banner-button.view-det {
+.viewform.continue button.theme-btn.view-det {
     width: 230px;
 }
 .form_submit.con-tent {
@@ -3115,7 +3115,7 @@ a.to-link.active {
         font-size: 13px;
     
     }
-    .viewform.continue button.banner-button.view-det {
+    .viewform.continue button.theme-btn.view-det {
         width: 128px;
         height: 37px;
     }
@@ -3141,7 +3141,7 @@ a.to-link.active {
     label.no-margin {
         font-size: 12px;
     }
-    .viewform.continue button.banner-button.view-det {
+    .viewform.continue button.theme-btn.view-det {
         width: 189px;
     }
     .form_submit.con-tent {
@@ -3325,7 +3325,7 @@ ul.footerli li a:hover {
 .image-test {
     margin-bottom: 20px;
 }
-button.banner-button:hover {
+button.theme-btn:hover {
     color: #ffff;
     background: #896633;
     border: 1px solid #896633;
@@ -3688,4 +3688,18 @@ input[type=number]::-webkit-outer-spin-button {
     -moz-appearance: none;
     appearance: none;
     margin: 0; 
+}
+
+button.theme-btn {
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #896633;
+    font-family: 'Calibri';
+    font-weight: bold;
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #fff ;
+    border: 1px solid #896633;
+    padding: 0px 10px;
 }

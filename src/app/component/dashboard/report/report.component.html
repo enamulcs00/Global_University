@@ -40,8 +40,8 @@
             </div>
 
             <div class="cntact-button">
-              <button class="banner-button router-link" style="margin-right: 10px;" (click)="reportCountApi()">Submit</button>
-              <button class="banner-button router-link" (click)="resetCount()">Reset</button>
+              <button class="theme-btn router-link" style="margin-right: 10px;" (click)="reportCountApi()">Submit</button>
+              <button class="theme-btn router-link" (click)="resetCount()">Reset</button>
             </div>
           </div>
 
@@ -95,9 +95,9 @@
               <li>
                 <label>&nbsp;</label>
                 <div class="cntact-button">
-                  <button class="banner-button router-link" style="margin-right: 10px;"
+                  <button class="theme-btn router-link" style="margin-right: 10px;"
                     (click)="searchReportChart()">Submit</button>
-                  <button class="banner-button router-link" (reset)="reset()">Reset</button>
+                  <button class="theme-btn router-link" (reset)="reset()">Reset</button>
                 </div>
               </li>
             </ul>
@@ -106,7 +106,7 @@
 
 
           <div class="progress-chart">
-            <h2>Progress chart {{ fromDate}} - {{ toDate}}</h2>
+            <h2>Application submitted from {{ fromDateView}} - {{ toDateView}}</h2>
 
             <!-- <div class="graph_sec"><img src="assets/images/graph-1.png"></div> -->
             <div id="chartdiv" style="width: 100%; height: 500px"></div>
