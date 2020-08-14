@@ -119,7 +119,7 @@ export class HttpModifierInterceptor implements HttpInterceptor {
         return next.handle(req).pipe(tap(res => {
             if (res instanceof HttpResponse) {
                 if (res.status !== 200) {
-
+                  this.service.hideSpinner()
                     setTimeout(x => {
                     }, 5000);
                 }
@@ -128,6 +128,7 @@ export class HttpModifierInterceptor implements HttpInterceptor {
             if (err instanceof HttpErrorResponse) {
                 if (err.error.status === 401) {
                     localStorage.clear()
+                    this.service.hideSpinner()
                     this.router.navigateByUrl('')
                     setTimeout(x => {
                     }, 5000);

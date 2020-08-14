@@ -9,12 +9,12 @@
                         <p class="do_you">Do you have work experience :</p>
                         <div class="custom-button">
                             <label class="custom-radio">Yes
-                                <input type="radio" value="YES" (change)="change($event)" name="workExperience"
+                                <input type="radio" value="true" (change)="change($event.target.value)" name="workExperience"
                                   formControlName="workExperience">
                                 <span class="checkmark_cs3"></span>
                             </label>
                             <label class="custom-radio">No
-                                <input type="radio" value="NO" (change)="change($event)" name="workExperience"
+                                <input type="radio" value="false" (change)="change($event.target.value)" name="workExperience"
                                   formControlName="workExperience">
                                 <span class="checkmark_cs3"></span>
                             </label>
@@ -26,7 +26,7 @@
                       </div>
                     </div>
 
-                    <div class="form-group" *ngIf="workExperience">
+                    <div class="University-name cs3 mb-3" *ngIf="workExperience">
                         <label>Total number of years of full time work experience :</label>
                         <select class="form-control" formControlName="totalExperience">
                             <option disabled selected value=""> Select experience</option>
@@ -45,6 +45,7 @@
                             <option value="12">12</option>
                             <option value="12+">12+</option>
                         </select>
+                        <i class="fa fa-sort-down"></i>
                         <div *ngIf="workExperience" >
                           <div *ngIf="(section11Form.value.totalExperience == null )"  class="danger">
                               *please enter the Description
@@ -119,7 +120,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Gross Annual Salary :</label>
+                        <label for="exampleInputEmail1">Gross Annual Salary (in USD) :</label>
                         <input type="number" class="form-control" placeholder="100$" formControlName="annualSalary"
                         [ngClass]="{ 'is-invalid': submitted && section11Form.get('annualSalary').hasError('required') }" >
                         <div *ngIf="submitted && section11Form.get('annualSalary').hasError" >
