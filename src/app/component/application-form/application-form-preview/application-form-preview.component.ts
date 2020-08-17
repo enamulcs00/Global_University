@@ -13,7 +13,7 @@ export class ApplicationFormPreviewComponent implements OnInit {
 
   ngOnInit() {
     window.scrollTo(0, 0);
-    this.section1 = localStorage.getItem('section1')
+    this.section1 = JSON.parse(localStorage.getItem('section1'))
     if(JSON.parse(localStorage.getItem('section1')).searchCourse.toLowerCase().includes('mba')){
       this.mbaExist = true;
       if(JSON.parse(localStorage.getItem('section1')).searchCourse.toLowerCase().includes('executive')){

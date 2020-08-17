@@ -35,6 +35,7 @@ export class Section2Component implements OnInit {
   courseId:any ;
   filteredOptions: Observable<string[]>;
   courseStartDate: string;
+  courseDuration:any
 
   constructor(private service:ServicesService,private router:Router) { }
 
@@ -78,6 +79,7 @@ export class Section2Component implements OnInit {
     console.log("-->>",this.courseList.filter(option => option.courseName == this.searchCourse.value))
     let selectedCourse = this.courseList.filter(option => option.courseName == this.searchCourse.value)
     this.courseId = selectedCourse[0].courseId
+    this.courseDuration = selectedCourse[0].courseDuration
     this.section2Form.patchValue({
       searchCourse : this.searchCourse.value
     })
@@ -122,7 +124,7 @@ export class Section2Component implements OnInit {
     if(this.section2Form.invalid){
       return false
     }
-    let courseObject = {...this.section2Form.value,courseId:this.courseId,courseStartDate:this.courseStartDate}
+    let courseObject = {...this.section2Form.value,courseId:this.courseId,courseStartDate:this.courseStartDate,courseDuration:this.courseDuration}
     localStorage.setItem('section1',JSON.stringify(courseObject))
     this.router.navigateByUrl('section2');
   }
