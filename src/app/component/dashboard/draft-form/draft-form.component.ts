@@ -86,8 +86,8 @@ export class DraftFormComponent implements OnInit {
         let section1_Object = {
           "searchCourse":formData.courseName,
           "countryName":formData.courseCountry,
-          "startYear":formData.courseSttartDate.split('-')[0],
-          "startMonth":formData.courseSttartDate.split('-')[1],
+          "startYear":formData.courseSttartDate ? formData.courseSttartDate.split('-')[0] : '',
+          "startMonth":formData.courseSttartDate ? formData.courseSttartDate.split('-')[1] : '',
           "yearIntake":"",
           "courseId":formData.courseId,
           "courseStartDate":formData.courseSttartDate
@@ -133,10 +133,10 @@ export class DraftFormComponent implements OnInit {
           section4_Object.qualificationArr.push({
             "qualification" : formData.academicQualificationForm.academicQualifications ,
             "country" : formData.academicQualificationForm.countryOfStudy ,
-            "endDate" : formData.academicQualificationForm.enddate.split('T')[0] ,
+            "endDate" : formData.academicQualificationForm.enddate ? formData.academicQualificationForm.enddate.split('T')[0] : '' , 
             "institutionName" : formData.academicQualificationForm.instituteName ,
             "resultGrade" : formData.academicQualificationForm.resultType ,
-            "startDate" : formData.academicQualificationForm.startDate.split('T')[0] ,
+            "startDate" : formData.academicQualificationForm.startDate ? formData.academicQualificationForm.startDate.split('T')[0] : '',
             "subject1" : formData.academicQualificationForm.subject1 ,
             "subject1Grade" : formData.academicQualificationForm.subject1grade1 ,
             "subject2" : formData.academicQualificationForm.subject1grade2 ,
@@ -159,7 +159,7 @@ export class DraftFormComponent implements OnInit {
           "typeOfEnglishQualification" : formData.typeOfEnglishQualification,          
         }
         let section6_Object = {
-          "date" : formData.awardedDate.split('T')[0],
+          "date" : formData.awardedDate ? formData.awardedDate.split('T')[0] : '',
           "proffessionalBody" : formData.professionalBodyMembership,
           "subject" : formData.professionalQualificationSubject,
           "title" : formData.qualificationTitle
@@ -178,6 +178,48 @@ export class DraftFormComponent implements OnInit {
           "refree1email" : formData.referee1Email,
           "refree2email" : formData.referee2Email,
         }
+        let section8_Object = {
+          uploadState : formData.personalStatementDescription == '' ? true : false,
+          description: formData.personalStatementDescription
+        }
+        let section9_Object = {
+          "applyForExternalFunding" : formData.applyForExternalFunding ? formData.applyForExternalFunding : 'true',
+          "externalFundingDescription" : formData.applyForExternalFundingDescription ? formData.applyForExternalFundingDescription : "true",
+          "currentlyFundingForStudy" : formData.doYouCurrentlyHaveFundingForYourChosenProgrammeofStudy ? formData.doYouCurrentlyHaveFundingForYourChosenProgrammeofStudy : "true",
+          "applyForUniversityFunding" : formData.wishtoApplyForUniversityFunding ? formData.wishtoApplyForUniversityFunding : "true",
+          "universityFundingDescription" : formData.wishtoApplyForUniversityFundingDescription ? formData.wishtoApplyForUniversityFundingDescription : "true",
+          "wishForUniversityScholarship" : formData.wishtoApplyForUniversityscholarship ? formData.wishtoApplyForUniversityscholarship : "true",
+          "wishForUniversityScholarshipDescription" : formData.wishtoApplyForUniversityscholarshipDescription ? formData.wishtoApplyForUniversityscholarshipDescription : "true",
+        }
+        let section10_Object = {
+          "researchProposal" : ("" +formData.researchProposalForPGR),
+          "researchProposalDescription" :formData.researchProposalDescription
+        }
+        let section11_Object = {
+          "totalExperience" : formData.totalWorkExperience ? formData.totalWorkExperience : 0,
+          "briefDuties" : formData.briefDuties ? formData.briefDuties : '',
+          "employedFrom" : formData.dateAppointed ? formData.dateAppointed : '',
+          "employersBusiness" : formData.employerName ? formData.employerName : '',
+          "employersName" : formData.employersName ? formData.employersName : '',
+          "annualSalary" : formData.grossAnnualSalary ? formData.grossAnnualSalary : '0',
+          "jobTitle" : formData.pgtJobTitle ? formData.pgtJobTitle : '',
+          "employedTo":'',
+          "employersAddress":'',
+          "email":'',
+          "achievements":'',
+          "workExperience" : formData.totalWorkExperience ?( formData.workExperience > 0 ? "true": "false" ): "false",
+        }
+        let section12_Object = {
+          "cv":formData.urlCv,
+          "degreeCertificate":formData.urlDegree,
+          "otherDocument":formData.urlDocuments,
+          "englishLanguageCertificate":formData.urlEnglishLanguageCertificate,
+          "researchPersonal":formData.urlResearchProposal,
+          "disclaimer":formData.urlStatement,
+          "transcript":formData.urlTranscript,
+          "personalStatement":formData.urlpersonalStatement,
+        }
+        console.log('---->',section11_Object)
         localStorage.setItem('section1',JSON.stringify(section1_Object))
         localStorage.setItem('section2',JSON.stringify(section2_Object))
         localStorage.setItem('section3',JSON.stringify(section3_Object))
@@ -185,6 +227,11 @@ export class DraftFormComponent implements OnInit {
         localStorage.setItem('section5',JSON.stringify(section5_Object))
         localStorage.setItem('section6',JSON.stringify(section6_Object))
         localStorage.setItem('section7',JSON.stringify(section7_Object))
+        localStorage.setItem('section8',JSON.stringify(section8_Object))
+        localStorage.setItem('section9',JSON.stringify(section9_Object))
+        localStorage.setItem('section10',JSON.stringify(section10_Object))
+        localStorage.setItem('section11',JSON.stringify(section11_Object))
+        localStorage.setItem('section12',JSON.stringify(section12_Object))
         localStorage.setItem('formId',id)
         this.router.navigateByUrl(formData.pageFillNumber)
       }

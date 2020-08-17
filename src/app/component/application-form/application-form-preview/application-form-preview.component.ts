@@ -8,11 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class ApplicationFormPreviewComponent implements OnInit {
   mbaExist: boolean = false;
   executiveMbaExist: boolean = false;
-
+  section1 :any
   constructor() { }
 
   ngOnInit() {
     window.scrollTo(0, 0);
+    this.section1 = localStorage.getItem('section1')
     if(JSON.parse(localStorage.getItem('section1')).searchCourse.toLowerCase().includes('mba')){
       this.mbaExist = true;
       if(JSON.parse(localStorage.getItem('section1')).searchCourse.toLowerCase().includes('executive')){
