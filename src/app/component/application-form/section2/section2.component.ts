@@ -39,6 +39,7 @@ export class Section2Component implements OnInit {
   constructor(private service:ServicesService,private router:Router) { }
 
   ngOnInit() {
+    console.log("localStorage.getItem('formId')-->",localStorage.getItem('formId'))
     let today = new Date();
     for(let i = -10; i < 10; i++){
       this.yearList.push(today.getFullYear() + i)
@@ -278,7 +279,13 @@ export class Section2Component implements OnInit {
       "zipcode": 0
     }
     this.service.showSpinner()
-    this.service.postApi(`course/form-fill-up-as-a-user`,formDetailsDto,1).subscribe((res:any) => {
+    let url = `course/form-fill-up-as-a-user`;
+    if(localStorage.getItem('formId')){
+      url  = `course/update-form`
+      formDetailsDto.formId = JSON.parse(localStorage.getItem('formId'));
+    }
+    console.log('url--->',url)
+    this.service.postApi(url,formDetailsDto,1).subscribe((res:any) => {
       console.log("res-->",res)
       this.service.hideSpinner()
       localStorage.removeItem('section1')

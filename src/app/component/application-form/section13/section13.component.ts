@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServicesService } from 'src/app/services.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
+declare var $:any;
 @Component({
   selector: 'app-section13',
   templateUrl: './section13.component.html',
@@ -301,11 +301,18 @@ export class Section13Component implements OnInit {
       "zipcode": this.section3Data.zipCode
     }
     console.log("form--->",formDetailsDto)
-    // this.service.postApi(`course/form-fill-up-as-a-user`,formDetailsDto,1).subscribe((res:any) => {
-      // console.log("res-->",res)
-      // this.service.hideSpinner()
-      // localStorage.removeItem('section1')
-      // $('#exampleModalCenter').modal('show')
-    // })
+    this.service.showSpinner()
+    let url = `course/form-fill-up-as-a-user`;
+    if(localStorage.getItem('formId')){
+      url  = `course/update-form`
+      formDetailsDto.formId = JSON.parse(localStorage.getItem('formId'));
+    }
+    console.log('url--->',url)
+    this.service.postApi(url,formDetailsDto,1).subscribe((res:any) => {
+      console.log("res-->",res)
+      this.service.hideSpinner()
+      localStorage.removeItem('section1')
+      $('#exampleModalCenter').modal('show')
+    })
   }
 }

@@ -3690,7 +3690,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0; 
 }
 
-button.theme-btn {
+/* button.theme-btn {
     font-size: 16px;
     letter-spacing: 1px;
     color: #896633;
@@ -3702,4 +3702,4 @@ button.theme-btn {
     background-color: #fff ;
     border: 1px solid #896633;
     padding: 0px 10px;
-}
+} */

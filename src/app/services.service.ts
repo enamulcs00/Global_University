@@ -59,7 +59,7 @@ export class ServicesService {
               observe: 'response'              
             }            
           }
-          console.log("header-->",httpOptions)
+          // console.log("header-->",httpOptions)
           return this.http.get((this.baseUrl + url), httpOptions)
       }
   
@@ -134,6 +134,9 @@ export class HttpModifierInterceptor implements HttpInterceptor {
                     }, 5000);
                     this.router.navigateByUrl('login');
                 } else {
+                  localStorage.clear()
+                    this.service.hideSpinner()
+                    this.router.navigateByUrl('')
                     setTimeout(x => {
                     }, 500);
                 }

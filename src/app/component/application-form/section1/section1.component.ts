@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ServicesService } from 'src/app/services.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 declare var $:any
 @Component({
   selector: 'app-section1',
@@ -15,12 +15,14 @@ export class Section1Component implements OnInit {
   countryList:any = [];
   section1Data: any;
 
-  constructor(private service:ServicesService,private router:Router) { }
+  constructor(private service:ServicesService,private router:Router,private activateRoute:ActivatedRoute) {     
+  }
 
   ngOnInit() {
     this.service.getCountryStates().subscribe((res: any) => {
       this.countryList = res
     })
+    console.log("localStorage.getItem('formId')-->",localStorage.getItem('formId'))
     this.initializeForm()
     window.scrollTo(0, 0);
     this.getAccount()
@@ -140,7 +142,7 @@ export class Section1Component implements OnInit {
       "courseId": this.section1Data.courseId,
       "courseName": this.section1Data.searchCourse,
       "courseSttartDate": this.section1Data.courseStartDate,
-      "criminalDescription": this.section1Form.value.criminalConviction,
+      "criminalDescription": this.section1Form.value.descriptionForCriminalConviction,
       "currentEmployment": "",
       "dateAppointed": "",
       "dateTaken": "",
@@ -253,7 +255,13 @@ export class Section1Component implements OnInit {
     }
     console.log("form--->",formDetailsDto)
     this.service.showSpinner()
-    this.service.postApi(`course/form-fill-up-as-a-user`,formDetailsDto,1).subscribe((res:any) => {
+    let url = `course/form-fill-up-as-a-user`;
+    if(localStorage.getItem('formId')){
+      url  = `course/update-form`
+      formDetailsDto.formId = JSON.parse(localStorage.getItem('formId'));
+    }
+    console.log('url--->',url)
+    this.service.postApi(url,formDetailsDto,1).subscribe((res:any) => {
       console.log("res-->",res)
       this.service.hideSpinner()
       localStorage.removeItem('section1')

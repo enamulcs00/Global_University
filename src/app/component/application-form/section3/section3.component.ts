@@ -340,12 +340,18 @@ export class Section3Component implements OnInit {
       "wishtoApplyForUniversityscholarshipDescription": "",
       "zipcode": this.section3Form.value.zipCode
     }
-    console.log("form--->",formDetailsDto)
-    // this.service.postApi(`course/form-fill-up-as-a-user`,formDetailsDto,1).subscribe((res:any) => {
-      // console.log("res-->",res)
-      // this.service.hideSpinner()
-      // localStorage.removeItem('section1')
-      // $('#exampleModalCenter').modal('show')
-    // })
+    this.service.showSpinner()
+    let url = `course/form-fill-up-as-a-user`;
+    if(localStorage.getItem('formId')){
+      url  = `course/update-form`
+      formDetailsDto.formId = JSON.parse(localStorage.getItem('formId'));
+    }
+    console.log('url--->',url)
+    this.service.postApi(url,formDetailsDto,1).subscribe((res:any) => {
+      console.log("res-->",res)
+      this.service.hideSpinner()
+      localStorage.removeItem('section1')
+      $('#exampleModalCenter').modal('show')
+    })
   }
 }

@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { element } from 'protractor';
 import { ServicesService } from 'src/app/services.service';
-
+declare var $:any;
 @Component({
   selector: 'app-section5',
   templateUrl: './section5.component.html',
@@ -121,7 +121,6 @@ export class Section5Component implements OnInit {
   }
 
   saveAndQuit(){
-    this.submitted = true
     this.submitted = true;
     if (this.section5Form.invalid) {
       return false
@@ -215,7 +214,8 @@ export class Section5Component implements OnInit {
       "homeAddress": this.section3Data.homeAddress,
       "homeEmail":  this.section3Data.homeEmail,
       "homeTeliphoneNo": Object.keys(this.section3Data.homeTelephoneNo).length != 0 ? this.section3Data.homeTelephoneNo.internationalNumber: this.section3Data.homeTelephoneNo,
-      "homeTeliphoneNo2": Object.keys(this.section3Data.homeTelephoneNo1).length != 0 ? this.section3Data.homeTelephoneNo1.internationalNumber: this.section3Data.homeTelephoneNo1,
+      "homeTeliphoneNo2": Object.keys(this.section3Data.homeTelephoneNo1).length != 0 ?
+       this.section3Data.homeTelephoneNo1.internationalNumber: this.section3Data.homeTelephoneNo1,
       "ifNoThenAddAboutRecentEnglishLanguage": this.section5Form.value.englishLanguageTestDetails,
       "ifNoThenAddHighestEnglishQualification": this.section5Form.value.highestAcedemicQualification,
       "ifYesSelectCountryForSpeakingCountry": this.section5Form.value.nativeEnglishSpeakingCountryName,
@@ -301,11 +301,18 @@ export class Section5Component implements OnInit {
       "zipcode": this.section3Data.zipCode
     }
     console.log("form--->",formDetailsDto)
-    // this.service.postApi(`course/form-fill-up-as-a-user`,formDetailsDto,1).subscribe((res:any) => {
-      // console.log("res-->",res)
-      // this.service.hideSpinner()
-      // localStorage.removeItem('section1')
-      // $('#exampleModalCenter').modal('show')
-    // })
+    this.service.showSpinner()
+    let url = `course/form-fill-up-as-a-user`;
+    if(localStorage.getItem('formId')){
+      url  = `course/update-form`
+      formDetailsDto.formId = JSON.parse(localStorage.getItem('formId'));
+    }
+    console.log('url--->',url)
+    this.service.postApi(url,formDetailsDto,1).subscribe((res:any) => {
+      console.log("res-->",res)
+      this.service.hideSpinner()
+      localStorage.removeItem('section1')
+      $('#exampleModalCenter').modal('show')
+    })
   }
 }
