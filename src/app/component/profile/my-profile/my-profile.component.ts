@@ -29,6 +29,7 @@ export class MyProfileComponent implements OnInit {
   constructor(private service:ServicesService) { }
 
   ngOnInit() {
+    window.scroll(0,0)
     this.service.getCountryStates().subscribe((res: any) => {
       this.countryList = res
     })

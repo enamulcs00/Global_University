@@ -45,6 +45,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule } from 'ngx-toastr';
+import { MySubscriptionDetailsComponent } from './component/profile/my-subscription-details/my-subscription-details.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { ToastrModule } from 'ngx-toastr';
     ManageUsersComponent,
     CreateUsersComponent,
     SubscriptionHistoryComponent,
-    LoginComponent
+    LoginComponent,
+    MySubscriptionDetailsComponent
   ],
   imports: [
     BrowserModule,

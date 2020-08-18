@@ -31,6 +31,7 @@ import { MySubscriptionComponent } from './component/profile/my-subscription/my-
 import { SubscriptionHistoryComponent } from './component/profile/subscription-history/subscription-history.component';
 import { LoginComponent } from './component/login/login.component';
 import { AuthGuard } from './auth.guard';
+import { MySubscriptionDetailsComponent } from './component/profile/my-subscription-details/my-subscription-details.component';
 
 
 const routes: Routes = [
@@ -51,6 +52,7 @@ const routes: Routes = [
   { path: 'create-users', component : CreateUsersComponent,canActivate :[AuthGuard] },
   { path: 'manage-users', component : ManageUsersComponent,canActivate :[AuthGuard] },
   { path: 'my-subscription', component : MySubscriptionComponent,canActivate :[AuthGuard] },
+  { path: 'my-subscription-details/:id', component : MySubscriptionDetailsComponent,canActivate :[AuthGuard] },
   { path: 'subscription-history', component : SubscriptionHistoryComponent,canActivate :[AuthGuard] },
 
   { path: 'section2', component: Section1Component,canActivate :[AuthGuard] },

@@ -40,7 +40,7 @@ export class DraftFormComponent implements OnInit {
   getForms(){
     this.service.showSpinner()
     let url = `course/filter-forms-details?page=0&formFillStatus=INCOMPLETE`
-    if(this.searchKey){
+    if(this.searchKey && this.formId != 'search_by_form_id'){
       url = url + `&search=${this.searchKey}`
     }
     if(this.fromDate){
@@ -49,7 +49,7 @@ export class DraftFormComponent implements OnInit {
     if(this.toDate){
       url = url + `&toDate=${this.convertIntoTimeStamp(this.toDate)}`
     }
-    if(this.formId){
+    if(this.formId != 'search_by_form_id'){
       url = url + `&formId=${this.formId}`
     }
     this.service.getApi(url,1).subscribe((res:any) => {

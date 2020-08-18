@@ -37,7 +37,7 @@ export class DashboardComponent implements OnInit {
   getSubmiitedForms(){
     this.service.showSpinner()
     let url = `course/filter-forms-details?page=0&formFillStatus=COMPLETE`
-    if(this.searchKey){
+    if(this.searchKey && this.formId != 'search_by_form_id'){
       url = url + `&search=${this.searchKey}`
     }
     if(this.fromDate){
@@ -46,8 +46,8 @@ export class DashboardComponent implements OnInit {
     if(this.toDate){
       url = url + `&toDate=${this.convertIntoTimeStamp(this.toDate)}`
     }
-    if(this.formId){
-      url = url + `&formId=${this.formId}`
+    if(this.formId == 'search_by_form_id'){
+      url = url + `&formId=${this.searchKey}`
     }
     this.service.getApi(url,1).subscribe((res:any) => {
       console.log("res -->",res)

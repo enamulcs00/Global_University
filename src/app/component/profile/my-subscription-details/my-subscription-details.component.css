@@ -1,0 +1,11 @@
+.user-lince{
+    border: 0px solid #d7d6d6 !important;
+}
+.cntact-button {
+    margin-left: 25% !important;
+    display: flex;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0px 0px 0px !important;
+    max-width: 50% !important;
+}

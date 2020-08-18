@@ -10,7 +10,7 @@
                           <input style="top: 33px;width: 40px;height: 40px;opacity: 0;"  type="file" name="imageUrl" accept="image/jpeg,image/png,image/jpg" (change)="handleFileInput($event)"  multiple />
                         </div>
                     </a>
-                    <p>Sushree</p>
+                    <p>{{profiledata?.firstName}}</p>
                 </div>
 
                 <div class="changs">
@@ -142,7 +142,7 @@
 
                                         <div class="form-group cs3">
                                           <label for="exampleInputEmail1">Business Name*</label>
-                                          <input type="email" class="form-control" placeholder="Last Name" formControlName="businessName">
+                                          <input type="email" class="form-control" placeholder="business Name" formControlName="businessName">
                                           <div *ngIf="submitted && myProfileForm.get('businessName').hasError" >
                                             <div *ngIf="myProfileForm.get('businessName').hasError('required')" class="danger">
                                                 *please enter the businessName

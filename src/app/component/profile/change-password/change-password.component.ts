@@ -13,11 +13,15 @@ export class ChangePasswordComponent implements OnInit {
   passwordForm:FormGroup;
   submitted:boolean = false
   responseMessage:any = ''
+  accountData :any
 
   constructor(private service:ServicesService) { }
 
   ngOnInit() {
     this.initializeForm()
+    window.scroll(0,0)
+    this.accountData = JSON.parse(localStorage.getItem('myProfile'))
+    this.accountData.imageUrl = this.accountData.imageUrl ? this.accountData.imageUrl : 'assets/images/pick-1.png';
   }
 
   initializeForm(){
