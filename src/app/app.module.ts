@@ -44,6 +44,7 @@ import { HttpModifierInterceptor } from './services.service';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 import { NgxSpinnerModule } from "ngx-spinner";
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -90,8 +91,9 @@ import { NgxSpinnerModule } from "ngx-spinner";
     NgxIntlTelInputModule,
     BsDropdownModule.forRoot(),
     MatAutocompleteModule,
-    NgxSpinnerModule
-    ],
+    NgxSpinnerModule,
+    ToastrModule.forRoot()
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

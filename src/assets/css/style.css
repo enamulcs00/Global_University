@@ -3703,3 +3703,47 @@ input[type=number]::-webkit-outer-spin-button {
     border: 1px solid #896633;
     padding: 0px 10px;
 } */
+
+.icon-add {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  label.profil-img {
+    position: relative;
+  }
+  .icon-add input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
+  .modal-footer{
+    position: relative;
+    border-top: 0px solid #ffffff !important;
+    height: 60px;
+    width: 100%;
+}
+.modal-header{
+    border-bottom: 0px solid #ffffff !important;
+}
+.modal-body {
+    position: relative;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1rem 2rem 2rem 2rem !important;
+}
+.okay{
+    cursor: pointer;
+    left: 35%;
+    top: -5px;
+    position: absolute;
+}

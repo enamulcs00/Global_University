@@ -4,6 +4,7 @@ import { tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 
 export class ServicesService {
   
-      constructor(private http:HttpClient,private spinner: NgxSpinnerService) { }
+      constructor(private http:HttpClient,private toastr:ToastrService,private spinner: NgxSpinnerService) { }
   
       baseUrl = "http://182.72.203.244:2001/"
   
@@ -90,6 +91,14 @@ export class ServicesService {
     //================ HIDE SPINNER =========================//
       hideSpinner() {    
           this.spinner.hide();
+      }
+
+      showSuccess(msg) {
+          this.toastr.success(msg);
+      }
+  
+      toastErr(msg) {   
+          this.toastr.error(msg)
       }
 
  
