@@ -96,7 +96,7 @@ export class MyProfileComponent implements OnInit {
       console.log('profileeeee', res)
       if (res.status == 200) {
         this.profiledata = res.body.data
-        console.log('profiledata==>>', this.profiledata)
+        localStorage.setItem('myProfile',JSON.stringify(res.body.data))
           this.myProfileImage = this.profiledata.imageUrl ? this.profiledata.imageUrl : 'assets/images/pick-1.png';
           this.myProfileForm.patchValue({
             'firstName': this.profiledata.firstName,
@@ -105,6 +105,9 @@ export class MyProfileComponent implements OnInit {
             'state': this.profiledata.state,
             'country': this.profiledata.country,
             'address': this.profiledata.address,
+            'email': this.profiledata.email,
+            'telephoneNumber': this.profiledata.phoneNo,
+            'mobileNumber': this.profiledata.phoneNo
           })
         }
         this.service.hideSpinner()        
@@ -132,11 +135,16 @@ export class MyProfileComponent implements OnInit {
     }
     console.log('objectttttt====>>>', object)
     this.service.postApi('account/profile-update', object, 1).subscribe((res :any) => {
-      console.log('-->',res)
       this.service.hideSpinner()
       if(res.status == 200){
         this.responseMessage = res.body.message;
         $('#exampleModalCenter').modal('show')
+        this.service.getApi('account/my-account', 1).subscribe((res:any) => {
+          console.log('profileeeee', res)
+          if (res.status == 200) {
+              localStorage.setItem('myProfile',JSON.stringify(res.body.data))
+          }
+        })
       }
     })
   }

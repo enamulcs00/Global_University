@@ -89,6 +89,36 @@ export class CreateUsersComponent implements OnInit {
 
   createUser(){
     this.submitted = true
+    let signupDto = {
+      "address": this.createUserForm.value.address1+','+this.createUserForm.value.address2+','+this.createUserForm.value.address3,
+      "city": this.createUserForm.value.city,
+      "country": this.createUserForm.value.country,
+      "customerStatus": "SUBSCRIBE",
+      "description": "string",
+      "deviceToken": "string",
+      "deviceType": "string",
+      "dob": "string",
+      "email": this.createUserForm.value.email,
+      "firstName": this.createUserForm.value.firstName,
+      "imageUrl": "https://res.cloudinary.com/dmabxaha1/image/upload/v1597827101/jg8jefidy8t1mvfyhizr.png",
+      "lastName":this.createUserForm.value.lastName,
+      "password": "demoPassword",
+      "phoneNo": this.createUserForm.value.telephoneNumber.e164Number,
+      "representativeCode": "string",
+      "representativeDetailsId": "string",
+      "representativeName": "string",
+      "roleStatus": "REPRESENTATIVE_USER",
+      "state": this.createUserForm.value.state,
+      "subject": "string",
+      "universityCode": "string",
+      "universityDetailsId": 0,
+      "universityName": "string",
+      "userType": "STUDENT",
+      "webUrl": "http://localhost:4201/reset-password"
+    }
     console.log('--->>',this.createUserForm.value)
+    this.service.postApi(`account/add-sub-user`,signupDto,1).subscribe((res:any) =>{
+      console.log('res--->',res)
+    })
   }
 }

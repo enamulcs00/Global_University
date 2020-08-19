@@ -32,6 +32,8 @@ import { SubscriptionHistoryComponent } from './component/profile/subscription-h
 import { LoginComponent } from './component/login/login.component';
 import { AuthGuard } from './auth.guard';
 import { MySubscriptionDetailsComponent } from './component/profile/my-subscription-details/my-subscription-details.component';
+import { ForgetPasswordComponent } from './component/forget-password/forget-password.component';
+import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
 
 
 const routes: Routes = [
@@ -42,6 +44,8 @@ const routes: Routes = [
   },
   {  path: 'dashboard',   component: DashboardComponent,canActivate :[AuthGuard] },
   { path: 'login', component: LoginComponent},
+  { path: 'reset-password', component: ResetPasswordComponent},
+  { path: 'forget-password', component: ForgetPasswordComponent},
   { path: 'draft-form', component: DraftFormComponent,canActivate :[AuthGuard] },
   { path: 'application-progress', component: ApplicationProgressComponent,canActivate :[AuthGuard] },
   { path: 'view-progress', component : ViewProgressComponent,canActivate :[AuthGuard] },

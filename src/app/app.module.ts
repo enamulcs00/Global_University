@@ -46,6 +46,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule } from 'ngx-toastr';
 import { MySubscriptionDetailsComponent } from './component/profile/my-subscription-details/my-subscription-details.component';
+import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
+import { ForgetPasswordComponent } from './component/forget-password/forget-password.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +83,9 @@ import { MySubscriptionDetailsComponent } from './component/profile/my-subscript
     CreateUsersComponent,
     SubscriptionHistoryComponent,
     LoginComponent,
-    MySubscriptionDetailsComponent
+    MySubscriptionDetailsComponent,
+    ResetPasswordComponent,
+    ForgetPasswordComponent
   ],
   imports: [
     BrowserModule,

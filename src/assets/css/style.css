@@ -3747,3 +3747,17 @@ input[type=number]::-webkit-outer-spin-button {
     top: -5px;
     position: absolute;
 }
+
+button.btn.btn-block.btn-flat.router-link {
+    border: 2px solid #896634;
+}
+.modal-content.thanks_for {
+    padding: 34px 32px;
+    text-align: center;
+}
+.modal-content.thanks_for button.banner-button.active {
+    width: 97px;
+    height: 37px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
