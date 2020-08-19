@@ -48,6 +48,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { MySubscriptionDetailsComponent } from './component/profile/my-subscription-details/my-subscription-details.component';
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
 import { ForgetPasswordComponent } from './component/forget-password/forget-password.component';
+import { FavoriteCoursesComponent } from './component/favorite-courses/favorite-courses.component';
+import { NotificationComponent } from './component/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +87,9 @@ import { ForgetPasswordComponent } from './component/forget-password/forget-pass
     LoginComponent,
     MySubscriptionDetailsComponent,
     ResetPasswordComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    FavoriteCoursesComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,

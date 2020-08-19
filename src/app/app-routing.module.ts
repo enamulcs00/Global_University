@@ -34,6 +34,8 @@ import { AuthGuard } from './auth.guard';
 import { MySubscriptionDetailsComponent } from './component/profile/my-subscription-details/my-subscription-details.component';
 import { ForgetPasswordComponent } from './component/forget-password/forget-password.component';
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
+import { FavoriteCoursesComponent } from './component/favorite-courses/favorite-courses.component';
+import { NotificationComponent } from './component/notification/notification.component';
 
 
 const routes: Routes = [
@@ -42,9 +44,11 @@ const routes: Routes = [
     redirectTo: "/dashboard",
     pathMatch: "full"
   },
-  {  path: 'dashboard',   component: DashboardComponent,canActivate :[AuthGuard] },
   { path: 'login', component: LoginComponent},
   { path: 'reset-password', component: ResetPasswordComponent},
+  { path: 'favourite-courses',   component: FavoriteCoursesComponent,canActivate :[AuthGuard] },
+  { path: 'notification',   component: NotificationComponent,canActivate :[AuthGuard] },
+  { path: 'dashboard',   component: DashboardComponent,canActivate :[AuthGuard] },
   { path: 'forget-password', component: ForgetPasswordComponent},
   { path: 'draft-form', component: DraftFormComponent,canActivate :[AuthGuard] },
   { path: 'application-progress', component: ApplicationProgressComponent,canActivate :[AuthGuard] },

@@ -1,0 +1,66 @@
+<section>
+    <div class="container1440 mt-5">
+        <div class="application_cs">
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-contact" role="tabpanel"
+                    aria-labelledby="pills-contact-tab">
+
+                    <div class="main_formId mt-4" *ngFor="let item of favoriteList">
+                        <div class="form_submit">
+                            <div class="condidated_name" style="max-width: 50%;">
+                                <div class="img_cs">
+                                    <figure><img
+                                            src="{{item.universityImageUrl ? item.universityImageUrl :'https://res.cloudinary.com/dmabxaha1/image/upload/v1596010370/i8ihrgdcow76breqnp8h.jpg'}}">
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="condidated_name">
+                                <ul>
+                                    <li><strong>University Name :</strong> </li>
+                                    <li><strong>Location :</strong></li>
+                                    <li><strong>Course Duration :</strong> </li>
+                                    <li><strong>Course Type :</strong> </li>
+                                    <li><strong>Tuition Fees (Overseas) :</strong></li>
+                                    <li><strong>Scholarships :</strong> </li>
+                                    <li><strong>Assessment :</strong></li>
+                                    <li><strong>Entry Requirements :</strong> </li>
+                                    <li><strong>Careers : </strong> </li>
+                                    <li><strong> Subject ranking : </strong></li>
+                                    <li><strong>Visit university website : </strong></li>
+                                </ul>
+                            </div>
+                            <div class="condidated_name">
+                                <ul>
+                                    <li>{{item?.universityName ? item?.universityName : '&nbsp;'}}</li>
+                                    <li>{{item?.country ? item?.country : '&nbsp;'}}</li>
+                                    <li>{{item?.courseDuration ? item?.courseDuration : '&nbsp;'}}</li> 
+                                    <li>{{item?.courseType ? item?.courseType == 'PART_TIME' ? 'Part time' : 'Full time' : '&nbsp;'}}</li>
+                                    <li>{{item?.fee ? item?.fee : '&nbsp;'}}</li>
+                                    <li>{{item?.scholarship ? item?.scholarship :'&nbsp;'}}</li>
+                                    <li>{{item?.assessment ? item?.assessment : '&nbsp;'}}</li>
+                                    <li>{{item?.requirements ? item?.requirements : '&nbsp;'}}</li>                                    
+                                    <li>{{item?.careers ? item?.careers : '&nbsp;'}}</li>
+                                    <li>{{item?.subjectRank ? item?.subjectRank : '&nbsp;'}}</li>
+                                    <li><a href="{{item?.universityWebsite}}" target="_blank">
+                                        {{item?.universityWebsite}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="my_history">
+                            <div class="">
+                                <button class="theme-btn router-link" >Apply now</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <button class="theme-btn router-link" style="width: 220px;" (click)="removeCourse(item)">Remove from favourite</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="tab-pane fade" id="pills-contact1" role="tabpanel" aria-labelledby="pills-contact-tab">...
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

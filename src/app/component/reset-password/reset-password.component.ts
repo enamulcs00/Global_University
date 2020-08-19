@@ -35,10 +35,14 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   verifyEmail(token){
+      this.service.showSpinner()
       this.service.getApi(`account/verify-user?token=${token}`,2).subscribe((res:any) => {
         console.log("verify mail res--->",res)
+        this.service.hideSpinner()
         this.responseMessage = res.body.message
         $('#verifyEmail').modal('show')
+      },error => {
+        this.service.hideSpinner()
       })
   }
 

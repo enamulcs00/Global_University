@@ -23,7 +23,7 @@
               <a class="nav-link">Contact Us</a>
             </li>
             <li class="nav-item" *ngIf="tokenAvailable != ''" >
-               <a class="nav-link">Favourite courses</a>
+               <a class="nav-link" [routerLink]="['favourite-courses']">Favourite courses</a>
              </li>
             <li class="logouts nav-item" *ngIf="tokenAvailable != ''" >
              <div class="dropdown" >
