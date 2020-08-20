@@ -86,47 +86,12 @@
     </div>
   </section>
   
-<!-- <section>    
-    <div class="login_screen">
-        <div class="login_form">
-            <form [formGroup]="loginForm">
-                    <h5 class="login">Login</h5>
-                    <div class="form_group">
-                        <label for="inputEmail4">Email address :</label>
-                        <input type="email" class="form-control" id="inputEmail4" formControlName = "email" placeholder="Enter your email address">
-                        <span>
-                            <p *ngIf="loginForm.get('email').hasError('required') && loginForm.get('email').dirty" class="danger">
-                                *Please enter the email
-                            </p>
-                            <p *ngIf="loginForm.get('email').hasError('pattern') && loginForm.get('email').dirty" class="danger">
-                                *Please enter the valid email
-                            </p>
-                        </span>
-                    </div>
-                    <div class="form_group">
-                        <label for="inputEmail4">Password:</label>
-                        <input type="password" class="form-control" id="inputEmail4" formControlName = "password" placeholder="Enter Password" >
-                        <span>
-                            <p *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').dirty"  class="danger">
-                                *please enter the password 
-                            </p>
-                        </span>
-                    </div>
-                    <div class="forgot mt-3"> 
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="autoSizingCheck2" formControlName="rememberMe" >
-                            <label class="form-check-label" for="autoSizingCheck2" >
-                                    Remember me
-                            </label>
-                        </div>            
-                        <h6><a class="router-link" (click)="forgetPassword()">Forgot Password?</a></h6>
-                    </div>
-                    <div class="sign_in mt-5 mb-5">
-                            <button class="theme-btn active router-link" (click)="signIn()" [disabled]="loginForm.invalid">
-                                    Sign in
-                            </button>
-                    </div>
-            </form>
+<div class="modal fade bd-example-modal-sm" id="loginModal"  tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content thanks_for">
+      <h6>{{responseMessage}}</h6>
+          <div>
+          <button class="banner-button active" data-toggle="modal" data-target="#exampleModalCenter" data-dismiss="modal" [routerLink]="['/login']" >Ok</button> </div>
         </div>
-    </div>
-</section> -->
+  </div>
+</div>

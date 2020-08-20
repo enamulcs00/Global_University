@@ -22,7 +22,7 @@ export class ResetPasswordComponent implements OnInit {
       if(query.token){
         console.log('token--->>',query.token)
         this.token = query.token
-        this.verifyEmail(query.token)
+        // this.verifyEmail(query.token)
       }
     });
   }

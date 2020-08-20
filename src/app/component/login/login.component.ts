@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ServicesService } from 'src/app/services.service';
-
+declare var $ :any
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   remembers: boolean = false;
   type: any = 'password';
   show: boolean = false;
+  responseMessage: any;
   constructor(private service: ServicesService, private fb: FormBuilder, private router: Router) {
 
   }
@@ -57,12 +58,8 @@ export class LoginComponent implements OnInit {
     }
     console.log('object', object)
     this.service.postApi('auth', object, 2).subscribe((res: any) => {
-      // console.log("my login data", res)
       if (res.status == 200) {
-        console.log("resssss===>>", res.body.data.token)
-        localStorage.setItem('oka', 'ok')
         this.token = res.body.data.token
-        console.log("token===>>", res.body.data.token)
         localStorage.setItem('token', this.token)
         this.service.getApi('account/my-account', 1).subscribe((res : any) => {
             console.log("res--->>",res)
@@ -72,17 +69,15 @@ export class LoginComponent implements OnInit {
                 this.router.navigate(['dashboard'])
             }
         })
-
-        //  this.spinner.hide()
-
-
-
       } else {
-        //  this.spinner.hide()
-        // this.service.toastErr(res.status)
+        console.log("res--->>",res)
+        $('#loginModal').modal('show')
+        this.responseMessage = res.error.message
       }
-    }, error => {
-      //  this.spinner.hide()
+    }, (error:any) => {
+      console.log("error--->>",error)
+      $('#loginModal').modal('show')
+      this.responseMessage = error.error.message
       // this.service.toastErr('Internal server error')
     })
     // this.router.navigate(['universities-management']) 

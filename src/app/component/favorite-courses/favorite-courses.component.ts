@@ -9,6 +9,7 @@ import { ServicesService } from 'src/app/services.service';
 export class FavoriteCoursesComponent implements OnInit {
 
   favoriteList:any = []
+  allCoursefavoriteList:any = []
   constructor(private service:ServicesService) { }
 
   ngOnInit() {
@@ -33,6 +34,7 @@ export class FavoriteCoursesComponent implements OnInit {
     this.service.getApi(`course/v1.1/web/view-specific-course?id=${id.courseFavourateId}`,2).subscribe((res : any) => {
       if(res.body.status == 200){
         this.favoriteList.push(Object.assign(id, res.body.data.course))
+        this.allCoursefavoriteList.push(Object.assign(id, res.body.data.course))
         console.log("course list -->>",this.favoriteList)
       }
       this.service.hideSpinner()
@@ -45,6 +47,11 @@ export class FavoriteCoursesComponent implements OnInit {
     this.service.postApi(`course/v1.1/web/remove-from-course-favourates-list?courseId=${id.courseId}&universityId=${id.universityId}`,{},1).subscribe((res:any) => {
       console.log("res-->",res)
     })
+  }
+
+  searchCourse(event){
+    // console.log('event-->',this.favoriteList.filter(x =>  x.courseName == event.target.value))
+    // this.favoriteList = this.allCoursefavoriteList.filter(x =>  x.courseName == event.target.value)
   }
 
 }

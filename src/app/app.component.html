@@ -37,8 +37,11 @@
                </div>
              </div>
            </li>
-            <li class="nav-item" *ngIf="tokenAvailable != ''" >
-             <i class="fa fa-bell" style="font-size: 25px;color: #896633;padding-top: 16px;margin-right: 24px;"></i>
+            <li class="nav-item router-link" *ngIf="tokenAvailable != ''" [routerLink]="['notification']">
+               <span style="position: relative;">
+                  <p class="number">{{notificationCount}}</p>
+               </span>
+             <i  class="fa fa-bell router-link" style="font-size: 25px;color: #896633;padding-top: 16px;margin-right: 24px;"></i>
             </li>
             <li class="nav-item" *ngIf="tokenAvailable == ''" >
                <button class="theme-btn router-link" [routerLink] = "['/login']">LOGIN</button>

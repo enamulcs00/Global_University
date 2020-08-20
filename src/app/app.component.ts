@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router,NavigationStart } from '@angular/router';
-import { NgxSpinnerService } from "ngx-spinner";
+import { ServicesService } from './services.service';
 
 @Component({
   selector: 'app-root',
@@ -10,16 +10,31 @@ import { NgxSpinnerService } from "ngx-spinner";
 export class AppComponent {
   title = 'univ';
   tokenAvailable : any;
+  notificationCount:any = 0;
 
-  constructor(private router:Router){
+  constructor(private router:Router,private service:ServicesService){
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
+        console.log('eventt-->',event.url)
         this.tokenAvailable = localStorage.getItem('token') ? localStorage.getItem('token') : '';
+        if(this.tokenAvailable != ''){
+          this.getNotification()
         }
+      }
     })
   }
   ngOnInit() {
-    /** spinner starts on init */
+    /** spinner starts on init */   
+  }
+
+  getNotification(){
+    this.service.showSpinner()
+    this.service.getApi(`course/get-notification?page=0&pageSize=100`,1).subscribe((res:any) => {
+      if(res.body.status == 200){
+        this.notificationCount = res.body.data.notificationCount
+      }
+      this.service.hideSpinner()
+    })
   }
 
   openSocialLink(social) {

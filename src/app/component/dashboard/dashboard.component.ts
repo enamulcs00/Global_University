@@ -46,7 +46,7 @@ export class DashboardComponent implements OnInit {
     if(this.toDate){
       url = url + `&toDate=${this.convertIntoTimeStamp(this.toDate)}`
     }
-    if(this.formId == 'search_by_form_id'){
+    if(this.formId && this.formId != 'search_by_form_id'){
       url = url + `&formId=${this.searchKey}`
     }
     this.service.getApi(url,1).subscribe((res:any) => {

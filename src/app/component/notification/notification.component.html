@@ -2,8 +2,8 @@
     <div class="container1440 mt-5">
         <h1 style="margin-left: 40%;font-size: 3.2rem;font-weight: bold;"> Notifications</h1>
         <div style="height: 30px;width: 100%;">
-            <div style="position: absolute; right:0px">
-                <button class="theme-btn router-link" >Clear all</button> 
+            <div style="position: absolute; right:0px" *ngIf="notificationList.length != 0">
+                <button class="theme-btn router-link" (click)="clearAll()" >Clear all</button> 
             </div>
         </div>
         <div class="application_cs">
@@ -14,11 +14,11 @@
                     <div class="main_formId mt-4" *ngFor="let item of notificationList">
                         <div class="form_submit">
                             <div class="condidated_name">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinartempor. Cum sociis nato que penatibus et magnis dis parturient montes,nascetur ridiculus mus.Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollisorci, sed rhoncus sapien nunc eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.Proingravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinartempor.Cum sociis nato que penatibus et magnis dis parturient montes, nascetur ridiculus musNam fermentum,nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapiennunc eget.
+                                {{item.descriptionForUser}}
                             </div>
                         </div>
                         <div class="my_history">
-                            <div class="">
+                            <div class="" (click)="deleteNotification(item)">
                                 <i class="fa fa-trash" aria-hidden="true"></i>
                             </div>
                         </div>

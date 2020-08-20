@@ -49,7 +49,7 @@ export class DraftFormComponent implements OnInit {
     if(this.toDate){
       url = url + `&toDate=${this.convertIntoTimeStamp(this.toDate)}`
     }
-    if(this.formId != 'search_by_form_id'){
+    if(this.formId && this.formId != 'search_by_form_id'){
       url = url + `&formId=${this.formId}`
     }
     this.service.getApi(url,1).subscribe((res:any) => {
