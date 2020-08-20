@@ -31,7 +31,7 @@ export class FavoriteCoursesComponent implements OnInit {
 
   getCourseDetails(id){
     this.service.showSpinner()
-    this.service.getApi(`course/v1.1/web/view-specific-course?id=${id.courseFavourateId}`,2).subscribe((res : any) => {
+    this.service.getApi(`course/v1.1/web/view-specific-course?id=${id.courseFavourateId}`,1).subscribe((res : any) => {
       if(res.body.status == 200){
         this.favoriteList.push(Object.assign(id, res.body.data.course))
         this.allCoursefavoriteList.push(Object.assign(id, res.body.data.course))

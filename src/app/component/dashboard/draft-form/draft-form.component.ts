@@ -78,7 +78,7 @@ export class DraftFormComponent implements OnInit {
 
   continueForm(id){
     this.service.showSpinner()
-    this.service.getApi(`course/get-forms-list?page=0&pagesize=10&formfillstatus=INCOMPLETE&formId=${id}`,1).subscribe((res:any) => {
+    this.service.getApi(`course/get-forms-list?page=0&pagesize=10&formId=${id}`,1).subscribe((res:any) => {
       this.service.hideSpinner()
       if(res.status == 200){
         console.log("res--->>",res.body.data.formdata)

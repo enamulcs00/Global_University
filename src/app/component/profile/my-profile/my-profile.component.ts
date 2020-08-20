@@ -32,9 +32,9 @@ export class MyProfileComponent implements OnInit {
     window.scroll(0,0)
     this.service.getCountryStates().subscribe((res: any) => {
       this.countryList = res
+      this.getMyProfile()
     })
     this.initializeForm()
-    this.getMyProfile()
   }
 
   initializeForm(){
@@ -86,7 +86,7 @@ export class MyProfileComponent implements OnInit {
     //   state : ''
     // })
     var States = []
-    States = this.countryList.filter((res) => res.country === event.target.value)
+    States = this.countryList.filter((res) => res.country === event)
     this.stateList = States[0].states;
   }
 
@@ -95,8 +95,7 @@ export class MyProfileComponent implements OnInit {
     this.service.getApi('account/my-account', 1).subscribe((res:any) => {
       console.log('profileeeee', res)
       if (res.status == 200) {
-        // this.profiledata = res.body.data
-        this.profiledata = JSON.parse(localStorage.getItem('myProfile'))
+        this.profiledata = res.body.data
         localStorage.setItem('myProfile',JSON.stringify(res.body.data))
           this.myProfileImage = this.profiledata.imageUrl ? this.profiledata.imageUrl : 'assets/images/pick-1.png';
           this.myProfileForm.patchValue({
@@ -113,6 +112,7 @@ export class MyProfileComponent implements OnInit {
             'mobileNumber': this.profiledata.mobileNumber,
             'zipCode': this.profiledata.zipcode
           })
+          this.getState(this.profiledata.country)
         }
         this.service.hideSpinner()        
     })
