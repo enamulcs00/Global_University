@@ -90,10 +90,13 @@ export class CreateUsersComponent implements OnInit {
   createUser(){
     this.submitted = true
     let signupDto = {
-      "address": this.createUserForm.value.address1+','+this.createUserForm.value.address2+','+this.createUserForm.value.address3,
+      "address": "string",
+      "address1": this.createUserForm.value.address1,
+      "address2": this.createUserForm.value.address2,
+      "address3": this.createUserForm.value.address3,
       "city": this.createUserForm.value.city,
       "country": this.createUserForm.value.country,
-      "customerStatus": "SUBSCRIBE",
+      "customerStatus": "UNSUBSCRIBE",
       "description": "string",
       "deviceToken": "string",
       "deviceType": "string",
@@ -101,9 +104,10 @@ export class CreateUsersComponent implements OnInit {
       "email": this.createUserForm.value.email,
       "firstName": this.createUserForm.value.firstName,
       "imageUrl": "https://res.cloudinary.com/dmabxaha1/image/upload/v1597827101/jg8jefidy8t1mvfyhizr.png",
-      "lastName":this.createUserForm.value.lastName,
-      "password": "demoPassword",
-      "phoneNo": this.createUserForm.value.telephoneNumber.e164Number,
+      "lastName": this.createUserForm.value.lastName,
+      "mobileNumber": this.createUserForm.value.mobileNumber.internationalNumber,
+      "phoneNo": this.createUserForm.value.telephoneNumber.internationalNumber,
+      "password": "univGlobal@321",
       "representativeCode": "string",
       "representativeDetailsId": "string",
       "representativeName": "string",
@@ -114,7 +118,8 @@ export class CreateUsersComponent implements OnInit {
       "universityDetailsId": 0,
       "universityName": "string",
       "userType": "STUDENT",
-      "webUrl": "http://localhost:4201/reset-password"
+      "webUrl": "http://localhost:4201/reset-password",
+      "zipcode": this.createUserForm.value.zipCode
     }
     console.log('--->>',this.createUserForm.value)
     this.service.postApi(`account/add-sub-user`,signupDto,1).subscribe((res:any) =>{

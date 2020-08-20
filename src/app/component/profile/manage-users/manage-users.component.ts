@@ -21,7 +21,7 @@ export class ManageUsersComponent implements OnInit {
 
   getUserList(){
     this.userList = []
-    this.service.getApi(`account/admin/user-management/filter-user-details`,1).subscribe((res:any) => {
+    this.service.getApi(`account/filter-user-details?roleStatus=${this.accountData.role}`,1).subscribe((res:any) => {
       console.log('res-->>',res)
       this.userList = res.body.data.list
     })

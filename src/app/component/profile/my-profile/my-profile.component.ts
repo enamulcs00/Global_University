@@ -95,7 +95,8 @@ export class MyProfileComponent implements OnInit {
     this.service.getApi('account/my-account', 1).subscribe((res:any) => {
       console.log('profileeeee', res)
       if (res.status == 200) {
-        this.profiledata = res.body.data
+        // this.profiledata = res.body.data
+        this.profiledata = JSON.parse(localStorage.getItem('myProfile'))
         localStorage.setItem('myProfile',JSON.stringify(res.body.data))
           this.myProfileImage = this.profiledata.imageUrl ? this.profiledata.imageUrl : 'assets/images/pick-1.png';
           this.myProfileForm.patchValue({
@@ -104,10 +105,13 @@ export class MyProfileComponent implements OnInit {
             'city': this.profiledata.city,
             'state': this.profiledata.state,
             'country': this.profiledata.country,
-            'address': this.profiledata.address,
+            'address1': this.profiledata.address1,
+            'address2': this.profiledata.address2,
+            'address3': this.profiledata.address3,
             'email': this.profiledata.email,
             'telephoneNumber': this.profiledata.phoneNo,
-            'mobileNumber': this.profiledata.phoneNo
+            'mobileNumber': this.profiledata.mobileNumber,
+            'zipCode': this.profiledata.zipcode
           })
         }
         this.service.hideSpinner()        
@@ -121,17 +125,24 @@ export class MyProfileComponent implements OnInit {
       return false;
     }
     this.service.showSpinner()
-    let object = {
-      "address": this.myProfileForm.value.address1 +','+this.myProfileForm.value.address2+','+this.myProfileForm.value.address3+','+this.myProfileForm.value.zipCode,
+    let object = 
+    {
+      "address": "string",
+      "address1": this.myProfileForm.value.address1,
+      "address2": this.myProfileForm.value.address2,
+      "address3": this.myProfileForm.value.address3,
       "city": this.myProfileForm.value.city,
-      "country": this.myProfileForm.value.country,
-      "dob": "string",
-      "gender": "string",
       "state": this.myProfileForm.value.state,
-      'userId': this.profiledata.userId,
-      "imageUrl": this.myProfileImage ? this.myProfileImage : '',
+      "country": this.myProfileForm.value.country,
       "firstName": this.myProfileForm.value.firstName,
       "lastName": this.myProfileForm.value.lastName,
+      "imageUrl": this.myProfileImage ? this.myProfileImage : '',
+      "dob": "string",
+      "gender": "string",
+      "mobileNumber": this.myProfileForm.value.mobileNumber.internationalNumber,
+      "phoneNo": this.myProfileForm.value.telephoneNumber.internationalNumber,
+      "universityName": "string",
+      "zipcode": this.myProfileForm.value.zipCode
     }
     console.log('objectttttt====>>>', object)
     this.service.postApi('account/profile-update', object, 1).subscribe((res :any) => {

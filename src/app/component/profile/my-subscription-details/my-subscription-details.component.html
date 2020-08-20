@@ -21,16 +21,16 @@
                 role="tab" aria-controls="v-pills-profile" aria-selected="false"
                 [routerLink]="['/change-password']">Change Password</a>
               <a class="nav-link active general_cs" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages"
-                role="tab" aria-controls="v-pills-messages" aria-selected="false" [routerLink]="['/my-subscription']">My
+                role="tab" aria-controls="v-pills-messages" aria-selected="false" [routerLink]="['/my-subscription']" *ngIf="accountData?.role != 'REPRESENTATIVE_USER'">My
                 Subscription</a>
               <a class="nav-link  general_cs" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings"
                 role="tab" aria-controls="v-pills-settings" aria-selected="false"
                 [routerLink]="['/subscription-history']">Subscription History</a>
               <a class="nav-link general_cs" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings1"
-                role="tab" aria-controls="v-pills-settings" aria-selected="false" [routerLink]="['/manage-users']">Manage
+                role="tab" aria-controls="v-pills-settings" aria-selected="false" [routerLink]="['/manage-users']" *ngIf="accountData?.role != 'REPRESENTATIVE_USER'">Manage
                 Users</a>
               <a class="nav-link general_cs" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings2"
-                role="tab" aria-controls="v-pills-settings" aria-selected="false" [routerLink]="['/create-users']">Create
+                role="tab" aria-controls="v-pills-settings" aria-selected="false" [routerLink]="['/create-users']" *ngIf="accountData?.role != 'REPRESENTATIVE_USER'">Create
                 User</a>
             </div>
           </div>
@@ -85,3 +85,15 @@
       </div>
     </div>
   </section>
+
+  <div class="modal fade bd-example-modal-sm" id="resetPassword"  tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content thanks_for">
+        <h6>{{responseMessage}}</h6>
+            <div>
+            <button class="banner-button active" data-toggle="modal" data-target="#exampleModalCenter" data-dismiss="modal" 
+            [routerLink]="['/subscription-history']" >Ok</button> </div>
+          </div>
+    </div>
+ </div>
+ 

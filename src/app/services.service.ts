@@ -143,9 +143,9 @@ export class HttpModifierInterceptor implements HttpInterceptor {
                     }, 5000);
                     this.router.navigateByUrl('login');
                 } else {
-                  localStorage.clear()
+                    localStorage.clear()
                     this.service.hideSpinner()
-                    this.router.navigateByUrl('')
+                    this.router.navigateByUrl('login');
                     setTimeout(x => {
                     }, 500);
                 }

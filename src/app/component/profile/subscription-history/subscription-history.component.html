@@ -21,16 +21,16 @@
               role="tab" aria-controls="v-pills-profile" aria-selected="false"
               [routerLink]="['/change-password']">Change Password</a>
             <a class="nav-link  general_cs" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages"
-              role="tab" aria-controls="v-pills-messages" aria-selected="false" [routerLink]="['/my-subscription']">My
+              role="tab" aria-controls="v-pills-messages" aria-selected="false" [routerLink]="['/my-subscription']" *ngIf="accountData?.role != 'REPRESENTATIVE_USER'">My
               Subscription</a>
             <a class="nav-link active general_cs" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings"
               role="tab" aria-controls="v-pills-settings" aria-selected="false"
               [routerLink]="['/subscription-history']">Subscription History</a>
             <a class="nav-link general_cs" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings1"
-              role="tab" aria-controls="v-pills-settings" aria-selected="false" [routerLink]="['/manage-users']">Manage
+              role="tab" aria-controls="v-pills-settings" aria-selected="false" [routerLink]="['/manage-users']" *ngIf="accountData?.role != 'REPRESENTATIVE_USER'">Manage
               Users</a>
             <a class="nav-link general_cs" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings2"
-              role="tab" aria-controls="v-pills-settings" aria-selected="false" [routerLink]="['/create-users']">Create
+              role="tab" aria-controls="v-pills-settings" aria-selected="false" [routerLink]="['/create-users']" *ngIf="accountData?.role != 'REPRESENTATIVE_USER'">Create
               User</a>
           </div>
         </div>

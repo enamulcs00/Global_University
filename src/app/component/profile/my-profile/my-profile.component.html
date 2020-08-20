@@ -16,7 +16,7 @@
                 <div class="changs">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         <a class="nav-link active general_cs" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home"
-                          role="tab" aria-controls="v-pills-home" aria-selected="true" [routerLink]="['/my-profile']">
+                          role="tab" aria-controls="v-pills-home" aria-selected="true" [routerLink]="['/my-profile']" >
                             Manage General Info
                         </a>
                         <a class="nav-link general_cs" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
@@ -25,7 +25,7 @@
                             Change Password
                         </a>
                         <a class="nav-link  general_cs" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages"
-                          role="tab" aria-controls="v-pills-messages" aria-selected="false" [routerLink]="['/my-subscription']">
+                          role="tab" aria-controls="v-pills-messages" aria-selected="false" [routerLink]="['/my-subscription']" *ngIf="profiledata?.role != 'REPRESENTATIVE_USER'">
                           My Subscription
                         </a>
                         <a class="nav-link general_cs" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings"
@@ -34,11 +34,11 @@
                           Subscription History
                         </a>
                         <a class="nav-link general_cs" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings1"
-                          role="tab" aria-controls="v-pills-settings" aria-selected="false" [routerLink]="['/manage-users']">
+                          role="tab" aria-controls="v-pills-settings" aria-selected="false" [routerLink]="['/manage-users']" *ngIf="profiledata?.role != 'REPRESENTATIVE_USER'">
                           Manage Users
                         </a>
                         <a class="nav-link general_cs" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings2"
-                          role="tab" aria-controls="v-pills-settings" aria-selected="false" [routerLink]="['/create-users']">
+                          role="tab" aria-controls="v-pills-settings" aria-selected="false" [routerLink]="['/create-users']" *ngIf="profiledata?.role != 'REPRESENTATIVE_USER'">
                           Create User
                         </a>
                     </div>
@@ -155,7 +155,7 @@
                                         
                                         <div class="form-group cs3">
                                           <label for="exampleInputEmail1">Email*</label>
-                                          <input type="email" class="form-control" placeholder="pq-mahesh@gmail.com" formControlName="email">
+                                          <input type="email" class="form-control" placeholder="pq-mahesh@gmail.com" formControlName="email" disabled>
                                           <div *ngIf="submitted && myProfileForm.get('email').hasError" >
                                             <div *ngIf="myProfileForm.get('email').hasError('required')" class="danger">
                                                 *please enter the email
