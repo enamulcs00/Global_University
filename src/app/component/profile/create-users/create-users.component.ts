@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServicesService } from 'src/app/services.service';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { SearchCountryField, TooltipLabel, CountryISO } from 'ngx-intl-tel-input';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-create-users',
   templateUrl: './create-users.component.html',
@@ -21,7 +22,8 @@ export class CreateUsersComponent implements OnInit {
   validHomeTelephoneNo: boolean = true;
   validmobileNumber : boolean = true;
   submitted : boolean = false;
-  constructor(private service:ServicesService) { }
+  
+  constructor(private service:ServicesService,private router:Router) { }
 
   ngOnInit() {
     window.scroll(0,0)
@@ -89,6 +91,10 @@ export class CreateUsersComponent implements OnInit {
 
   createUser(){
     this.submitted = true
+    if(this.createUserForm.invalid){
+      return false
+    }
+    this.service.showSpinner()
     let signupDto = {
       "address": "string",
       "address1": this.createUserForm.value.address1,
@@ -108,9 +114,9 @@ export class CreateUsersComponent implements OnInit {
       "mobileNumber": this.createUserForm.value.mobileNumber.internationalNumber,
       "phoneNo": this.createUserForm.value.telephoneNumber.internationalNumber,
       "password": "univGlobal@321",
-      "representativeCode": "string",
-      "representativeDetailsId": "string",
-      "representativeName": "string",
+      "representativeCode": this.getRandomInt(100000),
+      "representativeDetailsId": ''+this.accountData.representativeDetailsId,
+      "representativeName": this.createUserForm.value.firstName,
       "roleStatus": "REPRESENTATIVE_USER",
       "state": this.createUserForm.value.state,
       "subject": "string",
@@ -124,6 +130,15 @@ export class CreateUsersComponent implements OnInit {
     console.log('--->>',this.createUserForm.value)
     this.service.postApi(`account/add-sub-user`,signupDto,1).subscribe((res:any) =>{
       console.log('res--->',res)
+      if(res.body.status == 200){
+        this.router.navigateByUrl('manage-users');
+      }
     })
   }
+
+
+  getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
+
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from 'src/app/services.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +14,7 @@ export class DashboardComponent implements OnInit {
   toDate : any;
   submittedFormsList : any = [];
 
-  constructor(private service:ServicesService) { }
+  constructor(private service:ServicesService,private router:Router) { }
 
   ngOnInit() {
       localStorage.removeItem('section1')
@@ -71,5 +72,13 @@ export class DashboardComponent implements OnInit {
     var newDate = myDate[1] + "/" + myDate[2] + "/" + myDate[0];
     console.log(new Date(newDate).getTime());
     return (new Date(newDate).getTime())
+  }
+
+  viewHistory(id){
+    this.router.navigateByUrl(`view-form/${id}`)
+  }
+
+  applicationProgress(id){
+    this.router.navigateByUrl(`application-progress/${id}`)
   }
 }

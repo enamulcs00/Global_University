@@ -10,11 +10,11 @@ declare var $:any
 export class ManageUsersComponent implements OnInit {
   accountData: any;
   userList :any
+  deleteId: any;
 
   constructor(private service:ServicesService) { }
 
-  ngOnInit() {
-    $('#exampleModalCenter').modal('show');
+  ngOnInit() {    
     window.scroll(0,0)
     this.accountData = JSON.parse(localStorage.getItem('myProfile'))
     this.accountData.imageUrl = this.accountData.imageUrl ? this.accountData.imageUrl : 'assets/images/pick-1.png';
@@ -23,18 +23,27 @@ export class ManageUsersComponent implements OnInit {
 
   getUserList(){
     this.userList = []
-    this.service.getApi(`account/filter-user-details?roleStatus=${this.accountData.role}`,1).subscribe((res:any) => {
+    this.service.getApi(`account/filter-user-details?roleStatus=REPRESENTATIVE_USER`,1).subscribe((res:any) => {
       this.userList = res.body.data.list
       console.log('res-->>',this.userList)
     })
   }
 
-  deleteUser(id){
-    this.service.getApi(`account/delete-user-detail-otherRole?userId=${id}`,1).subscribe((res:any) => {
+  deleteModal(id){
+    this.deleteId = id
+
+    $('#deleteModal').modal('show');
+  }
+
+  deleteUser(){
+    $('#deleteModal').modal('hide');
+    this.service.showSpinner()
+    this.service.getApi(`account/delete-user-detail-otherRole?userId=${this.deleteId}`,1).subscribe((res:any) => {
       console.log("res-->>",res)
       if(res.body.status == 200){
         this.getUserList()
       }
+      this.service.hideSpinner()
     })
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from 'src/app/services.service';
+declare var $:any;
 
 @Component({
   selector: 'app-notification',
@@ -9,11 +10,14 @@ import { ServicesService } from 'src/app/services.service';
 export class NotificationComponent implements OnInit {
 
   notificationList:any = [];
+  accountDeatails:any;
 
   constructor(private service:ServicesService) { }
 
   ngOnInit() {
-    this.getNotification()
+    this.getNotification()    
+    this.accountDeatails = JSON.parse(localStorage.getItem('myProfile'))
+    console.log('------->',this.accountDeatails)
   }
   
   getNotification(){
@@ -28,7 +32,7 @@ export class NotificationComponent implements OnInit {
 
   deleteNotification(item){
     this.service.showSpinner()
-    this.service.getApi(`course/delete-notification-particular?notificationId=${item.notificationId}&representativeId=${item.representativeId}`,1).subscribe((res:any) => {
+    this.service.getApi(`course/delete-notification-particular?notificationId=${item.notificationId}&representativeId=${this.accountDeatails.representativeDetailsId}`,1).subscribe((res:any) => {
       console.log("res-->>",res)
       if(res.body.status == 206){
         this.getNotification()
@@ -39,7 +43,7 @@ export class NotificationComponent implements OnInit {
 
   clearAll(){
     this.service.showSpinner()
-    this.service.getApi(`course/delete-notification-list`,1).subscribe((res:any) => {
+    this.service.getApi(`course/delete-notification-list?representativeId=${this.accountDeatails.representativeDetailsId}`,1).subscribe((res:any) => {
       console.log("res-->",res)
       if(res.body.status == 206){
         this.getNotification()

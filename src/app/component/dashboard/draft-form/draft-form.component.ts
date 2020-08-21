@@ -133,7 +133,7 @@ export class DraftFormComponent implements OnInit {
           section4_Object.qualificationArr.push({
             "qualification" : formData.academicQualificationForm.academicQualifications ,
             "country" : formData.academicQualificationForm.countryOfStudy ,
-            "endDate" : formData.academicQualificationForm.enddate ? formData.academicQualificationForm.enddate.split('T')[0] : '' , 
+            "endDate" : formData.academicQualificationForm.enddate ? formData.academicQualificationForm.enddate.split('T')[0] : '', 
             "institutionName" : formData.academicQualificationForm.instituteName ,
             "resultGrade" : formData.academicQualificationForm.resultType ,
             "startDate" : formData.academicQualificationForm.startDate ? formData.academicQualificationForm.startDate.split('T')[0] : '',

@@ -65,7 +65,7 @@
                 <div class="manage_user" *ngFor="let item of userList">
                   <ul>
                     <li class="user">
-                      <i class="fa fa-trash" aria-hidden="true" (click)="deleteUser(item.userId)"></i>
+                      <i class="fa fa-trash" aria-hidden="true" (click)="deleteModal(item.userId)"></i>
                       <figure><img src="assets/images/image_1.png"></figure>
                       <p>{{item?.firstName}}</p>
                     </li>
@@ -83,24 +83,23 @@
 </section>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-  aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal_cs">
-                <h2 class="feedback">Are you sure you want to delete this user ?
-                </h2>
-                <div class="comment">
-                </div>
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+   aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content with_a">
+
+         <div class="modal-body">
+            <h6 class="your_pass cs3">
+               <!-- Congratulation! -->
+               <p class="plan"> Are you sure you want to Delete ?</p>
+            </h6>
+
+            <div class="ok_cs" style="cursor: pointer;">
+               <button class="banner-button cs3" data-dismiss="modal">No</button>
+               <button class="banner-button active"  (click)="deleteUser()">Yes</button>
             </div>
-            <div class="modal-footer cancel">
-              <button  class="btn btn-block btn-flat router-link" data-toggle="modal" data-target="#exampleModalCenter" data-dismiss="modal" >
-                No
-              </button>
-                <button  class="btn btn-block btn-flat router-link" data-toggle="modal" data-target="#exampleModalCenter" data-dismiss="modal" >
-                  Yes
-                </button> 
-            </div>
-          </div>
-    </div>
+         </div>
+      </div>
+
+   </div>
 </div>

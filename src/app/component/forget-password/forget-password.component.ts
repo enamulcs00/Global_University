@@ -14,7 +14,6 @@ export class ForgetPasswordComponent implements OnInit {
   constructor(private service:ServicesService) { }
 
   ngOnInit() {
-    // $('#verifyEmail').modal('show');
     this.loginForm = new FormGroup({
       "email": new FormControl("", Validators.compose([Validators.required, Validators.maxLength(60), Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/)]))
     })

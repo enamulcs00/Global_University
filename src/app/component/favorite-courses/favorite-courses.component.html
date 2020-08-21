@@ -1,4 +1,4 @@
-<section>
+<section style="min-height: 450px;">
     <div class="container1440 mt-5">
         <h1 style="margin-left: 40%;font-size: 3.2rem;font-weight: bold;"> Course List</h1>
         <div style="height: 60px;width: 100%;">
@@ -75,3 +75,25 @@
         </div>
     </div>
 </section>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+   aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content with_a">
+
+         <div class="modal-body">
+            <h6 class="your_pass cs3">
+               <!-- Congratulation! -->
+               <p class="plan"> Are you sure you want to Delete ?</p>
+            </h6>
+
+            <div class="ok_cs" style="cursor: pointer;">
+               <button class="banner-button cs3" data-dismiss="modal">No</button>
+               <button class="banner-button active"  (click)="confirmDelete()">Yes</button>
+            </div>
+         </div>
+      </div>
+
+   </div>
+</div>

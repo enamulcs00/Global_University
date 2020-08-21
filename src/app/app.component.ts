@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router,NavigationStart } from '@angular/router';
 import { ServicesService } from './services.service';
-
+declare var $:any
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -23,7 +23,7 @@ export class AppComponent {
       }
     })
   }
-  ngOnInit() {
+  ngOnInit() {    
     /** spinner starts on init */   
   }
 
@@ -51,6 +51,11 @@ export class AppComponent {
   }
 
   logout(){
+    $('#logoutModal').modal('show')
+  }
+
+  confirmLogout(){
+    $('#logoutModal').modal('hide')
     localStorage.clear()
     this.router.navigateByUrl('/login')
   }

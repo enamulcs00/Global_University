@@ -85,9 +85,11 @@ export class MyProfileComponent implements OnInit {
     // this.section3Form.patchValue({
     //   state : ''
     // })
-    var States = []
-    States = this.countryList.filter((res) => res.country === event)
-    this.stateList = States[0].states;
+    if(event){
+      var States = []
+      States = this.countryList.filter((res) => res.country === event)
+      this.stateList = States[0].states;
+    }
   }
 
   getMyProfile() {

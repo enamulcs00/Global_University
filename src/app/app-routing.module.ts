@@ -51,7 +51,7 @@ const routes: Routes = [
   { path: 'dashboard',   component: DashboardComponent,canActivate :[AuthGuard] },
   { path: 'forget-password', component: ForgetPasswordComponent},
   { path: 'draft-form', component: DraftFormComponent,canActivate :[AuthGuard] },
-  { path: 'application-progress', component: ApplicationProgressComponent,canActivate :[AuthGuard] },
+  { path: 'application-progress/:id', component: ApplicationProgressComponent,canActivate :[AuthGuard] },
   { path: 'view-progress', component : ViewProgressComponent,canActivate :[AuthGuard] },
   { path: 'report', component : ReportComponent,canActivate :[AuthGuard] },
 
@@ -80,7 +80,7 @@ const routes: Routes = [
   { path: 'section14', component: Section15Component,canActivate :[AuthGuard] },
   { path: 'application-form-preview', component: ApplicationFormPreviewComponent,canActivate :[AuthGuard] },
   { path: 'matching-universities', component: MatchingUniversitiesComponent,canActivate :[AuthGuard] },
-  { path: 'view-form', component: ViewFormComponent,canActivate :[AuthGuard] },
+  { path: 'view-form/:id', component: ViewFormComponent,canActivate :[AuthGuard] },
 ];
 
 @NgModule({

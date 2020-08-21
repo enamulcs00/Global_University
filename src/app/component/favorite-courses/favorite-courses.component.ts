@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from 'src/app/services.service';
+declare var $:any;
 
 @Component({
   selector: 'app-favorite-courses',
@@ -10,15 +11,18 @@ export class FavoriteCoursesComponent implements OnInit {
 
   favoriteList:any = []
   allCoursefavoriteList:any = []
+  removeId: any;
+  accountDetails:any
   constructor(private service:ServicesService) { }
 
   ngOnInit() {
+    this.accountDetails = JSON.parse(localStorage.getItem('myProfile'))
     this.getFavouriteList()
   }
 
   getFavouriteList(){
     this.service.showSpinner()
-    this.service.getApi(`course/v1.1/web/get-all-favourate-course-for-particular-user?page=0&pagesize=10`,1).subscribe((res:any) => {
+    this.service.getApi(`course/v1.1/web/get-all-favourate-course-for-particular-user?page=0&pagesize=10&representativeId=${this.accountDetails.representativeDetailsId}`,1).subscribe((res:any) => {
       console.log('res-->',res)      
       if(res.body.status == 200){
         res.body.data.FavourateCourses.content.forEach(ele => {
@@ -42,10 +46,19 @@ export class FavoriteCoursesComponent implements OnInit {
   }
 
   removeCourse(id){
+    this.removeId = id
+    $('#deleteModal').modal('show')
     console.log('id-->',id)
-    // http://182.72.203.244:2001/course/v1.1/web/remove-from-course-favourates-list?courseId=1&universityId=1
-    this.service.postApi(`course/v1.1/web/remove-from-course-favourates-list?courseId=${id.courseId}&universityId=${id.universityId}`,{},1).subscribe((res:any) => {
+    // http://182.72.203.244:2001/course/v1.1/web/remove-from-course-favourates-list?courseId=1&universityId=1   
+  }
+
+  confirmDelete(){
+    this.service.showSpinner()
+    $('#deleteModal').modal('hide');
+    this.service.postApi(`course/v1.1/web/remove-from-course-favourates-list?courseId=${this.removeId.courseId}&
+    universityId=${this.removeId.universityId}&representativeId=${this.accountDetails.representativeDetailsId}`,{},1).subscribe((res:any) => {
       console.log("res-->",res)
+      this.getFavouriteList()
     })
   }
 

@@ -36,6 +36,7 @@ export class Section2Component implements OnInit {
   filteredOptions: Observable<string[]>;
   courseStartDate: string;
   courseDuration:any
+  accountDetails:any
 
   constructor(private service:ServicesService,private router:Router) { }
 
@@ -45,6 +46,7 @@ export class Section2Component implements OnInit {
     for(let i = -10; i < 10; i++){
       this.yearList.push(today.getFullYear() + i)
     }
+    this.accountDetails = JSON.parse(localStorage.getItem('myProfile'))
     this.initializeForm()
     this.getCourses()
     this.service.getCountryStates().subscribe((res: any) => {
@@ -209,13 +211,7 @@ export class Section2Component implements OnInit {
       "isresponsibility": true,
       "jobTitle": "",
       "managementWorkExperience": 0,
-      "matchingUniversityDto": [
-        {
-          "universityEmail": "",
-          "universityId": 0,
-          "universityName": ""
-        }
-      ],
+      "matchingUniversityDto": [   ],
       "meetingFinancial": "",
       "multiCulturalAxposure": "",
       "natureofEmployersBusiness": "",
@@ -246,8 +242,8 @@ export class Section2Component implements OnInit {
       "referee2TelephoneNumber": 0,
       "referee2Title": "",
       "relevantCriminalConvictions": true,
-      "representativeId": 0,
-      "representativeName": "",
+      "representativeId": JSON.parse(localStorage.getItem('myProfile')).representativeDetailsId,
+      "representativeName": JSON.parse(localStorage.getItem('myProfile')).representativeName,
       "requireSpecificTechnical": "",
       "researchProposalDescription": "",
       "researchProposalForPGR": true,
@@ -265,7 +261,7 @@ export class Section2Component implements OnInit {
       "title": "",
       "totalWorkExperience": 0,
       "typeOfEnglishQualification": "",
-      "universityId": 0,
+      "universityId": JSON.parse(localStorage.getItem('myProfile')).universityDetailsId ?  JSON.parse(localStorage.getItem('myProfile')).universityDetailsId : 0,
       "urlCv": "",
       "urlDegree": "",
       "urlDocuments": "",
@@ -286,7 +282,7 @@ export class Section2Component implements OnInit {
       url  = `course/update-form`
       formDetailsDto.formId = JSON.parse(localStorage.getItem('formId'));
     }
-    console.log('url--->',url)
+    console.log('url--->',formDetailsDto)
     this.service.postApi(url,formDetailsDto,1).subscribe((res:any) => {
       console.log("res-->",res)
       this.service.hideSpinner()
