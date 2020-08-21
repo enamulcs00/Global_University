@@ -21,6 +21,7 @@ export class FavoriteCoursesComponent implements OnInit {
   }
 
   getFavouriteList(){
+    this.favoriteList = []
     this.service.showSpinner()
     this.service.getApi(`course/v1.1/web/get-all-favourate-course-for-particular-user?page=0&pagesize=10&representativeId=${this.accountDetails.representativeDetailsId}`,1).subscribe((res:any) => {
       console.log('res-->',res)      
@@ -35,7 +36,7 @@ export class FavoriteCoursesComponent implements OnInit {
 
   getCourseDetails(id){
     this.service.showSpinner()
-    this.service.getApi(`course/v1.1/web/view-specific-course?id=${id.courseFavourateId}`,1).subscribe((res : any) => {
+    this.service.getApi(`course/v1.1/web/view-specific-course?id=${id.courseId}`,1).subscribe((res : any) => {
       if(res.body.status == 200){
         this.favoriteList.push(Object.assign(id, res.body.data.course))
         this.allCoursefavoriteList.push(Object.assign(id, res.body.data.course))
@@ -55,8 +56,7 @@ export class FavoriteCoursesComponent implements OnInit {
   confirmDelete(){
     this.service.showSpinner()
     $('#deleteModal').modal('hide');
-    this.service.postApi(`course/v1.1/web/remove-from-course-favourates-list?courseId=${this.removeId.courseId}&
-    universityId=${this.removeId.universityId}&representativeId=${this.accountDetails.representativeDetailsId}`,{},1).subscribe((res:any) => {
+    this.service.postApi(`course/v1.1/web/remove-from-course-favourates-list?courseId=${this.removeId.courseId}&representativeId=${this.accountDetails.representativeDetailsId}`,{},1).subscribe((res:any) => {
       console.log("res-->",res)
       this.getFavouriteList()
     })

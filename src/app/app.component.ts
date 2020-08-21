@@ -10,6 +10,7 @@ declare var $:any
 export class AppComponent {
   title = 'univ';
   tokenAvailable : any;
+  profileImage:any;
   notificationCount:any = 0;
 
   constructor(private router:Router,private service:ServicesService){
@@ -17,6 +18,7 @@ export class AppComponent {
       if (event instanceof NavigationStart) {
         console.log('eventt-->',event.url)
         this.tokenAvailable = localStorage.getItem('token') ? localStorage.getItem('token') : '';
+        this.profileImage = JSON.parse(localStorage.getItem('myProfile'))  ? JSON.parse(localStorage.getItem('myProfile')).imageUrl : null
         if(this.tokenAvailable != ''){
           this.getNotification()
         }
@@ -29,9 +31,10 @@ export class AppComponent {
 
   getNotification(){
     this.service.showSpinner()
-    this.service.getApi(`course/get-notification?page=0&pageSize=100`,1).subscribe((res:any) => {
+    this.service.getApi(`course/get-notification-list?page=0&pageSize=100&representativeId=${JSON.parse(localStorage.getItem('myProfile')).representativeDetailsId}`,1).subscribe((res:any) => {
+      console.log("res--->>",res)
       if(res.body.status == 200){
-        this.notificationCount = res.body.data.notificationCount
+        this.notificationCount = res.body.data.countByFormId
       }
       this.service.hideSpinner()
     })

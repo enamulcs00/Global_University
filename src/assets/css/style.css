@@ -3429,7 +3429,7 @@ a.navbar-brand {
     display: flex;
     justify-content: space-around;
     width: 40px;
-
+    border-radius: 50%;
 }
 p.danger {
     color: red;

@@ -11,28 +11,43 @@ export class NotificationComponent implements OnInit {
 
   notificationList:any = [];
   accountDeatails:any;
+  selectedId: any;
 
   constructor(private service:ServicesService) { }
 
   ngOnInit() {
-    this.getNotification()    
     this.accountDeatails = JSON.parse(localStorage.getItem('myProfile'))
+    this.getNotification()        
     console.log('------->',this.accountDeatails)
   }
   
   getNotification(){
     this.service.showSpinner()
-    this.service.getApi(`course/get-notification?page=0&pageSize=100`,1).subscribe((res:any) => {
+    this.service.getApi(`course/get-notification-list?page=0&pageSize=100&representativeId=${this.accountDeatails.representativeDetailsId}`,1).subscribe((res:any) => {
+      console.log("res--->>",res)
       if(res.body.status == 200){
-        this.notificationList = res.body.data.notificationList.content
+        this.notificationList = res.body.data.formdata.content
       }
       this.service.hideSpinner()
+      this.seen()
+    })
+  }
+  
+  seen(){
+    this.service.postApi(`course/set-seen-true-notification-list?representativeId=${this.accountDeatails.representativeDetailsId}`,{},1).subscribe((res:any) => {
+      console.log("res seen-->>",res)
     })
   }
 
-  deleteNotification(item){
+  deleteModal(item){
+    $('#deleteModal').modal('show')
+    this.selectedId = item;
+  }
+
+  deleteNotification(){
+    $('#deleteModal').modal('hide')
     this.service.showSpinner()
-    this.service.getApi(`course/delete-notification-particular?notificationId=${item.notificationId}&representativeId=${this.accountDeatails.representativeDetailsId}`,1).subscribe((res:any) => {
+    this.service.getApi(`course/delete-notification-particular?notificationId=${this.selectedId.notificationId}&representativeId=${this.accountDeatails.representativeDetailsId}`,1).subscribe((res:any) => {
       console.log("res-->>",res)
       if(res.body.status == 206){
         this.getNotification()

@@ -31,7 +31,7 @@
                   <div class="dropdown">
                      <button class="btn btn-link" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <img class="immgs" src="assets/images/pick-1.png" alt="">
+                        <img class="immgs" src="{{profileImage ? profileImage : 'assets/images/pick-1.png'}}" alt="">
                      </button>
                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-left: -97px">
                         <a class="dropdown-item" [routerLink]="['my-profile']">My Profile</a>
