@@ -51,6 +51,9 @@ export class CreateUsersComponent implements OnInit {
       "state" : new FormControl('',[Validators.required]),
       "country" : new FormControl('',[Validators.required]),
     })
+    this.createUserForm.patchValue({
+      'businessName' : this.accountData.representativeName
+    })
   }
 
   homeTelephoneValidOrNot(){
@@ -116,7 +119,7 @@ export class CreateUsersComponent implements OnInit {
       "password": "univGlobal@321",
       "representativeCode": this.getRandomInt(100000),
       "representativeDetailsId": ''+this.accountData.representativeDetailsId,
-      "representativeName": this.createUserForm.value.firstName,
+      "representativeName": this.accountData.representativeName,
       "roleStatus": "REPRESENTATIVE_USER",
       "state": this.createUserForm.value.state,
       "subject": "string",

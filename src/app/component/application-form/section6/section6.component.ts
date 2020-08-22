@@ -41,7 +41,7 @@ export class Section6Component implements OnInit {
       title : new FormControl(null,Validators.required),
       subject : new FormControl(null,Validators.required),
       date : new FormControl(null,Validators.required),
-      proffessionalBody : new FormControl(null,Validators.required),
+      proffessionalBody : new FormControl(null),
     })
     if(localStorage.getItem('section6')){
       let sectionData  = JSON.parse(localStorage.getItem('section6'))

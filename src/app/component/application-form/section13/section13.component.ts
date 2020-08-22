@@ -82,7 +82,12 @@ export class Section13Component implements OnInit {
     if (event.target.files && event.target.files[0]) {
       var type = event.target.files[0].type;
       this.fileData = event.target.files[0];
-      this.uploadFile(key)
+      var FileSize = this.fileData.size / 1024 / 1024; // in MB
+        if (FileSize > 2) {
+            $('#exceedStorage').modal('show')
+        }else{
+          this.uploadFile(key)
+        }
       // if (type === 'image/png' || type === 'image/jpg' || type === 'image/jpeg') {
       //   var reader = new FileReader()
       //   reader.onload = (e) => {
@@ -94,13 +99,13 @@ export class Section13Component implements OnInit {
   uploadFile(key) {
     var formData = new FormData()
     formData.append('file', this.fileData)
-    this.section13Form.controls[key].setValue('https://res.cloudinary.com/dmabxaha1/image/upload/v1597384229/gx08xkx1xwunkplmltvi.jpg');
-    // this.service.showSpinner()
-    // this.service.postMethodMultipart('account/upload-file', formData).subscribe((res) => {
-    //   this.section13Form.controls[key].setValue(res.data);
-    //   console.log(res.data)
-    //   this.service.hideSpinner()
-    // })
+    // this.section13Form.controls[key].setValue('https://res.cloudinary.com/dmabxaha1/image/upload/v1597384229/gx08xkx1xwunkplmltvi.jpg');
+    this.service.showSpinner()
+    this.service.postMethodMultipart('account/upload-file', formData).subscribe((res) => {
+      this.section13Form.controls[key].setValue(res.data);
+      console.log(res.data)
+      this.service.hideSpinner()
+    })
   }
 
   saveAndQuit(){

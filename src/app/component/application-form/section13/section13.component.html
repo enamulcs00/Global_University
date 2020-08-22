@@ -12,7 +12,7 @@
                               [ngClass]="{ 'is-invalid': submitted && section13Form.get('personalStatement').hasError('required') }" >
                               <i class="fa fa-paperclip" aria-hidden="true"></i>
                               <input type="file" class="file" style="position: absolute;top: 45px;right: -154px;opacity: 0;cursor: pointer;" 
-                              (change)="handleFileInput($event,'personalStatement')">
+                              (change)="handleFileInput($event,'personalStatement')" accept="application/pdf,application/vnd.ms-excel" />
                                  <div *ngIf="submitted && section13Form.get('personalStatement').hasError" >
                                        <div *ngIf="section13Form.get('personalStatement').hasError('required')" class="danger">
                                              *please enter the personalStatement
@@ -26,7 +26,7 @@
                               [ngClass]="{ 'is-invalid': submitted && section13Form.get('researchPersonal').hasError('required') }" >
                               <i class="fa fa-paperclip" aria-hidden="true"></i>
                               <input type="file" class="file" style="position: absolute;top: 45px;right: -154px;opacity: 0;cursor: pointer;" 
-                              (change)="handleFileInput($event,'researchPersonal')">
+                              (change)="handleFileInput($event,'researchPersonal')" accept="application/pdf,application/vnd.ms-excel" />
                               <div *ngIf="submitted && section13Form.get('researchPersonal').hasError" >
                                  <div *ngIf="section13Form.get('researchPersonal').hasError('required')" class="danger">
                                     *please enter the researchPersonal
@@ -40,7 +40,7 @@
                               [ngClass]="{ 'is-invalid': submitted && section13Form.get('cv').hasError('required') }" >
                               <i class="fa fa-paperclip" aria-hidden="true"></i>
                               <input type="file" class="file" style="position: absolute;top: 45px;right: -154px;opacity: 0;cursor: pointer;" 
-                              (change)="handleFileInput($event,'cv')">
+                              (change)="handleFileInput($event,'cv')" accept="application/pdf,application/vnd.ms-excel" />
                               <div *ngIf="submitted && section13Form.get('cv').hasError" >
                                  <div *ngIf="section13Form.get('cv').hasError('required')" class="danger">
                                     *please enter the cv
@@ -54,7 +54,7 @@
                               [ngClass]="{ 'is-invalid': submitted && section13Form.get('transcript').hasError('required') }" >
                               <i class="fa fa-paperclip" aria-hidden="true"></i>
                               <input type="file" class="file" style="position: absolute;top: 45px;right: -154px;opacity: 0;cursor: pointer;" 
-                              (change)="handleFileInput($event,'transcript')">
+                              (change)="handleFileInput($event,'transcript')" accept="application/pdf,application/vnd.ms-excel" />
                               <div *ngIf="submitted && section13Form.get('transcript').hasError" >
                                  <div *ngIf="section13Form.get('transcript').hasError('required')" class="danger">
                                     *please enter the transcript
@@ -68,7 +68,7 @@
                               [ngClass]="{ 'is-invalid': submitted && section13Form.get('degreeCertificate').hasError('required') }" >
                               <i class="fa fa-paperclip" aria-hidden="true"></i>
                               <input type="file" class="file" style="position: absolute;top: 45px;right: -154px;opacity: 0;cursor: pointer;" 
-                              (change)="handleFileInput($event,'degreeCertificate')">
+                              (change)="handleFileInput($event,'degreeCertificate')" accept="application/pdf,application/vnd.ms-excel" />
                               <div *ngIf="submitted && section13Form.get('degreeCertificate').hasError" >
                                  <div *ngIf="section13Form.get('degreeCertificate').hasError('required')" class="danger">
                                     *please enter the degreeCertificate
@@ -82,7 +82,7 @@
                               [ngClass]="{ 'is-invalid': submitted && section13Form.get('englishLanguageCertificate').hasError('required') }" >
                               <i class="fa fa-paperclip" aria-hidden="true"></i>
                               <input type="file" class="file" style="position: absolute;top: 45px;right: -154px;opacity: 0;cursor: pointer;" 
-                              (change)="handleFileInput($event,'englishLanguageCertificate')">
+                              (change)="handleFileInput($event,'englishLanguageCertificate')" accept="application/pdf,application/vnd.ms-excel" />
                               <div *ngIf="submitted && section13Form.get('englishLanguageCertificate').hasError" >
                                  <div *ngIf="section13Form.get('englishLanguageCertificate').hasError('required')" class="danger">
                                     *please enter the englishLanguageCertificate
@@ -96,7 +96,7 @@
                               [ngClass]="{ 'is-invalid': submitted && section13Form.get('otherDocument').hasError('required') }" >
                               <i class="fa fa-paperclip" aria-hidden="true"></i>
                               <input type="file" class="file" style="position: absolute;top: 45px;right: -154px;opacity: 0;cursor: pointer;" 
-                              (change)="handleFileInput($event,'otherDocument')">
+                              (change)="handleFileInput($event,'otherDocument')" accept="application/pdf,application/vnd.ms-excel" />
                               <div *ngIf="submitted && section13Form.get('otherDocument').hasError" >
                                  <div *ngIf="section13Form.get('otherDocument').hasError('required')" class="danger">
                                     *please enter the otherDocument
@@ -110,7 +110,7 @@
                               [ngClass]="{ 'is-invalid': submitted && section13Form.get('disclaimer').hasError('required') }" >
                               <i class="fa fa-paperclip" aria-hidden="true"></i>
                               <input type="file" class="file" style="position: absolute;top: 45px;right: -154px;opacity: 0;cursor: pointer;" 
-                              (change)="handleFileInput($event,'disclaimer')">
+                              (change)="handleFileInput($event,'disclaimer')" accept="application/pdf,application/vnd.ms-excel" />
                               <div *ngIf="submitted && section13Form.get('disclaimer').hasError" >
                                  <div *ngIf="section13Form.get('disclaimer').hasError('required')" class="danger">
                                     *please enter the disclaimer
@@ -133,7 +133,7 @@
 </section>
 
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-   <div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-dialog modal-dialog-centered" role="document">
        <div class="modal-content">
        <div class="modal-header">
            <h5 class="modal-title" id="exampleModalLongTitle">&nbsp;</h5>
@@ -145,5 +145,16 @@
            <button type="button" class="theme-btn router-link  okay" data-dismiss="modal" [routerLink]="['/dashboard']">OK</button>
        </div>
        </div>
+   </div>
+</div>
+
+
+<div class="modal fade bd-example-modal-sm" id="exceedStorage"  tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter" aria-hidden="true">
+   <div class="modal-dialog modal-sm">
+     <div class="modal-content thanks_for">
+      <h6>File size exceeds 2 MB.</h6>
+           <div>
+           <button class="banner-button active" data-toggle="modal" data-target="#exampleModal" data-dismiss="modal" >Ok</button> </div>
+         </div>
    </div>
 </div>

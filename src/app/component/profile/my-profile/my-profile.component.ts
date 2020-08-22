@@ -105,6 +105,7 @@ export class MyProfileComponent implements OnInit {
             'lastName': this.profiledata.lastName,
             'city': this.profiledata.city,
             'state': this.profiledata.state,
+            'businessName': this.profiledata.representativeName,
             'country': this.profiledata.country,
             'address1': this.profiledata.address1,
             'address2': this.profiledata.address2,

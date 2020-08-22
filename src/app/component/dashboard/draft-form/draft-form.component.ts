@@ -14,6 +14,7 @@ export class DraftFormComponent implements OnInit {
   fromDate : any;
   toDate : any;
   formsList:any = []
+  accountDeatails: any;
 
   constructor(private service:ServicesService,private router:Router) { }
 
@@ -34,6 +35,7 @@ export class DraftFormComponent implements OnInit {
       localStorage.removeItem('section13')
       localStorage.removeItem('section14')
     window.scrollTo(0, 0);
+    this.accountDeatails = JSON.parse(localStorage.getItem('myProfile'))
     this.getForms()
   }
 
@@ -78,7 +80,7 @@ export class DraftFormComponent implements OnInit {
 
   continueForm(id){
     this.service.showSpinner()
-    this.service.getApi(`course/get-forms-list?page=0&pagesize=10&formId=${id}`,1).subscribe((res:any) => {
+    this.service.getApi(`course/get-forms-list?page=0&pagesize=10&formId=${id}&representativeId=${this.accountDeatails.representativeDetailsId}`,1).subscribe((res:any) => {
       this.service.hideSpinner()
       if(res.status == 200){
         console.log("res--->>",res.body.data.formdata)

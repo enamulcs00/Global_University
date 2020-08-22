@@ -121,8 +121,9 @@
                     </div>
 
                     <div class="form-group cs3">
-                      <label for="exampleInputEmail1">Business Name*</label>
-                      <input type="email" class="form-control" placeholder="business Name" formControlName="businessName">
+                      <label for="exampleInputEmail1">Name of the company
+                        *</label>
+                      <input type="email" class="form-control" placeholder="business Name" formControlName="businessName" disabled>
                       <div *ngIf="submitted && createUserForm.get('businessName').hasError">
                         <div *ngIf="createUserForm.get('businessName').hasError('required')" class="danger">
                           *please enter the businessName

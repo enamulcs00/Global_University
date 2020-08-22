@@ -49,7 +49,7 @@ export class Section1Component implements OnInit {
         "permanentResidenceCountry" : new FormControl('',[Validators.required]),
         "dateOfBirth" : new FormControl('',[Validators.required]),
         "CountryOfBirth" : new FormControl('',[Validators.required]),
-        "passportNumber" : new FormControl('',[Validators.required]),
+        "passportNumber" : new FormControl(''),
         "requireVisaForUK" : new FormControl('',[Validators.required]),
         "ethnicity" : new FormControl('',[Validators.required]),
         "disability" : new FormControl('',[Validators.required]),
