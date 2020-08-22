@@ -60,6 +60,7 @@ export class Section13Component implements OnInit {
       "englishLanguageCertificate" : new FormControl(null,Validators.required),
       "otherDocument" : new FormControl(null,Validators.required),
       "disclaimer" : new FormControl(null,Validators.required),
+      "checkForDisclaimer" : new FormControl(null,Validators.required),
     })
     if(localStorage.getItem('section12')){
       let section12Data = JSON.parse(localStorage.getItem('section12'))
@@ -72,6 +73,7 @@ export class Section13Component implements OnInit {
         "englishLanguageCertificate" : section12Data.englishLanguageCertificate,
         "otherDocument" : section12Data.otherDocument,
         "disclaimer" : section12Data.disclaimer,
+        "checkForDisclaimer":null
       })
     }
   }
@@ -110,31 +112,31 @@ export class Section13Component implements OnInit {
 
   saveAndQuit(){
     this.submitted = true;
-    if(this.section13Form.invalid){
+    if(this.section13Form.invalid && this.section13Form.value.checkForDisclaimer != true){
       return false
     }
     console.log("save-->",this.section13Form.value)
-    this.fillForm()
+    // this.fillForm()
   }
 
   continue(){
     this.submitted = true;
-    if(this.section13Form.invalid){
+    if(this.section13Form.invalid && this.section13Form.value.checkForDisclaimer != true){
       return false
     }
     localStorage.setItem('section12',JSON.stringify(this.section13Form.value))
-    if(this.mbaExist &&  !this.executiveMbaExist){
-      this.router.navigateByUrl('section13')
-    }else{
-      this.router.navigateByUrl('section14')
-    }
+    // if(this.mbaExist &&  !this.executiveMbaExist){
+    //   this.router.navigateByUrl('section13')
+    // }else{
+    //   this.router.navigateByUrl('section14')
+    // }
     
     // this.router.navigateByUrl('application-form-preview')
   }
   
   preview(){
     this.submitted = true;
-    if(this.section13Form.invalid){
+    if(this.section13Form.invalid && this.section13Form.value.checkForDisclaimer != true){
       return false
     }
     localStorage.setItem('section12',JSON.stringify(this.section13Form.value))
