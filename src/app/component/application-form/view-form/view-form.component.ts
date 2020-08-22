@@ -26,7 +26,7 @@ export class ViewFormComponent implements OnInit {
 
   getFormData(id){
     this.service.showSpinner()
-    this.service.getApi(`course/get-forms-list?page=0&pagesize=10&formId=${id}&representativeId=${this.accountDeatails.representativeDetailsId}`,1).subscribe((res:any) => {
+    this.service.getApi(`course/get-forms-list?page=0&pagesize=10&formId=${id}&repesantativeId=${this.accountDeatails.representativeDetailsId}`,1).subscribe((res:any) => {
       if(res.body.status == 200){
         console.log("res--->>",res.body.data.formdata)
         this.formData = res.body.data.formdata

@@ -41,7 +41,7 @@ export class DraftFormComponent implements OnInit {
 
   getForms(){
     this.service.showSpinner()
-    let url = `course/filter-forms-details?page=0&formFillStatus=INCOMPLETE`
+    let url = `course/filter-forms-details?page=0&formFillStatus=INCOMPLETE&representativeId=${this.accountDeatails.representativeDetailsId}`
     if(this.searchKey && this.formId != 'search_by_form_id'){
       url = url + `&search=${this.searchKey}`
     }
@@ -80,7 +80,7 @@ export class DraftFormComponent implements OnInit {
 
   continueForm(id){
     this.service.showSpinner()
-    this.service.getApi(`course/get-forms-list?page=0&pagesize=10&formId=${id}&representativeId=${this.accountDeatails.representativeDetailsId}`,1).subscribe((res:any) => {
+    this.service.getApi(`course/get-forms-list?page=0&pagesize=10&formId=${id}&repesantativeId=${this.accountDeatails.representativeDetailsId}`,1).subscribe((res:any) => {
       this.service.hideSpinner()
       if(res.status == 200){
         console.log("res--->>",res.body.data.formdata)
@@ -222,18 +222,107 @@ export class DraftFormComponent implements OnInit {
           "personalStatement":formData.urlpersonalStatement,
         }
         console.log('---->',section11_Object)
-        localStorage.setItem('section1',JSON.stringify(section1_Object))
-        localStorage.setItem('section2',JSON.stringify(section2_Object))
-        localStorage.setItem('section3',JSON.stringify(section3_Object))
-        localStorage.setItem('section4',JSON.stringify(section4_Object))
-        localStorage.setItem('section5',JSON.stringify(section5_Object))
-        localStorage.setItem('section6',JSON.stringify(section6_Object))
-        localStorage.setItem('section7',JSON.stringify(section7_Object))
-        localStorage.setItem('section8',JSON.stringify(section8_Object))
-        localStorage.setItem('section9',JSON.stringify(section9_Object))
-        localStorage.setItem('section10',JSON.stringify(section10_Object))
-        localStorage.setItem('section11',JSON.stringify(section11_Object))
-        localStorage.setItem('section12',JSON.stringify(section12_Object))
+        if(formData.pageFillNumber == 'section1'){
+          localStorage.setItem('section1',JSON.stringify(section1_Object))
+        }else if(formData.pageFillNumber == 'section2'){
+          localStorage.setItem('section1',JSON.stringify(section1_Object))
+          localStorage.setItem('section2',JSON.stringify(section2_Object))
+        }else if(formData.pageFillNumber == 'section3'){
+          localStorage.setItem('section1',JSON.stringify(section1_Object))
+          localStorage.setItem('section2',JSON.stringify(section2_Object))
+          localStorage.setItem('section3',JSON.stringify(section3_Object))
+        }
+        else if(formData.pageFillNumber == 'section4'){
+          localStorage.setItem('section1',JSON.stringify(section1_Object))
+          localStorage.setItem('section2',JSON.stringify(section2_Object))
+          localStorage.setItem('section3',JSON.stringify(section3_Object))
+          localStorage.setItem('section4',JSON.stringify(section4_Object))
+        }
+        else if(formData.pageFillNumber == 'section5'){
+          localStorage.setItem('section1',JSON.stringify(section1_Object))
+          localStorage.setItem('section2',JSON.stringify(section2_Object))
+          localStorage.setItem('section3',JSON.stringify(section3_Object))
+          localStorage.setItem('section4',JSON.stringify(section4_Object))
+          localStorage.setItem('section5',JSON.stringify(section5_Object))
+        }
+        else if(formData.pageFillNumber == 'section6'){
+          localStorage.setItem('section1',JSON.stringify(section1_Object))
+          localStorage.setItem('section2',JSON.stringify(section2_Object))
+          localStorage.setItem('section3',JSON.stringify(section3_Object))
+          localStorage.setItem('section4',JSON.stringify(section4_Object))
+          localStorage.setItem('section5',JSON.stringify(section5_Object))
+          localStorage.setItem('section6',JSON.stringify(section6_Object))
+        }
+        else if(formData.pageFillNumber == 'section7'){
+          localStorage.setItem('section1',JSON.stringify(section1_Object))
+          localStorage.setItem('section2',JSON.stringify(section2_Object))
+          localStorage.setItem('section3',JSON.stringify(section3_Object))
+          localStorage.setItem('section4',JSON.stringify(section4_Object))
+          localStorage.setItem('section5',JSON.stringify(section5_Object))
+          localStorage.setItem('section6',JSON.stringify(section6_Object))
+          localStorage.setItem('section7',JSON.stringify(section7_Object))
+        }
+        else if(formData.pageFillNumber == 'section8'){
+          localStorage.setItem('section1',JSON.stringify(section1_Object))
+          localStorage.setItem('section2',JSON.stringify(section2_Object))
+          localStorage.setItem('section3',JSON.stringify(section3_Object))
+          localStorage.setItem('section4',JSON.stringify(section4_Object))
+          localStorage.setItem('section5',JSON.stringify(section5_Object))
+          localStorage.setItem('section6',JSON.stringify(section6_Object))
+          localStorage.setItem('section7',JSON.stringify(section7_Object))
+          localStorage.setItem('section8',JSON.stringify(section8_Object))
+        }
+        else if(formData.pageFillNumber == 'section9'){
+          localStorage.setItem('section1',JSON.stringify(section1_Object))
+          localStorage.setItem('section2',JSON.stringify(section2_Object))
+          localStorage.setItem('section3',JSON.stringify(section3_Object))
+          localStorage.setItem('section4',JSON.stringify(section4_Object))
+          localStorage.setItem('section5',JSON.stringify(section5_Object))
+          localStorage.setItem('section6',JSON.stringify(section6_Object))
+          localStorage.setItem('section7',JSON.stringify(section7_Object))
+          localStorage.setItem('section8',JSON.stringify(section8_Object))
+          localStorage.setItem('section9',JSON.stringify(section9_Object))
+        }
+        else if(formData.pageFillNumber == 'section10'){
+          localStorage.setItem('section1',JSON.stringify(section1_Object))
+          localStorage.setItem('section2',JSON.stringify(section2_Object))
+          localStorage.setItem('section3',JSON.stringify(section3_Object))
+          localStorage.setItem('section4',JSON.stringify(section4_Object))
+          localStorage.setItem('section5',JSON.stringify(section5_Object))
+          localStorage.setItem('section6',JSON.stringify(section6_Object))
+          localStorage.setItem('section7',JSON.stringify(section7_Object))
+          localStorage.setItem('section8',JSON.stringify(section8_Object))
+          localStorage.setItem('section9',JSON.stringify(section9_Object))
+          localStorage.setItem('section10',JSON.stringify(section10_Object))
+        }
+        else if(formData.pageFillNumber == 'section11'){
+          localStorage.setItem('section1',JSON.stringify(section1_Object))
+          localStorage.setItem('section2',JSON.stringify(section2_Object))
+          localStorage.setItem('section3',JSON.stringify(section3_Object))
+          localStorage.setItem('section4',JSON.stringify(section4_Object))
+          localStorage.setItem('section5',JSON.stringify(section5_Object))
+          localStorage.setItem('section6',JSON.stringify(section6_Object))
+          localStorage.setItem('section7',JSON.stringify(section7_Object))
+          localStorage.setItem('section8',JSON.stringify(section8_Object))
+          localStorage.setItem('section9',JSON.stringify(section9_Object))
+          localStorage.setItem('section10',JSON.stringify(section10_Object))
+          localStorage.setItem('section11',JSON.stringify(section11_Object))
+      }
+      else if(formData.pageFillNumber == 'section12'){
+          localStorage.setItem('section1',JSON.stringify(section1_Object))
+          localStorage.setItem('section2',JSON.stringify(section2_Object))
+          localStorage.setItem('section3',JSON.stringify(section3_Object))
+          localStorage.setItem('section4',JSON.stringify(section4_Object))
+          localStorage.setItem('section5',JSON.stringify(section5_Object))
+          localStorage.setItem('section6',JSON.stringify(section6_Object))
+          localStorage.setItem('section7',JSON.stringify(section7_Object))
+          localStorage.setItem('section8',JSON.stringify(section8_Object))
+          localStorage.setItem('section9',JSON.stringify(section9_Object))
+          localStorage.setItem('section10',JSON.stringify(section10_Object))
+          localStorage.setItem('section11',JSON.stringify(section11_Object))
+          localStorage.setItem('section12',JSON.stringify(section12_Object))
+        }                        
+        
         localStorage.setItem('formId',id)
         this.router.navigateByUrl(formData.pageFillNumber)
       }

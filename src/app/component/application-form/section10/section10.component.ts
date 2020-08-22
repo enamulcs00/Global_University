@@ -174,11 +174,6 @@ export class Section10Component implements OnInit {
       "jobTitle": "",
       "managementWorkExperience": 0,
       "matchingUniversityDto": [
-        {
-          "universityEmail": "",
-          "universityId": 0,
-          "universityName": ""
-        }
       ],
       "meetingFinancial": "",
       "multiCulturalAxposure": "",

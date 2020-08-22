@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from 'src/app/services.service';
+import { Router } from '@angular/router';
 declare var $:any;
 
 @Component({
@@ -13,7 +14,7 @@ export class FavoriteCoursesComponent implements OnInit {
   allCoursefavoriteList:any = []
   removeId: any;
   accountDetails:any
-  constructor(private service:ServicesService) { }
+  constructor(private service:ServicesService,private router:Router) { }
 
   ngOnInit() {
     this.accountDetails = JSON.parse(localStorage.getItem('myProfile'))
@@ -65,6 +66,22 @@ export class FavoriteCoursesComponent implements OnInit {
   searchCourse(event){
     // console.log('event-->',this.favoriteList.filter(x =>  x.courseName == event.target.value))
     // this.favoriteList = this.allCoursefavoriteList.filter(x =>  x.courseName == event.target.value)
+  }
+
+  applyNow(id){
+    let section1_Object = {
+      "searchCourse": id.courseName,
+      "countryName": "",
+      "startYear": "",
+      "startMonth": "",
+      "courseDuration":id.courseDuration,
+      "yearIntake":"",
+      "courseId": id.courseId,
+      "courseStartDate": "",
+    }
+    console.log("section1 -->",section1_Object)
+    localStorage.setItem('section1',JSON.stringify(section1_Object))
+    this.router.navigateByUrl('section1')
   }
 
 }

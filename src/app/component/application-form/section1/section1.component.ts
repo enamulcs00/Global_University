@@ -107,21 +107,6 @@ export class Section1Component implements OnInit {
       "aboutReference1": "",
       "aboutReference2": "",
       "academicQualificationFormDto": [
-        {
-          "academicQualifications": "",
-          "achieved": "",
-          "countryOfStudy": "",
-          "enddate": "",
-          "highestAcademicQualification": "",
-          "instituteName": "",
-          "resultType": "",
-          "startDate": "",
-          "subject1": "",
-          "subject1grade1": "",
-          "subject1grade2": "",
-          "subject2": "",
-          "value": 0
-        }
       ],
       "address": "",
       "addressForMba": "",
@@ -183,11 +168,6 @@ export class Section1Component implements OnInit {
       "jobTitle": "",
       "managementWorkExperience": 0,
       "matchingUniversityDto": [
-        {
-          "universityEmail": "",
-          "universityId": 0,
-          "universityName": ""
-        }
       ],
       "meetingFinancial": "",
       "multiCulturalAxposure": "",

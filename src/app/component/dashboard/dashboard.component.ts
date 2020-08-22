@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
   fromDate : any;
   toDate : any;
   submittedFormsList : any = [];
+  accountDetails: any;
 
   constructor(private service:ServicesService,private router:Router) { }
 
@@ -32,12 +33,13 @@ export class DashboardComponent implements OnInit {
       localStorage.removeItem('section13')
       localStorage.removeItem('section14')
     window.scrollTo(0, 0);
+    this.accountDetails = JSON.parse(localStorage.getItem('myProfile'))
     this.getSubmiitedForms()
   }
 
   getSubmiitedForms(){
     this.service.showSpinner()
-    let url = `course/filter-forms-details?page=0&formFillStatus=COMPLETE`
+    let url = `course/filter-forms-details?page=0&formFillStatus=COMPLETE&representativeId=${this.accountDetails.representativeDetailsId}`
     if(this.searchKey && this.formId != 'search_by_form_id'){
       url = url + `&search=${this.searchKey}`
     }

@@ -136,21 +136,7 @@ export class Section2Component implements OnInit {
       "aboutReference1": "",
       "aboutReference2": "",
       "academicQualificationFormDto": [
-        {
-          "academicQualifications": "",
-          "achieved": "",
-          "countryOfStudy": "",
-          "enddate": "",
-          "highestAcademicQualification": "",
-          "instituteName": "",
-          "resultType": "",
-          "startDate": "",
-          "subject1": "",
-          "subject1grade1": "",
-          "subject1grade2": "",
-          "subject2": "",
-          "value": 0
-        }
+        
       ],
       "address": "",
       "addressForMba": "",

@@ -152,11 +152,6 @@ export class Section8Component implements OnInit {
       "jobTitle": "",
       "managementWorkExperience": 0,
       "matchingUniversityDto": [
-        {
-          "universityEmail": "",
-          "universityId": 0,
-          "universityName": ""
-        }
       ],
       "meetingFinancial": "",
       "multiCulturalAxposure": "",

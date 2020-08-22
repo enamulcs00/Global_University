@@ -99,13 +99,13 @@ export class Section13Component implements OnInit {
   uploadFile(key) {
     var formData = new FormData()
     formData.append('file', this.fileData)
-    // this.section13Form.controls[key].setValue('https://res.cloudinary.com/dmabxaha1/image/upload/v1597384229/gx08xkx1xwunkplmltvi.jpg');
-    this.service.showSpinner()
-    this.service.postMethodMultipart('account/upload-file', formData).subscribe((res) => {
-      this.section13Form.controls[key].setValue(res.data);
-      console.log(res.data)
-      this.service.hideSpinner()
-    })
+    this.section13Form.controls[key].setValue('https://res.cloudinary.com/dmabxaha1/image/upload/v1597384229/gx08xkx1xwunkplmltvi.jpg');
+    // this.service.showSpinner()
+    // this.service.postMethodMultipart('account/upload-file', formData).subscribe((res) => {
+    //   this.section13Form.controls[key].setValue(res.data);
+    //   console.log(res.data)
+    //   this.service.hideSpinner()
+    // })
   }
 
   saveAndQuit(){
@@ -235,11 +235,6 @@ export class Section13Component implements OnInit {
       "jobTitle": "",
       "managementWorkExperience": 0,
       "matchingUniversityDto": [
-        {
-          "universityEmail": "",
-          "universityId": 0,
-          "universityName": ""
-        }
       ],
       "meetingFinancial": "",
       "multiCulturalAxposure": "",
