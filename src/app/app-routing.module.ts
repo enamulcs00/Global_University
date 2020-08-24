@@ -36,6 +36,7 @@ import { ForgetPasswordComponent } from './component/forget-password/forget-pass
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
 import { FavoriteCoursesComponent } from './component/favorite-courses/favorite-courses.component';
 import { NotificationComponent } from './component/notification/notification.component';
+import { PaymentComponent } from './component/profile/payment/payment.component';
 
 
 const routes: Routes = [
@@ -54,7 +55,7 @@ const routes: Routes = [
   { path: 'application-progress/:id', component: ApplicationProgressComponent,canActivate :[AuthGuard] },
   { path: 'view-progress', component : ViewProgressComponent,canActivate :[AuthGuard] },
   { path: 'report', component : ReportComponent,canActivate :[AuthGuard] },
-
+  { path: 'payment', component : PaymentComponent ,canActivate :[AuthGuard] },
   { path: 'my-profile', component : MyProfileComponent,canActivate :[AuthGuard] },
   { path: 'change-password', component : ChangePasswordComponent,canActivate :[AuthGuard] },
   { path: 'create-users', component : CreateUsersComponent,canActivate :[AuthGuard] },

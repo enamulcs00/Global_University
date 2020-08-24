@@ -1431,6 +1431,7 @@ a.nav-link.general_cs {
     max-width: 88%;
 }
 h4.manage {
+    width: 86%;
     font-size: 35px;
     color: #3a3a3a;
     font-weight: bold;
@@ -3762,4 +3763,8 @@ button.btn.btn-block.btn-flat.router-link {
     height: 37px;
     border-radius: 5px;
     margin-top: 15px;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #ffffff !important;
+    background-color: #896634 !important;
 }

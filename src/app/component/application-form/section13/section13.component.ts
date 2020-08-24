@@ -21,11 +21,11 @@ export class Section13Component implements OnInit {
   section5Data :any
   section6Data :any
   section7Data :any
-  section8Data: any;
-  section9Data: any;
+  section8Data : any;
+  section9Data : any;
   section10Data: any;
   section11Data: any;
-  academicQualificationFormDto :any = []
+  academicQualificationFormDto :any = [];
 
   constructor(private service :ServicesService,private router:Router) { }
 
@@ -59,7 +59,7 @@ export class Section13Component implements OnInit {
       "degreeCertificate" : new FormControl(null,Validators.required),
       "englishLanguageCertificate" : new FormControl(null,Validators.required),
       "otherDocument" : new FormControl(null,Validators.required),
-      "disclaimer" : new FormControl(null,Validators.required),
+      "disclaimer" : new FormControl(null),
       "checkForDisclaimer" : new FormControl(null,Validators.required),
     })
     if(localStorage.getItem('section12')){
@@ -111,17 +111,18 @@ export class Section13Component implements OnInit {
   }
 
   saveAndQuit(){
-    this.submitted = true;
-    if(this.section13Form.invalid && this.section13Form.value.checkForDisclaimer != true){
-      return false
-    }
     console.log("save-->",this.section13Form.value)
+    this.submitted = true;
+    if(this.section13Form.invalid || this.section13Form.value.checkForDisclaimer != true){
+      return false
+    }    
     // this.fillForm()
   }
 
   continue(){
+    console.log("save-->",this.section13Form.value)
     this.submitted = true;
-    if(this.section13Form.invalid && this.section13Form.value.checkForDisclaimer != true){
+    if(this.section13Form.invalid || this.section13Form.value.checkForDisclaimer != true){
       return false
     }
     localStorage.setItem('section12',JSON.stringify(this.section13Form.value))
@@ -135,8 +136,9 @@ export class Section13Component implements OnInit {
   }
   
   preview(){
+    console.log("save-->",this.section13Form.value)
     this.submitted = true;
-    if(this.section13Form.invalid && this.section13Form.value.checkForDisclaimer != true){
+    if(this.section13Form.invalid || this.section13Form.value.checkForDisclaimer != true){
       return false
     }
     localStorage.setItem('section12',JSON.stringify(this.section13Form.value))

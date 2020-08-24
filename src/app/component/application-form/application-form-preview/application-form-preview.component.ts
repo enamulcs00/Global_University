@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-application-form-preview',
@@ -9,7 +10,8 @@ export class ApplicationFormPreviewComponent implements OnInit {
   mbaExist: boolean = false;
   executiveMbaExist: boolean = false;
   section1 :any
-  constructor() { }
+
+  constructor(private router:Router) { }
 
   ngOnInit() {
     window.scrollTo(0, 0);
@@ -22,4 +24,14 @@ export class ApplicationFormPreviewComponent implements OnInit {
   }
   }
 
+
+  back(){
+    if(this.mbaExist && !this.executiveMbaExist){
+      this.router.navigateByUrl('section13')
+    }else if(this.executiveMbaExist){
+      this.router.navigateByUrl('section14')
+    }else{
+      this.router.navigateByUrl('section12')
+    }
+  }
 }

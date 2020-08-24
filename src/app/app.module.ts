@@ -50,6 +50,7 @@ import { ResetPasswordComponent } from './component/reset-password/reset-passwor
 import { ForgetPasswordComponent } from './component/forget-password/forget-password.component';
 import { FavoriteCoursesComponent } from './component/favorite-courses/favorite-courses.component';
 import { NotificationComponent } from './component/notification/notification.component';
+import { PaymentComponent } from './component/profile/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import { NotificationComponent } from './component/notification/notification.com
     ResetPasswordComponent,
     ForgetPasswordComponent,
     FavoriteCoursesComponent,
-    NotificationComponent
+    NotificationComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

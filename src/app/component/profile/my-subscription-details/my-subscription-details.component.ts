@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from 'src/app/services.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 declare var $:any
 
 @Component({
@@ -15,7 +15,7 @@ export class MySubscriptionDetailsComponent implements OnInit {
   responseMessage:any;
   id:any
 
-  constructor(private service:ServicesService,private activateRoute:ActivatedRoute) { }
+  constructor(private service:ServicesService,private activateRoute:ActivatedRoute,private router:Router) { }
 
 
   ngOnInit() {
@@ -40,20 +40,21 @@ export class MySubscriptionDetailsComponent implements OnInit {
   }
 
   addToCart(){
-    this.service.showSpinner()
-    let globalSubscriptionDto = {
-      "cost": this.subscriptionDetails.cost,
-      "description": this.subscriptionDetails.description,
-      "imageUrl": this.subscriptionDetails.imageUrl,
-      "noOfUserLicences": this.subscriptionDetails.noOfUserLicences,
-      "subscriptionModel": this.subscriptionDetails.subscriptionModel,
-      "validity": this.subscriptionDetails.validity,
-    }
-    this.service.postApi(`university/add-subscription`,globalSubscriptionDto,1).subscribe((res:any) => {
-      console.log('res--->',res)
-      this.service.hideSpinner()
-        this.responseMessage = res.body.message;
-      $('#resetPassword').modal('show');
-    })
+    this.router.navigateByUrl('payment')
+    // this.service.showSpinner()
+    // let globalSubscriptionDto = {
+    //   "cost": this.subscriptionDetails.cost,
+    //   "description": this.subscriptionDetails.description,
+    //   "imageUrl": this.subscriptionDetails.imageUrl,
+    //   "noOfUserLicences": this.subscriptionDetails.noOfUserLicences,
+    //   "subscriptionModel": this.subscriptionDetails.subscriptionModel,
+    //   "validity": this.subscriptionDetails.validity,
+    // }
+    // this.service.postApi(`university/add-subscription`,globalSubscriptionDto,1).subscribe((res:any) => {
+    //   console.log('res--->',res)
+    //   this.service.hideSpinner()
+    //     this.responseMessage = res.body.message;
+    //   $('#resetPassword').modal('show');
+    // })
   }
 }

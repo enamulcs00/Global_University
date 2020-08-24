@@ -21,7 +21,7 @@ export class ForgetPasswordComponent implements OnInit {
 
   forgotPassword() {
     this.service.showSpinner()
-    let url = 'http://localhost:4201/reset-password'
+    let url = this.service.representativeBaseUrl +'reset-password'
     let object = {
       "webUrl": url,
       "email": this.loginForm.value.email

@@ -15,6 +15,7 @@ export class ServicesService {
       constructor(private http:HttpClient,private toastr:ToastrService,private spinner: NgxSpinnerService) { }
   
       baseUrl = "http://182.72.203.244:2001/"
+      representativeBaseUrl = 'http://localhost:4201/';
   
   //================ POST API =========================//
       postApi(url, data, Header) {

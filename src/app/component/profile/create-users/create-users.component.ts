@@ -127,7 +127,7 @@ export class CreateUsersComponent implements OnInit {
       "universityDetailsId": 0,
       "universityName": "string",
       "userType": "STUDENT",
-      "webUrl": "http://localhost:4201/reset-password",
+      "webUrl": this.service.representativeBaseUrl + "reset-password",
       "zipcode": this.createUserForm.value.zipCode
     }
     console.log('--->>',this.createUserForm.value)
