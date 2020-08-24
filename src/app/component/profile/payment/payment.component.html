@@ -54,41 +54,74 @@
                                             <h6>&nbsp;</h6>
                                             <h6>TOTAL PRICE <label>$ 82,440</label></h6>
                                         </div>
-
+                                    <form [formGroup]="paymentForm">
                                         <div class="new-card mt-5">
                                             <h6 class="mb-3">Enter Card Details</h6>
                                             <div class="row">
                                                 <div class="col-md-12 ">
                                                     <div class=" card-input-div">
-                                                        <input type="text" class="form-control mb-3"
+                                                        <input type="text" class="form-control mb-3" formControlName="nubmer"
                                                             placeholder="Card Number">
                                                         <img src="assets/images/card-img.png">
+                                                    </div>
+                                                    <div *ngIf="submitted && paymentForm.get('nubmer').hasError"  class="mb-2">
+                                                        <div *ngIf="paymentForm.get('nubmer').hasError('required')" class="danger">
+                                                            *please enter the nubmer
+                                                        </div>
+                                                        <div *ngIf="paymentForm.get('nubmer').hasError('pattern')" class="danger">
+                                                            *please enter the valid nubmer
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 ">
                                                     <div class="card-input-div2">
-                                                        <input type="text" class="form-control mb-3"
-                                                            placeholder="Exp. Date">
-                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                        <input type="text" class="form-control mb-3"  formControlName="date"
+                                                            placeholder="Exp. Date : 09/23">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>  
+                                                        <div *ngIf="submitted && paymentForm.get('date').hasError" class="mb-2">
+                                                            <div *ngIf="paymentForm.get('date').hasError('required')" class="danger">
+                                                                *please enter the date
+                                                            </div>
+                                                            <div *ngIf="paymentForm.get('date').hasError('pattern')" class="danger">
+                                                                *please enter the valid date
+                                                            </div>
+                                                        </div>                                                      
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 ">
                                                     <div class="card-input-div">
-                                                        <input type="number" class="form-control mb-3" maxlength="3"
+                                                        <input type="number" class="form-control mb-3" maxlength="3" formControlName="cvv"
                                                             placeholder="CVV">
                                                         <i class="fa fa-lock" aria-hidden="true"></i>
+                                                        <div *ngIf="submitted && paymentForm.get('cvv').hasError"  class="mb-2">
+                                                            <div *ngIf="paymentForm.get('cvv').hasError('required')" class="danger">
+                                                                *please enter the cvv
+                                                            </div>
+                                                            <div *ngIf="paymentForm.get('cvv').hasError('pattern')" class="danger">
+                                                                *please enter the valid cvv
+                                                            </div>
+                                                        </div>     
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <input type="text" class="form-control mb-3"
+                                                    <input type="text" class="form-control mb-3" formControlName="name"
                                                         placeholder="Account Holder Name">
+                                                    <div *ngIf="submitted && paymentForm.get('name').hasError"  class="mb-2">
+                                                        <div *ngIf="paymentForm.get('name').hasError('required')" class="danger">
+                                                            *please enter the name
+                                                        </div>
+                                                        <div *ngIf="paymentForm.get('name').hasError('pattern')" class="danger">
+                                                            *please enter the valid name
+                                                        </div>
+                                                    </div> 
                                                 </div>
                                             </div>
                                         </div>
+                                    </form>
                                     </div>
                                     <div class="text-center mt-3 mb-3">
                                         <button class="banner-button cs3" data-toggle="modal" data-target="#successful"
-                                            (click)="proceed()">PROCEED</button>
+                                            (click)="proceed()" >PROCEED</button>
                                     </div>
                                 </div>
                             </div>
