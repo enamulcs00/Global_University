@@ -185,6 +185,7 @@ export class Section8Component implements OnInit {
       "relevantCriminalConvictions": this.section2Data.criminalConviction == "true" ? true  : false,
       "representativeId": JSON.parse(localStorage.getItem('myProfile')).representativeDetailsId,
       "representativeName": JSON.parse(localStorage.getItem('myProfile')).representativeName,
+      "representativeEmail": JSON.parse(localStorage.getItem('myProfile')).email,
       "requireSpecificTechnical": "",
       "researchProposalDescription": "",
       "researchProposalForPGR": true,

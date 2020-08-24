@@ -245,6 +245,7 @@ export class MatchingUniversitiesComponent implements OnInit {
       "relevantCriminalConvictions": this.section2Data.criminalConviction == "true" ? true : false,
       "representativeId": JSON.parse(localStorage.getItem('myProfile')).representativeDetailsId,
       "representativeName": JSON.parse(localStorage.getItem('myProfile')).representativeName,
+      "representativeEmail": JSON.parse(localStorage.getItem('myProfile')).email,
       "requireSpecificTechnical": this.section13Data ? this.section13Data.evidenceOfCarrerProgession : "",
       "researchProposalDescription": "",
       "researchProposalForPGR": this.section10Data.researchProposal ? true : false,

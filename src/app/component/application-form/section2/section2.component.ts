@@ -230,6 +230,7 @@ export class Section2Component implements OnInit {
       "relevantCriminalConvictions": true,
       "representativeId": JSON.parse(localStorage.getItem('myProfile')).representativeDetailsId,
       "representativeName": JSON.parse(localStorage.getItem('myProfile')).representativeName,
+      "representativeEmail": JSON.parse(localStorage.getItem('myProfile')).email,
       "requireSpecificTechnical": "",
       "researchProposalDescription": "",
       "researchProposalForPGR": true,
