@@ -37,7 +37,7 @@ export class ServicesService {
                 observe: 'response'              
               }            
             }
-          return this.http.post((this.baseUrl+ url), data, httpOptions)  
+          return this.http.post((this.baseUrl+ url), data, httpOptions)
       }
     
   //================ GET API =========================//    

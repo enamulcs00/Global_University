@@ -155,7 +155,7 @@ export class MatchingUniversitiesComponent implements OnInit {
       "academicQualificationFormDto": this.academicQualificationFormDto,
       "address": this.section3Data.address,
       "addressForMba": "",
-      "applicationStatus": "null",
+      "applicationStatus": "NEW_APPLICATION",
       "applyForExternalFunding": this.section9Data.applyForExternalFunding == 'true' ? true : false,
       "applyForExternalFundingDescription": this.section9Data.externalFundingDescription,
       "areResponsibleForWorkingWithBudgets": true,

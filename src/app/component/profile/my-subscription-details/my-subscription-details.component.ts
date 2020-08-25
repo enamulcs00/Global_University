@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from 'src/app/services.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { query } from '@angular/animations';
 declare var $:any
 
 @Component({
@@ -40,7 +41,7 @@ export class MySubscriptionDetailsComponent implements OnInit {
   }
 
   addToCart(){
-    this.router.navigateByUrl('payment')
+    this.router.navigate(['payment'],{queryParams  : {amount : this.subscriptionDetails.cost}})
     // this.service.showSpinner()
     // let globalSubscriptionDto = {
     //   "cost": this.subscriptionDetails.cost,

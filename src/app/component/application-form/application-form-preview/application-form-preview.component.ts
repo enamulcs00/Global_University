@@ -21,7 +21,7 @@ export class ApplicationFormPreviewComponent implements OnInit {
       if(JSON.parse(localStorage.getItem('section1')).searchCourse.toLowerCase().includes('executive')){
           this.executiveMbaExist = true;
       }
-  }
+    }
   }
 
 

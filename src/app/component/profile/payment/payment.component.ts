@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from 'src/app/services.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 declare var $:any;
 @Component({
   selector: 'app-payment',
@@ -11,12 +12,19 @@ export class PaymentComponent implements OnInit {
   accountData: any;
   paymentForm:FormGroup;
   submitted:boolean = false;
+  amount: any;
 
-  constructor(private service:ServicesService) { }
+  constructor(private service:ServicesService,private activateRoute:ActivatedRoute) { }
 
   ngOnInit() {
     this.initializeForm()
     window.scroll(0,0)
+    this.activateRoute.queryParams.subscribe((res:any) => {
+      if(res){
+        this.amount = Number(res.amount)
+        console.log("res-->",this.amount)
+      }
+    })
     this.accountData = JSON.parse(localStorage.getItem('myProfile'))
     this.accountData.imageUrl = this.accountData.imageUrl ? this.accountData.imageUrl : 'assets/images/pick-1.png';
   }
@@ -37,7 +45,7 @@ export class PaymentComponent implements OnInit {
       return false
     }
     let paymentDto = {
-      "amount": 100,
+      "amount": this.amount,
       "currency": "USD",
       "customer": this.paymentForm.value.name,
       "cvc": this.paymentForm.value.cvv,

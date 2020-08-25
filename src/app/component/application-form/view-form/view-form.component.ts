@@ -13,6 +13,8 @@ export class ViewFormComponent implements OnInit {
   formData :any;
   qualificationArr: any = [];
   accountDeatails: any;
+  mbaExist: boolean = false;
+  executiveMbaExist: boolean = false;
   constructor(private service:ServicesService,private activateRoute:ActivatedRoute) { }
 
   ngOnInit() {
@@ -30,6 +32,12 @@ export class ViewFormComponent implements OnInit {
       if(res.body.status == 200){
         console.log("res--->>",res.body.data.formdata)
         this.formData = res.body.data.formdata
+        if(this.formData.courseName.toLowerCase().includes('mba')){
+          this.mbaExist = true;
+          if(this.formData.courseName.toLowerCase().includes('executive')){
+              this.executiveMbaExist = true;
+          }
+        }
       }
       this.service.hideSpinner()
     })
@@ -43,8 +51,7 @@ export class ViewFormComponent implements OnInit {
           paperSize: "A5",
           margin: { top: "0.8cm", bottom: "1cm" },
           scale: 0.8,
-          height: 500,
-          
+          height: 500,          
         })
       .then(function (group) {
         kendo.drawing.pdf.saveAs(group, "Exported.pdf")
