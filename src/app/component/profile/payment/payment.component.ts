@@ -56,10 +56,10 @@ export class PaymentComponent implements OnInit {
       "nubmer": this.paymentForm.value.nubmer,
     }
     console.log("payment -->>",paymentDto)
-    this.service.postApi(`stripe/payment/payByCard`,paymentDto,1).subscribe((res :any ) => {
-      console.log("res")
-      $('#exampleModalCenter').modal('show')
-    })
+    // this.service.postApi(`stripe/payByCard`,paymentDto,1).subscribe((res :any ) => {
+    //   console.log("res")
+    //   $('#exampleModalCenter').modal('show')
+    // })
   }
 
 }

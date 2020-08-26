@@ -2619,7 +2619,7 @@ ul.personal-det-info li {
 }
 .upload-info.more-content {
     padding: 20px 33px;
-    max-width: 615px;
+    max-width: 950px;
 }
 ul.personal-det-info {
     display: flex;
@@ -2627,13 +2627,13 @@ ul.personal-det-info {
     list-style: none;
 }
 ul.personal-det-info li:nth-child(odd) {
-    font-size: 14px;
+    font-size: 16px;
     color: #000000;
     font-weight: 400;
     margin-bottom: 9px;
 }
 ul.personal-det-info li:nth-child(even) {
-    font-size: 12px;
+    font-size: 14px;
     color: #000000;
     font-weight: 400;
     text-align: right;
@@ -3430,6 +3430,7 @@ a.navbar-brand {
     display: flex;
     justify-content: space-around;
     width: 40px;
+    height: 40px;
     border-radius: 50%;
 }
 p.danger {

@@ -15,9 +15,11 @@ export class ViewFormComponent implements OnInit {
   accountDeatails: any;
   mbaExist: boolean = false;
   executiveMbaExist: boolean = false;
+  
   constructor(private service:ServicesService,private activateRoute:ActivatedRoute) { }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.activateRoute.params.subscribe((res:any) => {
       if(res.id){
         this.accountDeatails = JSON.parse(localStorage.getItem('myProfile'))
