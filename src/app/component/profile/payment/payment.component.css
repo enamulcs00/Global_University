@@ -151,3 +151,7 @@ button.banner-button {
 .danger {
     margin-top :-15px;
 }
+select.form-control {
+    height: 58px !important;
+    border-radius: 10px;
+}

@@ -3200,7 +3200,7 @@ body.menushow:after {
 
 
 li.nav-item a:hover {
-    color: #896633;
+    /* color: #896633; */
 }
 li.nav-item.active a {
     color: #896633;

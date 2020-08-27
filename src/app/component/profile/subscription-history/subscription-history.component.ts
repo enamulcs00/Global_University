@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServicesService } from 'src/app/services.service';
 
 @Component({
   selector: 'app-subscription-history',
@@ -8,12 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class SubscriptionHistoryComponent implements OnInit {
   accountData: any;
 
-  constructor() { }
+  constructor(private service:ServicesService) { }
 
-  ngOnInit() {
-      window.scroll(0,0)
-      this.accountData = JSON.parse(localStorage.getItem('myProfile'))
-      this.accountData.imageUrl = this.accountData.imageUrl ? this.accountData.imageUrl : 'assets/images/pick-1.png';
-  }
+  ngOnInit(){}
 
 }

@@ -40,22 +40,17 @@ export class MySubscriptionDetailsComponent implements OnInit {
     })
   }
 
-  addToCart(){
-    this.router.navigate(['payment'],{queryParams  : {amount : this.subscriptionDetails.cost}})
-    // this.service.showSpinner()
-    // let globalSubscriptionDto = {
-    //   "cost": this.subscriptionDetails.cost,
-    //   "description": this.subscriptionDetails.description,
-    //   "imageUrl": this.subscriptionDetails.imageUrl,
-    //   "noOfUserLicences": this.subscriptionDetails.noOfUserLicences,
-    //   "subscriptionModel": this.subscriptionDetails.subscriptionModel,
-    //   "validity": this.subscriptionDetails.validity,
-    // }
-    // this.service.postApi(`university/add-subscription`,globalSubscriptionDto,1).subscribe((res:any) => {
-    //   console.log('res--->',res)
-    //   this.service.hideSpinner()
-    //     this.responseMessage = res.body.message;
-    //   $('#resetPassword').modal('show');
-    // })
+  addToCart(){    
+    this.service.showSpinner()
+    this.service.postApi(`university/add-subscription-to-cart?globalSubscriptionId=${this.subscriptionDetails.globalSubscriptionId}&representativeId=${this.accountData.representativeDetailsId}`,{},1).subscribe((res:any) => {
+      console.log('res--->',res)
+      this.service.hideSpinner()
+      if(res.body.status == 200){
+        this.router.navigate(['payment'],{queryParams  : {amount : this.subscriptionDetails.cost , id : this.subscriptionDetails.globalSubscriptionId}})
+      }else{
+        this.responseMessage = res.body.message;
+        $('#resetPassword').modal('show');
+      }
+    })
   }
 }

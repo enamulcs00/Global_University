@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ServicesService } from 'src/app/services.service';
-declare var $ :any
+declare var $: any
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.fb.group({
       "email": ["", Validators.compose([Validators.required, Validators.maxLength(60), Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/)])],
       "password": ["", Validators.compose([Validators.required, Validators.minLength(8), Validators.maxLength(16)])],
-      "remember": [true,]
+      "remember": [false]
     })
     if (JSON.parse(localStorage.getItem('remembers')) == true) {
       this.loginForm.patchValue({
@@ -44,13 +44,11 @@ export class LoginComponent implements OnInit {
   // ******************Login Api*******************//
 
   login() {
-    if (localStorage != null) {
+    if (this.loginForm.value.remember) {
       localStorage.setItem('email', window.btoa(this.loginForm.value.email))
       localStorage.setItem('password', window.btoa(this.loginForm.value.password))
-    } else {
-      this.loginForm.reset();
+      localStorage.setItem('remembers', JSON.stringify(this.loginForm.value.remember))
     }
-    localStorage.setItem('remembers', JSON.stringify(this.loginForm.value.remember))
     this.service.showSpinner()
     let object = {
       "email": this.loginForm.value.email,
@@ -61,21 +59,27 @@ export class LoginComponent implements OnInit {
       if (res.status == 200) {
         this.token = res.body.data.token
         localStorage.setItem('token', this.token)
-        this.service.getApi('account/my-account', 1).subscribe((res : any) => {
-            console.log("res--->>",res)
-            if(res.body.status == 200){
-                this.service.hideSpinner()
-                localStorage.setItem('myProfile',JSON.stringify(res.body.data))
-                this.router.navigate(['dashboard'])
+        this.service.getApi('account/my-account', 1).subscribe((res: any) => {
+          console.log("res--->>", res)
+          if (res.body.status == 200) {
+            this.service.hideSpinner()
+            if (res.body.data.role == "REPRESENTATIVE" || res.body.data.role == "REPRESENTATIVE_USER") {
+              localStorage.setItem('myProfile', JSON.stringify(res.body.data))
+              this.router.navigate(['dashboard'])
+            } else {
+              localStorage.clear()
+              this.responseMessage = 'Please login with the Representative only'
+              $('#loginModal').modal('show')
             }
+          }
         })
       } else {
-        console.log("res--->>",res)
+        console.log("res--->>", res)
         $('#loginModal').modal('show')
         this.responseMessage = res.error.message
       }
-    }, (error:any) => {
-      console.log("error--->>",error)
+    }, (error: any) => {
+      console.log("error--->>", error)
       $('#loginModal').modal('show')
       this.responseMessage = error.error.message
       // this.service.toastErr('Internal server error')
