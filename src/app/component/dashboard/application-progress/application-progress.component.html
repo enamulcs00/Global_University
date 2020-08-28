@@ -42,7 +42,7 @@
                               <p class="tooltip-ex2"> 
                                 <span class="input-icon"><em
                                 class="fa fa-question-circle-o"></em></span><span
-                                class="tooltiptext2">You have to Conditional  Offer you can perform the accept  </span>
+                                class="tooltiptext2" style="width: 400px;">You have to Conditional  Offer you can perform the accept  </span>
                               </p>
                             </li>
                           </ul>
@@ -62,9 +62,12 @@
                <div class="pdf_section">
                   <ul>
                     <li>
+                      <span style="position: relative;">
+                        <p class="offer_css">View Offer</p>
+                      </span>
                        <figure><img src="assets/images/pdf_img.png"></figure>
                     </li>
-                    <li>
+                    <!-- <li>
                        <button class="theme-btn router-link"> <i class="fa fa-long-arrow-down" aria-hidden="true"></i>Offer
                        </button>
                     </li>
@@ -76,7 +79,25 @@
                     </li>
                     <li>
                        <button class="theme-btn router-link">Defer</button>
+                    </li> -->
+                    <li>
+                      <label class="radio-inline">
+                        <input type="radio" name="condition" value="Accept" style="margin-right:20px"  >Accept
+                      </label>
                     </li>
+                    <li>
+                      <label class="radio-inline">
+                        <input type="radio" name="condition" value="Declined" style="margin-right:20px"  >Declined
+                      </label>
+                    </li>
+                    <li>
+                      <label class="radio-inline">
+                        <input type="radio" name="condition" value="Defer" style="margin-right:20px"  >Defer
+                      </label>
+                    </li>
+                    <li>
+                      <button class="theme-btn router-link">Submit</button>
+                   </li>
                   </ul>
                </div>
 

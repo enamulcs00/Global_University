@@ -33,17 +33,8 @@ export class Section3Component implements OnInit {
   ngOnInit() {
     this.initializeForm()  
     window.scrollTo(0, 0);
-    this.getAccount()
   }
-  
-  getAccount(){
-    this.service.showSpinner()
-     this.service.getApi('account/my-account', 1).subscribe((res : any) => {
-      if(res.body.status == 200){
-          this.service.hideSpinner()
-      }
-    })
-  }
+
 
   changePreferredCountries() {
 		this.preferredCountries = [CountryISO.India, CountryISO.Canada];

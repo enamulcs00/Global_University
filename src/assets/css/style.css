@@ -1620,8 +1620,8 @@ h6.your_pass.cs3 {
 i.fa.fa-trash {
     position: absolute;
     right: 15px;
-    top: 10px;
-    font-size: 22px;
+    top: 15px;
+    font-size: 26px;
     color: #fff;
 }
 button.theme-btn.cs3 {
@@ -3768,4 +3768,7 @@ button.btn.btn-block.btn-flat.router-link {
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     color: #ffffff !important;
     background-color: #896634 !important;
+}
+input.form-control:disabled{
+    background-color: #e9ecef !important;
 }

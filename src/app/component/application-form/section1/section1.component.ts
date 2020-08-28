@@ -25,17 +25,8 @@ export class Section1Component implements OnInit {
     console.log("localStorage.getItem('formId')-->",localStorage.getItem('formId'))
     this.initializeForm()
     window.scrollTo(0, 0);
-    this.getAccount()
   }
-  
-  getAccount(){
-    this.service.showSpinner()
-     this.service.getApi('account/my-account', 1).subscribe((res : any) => {
-      if(res.body.status == 200){
-          this.service.hideSpinner()
-      }
-    })
-  }
+
 
   initializeForm(){
       this.section1Form = new FormGroup({

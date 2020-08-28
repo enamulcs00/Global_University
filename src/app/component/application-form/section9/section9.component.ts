@@ -28,17 +28,8 @@ export class Section9Component implements OnInit {
   ngOnInit() {
     window.scrollTo(0, 0);
     this.initializeForm()
-    this.getAccount()
   }
   
-  getAccount(){
-    this.service.showSpinner()
-     this.service.getApi('account/my-account', 1).subscribe((res : any) => {
-      if(res.body.status == 200){
-          this.service.hideSpinner()
-      }
-    })
-  }
 
   initializeForm(){
     this.section9Form = new FormGroup({

@@ -23,8 +23,12 @@ export class ManageUsersComponent implements OnInit {
 
   getUserList(){
     this.userList = []
+    this.service.showSpinner()
     this.service.getApi(`account/filter-user-details?roleStatus=REPRESENTATIVE_USER`,1).subscribe((res:any) => {
-      this.userList = res.body.data.list
+      if(res.body.status == 200){
+        this.userList = res.body.data.list
+      }
+      this.service.hideSpinner()
       console.log('res-->>',this.userList)
     })
   }

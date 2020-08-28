@@ -1,0 +1,15 @@
+.offer_css{
+    position: absolute;
+    color: #ffffff;
+    background: red;
+    width: 80px;
+    font-weight: bold;
+    height: 23px;
+    font-size: 16px;
+    top: 40px;
+    left: 35px;
+    text-align: center;
+}
+.pdf_section ul figure img{
+    max-width: 90%;
+}

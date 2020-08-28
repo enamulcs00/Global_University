@@ -32,18 +32,8 @@ export class Section5Component implements OnInit {
     })
     window.scrollTo(0, 0);
     this.initializeForm()
-    this.getAccount()
   }
   
-  getAccount(){
-    this.service.showSpinner()
-     this.service.getApi('account/my-account', 1).subscribe((res : any) => {
-      if(res.body.status == 200){
-          this.service.hideSpinner()
-      }
-    })
-  }
-
   initializeForm(){
       this.section5Form = new FormGroup({
           "nativeOfEnglishSpeakingCountry" : new FormControl(null,Validators.required),

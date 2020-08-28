@@ -29,17 +29,8 @@ export class Section8Component implements OnInit {
       this.uploadState = section8Data.uploadState
       this.description = section8Data.description
     }
-    this.getAccount()
   }
   
-  getAccount(){
-    this.service.showSpinner()
-     this.service.getApi('account/my-account', 1).subscribe((res : any) => {
-      if(res.body.status == 200){
-          this.service.hideSpinner()
-      }
-    })
-  }
 
   saveAndQuit(){
     this.submitted = true;

@@ -38,17 +38,8 @@ export class Section13Component implements OnInit {
             this.executiveMbaExist = true;
         }
     }
-    this.getAccount()
   }
   
-  getAccount(){
-    this.service.showSpinner()
-     this.service.getApi('account/my-account', 1).subscribe((res : any) => {
-      if(res.body.status == 200){
-          this.service.hideSpinner()
-      }
-    })
-  }
 
   initializeForm(){
     this.section13Form = new FormGroup({
