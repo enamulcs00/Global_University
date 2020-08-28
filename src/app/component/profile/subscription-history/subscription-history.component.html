@@ -51,7 +51,7 @@
             aria-labelledby="v-pills-settings-tab">
             <div class="number_of">
               <div class="my_user">
-                <div class="user-lince overlay">
+                <!-- <div class="user-lince overlay">
                   <div class="img_cs">
                     <figure><img src="assets/images/image-1.png"></figure>
                   </div>
@@ -63,19 +63,19 @@
                       <li>No of User Licenses: 100</li>
                     </ul>
                   </div>
-                </div>
+                </div> -->
 
 
-                <div class="user-lince mt-4">
+                <div class="user-lince mt-4" *ngFor="let item of subscriptionList">
                   <div class="img_cs">
-                    <figure><img src="assets/images/image-1.png"></figure>
+                    <figure><img src="{{ item?.imageUrl ? item?.imageUrl : 'assets/images/image-1.png'}}"></figure>
                   </div>
                   <div class="month_cs sub">
                     <ul>
-                      <h1>Subscription 1</h1>
-                      <li>3 Months Subscription</li>
-                      <li>Cost : $1234.00</li>
-                      <li>No of User Licenses: 100</li>
+                      <h1>{{item?.subscriptionModel}}</h1>
+                      <li>{{item?.validity}} Months Subscription</li>
+                      <li>Cost : ${{item?.cost}}</li>
+                      <li>No of User Licenses: {{item?.noOfUserLicences}}</li>
                     </ul>
                   </div>
                 </div>

@@ -7,10 +7,29 @@ import { ServicesService } from 'src/app/services.service';
   styleUrls: ['./subscription-history.component.css']
 })
 export class SubscriptionHistoryComponent implements OnInit {
+
   accountData: any;
+  subscriptionList :any  = []
 
   constructor(private service:ServicesService) { }
 
-  ngOnInit(){}
+  ngOnInit() {
+      window.scroll(0,0)
+      this.accountData = JSON.parse(localStorage.getItem('myProfile'))
+      this.accountData.imageUrl = this.accountData.imageUrl ? this.accountData.imageUrl : 'assets/images/pick-1.png';
+      this.getSubscriptionHistoryList()
+  }
+
+  getSubscriptionHistoryList(){
+      this.service.showSpinner()
+      this.service.getApi(`university/get-subscription-list-from-cart?page=0&pageSize=10&representativeId=${this.accountData.representativeDetailsId}`,1).subscribe((res:any) => {
+          console.log('res---->',res)
+          if(res.body.status == 200){
+            this.subscriptionList = res.body.data.resultList.content
+            console.log('subscriptionList---->',this.subscriptionList)
+          }
+          this.service.hideSpinner()
+      })
+  }
 
 }

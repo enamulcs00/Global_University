@@ -30,13 +30,11 @@ export class AppComponent {
   }
 
   getNotification(){
-    this.service.showSpinner()
     this.service.getApi(`course/get-notification-list?page=0&pageSize=100&representativeId=${JSON.parse(localStorage.getItem('myProfile')).representativeDetailsId}`,1).subscribe((res:any) => {
       console.log("res--->>",res)
       if(res.body.status == 200){
         this.notificationCount = res.body.data.countByFormId
       }
-      this.service.hideSpinner()
     })
   }
 

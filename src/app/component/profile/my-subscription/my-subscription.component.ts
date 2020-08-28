@@ -22,13 +22,14 @@ export class MySubscriptionComponent implements OnInit {
   }
 
   getSubscriptionList(){
+    this.service.showSpinner()
     this.subscriptionList = []
     this.service.getApi(`university/get-subscription-list?page=0&pageSize=10`,1).subscribe((res:any) => {
       console.log('res-->',res)
       if(res.body.status == 200){
         this.subscriptionList = res.body.data.resultList.content
-        console.log('res-->',this.subscriptionList)
       }
+      this.service.hideSpinner()
     })
   }
 
