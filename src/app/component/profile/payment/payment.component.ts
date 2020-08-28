@@ -21,7 +21,6 @@ export class PaymentComponent implements OnInit {
   constructor(private service: ServicesService, private activateRoute: ActivatedRoute,private router:Router) { }
 
   ngOnInit() {
-
     this.initializeForm()
     window.scroll(0, 0)
     this.activateRoute.queryParams.subscribe((res: any) => {
@@ -108,26 +107,20 @@ export class PaymentComponent implements OnInit {
   }
 
   addToCartSubscription(){
-    let paymentStatus = this.responseMessage.status == 200 ? 'PAID' : 'PENDING';
-    let transactionId = this.responseMessage.data.txnId ;
-    let representativeID = this.accountData.representativeDetailsId ;
-    let subscriptionId = this.globalSubscriptionId ;
-    this.service.postApi(`university/make-payment?addCartToSubscriptionId=${subscriptionId}&paymentStatus=${paymentStatus}&representativeId=${representativeID}&transactionId=${transactionId}`,{},1).subscribe((res:any) => {
-      console.log("res-->>",res)
-      // if(res.body.status == 200){
-      //     this.router.navigateByUrl('subscription-history')
-      // }else{
-        this.responseMessage = res.body
-        $('#responseMessage').modal('show')
-    })
-  }
-
-  checkStatus(){
     if(this.responseMessage.status == 200){
-      
+      let paymentStatus = this.responseMessage.status == 200 ? 'PAID' : 'PENDING';
+      let transactionId = this.responseMessage.data.txnId ;
+      let representativeID = this.accountData.representativeDetailsId ;
+      let subscriptionId = this.globalSubscriptionId ;
+      this.service.postApi(`university/make-payment?addCartToSubscriptionId=${subscriptionId}&paymentStatus=${paymentStatus}&representativeId=${representativeID}&transactionId=${transactionId}`,{},1).subscribe((res:any) => {
+        console.log("res-->>",res)
+          this.responseMessage = res.body
+          $('#subscriptionSuccess').modal('show')
+      })
     }
   }
 
-
-
+  checkStatus(){
+      this.router.navigateByUrl('subscription-history')
+  }
 }

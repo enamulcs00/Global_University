@@ -172,7 +172,7 @@ export class ReportComponent implements OnInit {
     this.fromDateView = fromDate.getDate() + '/' + ( fromDate.getMonth() > 10 ? fromDate.getMonth() : '0'+ fromDate.getMonth() ) + '/'+ (fromDate.getFullYear())
     this.toDateView = toDate.getDate() + '/' + ( toDate.getMonth() > 10 ? toDate.getMonth() : '0'+ toDate.getMonth() ) + '/' + (toDate.getFullYear())
     this.service.showSpinner()
-    this.service.getApi(`course/get-graph-data-for-application-status?fromDate=1596637995&toDate=1596637995`, 1).subscribe((res: any) => {
+    this.service.getApi(`course/get-graph-data-for-application-status?fromDate=${this.convertIntoTimeStamp(this.fromDateView)}&toDate=${this.convertIntoTimeStamp(this.toDate)}`, 1).subscribe((res: any) => {
       console.log("res-->>", res.body.data)
       let data = res.body.data
       let resChartData = []

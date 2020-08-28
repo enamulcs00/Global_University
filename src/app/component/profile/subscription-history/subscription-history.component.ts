@@ -22,11 +22,10 @@ export class SubscriptionHistoryComponent implements OnInit {
 
   getSubscriptionHistoryList(){
       this.service.showSpinner()
-      this.service.getApi(`university/get-subscription-list-from-cart?page=0&pageSize=10&representativeId=${this.accountData.representativeDetailsId}`,1).subscribe((res:any) => {
+      this.service.getApi(`university/get-subscription-list-from-cart?page=0&pageSize=10&representativeId=${this.accountData.representativeDetailsId}&paymentStatus=PAID`,1).subscribe((res:any) => {
           console.log('res---->',res)
           if(res.body.status == 200){
-            this.subscriptionList = res.body.data.resultList.content
-            console.log('subscriptionList---->',this.subscriptionList)
+              this.subscriptionList = res.body.data.resultList.content
           }
           this.service.hideSpinner()
       })

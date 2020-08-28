@@ -46,7 +46,7 @@ export class MySubscriptionDetailsComponent implements OnInit {
       console.log('res--->',res)
       this.service.hideSpinner()
       if(res.body.status == 200){
-        this.router.navigate(['payment'],{queryParams  : {amount : this.subscriptionDetails.cost , id : this.subscriptionDetails.globalSubscriptionId}})
+        this.router.navigate(['payment'],{queryParams  : {amount : this.subscriptionDetails.cost , id : res.body.data.addCartToSubscriptionId}})
       }else{
         this.responseMessage = res.body.message;
         $('#resetPassword').modal('show');
