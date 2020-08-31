@@ -23,32 +23,34 @@ export class ReportComponent implements OnInit {
   year: any
   countryName:any = ''
   private chart: am4charts.XYChart;
-  chartData: any = [{ key: "CONDITIONAL", value: 0 },
-  { key: "UNCONDITIONAL", value: 0 },
-  { key: "CONDITIONAL", value: 0 },
-  { key: "UNCONDITIONAL", value: 0 },
-  { key: "ADITIONAL", value: 0 },
-  { key: "TUTION", value: 0 },
-  { key: "VISA", value: 0 },
-  { key: "CAS", value: 0 },
-  { key: "OFFER", value: 0 },
-  { key: "OFFER", value: 0 },
-  { key: "OFFER", value: 0 },
-  { key: "REJECTED", value: 0 },
-  { key: "DECISION", value: 0 },
-  { key: "NEW", value: 0 },
-  { key: "REVIEW", value: 0 },
-  { key: "ADITIONAL", value: 0 },
-  { key: "TUTION", value: 0 },
-  { key: "WITHDRAWAL", value: 0 },
-  { key: "CONDITIONAL", value: 0 },
-  { key: "UNCONDITIONAL", value: 0 },
-  { key: "CONDITIONAL", value: 0 },
-  { key: "UNCONDITIONAL", value: 0 },
-  { key: "DECLINED", value: 0 },
-  { key: "DEFERAL", value: 0 },
-  { key: "COMPLETE", value: 0 },
-  { key: "INCOMPLETE", value: 0 }]
+  chartData: any = [
+    { key: "CONDITIONAL", value: 0 },
+    { key: "UNCONDITIONAL", value: 0 },
+    { key: "CONDITIONAL", value: 0 },
+    { key: "UNCONDITIONAL", value: 0 },
+    { key: "ADITIONAL", value: 0 },
+    { key: "TUTION", value: 0 },
+    { key: "VISA", value: 0 },
+    { key: "CAS", value: 0 },
+    { key: "OFFER", value: 0 },
+    { key: "OFFER", value: 0 },
+    { key: "OFFER", value: 0 },
+    { key: "REJECTED", value: 0 },
+    { key: "DECISION", value: 0 },
+    { key: "NEW", value: 0 },
+    { key: "REVIEW", value: 0 },
+    { key: "ADITIONAL", value: 0 },
+    { key: "TUTION", value: 0 },
+    { key: "WITHDRAWAL", value: 0 },
+    { key: "CONDITIONAL", value: 0 },
+    { key: "UNCONDITIONAL", value: 0 },
+    { key: "CONDITIONAL", value: 0 },
+    { key: "UNCONDITIONAL", value: 0 },
+    { key: "DECLINED", value: 0 },
+    { key: "DEFERAL", value: 0 },
+    { key: "COMPLETE", value: 0 },
+    { key: "INCOMPLETE", value: 0 }
+  ]
 
   constructor(private service: ServicesService, private zone: NgZone) { }
 
@@ -172,7 +174,7 @@ export class ReportComponent implements OnInit {
     this.fromDateView = fromDate.getDate() + '/' + ( fromDate.getMonth() > 10 ? fromDate.getMonth() : '0'+ fromDate.getMonth() ) + '/'+ (fromDate.getFullYear())
     this.toDateView = toDate.getDate() + '/' + ( toDate.getMonth() > 10 ? toDate.getMonth() : '0'+ toDate.getMonth() ) + '/' + (toDate.getFullYear())
     this.service.showSpinner()
-    this.service.getApi(`course/get-graph-data-for-application-status?fromDate=${this.convertIntoTimeStamp(this.fromDateView)}&toDate=${this.convertIntoTimeStamp(this.toDate)}`, 1).subscribe((res: any) => {
+    this.service.getApi(`course/get-graph-data-for-application-status?fromDate=${this.convertIntoTimeStamp(this.fromDate)}&toDate=${this.convertIntoTimeStamp(this.toDate)}`, 1).subscribe((res: any) => {
       console.log("res-->>", res.body.data)
       let data = res.body.data
       let resChartData = []

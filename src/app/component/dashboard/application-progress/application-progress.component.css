@@ -13,3 +13,9 @@
 .pdf_section ul figure img{
     max-width: 90%;
 }
+.tooltip-ex2 .tooltiptext2 {
+    padding: 5px 14px;
+    left: 3px;
+    right: 0px;
+    top: 17px;
+}
