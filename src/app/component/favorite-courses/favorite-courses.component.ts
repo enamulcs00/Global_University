@@ -24,7 +24,7 @@ export class FavoriteCoursesComponent implements OnInit {
   getFavouriteList(){
     this.favoriteList = []
     this.service.showSpinner()
-    this.service.getApi(`course/v1.1/web/get-all-favourate-course-for-particular-user?page=0&pagesize=10&representativeId=${this.accountDetails.representativeDetailsId}`,1).subscribe((res:any) => {
+    this.service.getApi(`course/v1.1/web/get-all-favourate-course-for-particular-user?page=0&pagesize=100&representativeId=${this.accountDetails.representativeDetailsId}`,1).subscribe((res:any) => {
       console.log('res-->',res)      
       if(res.body.status == 200){
         res.body.data.FavourateCourses.content.forEach(ele => {

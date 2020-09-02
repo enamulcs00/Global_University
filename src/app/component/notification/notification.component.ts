@@ -44,7 +44,7 @@ export class NotificationComponent implements OnInit {
     this.selectedId = item;
   }
 
-  deleteNotification(){
+  confirmDelete(){
     $('#deleteModal').modal('hide')
     this.service.showSpinner()
     this.service.getApi(`course/delete-notification-particular?notificationId=${this.selectedId.notificationId}&representativeId=${this.accountDeatails.representativeDetailsId}`,1).subscribe((res:any) => {
@@ -56,8 +56,13 @@ export class NotificationComponent implements OnInit {
     })
   }
 
+  clearAllModal(){
+    $('#clearAllModal').modal('show');
+  }
+
   clearAll(){
-    this.service.showSpinner()
+    $('#clearAllModal').modal('hide');
+    this.service.showSpinner();
     this.service.getApi(`course/delete-notification-list?representativeId=${this.accountDeatails.representativeDetailsId}`,1).subscribe((res:any) => {
       console.log("res-->",res)
       if(res.body.status == 206){

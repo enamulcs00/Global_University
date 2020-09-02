@@ -40,7 +40,6 @@ export class MatchingUniversitiesComponent implements OnInit {
     window.scrollTo(0, 0);
     let country = JSON.parse(localStorage.getItem('section1'))
     this.section3Data = JSON.parse(localStorage.getItem('section3'))
-    console.log('section3 -->', (this.section3Data.homeTelephoneNo.e164Number))
     this.service.getCountryStates()
       .subscribe((data) => {
         this.countryList = data
@@ -104,7 +103,9 @@ export class MatchingUniversitiesComponent implements OnInit {
         this.matchingDto.push({
           "universityEmail": element.primaryEmail,
           "universityId": element.universityDetailsId,
-          "universityName": element.universityName
+          "universityName": element.universityName,
+          "imageUrl": element.imageUrl,
+          "universityRefrence": element.universityCode
         })
       }
 

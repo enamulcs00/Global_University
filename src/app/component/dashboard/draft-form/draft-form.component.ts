@@ -128,21 +128,21 @@ export class DraftFormComponent implements OnInit {
                   "checkForHomeAddress" : false ,          
               }
               let section4_Object = {
-                  "achieved" : formData.academicQualificationForm.achieved,
-                  "stateHighestQualification":formData.academicQualificationForm.highestAcademicQualification,
+                  "achieved" : formData.academicQualificationForm ? formData.academicQualificationForm.achieved : '',
+                  "stateHighestQualification": formData.academicQualificationForm ? formData.academicQualificationForm.highestAcademicQualification : '',
                   "qualificationArr" : []
               }
                 section4_Object.qualificationArr.push({
-                  "qualification" : formData.academicQualificationForm.academicQualifications ,
-                  "country" : formData.academicQualificationForm.countryOfStudy ,
-                  "endDate" : formData.academicQualificationForm.enddate ? formData.academicQualificationForm.enddate.split('T')[0] : '', 
-                  "institutionName" : formData.academicQualificationForm.instituteName ,
-                  "resultGrade" : formData.academicQualificationForm.resultType ,
-                  "startDate" : formData.academicQualificationForm.startDate ? formData.academicQualificationForm.startDate.split('T')[0] : '',
-                  "subject1" : formData.academicQualificationForm.subject1 ,
-                  "subject1Grade" : formData.academicQualificationForm.subject1grade1 ,
-                  "subject2" : formData.academicQualificationForm.subject1grade2 ,
-                  "subject2Grade" : formData.academicQualificationForm.subject2 ,
+                  "qualification" : formData.academicQualificationForm ? formData.academicQualificationForm.academicQualifications : '',
+                  "country" : formData.academicQualificationForm ? formData.academicQualificationForm.countryOfStudy : '',
+                  "endDate" : formData.academicQualificationForm ? formData.academicQualificationForm.enddate ? formData.academicQualificationForm.enddate.split('T')[0] : '' : '', 
+                  "institutionName" : formData.academicQualificationForm ? formData.academicQualificationForm.instituteName  : "",
+                  "resultGrade" : formData.academicQualificationForm ? formData.academicQualificationForm.resultType  : '',
+                  "startDate" : formData.academicQualificationForm ? formData.academicQualificationForm.startDate ? formData.academicQualificationForm.startDate.split('T')[0] : '' : '',
+                  "subject1" : formData.academicQualificationForm ? formData.academicQualificationForm.subject1  : "",
+                  "subject1Grade" : formData.academicQualificationForm ? formData.academicQualificationForm.subject1grade1 : '',
+                  "subject2" : formData.academicQualificationForm ? formData.academicQualificationForm.subject1grade2 : '',
+                  "subject2Grade" : formData.academicQualificationForm ? formData.academicQualificationForm.subject2  : '',
                 })
               let section5_Object = {
                   "resultType": "",
