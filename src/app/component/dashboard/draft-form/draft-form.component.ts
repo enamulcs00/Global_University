@@ -41,7 +41,7 @@ export class DraftFormComponent implements OnInit {
 
   getForms(){
     this.service.showSpinner()
-    let url = `course/filter-forms-details?page=0&formFillStatus=INCOMPLETE&representativeId=${this.accountDeatails.representativeDetailsId}`
+    let url = `course/filter-forms-details?page=0&formFillStatus=INCOMPLETE&representativeId=${this.accountDeatails.userId}`
     if(this.searchKey && this.formId != 'search_by_form_id'){
       url = url + `&search=${this.searchKey}`
     }
@@ -80,10 +80,9 @@ export class DraftFormComponent implements OnInit {
 
   continueForm(id){
       this.service.showSpinner()
-      this.service.getApi(`course/get-forms-list?page=0&pagesize=10&formId=${id}&repesantativeId=${this.accountDeatails.representativeDetailsId}`,1).subscribe((res:any) => {
+      this.service.getApi(`course/get-forms-list?page=0&pagesize=10&formId=${id}&userId=${this.accountDeatails.userId}`,1).subscribe((res:any) => {
           this.service.hideSpinner()
           if(res.status == 200){
-              console.log("res--->>",res.body.data.formdata)
               let formData = res.body.data.formdata
               let section1_Object = {
                   "searchCourse":formData.courseName,
