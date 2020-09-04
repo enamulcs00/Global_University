@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ServicesService } from 'src/app/services.service';
 declare var $: any
@@ -16,14 +16,21 @@ export class LoginComponent implements OnInit {
   type: any = 'password';
   show: boolean = false;
   responseMessage: any;
-  constructor(private service: ServicesService, private fb: FormBuilder, private router: Router) {
-
+  redirectUrl: any = '';
+  constructor(private service: ServicesService, private fb: FormBuilder, private router: Router,private activateRoute:ActivatedRoute) {
   }
 
   ngOnInit() {
-    if (!localStorage.getItem('ok')) {
-      //  this.router.navigate(['dashboard'])
-    }
+    this.activateRoute.queryParams.subscribe((query :any) => {
+      if(query.token){
+        console.log('token--->>',query.token)
+        this.token = query.token
+        this.verifyEmail(query.token)
+      }else if(query.url){
+        this.redirectUrl = query.url
+        console.log('redirectUrl--->>',query.url)
+      }
+    });
     this.loginForm = this.fb.group({
       "email": ["", Validators.compose([Validators.required, Validators.maxLength(60), Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/)])],
       "password": ["", Validators.compose([Validators.required, Validators.minLength(8), Validators.maxLength(16)])],
@@ -41,6 +48,19 @@ export class LoginComponent implements OnInit {
 
 
   }
+
+  verifyEmail(token){
+    this.service.showSpinner()
+    this.service.getApi(`account/verify-user?token=${token}`,2).subscribe((res:any) => {
+      console.log("verify mail res--->",res)
+      this.service.hideSpinner()
+      this.responseMessage = res.body.message
+      $('#verifyEmail').modal('show')
+    },error => {
+      this.service.hideSpinner()
+    })
+  }
+
   // ******************Login Api*******************//
 
   login() {
@@ -65,7 +85,12 @@ export class LoginComponent implements OnInit {
             this.service.hideSpinner()
             if (res.body.data.role == "REPRESENTATIVE" || res.body.data.role == "REPRESENTATIVE_USER") {
               localStorage.setItem('myProfile', JSON.stringify(res.body.data))
-              this.router.navigate(['dashboard'])
+              if(this.redirectUrl != ''){
+                let newUrl = window.location.origin  + this.redirectUrl
+                window.location.replace(newUrl);
+              }else{
+                this.router.navigate(['dashboard'])
+              }
             } else {
               localStorage.clear()
               this.responseMessage = 'Please login with the Representative only'

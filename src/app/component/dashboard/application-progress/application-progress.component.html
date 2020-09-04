@@ -1,17 +1,19 @@
 <section>
-  <div class="container1440 mt-5">
+  <div class="container1440 mt-5" style="min-height: 400px;">
     <h5 class="application_pro">Application Progress</h5>
     <div class="search_university">
       <div class="University-name">
-        <select class="form-control">
+        <!-- <select class="form-control">
           <option>Search University Name </option>
-        </select>
-        <i class="fa fa-sort-down"></i>
+        </select> -->
+        <input type="text" class="form-control" placeholder="search university" style="width: 350px;height: 50px;border: 1px solid #7e8184;" 
+        [(ngModel)]="searchUniversity" >
+        <i class="fa fa-search"></i>
       </div>
 
       <div class="cntact-button">
-        <button class="theme-btn router-link" style="margin-right: 10px;">Submit</button>
-        <button class="theme-btn router-link">Reset</button>
+        <button class="theme-btn router-link" style="margin-right: 10px;" (click)="getFormInfo()">Submit</button>
+        <button class="theme-btn router-link" (click)="reset()">Reset</button>
       </div>
     </div>
     
@@ -27,7 +29,7 @@
         <div class="col-md-10">
           <div class="submitted">
             <div class="form_submit">
-              <div class="condidated_name">
+              <div class="condidated_name"  style="margin-right: 8%;">
                 <ul>
                   <li><strong>University Name :</strong> </li>
                   <li><strong>University Reference :</strong></li>
@@ -51,10 +53,10 @@
 
             <div class="my_history">
               <div class="viewform">
-                <button class="theme-btn router-link">View More</button>
+                <button class="theme-btn router-link" (click)="viewMore(item)">View More</button>
               </div>
               <div class="viewform">
-                <button class="theme-btn router-link" [routerLink]="['/view-progress']">View Progress</button>
+                <button class="theme-btn router-link" (click)="viewProgress(item)">View Progress</button>
               </div>
             </div>
           </div>
@@ -73,7 +75,7 @@
                   (change)="changeStatus(opt,i)">{{opt.view}}
                 </label>
               </li>
-              <li>
+              <li *ngIf="item.options.length != 0">
                 <button class="theme-btn router-link" (click)="submit(item)">Submit</button>
               </li>
             </ul>
@@ -82,7 +84,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -91,9 +92,10 @@
     <div class="modal-dialog modal-sm">
       <div class="modal-content thanks_for">
         <h6>{{responseMessage}}.</h6>
-            <div>
-            <button  class="btn btn-block btn-flat router-link" data-toggle="modal" data-target="#exampleModalCenter" data-dismiss="modal" [routerLink]="['/dashboard']">Ok</button> </div>
+          <div>
+            <button  class="btn btn-block btn-flat router-link" data-toggle="modal" data-target="#exampleModalCenter" data-dismiss="modal">Ok</button> 
           </div>
+      </div>
     </div>
  </div>
  

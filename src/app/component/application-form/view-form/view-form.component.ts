@@ -34,8 +34,7 @@ export class ViewFormComponent implements OnInit {
     this.service.showSpinner()
     this.service.getApi(`course/get-forms-list?page=0&pagesize=10&formId=${id}&userId=${this.accountDeatails.userId}`,1).subscribe((res:any) => {
       if(res.body.status == 200){
-        console.log("res--->>",res.body.data.formdata)
-        this.formData = res.body.data.formdata
+        this.formData = res.body.data.formdata;
         if(this.formData.courseName.toLowerCase().includes('mba')){
           this.mbaExist = true;
           if(this.formData.courseName.toLowerCase().includes('executive')){
@@ -48,7 +47,10 @@ export class ViewFormComponent implements OnInit {
   }
 
   exportPDF(){
-    console.log("download")
+    this.service.showSpinner();
+    setTimeout( r => {
+      this.service.hideSpinner()
+    },3000);
     kendo.drawing
       .drawDOM("#pdfcontent",
         {
@@ -92,7 +94,6 @@ export class ViewFormComponent implements OnInit {
         Disability :this.formData.disability,
         Description: this.formData.description,
         RelevantCriminalConvictions :this.formData.relevantCriminalConvictions,
-        //ConvictionDescription :
         AppliedCourseName :this.formData.courseName,
         StartYear :this.formData.courseSttartDate,
 

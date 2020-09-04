@@ -8,7 +8,7 @@ declare var $:any
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'univ';
+  title = 'univ student';
   tokenAvailable : any;
   profileImage:any;
   notificationCount:any = 0;
@@ -16,7 +16,6 @@ export class AppComponent {
   constructor(private router:Router,private service:ServicesService){
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
-        console.log('eventt-->',event.url)
         this.tokenAvailable = localStorage.getItem('token') ? localStorage.getItem('token') : '';
         this.profileImage = JSON.parse(localStorage.getItem('myProfile'))  ? JSON.parse(localStorage.getItem('myProfile')).imageUrl : null
         if(this.tokenAvailable != ''){
@@ -31,7 +30,6 @@ export class AppComponent {
 
   getNotification(){
     this.service.getApi(`course/get-notification-list?page=0&pageSize=100&representativeId=${JSON.parse(localStorage.getItem('myProfile')).representativeDetailsId}`,1).subscribe((res:any) => {
-      console.log("res--->>",res)
       if(res.body.status == 200){
         this.notificationCount = res.body.data.countByFormId
       }
@@ -50,6 +48,11 @@ export class AppComponent {
     else if (social == `instagram`)
       window.open(`https://www.instagram.com/universitiesglobal/`)
   }
+  
+  openWebsite(endPoint){
+    let url = this.service.webSiteUrl + endPoint
+    window.open(url, "_blank");
+  }
 
   logout(){
     $('#logoutModal').modal('show')
@@ -60,4 +63,6 @@ export class AppComponent {
     localStorage.clear()
     this.router.navigateByUrl('/login')
   }
+
+  
 }

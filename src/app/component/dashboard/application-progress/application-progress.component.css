@@ -58,3 +58,14 @@ button.banner-button {
    margin-top: 6px;
     font-weight: 400;
 }
+i.fa.fa-search {
+    font-size: 22px !important;
+    position: absolute;
+    top: 13px !important;
+    left: 88% !important;
+}
+.submitted .form_submit {
+    width: 100%;
+    max-width: 45% !important;
+    justify-content: unset;
+}

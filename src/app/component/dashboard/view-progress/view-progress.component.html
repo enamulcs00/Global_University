@@ -5,33 +5,21 @@
      <div class="main_div">
            <h4 class="study">View Progress</h4>
           <div class="pending_sec">
-              <ul>
-                  <li>
-                      <div class="appoved"><img src="assets/images/Layer 60.png"></div>
+                <ul>
+                    <li *ngFor="let item of progressStatus;let i = index">
+                        <div class="appoved" >
+                              <img *ngIf="i == 0" src="assets/images/Layer 60.png">
+                              <img *ngIf="i == 1" src="assets/images/Layer 61.png">
+                              <img *ngIf="i == 2" src="assets/images/Layer 59.png">
+                              <img *ngIf="i == 2" src="assets/images/Layer 59.png">
+                              <img *ngIf="i == 2" src="assets/images/Layer 59.png">
+                        </div>
                           <div class="txt_3">
-                              <p>Pending</p>
-                              <p>Date :-12/09/2019,</p>
-                              <p>12:00 PM</p>
+                              <p>{{item.applicationStatus}}</p>
+                              <p>Date :- {{item.updationTime | date : shortDate}},</p>
+                              <p>{{item.updationTime | date : shortTime}}</p>
                           </div>
-                  </li>
-
-                      <li>
-                      <div class="appoved"><img src="assets/images/Layer 61.png"></div>
-                          <div class="txt_3">
-                              <p>In Progress</p>
-                              <p>Date :-12/09/2019,</p>
-                              <p>12:00 PM</p>
-                          </div>
-                  </li>
-
-                      <li>
-                      <div class="appoved"><img src="assets/images/Layer 59.png"></div>
-                          <div class="txt_3">
-                              <p>Approved</p>
-                              <p>Date :-12/09/2019,</p>
-                              <p>12:00 PM</p>
-                          </div>
-                  </li>
+                    </li>
               </ul>
           </div>
       </div>

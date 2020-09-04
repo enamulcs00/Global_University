@@ -13,9 +13,13 @@ import { ToastrService } from 'ngx-toastr';
 export class ServicesService {
   
       constructor(private http:HttpClient,private toastr:ToastrService,private spinner: NgxSpinnerService) { }
-  
+      
       baseUrl = "http://182.72.203.244:2001/"
-      representativeBaseUrl = 'http://localhost:4201/';
+      // representativeBaseUrl = 'http://localhost:4201/';
+      // webSiteUrl = "http://localhost:4500/"
+      representativeBaseUrl = 'http://ec2-35-176-66-190.eu-west-2.compute.amazonaws.com:1617/';
+      webSiteUrl = "http://ec2-35-176-66-190.eu-west-2.compute.amazonaws.com:1613/"
+  
   
   //================ POST API =========================//
       postApi(url, data, Header) {

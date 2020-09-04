@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from 'src/app/services.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 declare var $:any
 
 @Component({
@@ -13,14 +13,17 @@ export class ApplicationProgressComponent implements OnInit {
   formId: any;
   univerityListData :any = []
   formdetails:any
-  responseMessage:any
+  responseMessage:any;
+  searchUniversity :any = ""
 
-  constructor(private service:ServicesService,private activateRoute:ActivatedRoute) { }
+  constructor(private service:ServicesService,private activateRoute:ActivatedRoute,private router:Router) { }
 
   ngOnInit() {
+    window.scroll(0,0)
     this.accountDetails = JSON.parse(localStorage.getItem('myProfile'))
     this.activateRoute.params.subscribe((res:any) => {
       this.formId = res.id
+      this.searchUniversity = ''
       this.getFormInfo()
       this.getFullDetails()
     })
@@ -33,30 +36,52 @@ export class ApplicationProgressComponent implements OnInit {
       }
     })
   }
-  
+
+  reset(){
+    this.searchUniversity = '';
+    this.getFormInfo()
+  }
+
+  viewMore(item){
+    let url = this.service.webSiteUrl + `about-university/${item.universityId}`
+    window.open(url, "_blank");
+  }
+
+  viewProgress(item){ 
+    this.router.navigateByUrl(`view-progress/${this.formId}/${item.universityId}`)
+  }
 
   getFormInfo(){
+    this.service.showSpinner()
     this.univerityListData = []
-    this.service.getApi(`course/filter-forms-details?page=0&pageSize=10&formId=${this.formId}&representativeId=${this.accountDetails.representativeDetailsId}`,1).subscribe((res:any) => {
-      // console.log("res- -->",res.body.data.list[4].formListStatucDto)
+    let url = `course/filter-forms-details?page=0&pageSize=10&formId=${this.formId}&representativeId=${this.accountDetails.representativeDetailsId}`
+    if(this.searchUniversity && this.searchUniversity != ''){
+      url = url + `&universityName=${this.searchUniversity}`
+    }
+    this.service.getApi(url,1).subscribe((res:any) => {
       if(res.body.status == 200){
+        this.service.hideSpinner()
         let universityList = res.body.data.list[0].formListStatucDto
         universityList.forEach((element,index) => {
           this.univerityListData.push({...element,options : [],updatedStatus : {}})
-          this.getStatusInfo(element.applicationStatus,index)
+          if(element.applicationStatus){
+            this.getStatusInfo(element.applicationStatus,index)
+          }
         });
         console.log("univerityListData --->>",this.univerityListData)
+      }else{
+        this.service.hideSpinner()
       }
     })
   }
 
   getStatusInfo(element,index){
+    this.service.showSpinner()
     this.service.getApi(`course/get-all-form-status?applicationStatus=${element}`,1).subscribe((res:any) => {
-      // console.log('status--->>',res)
       let arr = []
       if(res.body.status == 200){
-        let status = res.body.data.optionForRepresentative.split(',');
-        let code = res.body.data.optionForRepCode.split(',');        
+        let status = res.body.data.optionForRepresentative ? res.body.data.optionForRepresentative.split(',') : [];
+        let code = res.body.data.optionForRepCode ? res.body.data.optionForRepCode.split(',') : [];
         status.forEach((ele,index) => {
           arr.push({
             'view' : this.capitalize(ele),
@@ -65,6 +90,7 @@ export class ApplicationProgressComponent implements OnInit {
           })
         });
       }
+      this.service.hideSpinner()
       this.univerityListData[index].applicationStatus = this.capitalize(this.univerityListData[index].applicationStatus)
       this.univerityListData[index].options = arr
       console.log('arrr -->',arr)

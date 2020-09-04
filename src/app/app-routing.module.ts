@@ -53,7 +53,7 @@ const routes: Routes = [
   { path: 'forget-password', component: ForgetPasswordComponent},
   { path: 'draft-form', component: DraftFormComponent,canActivate :[AuthGuard] },
   { path: 'application-progress/:id', component: ApplicationProgressComponent,canActivate :[AuthGuard] },
-  { path: 'view-progress', component : ViewProgressComponent,canActivate :[AuthGuard] },
+  { path: 'view-progress/:formId/:universityId', component : ViewProgressComponent,canActivate :[AuthGuard] },
   { path: 'report', component : ReportComponent,canActivate :[AuthGuard] },
   { path: 'payment', component : PaymentComponent ,canActivate :[AuthGuard] },
   { path: 'my-profile', component : MyProfileComponent,canActivate :[AuthGuard] },

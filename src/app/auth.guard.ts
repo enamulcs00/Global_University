@@ -14,16 +14,26 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      this.router.events.subscribe(event => {
-        if (event instanceof NavigationStart) {
-          console.log("event--->",event.url)
-        }
-      })
-      if(localStorage.getItem('token')){
-        return true;
-      }else{
-        this.router.navigate(['/login'])
+      let url: string = state.url;
+      return this.checkLogin(url);
+  }
+
+  checkLogin(redirectUrl){
+    console.log("redirectUrl---->>",redirectUrl)
+    if(localStorage.getItem('token')){
+      return true;
+    }else{
+      if(redirectUrl.split('?')[1]){
+          if(redirectUrl.split('?')[1].split('=')[0] == 'addToFav'){
+              console.log("true -->>",redirectUrl)
+              this.router.navigate(["login"],{queryParams:{url : redirectUrl }})
+          }else{
+              this.router.navigate(['/login'])
+          }
+        }else{
+            this.router.navigate(['/login'])
       }
+    }
   }
   
 }

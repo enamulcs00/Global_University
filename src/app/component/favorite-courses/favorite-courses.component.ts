@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from 'src/app/services.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 declare var $:any;
 
 @Component({
@@ -14,11 +14,27 @@ export class FavoriteCoursesComponent implements OnInit {
   allCoursefavoriteList:any = []
   removeId: any;
   accountDetails:any
-  constructor(private service:ServicesService,private router:Router) { }
+  constructor(private service:ServicesService,private router:Router,private activateRoute:ActivatedRoute) { }
 
   ngOnInit() {
     this.accountDetails = JSON.parse(localStorage.getItem('myProfile'))
-    this.getFavouriteList()
+    this.activateRoute.queryParams.subscribe((res :any) => {
+      console.log("res -->>",res)
+      if(res.addToFav){
+        this.addToFav(res.addToFav)
+      }else{
+        this.getFavouriteList()
+      }
+    })
+  }
+
+
+  addToFav(id){
+    console.log("id-->",id)
+    this.service.showSpinner()
+    this.service.postApi(`course/v1.1/web/add-favourate-courses?courseId=${id}&representativeId=${this.accountDetails.representativeDetailsId}`,{},1).subscribe((res:any) => {
+      this.getFavouriteList()
+    })
   }
 
   getFavouriteList(){
